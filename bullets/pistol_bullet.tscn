@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://xrb24phfpih4"]
+
+[ext_resource type="Script" path="res://bullets/pistol_bullet.gd" id="1_tjv2m"]
+[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="2_cfkca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h4ju"]
+size = Vector2(10, 4)
+
+[node name="PistolBullet" type="Area2D"]
+script = ExtResource("1_tjv2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cfkca")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7h4ju")
+
+[node name="LifespanTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifespanTimer" to="." method="_on_lifespan_timer_timeout"]

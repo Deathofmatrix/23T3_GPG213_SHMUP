@@ -1,0 +1,13 @@
+res://bullets/pistol_bullet.tscn
+res://bullets/pistol_bullet.gd
+res://weapons/pistol/pistol.tscn
+res://weapons/pistol/pistol.gd
+res://levels/main.tscn
+res://player/player.tscn
+res://weapons/weapon.gd
+res://weapons/shotgun/shotgun.tscn
+res://weapons/shotgun/shotgun.gd
+res://bullets/shotgun_bullet.tscn
+res://bullets/bullet.gd
+res://bullets/shotgun_bullet.gd
+res://player/player.gd

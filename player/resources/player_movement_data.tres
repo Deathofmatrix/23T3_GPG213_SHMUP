@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MovementData" load_steps=2 format=3 uid="uid://dx3gavrsrl52"]
+
+[ext_resource type="Script" path="res://player/resources/movement_data.gd" id="1_mrimx"]
+
+[resource]
+script = ExtResource("1_mrimx")
+max_speed = 50
+acceleration = 100
+friction = 50

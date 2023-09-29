@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://hk1dfro5lej3"]
+
+[ext_resource type="Script" path="res://bullets/shotgun_bullet.gd" id="1_o10nb"]
+[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="2_3ct83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h4ju"]
+size = Vector2(10, 4)
+
+[node name="ShotgunBullet" type="Area2D"]
+script = ExtResource("1_o10nb")
+speed = 150
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_3ct83")
+region_enabled = true
+region_rect = Rect2(34, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7h4ju")
+
+[node name="LifespanTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifespanTimer" to="." method="_on_lifespan_timer_timeout"]
