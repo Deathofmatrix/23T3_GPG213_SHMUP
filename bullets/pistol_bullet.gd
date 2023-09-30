@@ -4,19 +4,13 @@ extends Bullet
 func _on_lifespan_timer_timeout():
 	queue_free()
 
-# used to check that the body that the bullet hits has the required method
-# 
+# tried adding this to 'Bullet' but that doesn't work
 func _on_body_entered(body):
-	print("bullet hit player")
-	var child_node = body.get_node("HealthSystem")
-#
-	if child_node == null:
-		print("no child_node with 'HealthSystem'")
-		return
-#
-	if child_node != null:
-		if child_node.has_method("handle_damage"):
-			print("got through 'if' check")
-			# the if check is not preventing the rest of this function from being called
-			# the 'return' check is also not stopping the rest of the method from being called
+	queue_free()
+	print("bullet hit obstacle")
+	var child_node = body.get_node_or_null("HealthSystem") 
+	#get_node_or_null()
+	#Similar to get_node, but does not log an error if path does not point to a valid Node.
+
+	if child_node != null and child_node.has_method("handle_damage"):
 			child_node.handle_damage(10)

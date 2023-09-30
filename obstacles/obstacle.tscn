@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://pdjn2c08tb4m"]
+
+[ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_asltn"]
+[ext_resource type="Texture2D" uid="uid://cgnf6b0e3eono" path="res://obstacles/ship_0022.png" id="2_wjt7s"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_u1yun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlpnw"]
+
+[node name="Obstacle" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_asltn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("2_wjt7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qlpnw")
+
+[node name="HealthSystem" parent="." instance=ExtResource("3_u1yun")]
+max_health = 20
+wait_time = 0.01

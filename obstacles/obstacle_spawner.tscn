@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq61d13iqc062"]
+
+[ext_resource type="Script" path="res://obstacle_spawner.gd" id="1_83b1x"]
+
+[node name="obstacle_spawner" type="Node2D"]
+script = ExtResource("1_83b1x")
+
+[node name="CreationTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Markers"]
+position = Vector2(53, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Markers"]
+position = Vector2(106, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Markers"]
+position = Vector2(159, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Markers"]
+position = Vector2(212, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="Markers"]
+position = Vector2(263, 1)
+
+[connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]

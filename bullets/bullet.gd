@@ -6,3 +6,4 @@ var direction = Vector2.UP
 
 func _physics_process(delta):
 	position += direction * speed * delta
+
