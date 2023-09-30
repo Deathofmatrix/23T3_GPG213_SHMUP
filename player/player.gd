@@ -9,6 +9,7 @@ var Shotgun = preload("res://weapons/shotgun/shotgun.tscn")
 
 func _ready():
 	weapons.append(current_weapons.get_child(0))
+	movement_data._testing()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("secondary_action"):

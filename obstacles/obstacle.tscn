@@ -21,3 +21,5 @@ shape = SubResource("RectangleShape2D_qlpnw")
 [node name="HealthSystem" parent="." instance=ExtResource("3_u1yun")]
 max_health = 20
 wait_time = 0.01
+
+[connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

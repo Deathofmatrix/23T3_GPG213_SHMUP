@@ -12,4 +12,4 @@ func _on_body_entered(body):
 	#Similar to get_node, but does not log an error if path does not point to a valid Node.
 
 	if child_node != null and child_node.has_method("handle_damage"):
-			child_node.handle_damage(10)
+		child_node.handle_damage(10)

@@ -25,6 +25,7 @@ func handle_damage(amount):
 # presently nil functionality
 func kill():
 	print("killed")
+	get_parent().queue_free()
 
 
 # handles the health of the node it's on
