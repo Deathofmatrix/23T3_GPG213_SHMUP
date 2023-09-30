@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ip1ow4i64ql"]
+
+[ext_resource type="Script" path="res://player/resources/health_system.gd" id="1_xbv1f"]
+
+[node name="HealthSystem" type="Node2D"]
+script = ExtResource("1_xbv1f")
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+one_shot = true

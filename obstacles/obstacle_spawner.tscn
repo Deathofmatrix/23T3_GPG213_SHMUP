@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq61d13iqc062"]
+
+[ext_resource type="Script" path="res://obstacles/obstacle_spawner.gd" id="1_iv8oc"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_7cs5f"]
+
+[node name="obstacle_spawner" type="Node2D"]
+script = ExtResource("1_iv8oc")
+
+[node name="CreationTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Markers" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="Markers"]
+position = Vector2(53, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7cs5f")
+
+[node name="Marker2D2" type="Marker2D" parent="Markers"]
+position = Vector2(106, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D2"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7cs5f")
+
+[node name="Marker2D3" type="Marker2D" parent="Markers"]
+position = Vector2(159, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D3"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7cs5f")
+
+[node name="Marker2D4" type="Marker2D" parent="Markers"]
+position = Vector2(212, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D4"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7cs5f")
+
+[node name="Marker2D5" type="Marker2D" parent="Markers"]
+position = Vector2(263, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Markers/Marker2D5"]
+position = Vector2(0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7cs5f")
+
+[connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]
