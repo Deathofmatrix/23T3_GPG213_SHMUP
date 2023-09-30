@@ -1,9 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=4 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_jrp4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlpnw"]
 
 [node name="Main" type="Node2D"]
 
+[node name="Player2" parent="." instance=ExtResource("1_5a0w1")]
+
 [node name="Player" parent="." instance=ExtResource("1_5a0w1")]
+position = Vector2(-58, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Obstacle" type="CharacterBody2D" parent="."]
+position = Vector2(66, 57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+shape = SubResource("RectangleShape2D_qlpnw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("2_jrp4j")

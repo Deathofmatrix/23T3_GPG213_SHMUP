@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://31dxe106neto"]
+[gd_scene load_steps=7 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Texture2D" uid="uid://betucd1cqgsyb" path="res://player/ship_0000.png" id="1_m4lro"]
 [ext_resource type="Resource" uid="uid://dx3gavrsrl52" path="res://player/resources/player_movement_data.tres" id="2_qnvxt"]
 [ext_resource type="PackedScene" uid="uid://ch2ay0rg10jid" path="res://weapons/pistol/pistol.tscn" id="3_isbyh"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25jxs"]
 radius = 5.0
@@ -26,3 +27,5 @@ shape = SubResource("CapsuleShape2D_25jxs")
 unique_name_in_owner = true
 
 [node name="Pistol" parent="CurrentWeapons" instance=ExtResource("3_isbyh")]
+
+[node name="HealthSystem" parent="." instance=ExtResource("5_634nx")]
