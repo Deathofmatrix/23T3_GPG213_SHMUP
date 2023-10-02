@@ -1,5 +1,5 @@
+res://backgrounds/parallax_scrolling_scene.tscn
 res://levels/main.tscn
-res://player/resources/player_movement_data.tres
 res://player/player.tscn
 res://bullets/pistol_bullet.tscn
 res://weapons/pistol/pistol.tscn
@@ -7,8 +7,6 @@ res://weapons/shotgun/shotgun.tscn
 res://bullets/shotgun_bullet.tscn
 res://player/resources/health_system.tscn
 res://obstacles/obstacle_spawner.tscn
-res://obstacles/obstacle.tscn
-res://player/resources/player_movement_fast.tres
-res://obstacles/obstacle.gd
-res://obstacles/obstacle_spawner.gd
 res://obstacles/meteor.tscn
+res://backgrounds/parallax_scrolling_scene.gd
+res://UI/ui.tscn

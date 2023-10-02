@@ -1,8 +1,16 @@
-[gd_scene format=3 uid="uid://dw5gm0met1k0c"]
+[gd_scene load_steps=3 format=3 uid="uid://dw5gm0met1k0c"]
+
+[ext_resource type="Texture2D" uid="uid://dgwp13cwg3pd5" path="res://backgrounds/backgroundtest.png" id="1_oovdn"]
+[ext_resource type="Script" path="res://backgrounds/parallax_scrolling_scene.gd" id="1_x8ow8"]
 
 [node name="ParallaxScrollingScene" type="ParallaxBackground"]
+script = ExtResource("1_x8ow8")
+scrolling_speed = 10.0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(0, 180)
+motion_mirroring = Vector2(0, 320)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_oovdn")
+offset = Vector2(0, 160)
+region_rect = Rect2(0, 0, 224, 320)

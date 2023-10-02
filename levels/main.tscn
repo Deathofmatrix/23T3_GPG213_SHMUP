@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=5 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="PackedScene" uid="uid://cq61d13iqc062" path="res://obstacles/obstacle_spawner.tscn" id="2_24k8o"]
+[ext_resource type="PackedScene" uid="uid://dw5gm0met1k0c" path="res://backgrounds/parallax_scrolling_scene.tscn" id="3_21dg8"]
+[ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/ui.tscn" id="4_64i7p"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_5a0w1")]
-position = Vector2(-58, 0)
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_5a0w1")]
+position = Vector2(0, 74)
+rotation = -1.5708
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_24k8o")]
 position = Vector2(-162, -89)
+
+[node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
+
+[node name="UI" parent="." instance=ExtResource("4_64i7p")]
+custom_minimum_size = Vector2(320, 180)
