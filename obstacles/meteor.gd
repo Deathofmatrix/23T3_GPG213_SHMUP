@@ -1,4 +1,4 @@
-
+class_name Meteor
 extends CharacterBody2D
 
 var movement_speed: int = 100
@@ -9,5 +9,5 @@ func _process(_delta):
 	move_and_slide()
 
 #
-#func _on_health_system_killed():
-#	queue_free()
+func _on_health_system_killed():
+	print(name + "killed")

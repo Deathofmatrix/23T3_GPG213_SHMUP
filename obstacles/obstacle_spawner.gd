@@ -1,24 +1,31 @@
 extends Node2D
 
 @export var current_obstacle_speed = 100
+@export var chance_to_spawn_obstacle = 0.9
+@export var chance_to_spawn_2_obstacle = 0.3
 
-var obstacle_scene: PackedScene = preload("res://obstacles/obstacle.tscn")
-var obstacle_start_pos: Array
+var obstacle_scene: PackedScene = preload("res://obstacles/meteor.tscn")
+var min_x_spawn: float
+var max_x_spawn: float
+
+@onready var marker_min_x_spawn = $Markers/MarkerMinXSpawn
+@onready var marker_max_x_spawn = $Markers/MarkerMaxXSpawn
 
 func _ready():
-	obstacle_start_pos = %Markers.get_children()
-	for i in %Markers.get_children():
-		print (i.global_position)
+	min_x_spawn = marker_min_x_spawn.position.x
+	max_x_spawn = marker_max_x_spawn.position.x
 
 
 func create_obstacle():
-
-	var selected_position = obstacle_start_pos[randi() % obstacle_start_pos.size()]
-	var obstacle = obstacle_scene.instantiate() as CharacterBody2D
-	obstacle.position = selected_position.position
-	print(selected_position.global_position)
+	var selected_position = Vector2(randf_range(min_x_spawn, max_x_spawn), 0)
+	var obstacle = obstacle_scene.instantiate() as Meteor
+	obstacle.position = selected_position
+	obstacle.movement_speed = current_obstacle_speed
 	add_child(obstacle)
 
 
 func _on_creation_timer_timeout():
-	create_obstacle()
+	if randf_range(0,1) <= chance_to_spawn_obstacle:
+		create_obstacle()
+		if randf_range(0,1) <= chance_to_spawn_2_obstacle:
+			create_obstacle()

@@ -1,4 +1,11 @@
 Sprite2D
+ParallaxLayer
+ParallaxBackground
+HFlowContainer
+ColorRect
+HSplitContainer
+MarginContainer
+Control
 Marker2D
 Node2D
 Timer

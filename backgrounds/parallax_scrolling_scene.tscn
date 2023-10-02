@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dw5gm0met1k0c"]
+
+[node name="ParallaxScrollingScene" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
