@@ -6,6 +6,8 @@ signal killed()
 @export var max_health: int = 100 
 @onready var health = max_health: set = _handle_health
 
+var is_invulnerable = false
+
 # player can be damaged as fast as the game will update without this
 # will need to be tweeked further for enemies,
 # as they should not have any invulnerability
@@ -20,7 +22,7 @@ func _ready():
 
 func handle_damage(amount):
 	# print("hit player") # connection confirmed
-	if invulnerability_timer.is_stopped():
+	if is_invulnerable:
 	#	print("dealt damage") # connection confirmed
 		invulnerability_timer.start()
 		_handle_health(health - amount)
@@ -29,6 +31,7 @@ func handle_damage(amount):
 # presently nil functionality
 func kill():
 	print("killed")
+	emit_signal("killed") #incase anything else wants to know you're dead
 	get_parent().queue_free()
 
 
@@ -36,10 +39,13 @@ func kill():
 func _handle_health(value):
 	# print("_handle_health called") # connection confirmed
 	var prev_health = health
-	health =clamp(value,0 , max_health)
+	health = clamp(value,0 , max_health)
 	if health != prev_health:
 		print(health) #connection confirmed
 		emit_signal("health_updated", health)
 		if health <= 0:
 			kill()
-			emit_signal("killed") #incase anything else wants to know you're dead
+
+
+func _on_invulnerability_timer_timeout():
+	is_invulnerable = false

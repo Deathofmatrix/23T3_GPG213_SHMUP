@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalPlayerInfo="*res://autoloads/global_player_info.gd"
 SceneSwitcher="*res://autoloads/scene_switcher.gd"
+EventManager="*res://autoloads/event_manager.gd"
 
 [display]
 

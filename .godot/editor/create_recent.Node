@@ -1,7 +1,9 @@
+CollisionShape2D
+Area2D
+CanvasLayer
+Label
 ColorRect
 Node
-CanvasLayer
-CollisionShape2D
 Sprite2D
 CharacterBody2D
 PanelContainer
@@ -19,4 +21,3 @@ Timer
 Bullet
 Weapon
 Camera2D
-Area2D

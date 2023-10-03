@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://31dxe106neto"]
+[gd_scene load_steps=8 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Texture2D" uid="uid://betucd1cqgsyb" path="res://player/ship_0000.png" id="1_m4lro"]
@@ -7,8 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25jxs"]
-radius = 5.0
-height = 14.0
+radius = 4.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5swk7"]
+radius = 6.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 28
@@ -30,3 +34,10 @@ unique_name_in_owner = true
 [node name="Pistol" parent="CurrentWeapons" instance=ExtResource("3_isbyh")]
 
 [node name="HealthSystem" parent="." instance=ExtResource("5_634nx")]
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_5swk7")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

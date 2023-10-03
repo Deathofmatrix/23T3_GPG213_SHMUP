@@ -5,23 +5,29 @@
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_qjubl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h8my"]
-size = Vector2(32, 24)
+size = Vector2(14, 8)
 
 [node name="FollowEnemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
 motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_3qm14")
-movement_speed = 40
+movement_speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_r5b5g")
 region_enabled = true
 region_rect = Rect2(66, 99, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0h8my")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_qjubl")]
+max_health = 20
 wait_time = 0.1
+
+[connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

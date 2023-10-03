@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://d0bgt6cc0n07m" path="res://obstacles/Meteor.png" id="2_opq6l"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_q510a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlpnw"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_skbtm"]
+radius = 7.0
 
 [node name="Meteor" type="CharacterBody2D"]
+z_index = -10
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_1qnav")
@@ -16,10 +18,10 @@ texture = ExtResource("2_opq6l")
 region_rect = Rect2(68, 17, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qlpnw")
+shape = SubResource("CircleShape2D_skbtm")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_q510a")]
-max_health = 20
+max_health = 200
 wait_time = 0.01
 
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5s4k7dtq4xy7"]
+
+[ext_resource type="Script" path="res://enemies/enemy_spawner.gd" id="1_mnnqm"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_1edjd"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_mnnqm")
+
+[node name="CreationTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Markers" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="MarkerMinXSpawn" type="Marker2D" parent="Markers"]
+position = Vector2(53, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Markers/MarkerMinXSpawn"]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_1edjd")
+
+[node name="MarkerMaxXSpawn" type="Marker2D" parent="Markers"]
+position = Vector2(263, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Markers/MarkerMaxXSpawn"]
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_1edjd")
+
+[connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]

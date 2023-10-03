@@ -3,13 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="PackedScene" uid="uid://cq61d13iqc062" path="res://obstacles/obstacle_spawner.tscn" id="2_24k8o"]
 [ext_resource type="PackedScene" uid="uid://dw5gm0met1k0c" path="res://backgrounds/parallax_scrolling_scene.tscn" id="3_21dg8"]
-[ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/ui.tscn" id="4_64i7p"]
-[ext_resource type="PackedScene" uid="uid://jvoeqb4k138e" path="res://enemies/follow_enemy.tscn" id="5_g7blh"]
+[ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/hud.tscn" id="4_64i7p"]
+[ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 
 [node name="MainLevel" type="Node2D"]
 
-[node name="UI" parent="." instance=ExtResource("4_64i7p")]
-layer = 10
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_64i7p")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -17,11 +18,10 @@ layer = 10
 position = Vector2(0, 74)
 rotation = -1.5708
 
+[node name="EnemySpawner" parent="." instance=ExtResource("5_nfb7c")]
+position = Vector2(-160, -90)
+
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_24k8o")]
-position = Vector2(-162, -89)
+position = Vector2(-160, -90)
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
-
-[node name="FollowEnemy" parent="." instance=ExtResource("5_g7blh")]
-position = Vector2(-66, -55)
-movement_speed = 20
