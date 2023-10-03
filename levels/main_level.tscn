@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/ui.tscn" id="4_64i7p"]
 [ext_resource type="PackedScene" uid="uid://jvoeqb4k138e" path="res://enemies/follow_enemy.tscn" id="5_g7blh"]
 
-[node name="Main" type="Node2D"]
+[node name="MainLevel" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("4_64i7p")]
 layer = 10

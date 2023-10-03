@@ -1,5 +1,4 @@
-res://enemies/follow_enemy.tscn
-res://enemies/follow_enemy.gd
+res://managers/scene_switcher.tscn
 res://levels/main.tscn
 res://player/player.tscn
 res://bullets/pistol_bullet.tscn
@@ -11,7 +10,9 @@ res://obstacles/obstacle_spawner.tscn
 res://obstacles/meteor.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://UI/ui.tscn
-res://autoloads/player_position.gd
-res://autoloads/global_player_info.gd
-res://player/player.gd
-res://autoloads/global_player_information.gd
+res://enemies/follow_enemy.tscn
+res://levels/main_level.tscn
+res://levels/main_level.gd
+res://managers/scene_switcher.gd
+res://autoloads/scene_switcher.gd
+res://weapons/pistol/pistol.gd
