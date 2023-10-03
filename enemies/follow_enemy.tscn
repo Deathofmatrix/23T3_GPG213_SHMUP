@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://jvoeqb4k138e"]
+[gd_scene load_steps=5 format=3 uid="uid://jvoeqb4k138e"]
 
 [ext_resource type="Script" path="res://enemies/follow_enemy.gd" id="1_3qm14"]
 [ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="1_r5b5g"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_qjubl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h8my"]
 size = Vector2(32, 24)
@@ -21,3 +22,6 @@ region_rect = Rect2(66, 99, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0h8my")
+
+[node name="HealthSystem" parent="." instance=ExtResource("3_qjubl")]
+wait_time = 0.1

@@ -1,5 +1,4 @@
-res://managers/scene_switcher.tscn
-res://levels/main.tscn
+res://levels/main_level.tscn
 res://player/player.tscn
 res://bullets/pistol_bullet.tscn
 res://weapons/pistol/pistol.tscn
@@ -11,8 +10,4 @@ res://obstacles/meteor.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://UI/ui.tscn
 res://enemies/follow_enemy.tscn
-res://levels/main_level.tscn
-res://levels/main_level.gd
-res://managers/scene_switcher.gd
-res://autoloads/scene_switcher.gd
-res://weapons/pistol/pistol.gd
+res://player/resources/health_system.gd

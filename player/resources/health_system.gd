@@ -13,9 +13,13 @@ signal killed()
 @export var wait_time:float = 1.0
 # called from collision with bullet
 # set the damage amount in bullet and deal damage to health
+
+func _ready():
+	invulnerability_timer.wait_time = wait_time
+
+
 func handle_damage(amount):
 	# print("hit player") # connection confirmed
-	invulnerability_timer.wait_time = wait_time
 	if invulnerability_timer.is_stopped():
 	#	print("dealt damage") # connection confirmed
 		invulnerability_timer.start()

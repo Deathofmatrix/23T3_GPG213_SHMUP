@@ -24,3 +24,4 @@ position = Vector2(-162, -89)
 
 [node name="FollowEnemy" parent="." instance=ExtResource("5_g7blh")]
 position = Vector2(-66, -55)
+movement_speed = 20
