@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalEvents="*res://global_events.gd"
+GlobalPlayerInfo="*res://autoloads/global_player_info.gd"
 
 [display]
 

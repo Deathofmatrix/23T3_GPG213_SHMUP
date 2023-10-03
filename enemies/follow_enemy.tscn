@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://jvoeqb4k138e"]
+
+[ext_resource type="Script" path="res://enemies/follow_enemy.gd" id="1_3qm14"]
+[ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="1_r5b5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h8my"]
+size = Vector2(32, 24)
+
+[node name="FollowEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_3qm14")
+movement_speed = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_r5b5g")
+region_enabled = true
+region_rect = Rect2(66, 99, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0h8my")

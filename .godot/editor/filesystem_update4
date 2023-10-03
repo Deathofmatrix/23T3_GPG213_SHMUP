@@ -1,4 +1,5 @@
-res://backgrounds/parallax_scrolling_scene.tscn
+res://enemies/follow_enemy.tscn
+res://enemies/follow_enemy.gd
 res://levels/main.tscn
 res://player/player.tscn
 res://bullets/pistol_bullet.tscn
@@ -8,5 +9,9 @@ res://bullets/shotgun_bullet.tscn
 res://player/resources/health_system.tscn
 res://obstacles/obstacle_spawner.tscn
 res://obstacles/meteor.tscn
-res://backgrounds/parallax_scrolling_scene.gd
+res://backgrounds/parallax_scrolling_scene.tscn
 res://UI/ui.tscn
+res://autoloads/player_position.gd
+res://autoloads/global_player_info.gd
+res://player/player.gd
+res://autoloads/global_player_information.gd

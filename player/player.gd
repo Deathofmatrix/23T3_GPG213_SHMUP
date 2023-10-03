@@ -12,6 +12,7 @@ func _ready():
 	movement_data._testing()
 
 func _process(_delta):
+	GlobalPlayerInfo.player_position = global_position
 	if Input.is_action_just_pressed("secondary_action"):
 		var shotgun = Shotgun.instantiate()
 		add_weapon(shotgun)
