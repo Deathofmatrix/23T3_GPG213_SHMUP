@@ -14,7 +14,7 @@ autostart = true
 unique_name_in_owner = true
 
 [node name="MarkerMinXSpawn" type="Marker2D" parent="Markers"]
-position = Vector2(53, 0)
+position = Vector2(96, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Markers/MarkerMinXSpawn"]
 visible = false
@@ -22,7 +22,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_1edjd")
 
 [node name="MarkerMaxXSpawn" type="Marker2D" parent="Markers"]
-position = Vector2(263, 0)
+position = Vector2(544, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Markers/MarkerMaxXSpawn"]
 visible = false

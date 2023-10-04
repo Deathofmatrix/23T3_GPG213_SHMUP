@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://obstacles/obstacle_spawner.gd" id="1_iv8oc"]
 [ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_7cs5f"]
 
-[node name="obstacle_spawner" type="Node2D"]
+[node name="ObstacleSpawner" type="Node2D"]
 script = ExtResource("1_iv8oc")
 current_obstacle_speed = 17
 
@@ -15,7 +15,7 @@ autostart = true
 unique_name_in_owner = true
 
 [node name="MarkerMinXSpawn" type="Marker2D" parent="Markers"]
-position = Vector2(53, 0)
+position = Vector2(96, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Markers/MarkerMinXSpawn"]
 visible = false
@@ -23,7 +23,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_7cs5f")
 
 [node name="MarkerMaxXSpawn" type="Marker2D" parent="Markers"]
-position = Vector2(263, 0)
+position = Vector2(544, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Markers/MarkerMaxXSpawn"]
 visible = false

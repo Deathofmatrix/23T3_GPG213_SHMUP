@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_q510a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skbtm"]
-radius = 7.0
+radius = 16.0
 
 [node name="Meteor" type="CharacterBody2D"]
 z_index = -10
@@ -14,6 +14,7 @@ collision_mask = 3
 script = ExtResource("1_1qnav")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("2_opq6l")
 region_rect = Rect2(68, 17, 16, 16)
 

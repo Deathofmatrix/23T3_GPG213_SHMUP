@@ -1,15 +1,17 @@
 class_name Player
 extends CharacterBody2D
 
-
+@export var health_system: HealthSystem
 @export var movement_data: MovementData
 @export var weapons: Array[Weapon]
 @onready var current_weapons = %CurrentWeapons
 
-var screen_half_height: int = 90
-var screen_half_width: int = 112
+var screen_half_height: int = 180
+var screen_half_width: int = 224
 
 var Shotgun = preload("res://weapons/shotgun/shotgun.tscn")
+
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	weapons.append(current_weapons.get_child(0))
@@ -18,6 +20,7 @@ func _ready():
 func _process(_delta):
 	GlobalPlayerInfo.player_position = global_position
 	lock_player_to_screen()
+	give_invulnerability()
 	if Input.is_action_just_pressed("secondary_action"):
 		var shotgun = Shotgun.instantiate()
 		add_weapon(shotgun)
@@ -66,5 +69,13 @@ func add_weapon(weapon: Weapon):
 		current_weapons.add_child(weapon)
 
 
+func give_invulnerability():
+	if health_system.is_invulnerable:
+		$CollisionShape2D.set_deferred("disabled", true)
+		animation_player.play("invulnerable_flash_anim")
+	elif not health_system.is_invulnerable:
+		$CollisionShape2D.set_deferred("disabled", false)
+
 func _on_hit_box_body_entered(_body):
-	$HealthSystem.handle_damage(10)
+	print("playerhit")
+	health_system.handle_damage(10)

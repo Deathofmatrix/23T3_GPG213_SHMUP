@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_qjubl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h8my"]
-size = Vector2(14, 8)
+size = Vector2(28, 20)
 
 [node name="FollowEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -17,7 +17,6 @@ movement_speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_r5b5g")
 region_enabled = true
 region_rect = Rect2(66, 99, 32, 32)

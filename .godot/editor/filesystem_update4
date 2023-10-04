@@ -1,7 +1,3 @@
-res://enemies/enemy_spawner.tscn
-res://enemies/enemy_spawner.gd
-res://enemies/follow_enemy.tscn
-res://enemies/follow_enemy.gd
 res://levels/main_level.tscn
 res://player/player.tscn
 res://bullets/pistol_bullet.tscn
@@ -12,11 +8,9 @@ res://player/resources/health_system.tscn
 res://obstacles/obstacle_spawner.tscn
 res://obstacles/meteor.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
-res://UI/ui.tscn
-res://enemies/enemy.gd
 res://UI/hud.tscn
-res://UI/hud.gd
-res://autoloads/event_manager.gd
-res://obstacles/meteor.gd
+res://enemies/follow_enemy.tscn
+res://enemies/enemy_spawner.tscn
+res://bullets/pistol_bullet.gd
 res://player/resources/health_system.gd
 res://player/player.gd

@@ -1,3 +1,4 @@
+class_name HealthSystem
 extends Node2D
 
 signal health_updated(health)
@@ -22,7 +23,8 @@ func _ready():
 
 func handle_damage(amount):
 	# print("hit player") # connection confirmed
-	if is_invulnerable:
+	if not is_invulnerable:
+		is_invulnerable = true
 	#	print("dealt damage") # connection confirmed
 		invulnerability_timer.start()
 		_handle_health(health - amount)
@@ -41,7 +43,7 @@ func _handle_health(value):
 	var prev_health = health
 	health = clamp(value,0 , max_health)
 	if health != prev_health:
-		print(health) #connection confirmed
+#		print(health) #connection confirmed
 		emit_signal("health_updated", health)
 		if health <= 0:
 			kill()
