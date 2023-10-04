@@ -1,11 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://jvoeqb4k138e"]
+[gd_scene load_steps=10 format=3 uid="uid://jvoeqb4k138e"]
 
 [ext_resource type="Script" path="res://enemies/follow_enemy.gd" id="1_3qm14"]
 [ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="1_r5b5g"]
+[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_dt7pd"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_qjubl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wixjh"]
+resource_local_to_scene = true
+shader = ExtResource("2_dt7pd")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h8my"]
 size = Vector2(28, 20)
+
+[sub_resource type="Animation" id="Animation_4yxf3"]
+resource_name = "hit_flash"
+length = 0.2
+
+[sub_resource type="Animation" id="Animation_vjnb4"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sln50"]
+_data = {
+"RESET": SubResource("Animation_vjnb4"),
+"hit_flash": SubResource("Animation_4yxf3")
+}
 
 [node name="FollowEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -16,6 +36,7 @@ script = ExtResource("1_3qm14")
 movement_speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wixjh")
 rotation = 3.14159
 texture = ExtResource("1_r5b5g")
 region_enabled = true
@@ -29,4 +50,13 @@ shape = SubResource("RectangleShape2D_0h8my")
 max_health = 20
 wait_time = 0.1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sln50")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://pdjn2c08tb4m"]
+[gd_scene load_steps=7 format=3 uid="uid://pdjn2c08tb4m"]
 
 [ext_resource type="Script" path="res://obstacles/meteor.gd" id="1_1qnav"]
-[ext_resource type="Texture2D" uid="uid://d0bgt6cc0n07m" path="res://obstacles/Meteor.png" id="2_opq6l"]
+[ext_resource type="Texture2D" uid="uid://bdw65wwgkf7d" path="res://obstacles/MeteorAA.png" id="2_6t8rn"]
+[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_rrnuj"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_q510a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sl43v"]
+resource_local_to_scene = true
+shader = ExtResource("2_rrnuj")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skbtm"]
 radius = 16.0
@@ -14,8 +21,8 @@ collision_mask = 3
 script = ExtResource("1_1qnav")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_opq6l")
+material = SubResource("ShaderMaterial_sl43v")
+texture = ExtResource("2_6t8rn")
 region_rect = Rect2(68, 17, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -25,4 +32,8 @@ shape = SubResource("CircleShape2D_skbtm")
 max_health = 200
 wait_time = 0.01
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

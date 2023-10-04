@@ -2,6 +2,7 @@ class_name HealthSystem
 extends Node2D
 
 signal health_updated(health)
+signal max_health_updated(max_health)
 signal killed()
 
 @export var max_health: int = 100 
@@ -20,6 +21,17 @@ var is_invulnerable = false
 func _ready():
 	invulnerability_timer.wait_time = wait_time
 
+
+func change_max_health(amount):
+	if amount >= max_health:
+		max_health = amount
+		health += amount - max_health
+	elif amount < max_health:
+		max_health = amount
+		if health >= max_health:
+			health = max_health
+		print("changed Max Health to a lower value")
+	max_health_updated.emit(max_health)
 
 func handle_damage(amount):
 	# print("hit player") # connection confirmed

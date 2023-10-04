@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=7 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
+[ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
+[ext_resource type="Texture2D" uid="uid://bod6x7osmw61r" path="res://UI/BarFill.png" id="3_ugq3e"]
+[ext_resource type="Texture2D" uid="uid://8otolkdp2xj0" path="res://UI/RightGameUI.png" id="4_6yf2j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ylym"]
 font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkrnn"]
+font_size = 7
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -14,30 +20,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_04bju")
 
-[node name="Score" type="Label" parent="."]
+[node name="ScoreText" type="Label" parent="."]
+unique_name_in_owner = true
+top_level = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -48.0
-offset_right = 48.0
-offset_bottom = 26.0
+offset_left = 241.0
+offset_top = 45.0
+offset_right = 337.0
+offset_bottom = 71.0
 grow_horizontal = 2
 text = "SCORE: 9999"
 label_settings = SubResource("LabelSettings_4ylym")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="LeftPanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 96.0
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+[node name="LeftBackground" type="TextureRect" parent="LeftPanelContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_3q863")
 
-[node name="PanelContainer2" type="PanelContainer" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="LeftPanelContainer/LeftBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 42.0
+offset_right = 88.0
+offset_bottom = 62.0
+value = 100.0
+texture_progress = ExtResource("3_ugq3e")
+
+[node name="HealthText" type="Label" parent="LeftPanelContainer/LeftBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 64.0
+offset_bottom = 31.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_rkrnn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightPanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -47,6 +78,6 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="ColorRect2" type="ColorRect" parent="PanelContainer2"]
+[node name="RightBackground" type="TextureRect" parent="RightPanelContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("4_6yf2j")

@@ -13,3 +13,7 @@ func _on_body_entered(body):
 
 	if child_node != null and child_node.has_method("handle_damage"):
 		child_node.handle_damage(10)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

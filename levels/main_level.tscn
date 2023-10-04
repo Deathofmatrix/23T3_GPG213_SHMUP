@@ -1,16 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=8 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="PackedScene" uid="uid://cq61d13iqc062" path="res://obstacles/obstacle_spawner.tscn" id="2_24k8o"]
 [ext_resource type="PackedScene" uid="uid://dw5gm0met1k0c" path="res://backgrounds/parallax_scrolling_scene.tscn" id="3_21dg8"]
 [ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/hud.tscn" id="4_64i7p"]
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
+[ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://manager/xp_spawner.tscn" id="6_ac72y"]
+[ext_resource type="PackedScene" uid="uid://bv1ao2jfrwb0j" path="res://manager/experience.tscn" id="6_kv2m3"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_64i7p")]
+[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player_character") instance=ExtResource("4_64i7p")]
+player_character = NodePath("../../Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -25,3 +28,11 @@ position = Vector2(-320, -180)
 position = Vector2(-320, -180)
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
+
+[node name="XPSpawner" parent="." instance=ExtResource("6_ac72y")]
+
+[node name="Experience" parent="." instance=ExtResource("6_kv2m3")]
+position = Vector2(1, -216)
+
+[connection signal="player_health_updated" from="Player" to="CanvasLayer/HUD" method="_on_player_player_health_updated"]
+[connection signal="player_max_health_updated" from="Player" to="CanvasLayer/HUD" method="_on_player_player_max_health_updated"]
