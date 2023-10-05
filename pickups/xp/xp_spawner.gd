@@ -1,6 +1,6 @@
 extends Node2D
 
-var ExperienceScene = preload("res://manager/experience.tscn")
+var ExperienceScene = preload("res://pickups/xp/experience.tscn")
 
 @onready var all_experience = %AllExperience
 

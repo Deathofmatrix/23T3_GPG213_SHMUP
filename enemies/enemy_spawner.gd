@@ -19,6 +19,12 @@ func _ready():
 	min_x_spawn = marker_min_x_spawn.position.x
 	max_x_spawn = marker_max_x_spawn.position.x
 
+func _process(_delta):
+	if Time.get_ticks_msec()/1000 > 120:
+		$CreationTimer.wait_time = 0.5
+	elif Time.get_ticks_msec()/1000 > 60:
+		$CreationTimer.wait_time = 1
+
 
 func create_enemy(enemy_index: int):
 	var selected_position = Vector2(randf_range(min_x_spawn, max_x_spawn), 0)

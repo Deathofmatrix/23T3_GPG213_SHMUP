@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://0uv3q6ylqes0"]
 
-[ext_resource type="Script" path="res://manager/xp_spawner.gd" id="1_atpfw"]
+[ext_resource type="Script" path="res://pickups/xp/xp_spawner.gd" id="1_yoi41"]
 
 [node name="XPSpawner" type="Node2D"]
-script = ExtResource("1_atpfw")
+script = ExtResource("1_yoi41")
 
 [node name="AllExperience" type="Node2D" parent="."]
 unique_name_in_owner = true

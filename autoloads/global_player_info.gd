@@ -1,3 +1,5 @@
 extends Node
 
-@export var player_position: Vector2 = Vector2.ZERO
+var player: Player
+var player_position: Vector2 = Vector2.ZERO
+

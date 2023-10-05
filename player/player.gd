@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal player_health_updated(health)
 signal player_max_health_updated(max_health)
+signal player_killed
 
 @export var health_system: HealthSystem
 @export var movement_data: MovementData
@@ -19,7 +20,7 @@ var Shotgun = preload("res://weapons/shotgun/shotgun.tscn")
 
 func _ready():
 	weapons.append(current_weapons.get_child(0))
-	movement_data._testing()
+	GlobalPlayerInfo.player = self
 	health_system.change_max_health(starting_max_health)
 	
 
@@ -104,3 +105,6 @@ func _on_xp_collector_area_entered(area):
 	await get_tree().create_timer(0.2).timeout
 	area.queue_free()
 
+
+func _on_health_system_killed():
+	emit_signal("player_killed")

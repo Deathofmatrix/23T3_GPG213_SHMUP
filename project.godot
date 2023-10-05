@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="space shmup"
-run/main_scene="res://levels/main_level.tscn"
+run/main_scene="res://managers/scene_switcher.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalPlayerInfo="*res://autoloads/global_player_info.gd"
-SceneSwitcher="*res://autoloads/scene_switcher.gd"
 EventManager="*res://autoloads/event_manager.gd"
 
 [display]

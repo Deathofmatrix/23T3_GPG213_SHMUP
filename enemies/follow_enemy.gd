@@ -6,7 +6,7 @@ extends Enemy
 
 func _process(_delta):
 	var direction = Vector2(0,1)
-	direction.x = global_position.direction_to(GlobalPlayerInfo.player_position).x
+	direction.x = global_position.direction_to(GlobalPlayerInfo.player_position).x * 2
 	velocity = direction * movement_speed
 	move_and_slide()
 

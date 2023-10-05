@@ -1,4 +1,6 @@
-res://manager
+C:/Users/twins/Files/Godot/SCHMUP_Builds
+res://levels
+res://managers
 res://
 res://autoloads
 res://enemies
@@ -9,4 +11,3 @@ res://obstacles
 res://weapons
 res://bullets
 res://player
-res://levels
