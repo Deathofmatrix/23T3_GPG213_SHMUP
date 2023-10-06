@@ -108,3 +108,4 @@ func _on_xp_collector_area_entered(area):
 
 func _on_health_system_killed():
 	emit_signal("player_killed")
+

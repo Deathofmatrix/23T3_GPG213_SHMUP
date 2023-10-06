@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Texture2D" uid="uid://betucd1cqgsyb" path="res://player/ship_0000.png" id="1_m4lro"]
-[ext_resource type="Resource" uid="uid://bhl0vt15r5q6p" path="res://player/resources/player_movement_fast.tres" id="2_5ltf7"]
+[ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
 [ext_resource type="PackedScene" uid="uid://ch2ay0rg10jid" path="res://weapons/pistol/pistol.tscn" id="3_isbyh"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="3_ouby8"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
@@ -66,7 +66,7 @@ collision_mask = 28
 motion_mode = 1
 script = ExtResource("1_d1dy8")
 health_system = NodePath("HealthSystem")
-movement_data = ExtResource("2_5ltf7")
+movement_data = ExtResource("2_a52vq")
 starting_max_health = 50
 
 [node name="ShipSprite" type="Sprite2D" parent="."]

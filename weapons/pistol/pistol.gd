@@ -20,7 +20,7 @@ func _on_shoot_speed_timer_timeout():
 func shoot_bullet():
 	if not can_shoot: return
 	for spawn_point in bullet_spawns.get_children():
-		spawn_bullet(spawn_point)
+		var new_bullet = spawn_bullet(spawn_point)
 	
 	shoot_speed_timer.start()
 	can_shoot = false
@@ -31,5 +31,5 @@ func spawn_bullet(spawn_point):
 	bullet.position = spawn_point.global_position
 	bullet.direction = (get_global_mouse_position() - global_position).normalized()
 	bullet.rotation = bullet.direction.angle()
-	get_tree().current_scene.add_child(bullet)
+	GlobalPlayerInfo.player.get_parent().add_child(bullet)
 	return bullet

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MovementData" load_steps=2 format=3 uid="uid://cbehduvyfi0cg"]
+
+[ext_resource type="Script" path="res://player/resources/movement_data.gd" id="1_t462q"]
+
+[resource]
+script = ExtResource("1_t462q")
+max_speed = 150
+acceleration = 650
+friction = 500

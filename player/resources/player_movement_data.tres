@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_mrimx")
-max_speed = 50
-acceleration = 100
-friction = 50
+max_speed = 150
+acceleration = 650
+friction = 500
