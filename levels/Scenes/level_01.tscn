@@ -30,9 +30,10 @@ theme_override_font_sizes/font_size = 13
 text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("1_5a0w1")]
+[node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
 rotation = -1.5708
+hud = NodePath("../HUDCanvas/HUD")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_nfb7c")]
 position = Vector2(-320, -180)

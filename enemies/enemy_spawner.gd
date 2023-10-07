@@ -20,7 +20,7 @@ func _ready():
 	max_x_spawn = marker_max_x_spawn.position.x
 
 func _process(_delta):
-	if Time.get_ticks_msec()/1000 > 120:
+	if round(Time.get_ticks_msec()/1000) > 120:
 		$CreationTimer.wait_time = 0.5
 	elif Time.get_ticks_msec()/1000 > 60:
 		$CreationTimer.wait_time = 1

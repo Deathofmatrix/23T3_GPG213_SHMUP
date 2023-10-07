@@ -6,9 +6,14 @@ signal player_max_health_updated(max_health)
 signal player_killed
 
 @export var health_system: HealthSystem
+@export var hud: HUD
 @export var movement_data: MovementData
 @export var weapons: Array[Weapon]
 @export var starting_max_health = 100
+
+@export var current_level = 1
+@export var current_xp = 1
+@export var current_xp_required = 1
 
 var screen_half_height: int = 180
 var screen_half_width: int = 224
@@ -89,7 +94,6 @@ func give_invulnerability():
 func _on_hit_box_body_entered(_body):
 #	print("playerhit")
 	health_system.handle_damage(10)
-	
 
 
 func _on_health_system_health_updated(health):
@@ -100,12 +104,15 @@ func _on_health_system_max_health_updated(max_health):
 	player_max_health_updated.emit(max_health)
 
 
-func _on_xp_collector_area_entered(area):
-	area.is_collected = true
-	await get_tree().create_timer(0.2).timeout
-	area.queue_free()
-
-
 func _on_health_system_killed():
 	emit_signal("player_killed")
 
+
+func _on_xp_manager_leveled_up(required_xp):
+	current_xp_required = required_xp
+	hud.update_max_xp(current_xp_required)
+
+
+func _on_xp_manager_xp_updated(xp):
+	current_xp = xp
+	hud.update_xp_bar(current_xp)

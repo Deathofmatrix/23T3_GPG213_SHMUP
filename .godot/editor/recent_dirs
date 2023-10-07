@@ -1,3 +1,4 @@
+res://player
 res://player/resources
 C:/Users/twins/Files/Godot/SCHMUP_Builds
 res://levels
@@ -10,4 +11,3 @@ res://backgrounds
 res://obstacles
 res://weapons
 res://bullets
-res://player

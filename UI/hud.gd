@@ -1,3 +1,4 @@
+class_name HUD
 extends Control
 
 signal score_increased(current_score)
@@ -13,6 +14,7 @@ var _current_health = 100
 @onready var high_score_text = %HighScoreText
 @onready var health_bar = %HealthBar
 @onready var health_text = %HealthText
+@onready var xp_bar = %XPBar
 
 func _ready():
 	_current_max_health = player_character.starting_max_health
@@ -36,6 +38,16 @@ func update_health_bar():
 	
 	health_text.text = str(_current_health, "/", _current_max_health)
 
+#leveling
+
+func update_xp_bar(current_xp):
+	xp_bar.value = current_xp
+
+func update_max_xp(xp_required):
+	xp_bar.value = 0
+	xp_bar.max_value = xp_required
+
+#finish
 
 func _on_player_player_health_updated(health):
 	_current_health = health
@@ -45,3 +57,6 @@ func _on_player_player_health_updated(health):
 func _on_player_player_max_health_updated(max_health):
 	_current_max_health = max_health
 	update_health_bar()
+
+
+

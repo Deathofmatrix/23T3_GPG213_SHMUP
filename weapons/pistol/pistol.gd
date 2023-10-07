@@ -20,7 +20,7 @@ func _on_shoot_speed_timer_timeout():
 func shoot_bullet():
 	if not can_shoot: return
 	for spawn_point in bullet_spawns.get_children():
-		var new_bullet = spawn_bullet(spawn_point)
+		var _new_bullet = spawn_bullet(spawn_point)
 	
 	shoot_speed_timer.start()
 	can_shoot = false

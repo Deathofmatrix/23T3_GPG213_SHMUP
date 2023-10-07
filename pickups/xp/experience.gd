@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var speed = 100
+@export var xp_value = 1
 
 var direction = Vector2.DOWN
 var is_collected = false
