@@ -29,3 +29,4 @@ func level_up():
 	current_xp_level += 1
 	current_xp_required = get_required_xp(current_xp_level)
 	emit_signal("leveled_up", current_xp_required, current_xp_level)
+	EventManager.player_leveled_up.emit()

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0gynaifufxo8"]
+
+[ext_resource type="Script" path="res://pickups/upgrades/upgrade_spawner.gd" id="1_l22pk"]
+
+[node name="UpgradeSpawner" type="Node2D"]
+script = ExtResource("1_l22pk")
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="UpgradeSpawn1" type="Marker2D" parent="SpawnLocations"]
+unique_name_in_owner = true
+position = Vector2(-150, 0)
+
+[node name="UpgradeSpawn2" type="Marker2D" parent="SpawnLocations"]
+unique_name_in_owner = true
+
+[node name="UpgradeSpawn3" type="Marker2D" parent="SpawnLocations"]
+unique_name_in_owner = true
+position = Vector2(150, 0)

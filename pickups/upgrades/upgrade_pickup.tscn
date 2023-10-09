@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2a8r6he6s8yy"]
+
+[ext_resource type="Script" path="res://pickups/upgrades/upgrade_pickup.gd" id="1_ocel7"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="1_oqwib"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6swik"]
+radius = 14.0
+
+[node name="UpgradePickup" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_ocel7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_oqwib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6swik")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

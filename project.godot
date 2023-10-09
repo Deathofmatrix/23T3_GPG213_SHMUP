@@ -78,6 +78,7 @@ new_level_button_debug={
 2d_physics/layer_4="EnemyBullet"
 2d_physics/layer_5="Obstacle"
 2d_physics/layer_6="XP"
+2d_physics/layer_7="UpgradePickup"
 
 [physics]
 

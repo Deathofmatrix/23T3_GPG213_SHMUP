@@ -1,4 +1,10 @@
+CollisionShape2D
+Area2D
+VisibleOnScreenNotifier2D
 Node2D
+Sprite2D
+CharacterBody2D
+Marker2D
 Button
 Label
 AudioStreamPlayer2D
@@ -10,15 +16,10 @@ Control
 AnimationPlayer
 Node
 TextureRect
-VisibleOnScreenNotifier2D
 Timer
-CollisionShape2D
-Area2D
-Sprite2D
 StaticBody2D
 TextureProgressBar
 ProgressBar
-CharacterBody2D
 PanelContainer
 CenterContainer
 MarginContainer
@@ -27,6 +28,5 @@ ParallaxLayer
 ParallaxBackground
 HFlowContainer
 HSplitContainer
-Marker2D
 Bullet
 Weapon

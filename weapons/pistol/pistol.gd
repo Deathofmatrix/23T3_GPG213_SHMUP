@@ -33,3 +33,11 @@ func spawn_bullet(spawn_point):
 	bullet.rotation = bullet.direction.angle()
 	GlobalPlayerInfo.player.get_parent().add_child(bullet)
 	return bullet
+
+
+func upgrade():
+	upgrade_number += 1
+	match upgrade_number:
+		2:
+			print("level 2 pistol")
+			shoot_speed_timer.wait_time = 0.1

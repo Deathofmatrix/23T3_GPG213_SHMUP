@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://31dxe106neto"]
+[gd_scene load_steps=16 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Texture2D" uid="uid://betucd1cqgsyb" path="res://player/ship_0000.png" id="1_m4lro"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbhn84hirt6hd" path="res://player/xp_collector.tscn" id="5_65dra"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
 [ext_resource type="PackedScene" uid="uid://dtc87bt45mxrq" path="res://player/xp_manager.tscn" id="5_t24r3"]
+[ext_resource type="PackedScene" uid="uid://blg4j3q5al6cc" path="res://pickups/upgrades/upgrade_collector.tscn" id="6_dhmjd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nm0x"]
 resource_local_to_scene = true
@@ -79,6 +80,8 @@ shape = SubResource("CapsuleShape2D_25jxs")
 
 [node name="XPManager" parent="." instance=ExtResource("5_t24r3")]
 
+[node name="UpgradeCollector" parent="." instance=ExtResource("6_dhmjd")]
+
 [node name="XPCollector" parent="." node_paths=PackedStringArray("xp_manager") instance=ExtResource("5_65dra")]
 xp_manager = NodePath("../XPManager")
 
@@ -104,6 +107,7 @@ libraries = {
 
 [connection signal="leveled_up" from="XPManager" to="." method="_on_xp_manager_leveled_up"]
 [connection signal="xp_updated" from="XPManager" to="." method="_on_xp_manager_xp_updated"]
+[connection signal="area_entered" from="UpgradeCollector" to="." method="_on_upgrade_collector_area_entered"]
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
 [connection signal="max_health_updated" from="HealthSystem" to="." method="_on_health_system_max_health_updated"]

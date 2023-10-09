@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=9 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/hud.tscn" id="4_64i7p"]
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 [ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://pickups/xp/xp_spawner.tscn" id="6_ac72y"]
+[ext_resource type="PackedScene" uid="uid://d0gynaifufxo8" path="res://pickups/upgrades/upgrade_spawner.tscn" id="8_ysjd3"]
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_hrodq")
@@ -44,6 +45,9 @@ position = Vector2(-320, -180)
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
 
 [node name="XPSpawner" parent="." instance=ExtResource("6_ac72y")]
+
+[node name="UpgradeSpawner" parent="." instance=ExtResource("8_ysjd3")]
+position = Vector2(0, -180)
 
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]
 [connection signal="pressed" from="HUDCanvas/Button" to="." method="_on_button_pressed"]

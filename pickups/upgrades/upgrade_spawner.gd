@@ -1,0 +1,30 @@
+extends Node2D
+
+@export var current_pickup_speed = 30
+
+var UpgradePickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
+
+@onready var spawn_locations = $SpawnLocations
+
+func _ready():
+	EventManager.connect("player_leveled_up", spawn_upgrades)
+
+
+func spawn_upgrades():
+	var markers = spawn_locations.get_children()
+	var upgrade1 = create_upgrade(markers[0])
+	var upgrade2 = create_upgrade(markers[1])
+	var upgrade3 = create_upgrade(markers[2])
+	var current_onscreen_upgrades = [upgrade1, upgrade2, upgrade3]
+	
+	for upgrade in current_onscreen_upgrades:
+		upgrade.upgrades_on_screen = current_onscreen_upgrades
+
+
+func create_upgrade(marker):
+	var selected_position = marker.position
+	var upgrade_pickup = UpgradePickup.instantiate()
+	upgrade_pickup.position = selected_position
+	upgrade_pickup.movement_speed = current_pickup_speed
+	add_child(upgrade_pickup)
+	return upgrade_pickup

@@ -47,38 +47,48 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 
 
+# Movement
+
+
 func lock_player_to_screen():
 	var viewport_pos = get_viewport_rect().position
 	var top_left = viewport_pos - Vector2(screen_half_width, screen_half_height)
 	var bottom_right = viewport_pos + Vector2(screen_half_width, screen_half_height)
 	global_position = global_position.clamp(top_left, bottom_right)
 
-
 func handle_acceleration(input_axis, delta):
 	if input_axis != Vector2.ZERO:
 		velocity = velocity.move_toward(input_axis * movement_data.max_speed, movement_data.acceleration * delta)
-
 
 func handle_air_resistance(input_axis, delta):
 	if input_axis == Vector2.ZERO:
 		velocity = velocity.move_toward(Vector2.ZERO, movement_data.friction * delta)
 
 
-func check_weapon_duplicate(weapon: Weapon):
+# Upgrading
+
+
+func add_weapon(weapon: Weapon):
+	if _check_weapon_duplicate(weapon): 
+		var duplicate_weapon = _check_weapon_duplicate(weapon)
+		upgrade_weapon(duplicate_weapon)
+		weapon.queue_free()
+	else:
+		current_weapons.add_child(weapon)
+
+
+func _check_weapon_duplicate(weapon: Weapon):
 	for i in current_weapons.get_children():
 		if i.weapon_name == weapon.weapon_name: 
-			return true
+			return i
 	
 	weapons.append(weapon)
 	return false
 
+func upgrade_weapon(weapon: Weapon):
+	weapon.upgrade()
 
-func add_weapon(weapon: Weapon):
-	print(check_weapon_duplicate(weapon))
-	if check_weapon_duplicate(weapon): 
-		weapon.queue_free()
-	else:
-		current_weapons.add_child(weapon)
+# Invulnerability
 
 
 func give_invulnerability():
@@ -90,6 +100,9 @@ func give_invulnerability():
 		animation_player.play("invulnerable_flash_anim")
 	elif not health_system.is_invulnerable:
 		$CollisionShape2D.set_deferred("disabled", false)
+
+
+# Signals
 
 
 func _on_hit_box_body_entered(_body):
@@ -118,3 +131,7 @@ func _on_xp_manager_leveled_up(required_xp, level):
 func _on_xp_manager_xp_updated(xp):
 	current_xp = xp
 	hud.update_xp_bar(current_xp)
+
+
+func _on_upgrade_collector_area_entered(area):
+	area.upgrade_collected()
