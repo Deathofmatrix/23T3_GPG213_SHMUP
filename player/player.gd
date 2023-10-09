@@ -91,6 +91,7 @@ func give_invulnerability():
 	elif not health_system.is_invulnerable:
 		$CollisionShape2D.set_deferred("disabled", false)
 
+
 func _on_hit_box_body_entered(_body):
 #	print("playerhit")
 	health_system.handle_damage(10)
@@ -108,8 +109,9 @@ func _on_health_system_killed():
 	emit_signal("player_killed")
 
 
-func _on_xp_manager_leveled_up(required_xp):
+func _on_xp_manager_leveled_up(required_xp, level):
 	current_xp_required = required_xp
+	current_level = level
 	hud.update_max_xp(current_xp_required)
 
 
