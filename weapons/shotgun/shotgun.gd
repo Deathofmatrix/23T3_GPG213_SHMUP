@@ -38,4 +38,10 @@ func upgrade():
 	match upgrade_number:
 		2:
 			print("level 2 shotgun")
+			shoot_speed_timer.wait_time = 1
+		3:
 			shoot_speed_timer.wait_time = 0.1
+		4:
+			pass
+		5:
+			pass

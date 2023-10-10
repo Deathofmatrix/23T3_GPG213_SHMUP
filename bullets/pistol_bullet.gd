@@ -1,13 +1,14 @@
 extends Bullet
 
 
+
 func _on_body_entered(body):
 	queue_free()
 	var child_node = body.get_node_or_null("HealthSystem") 
 
 
 	if child_node != null and child_node.has_method("handle_damage"):
-			child_node.handle_damage(10)
+			child_node.handle_damage(bullet_damage)
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
