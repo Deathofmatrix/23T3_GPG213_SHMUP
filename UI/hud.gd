@@ -58,5 +58,3 @@ func _on_player_player_max_health_updated(max_health):
 	_current_max_health = max_health
 	update_health_bar()
 
-
-

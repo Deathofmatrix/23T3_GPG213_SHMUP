@@ -61,7 +61,7 @@ offset_left = 18.0
 offset_top = 202.0
 offset_right = 78.0
 offset_bottom = 222.0
-max_value = 10.0
+max_value = 11.0
 texture_progress = ExtResource("4_uykw4")
 
 [node name="RightPanelContainer" type="PanelContainer" parent="."]
