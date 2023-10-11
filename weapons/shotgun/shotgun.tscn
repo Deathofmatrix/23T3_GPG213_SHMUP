@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv5mlj6la2cw6"]
+[gd_scene load_steps=4 format=3 uid="uid://cv5mlj6la2cw6"]
 
 [ext_resource type="Script" path="res://weapons/shotgun/shotgun.gd" id="1_pyvet"]
+[ext_resource type="Texture2D" uid="uid://ch5qurovs508q" path="res://weapons/shotgun/shotgun_icon.png" id="2_1yoj7"]
 [ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_vhs7u"]
 
 [node name="Shotgun" type="Node2D"]
 script = ExtResource("1_pyvet")
+icon_image = ExtResource("2_1yoj7")
 
 [node name="BulletSpawns" type="Node2D" parent="."]
 
 [node name="BulletSpawn1" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(5, -1)
+position = Vector2(11, -1)
 rotation = -0.0872665
 
 [node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn1"]
@@ -18,7 +20,7 @@ scale = Vector2(0.001, 0.001)
 texture = ExtResource("2_vhs7u")
 
 [node name="BulletSpawn2" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(5, 1)
+position = Vector2(11, 1)
 rotation = 0.0872665
 
 [node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn2"]
@@ -27,7 +29,7 @@ scale = Vector2(0.001, 0.001)
 texture = ExtResource("2_vhs7u")
 
 [node name="BulletSpawn3" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(4, -4)
+position = Vector2(10, -4)
 rotation = -0.349066
 
 [node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn3"]
@@ -36,7 +38,7 @@ scale = Vector2(0.001, 0.001)
 texture = ExtResource("2_vhs7u")
 
 [node name="BulletSpawn4" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(4, 4)
+position = Vector2(10, 4)
 rotation = 0.349066
 
 [node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn4"]
@@ -45,7 +47,7 @@ scale = Vector2(0.001, 0.001)
 texture = ExtResource("2_vhs7u")
 
 [node name="BulletSpawn5" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(2, -6)
+position = Vector2(8, -6)
 rotation = -0.785398
 
 [node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn5"]
@@ -54,7 +56,7 @@ scale = Vector2(0.001, 0.001)
 texture = ExtResource("2_vhs7u")
 
 [node name="BulletSpawn6" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(2, 6)
+position = Vector2(8, 6)
 rotation = 0.785398
 
 [node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn6"]

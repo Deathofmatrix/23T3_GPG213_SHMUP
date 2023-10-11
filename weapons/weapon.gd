@@ -1,6 +1,8 @@
 class_name Weapon
 extends Node2D
 
+@export var icon_image: Texture2D
+
 var weapon_name: String = ""
 var upgrade_number: int = 1
 var max_upgrades: int = 2

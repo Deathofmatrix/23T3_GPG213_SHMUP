@@ -6,7 +6,6 @@ func _on_lifespan_timer_timeout():
 
 func _on_body_entered(body):
 	queue_free()
-#	print("bullet hit obstacle")
 	var child_node = body.get_node_or_null("HealthSystem") 
 	
 

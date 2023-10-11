@@ -2,7 +2,6 @@ extends Weapon
 
 var Bullet = preload("res://bullets/pistol_bullet.tscn")
 
-
 var can_shoot = true
 
 @onready var bullet_spawns = $BulletSpawns

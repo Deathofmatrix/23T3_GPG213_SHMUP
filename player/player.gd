@@ -75,6 +75,7 @@ func add_weapon(weapon: Weapon):
 		weapon.queue_free()
 	else:
 		current_weapons.add_child(weapon)
+		weapons.append(weapon)
 
 
 func _check_weapon_duplicate(weapon: Weapon):
@@ -82,7 +83,6 @@ func _check_weapon_duplicate(weapon: Weapon):
 		if i.weapon_name == weapon.weapon_name: 
 			return i
 	
-	weapons.append(weapon)
 	return false
 
 func upgrade_weapon(weapon: Weapon):
@@ -134,4 +134,6 @@ func _on_xp_manager_xp_updated(xp):
 
 
 func _on_upgrade_collector_area_entered(area):
-	area.upgrade_collected()
+	var upgrade_type = area.upgrade_collected()
+	print(upgrade_type.weapon_name)
+	add_weapon(upgrade_type)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
-[ext_resource type="Texture2D" uid="uid://betucd1cqgsyb" path="res://player/ship_0000.png" id="1_m4lro"]
 [ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
 [ext_resource type="PackedScene" uid="uid://ch2ay0rg10jid" path="res://weapons/pistol/pistol.tscn" id="3_isbyh"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="3_ouby8"]
+[ext_resource type="Texture2D" uid="uid://drbynddjljd0o" path="res://player/player_ship01.png" id="4_tkepx"]
 [ext_resource type="PackedScene" uid="uid://bbhn84hirt6hd" path="res://player/xp_collector.tscn" id="5_65dra"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
 [ext_resource type="PackedScene" uid="uid://dtc87bt45mxrq" path="res://player/xp_manager.tscn" id="5_t24r3"]
@@ -73,7 +73,7 @@ starting_max_health = 50
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_3nm0x")
 rotation = 1.5708
-texture = ExtResource("1_m4lro")
+texture = ExtResource("4_tkepx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_25jxs")
