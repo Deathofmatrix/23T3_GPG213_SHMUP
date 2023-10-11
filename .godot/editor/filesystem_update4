@@ -3,7 +3,10 @@ res://shaders/hit_flash_shader.tres
 res://player/hit_flash_shader.tres
 res://player/player.tscn
 res://levels/Scenes/level_01.tscn
-res://player/xp_manager.gd
 res://pickups/xp/experience.tscn
 res://UI/hud.tscn
-res://UI/hud.gd
+res://managers/scene_switcher.gd
+res://pickups/upgrades/upgrade_pickup.gd
+res://pickups/upgrades/upgrade_collector.tscn
+res://pickups/upgrades/upgrade_pickup.tscn
+res://pickups/upgrades/upgrade_spawner.tscn
