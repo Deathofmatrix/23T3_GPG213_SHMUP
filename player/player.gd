@@ -35,6 +35,7 @@ func _process(_delta):
 	give_invulnerability()
 	if Input.is_action_just_pressed("secondary_action"):
 		var shotgun = Shotgun.instantiate()
+#		print(shotgun)
 		add_weapon(shotgun)
 
 func _physics_process(delta):
@@ -68,7 +69,7 @@ func handle_air_resistance(input_axis, delta):
 # Upgrading
 
 
-func add_weapon(weapon: Weapon):
+func add_weapon(weapon):
 	if _check_weapon_duplicate(weapon): 
 		var duplicate_weapon = _check_weapon_duplicate(weapon)
 		upgrade_weapon(duplicate_weapon)
@@ -78,7 +79,7 @@ func add_weapon(weapon: Weapon):
 		weapons.append(weapon)
 
 
-func _check_weapon_duplicate(weapon: Weapon):
+func _check_weapon_duplicate(weapon):
 	for i in current_weapons.get_children():
 		if i.weapon_name == weapon.weapon_name: 
 			return i
@@ -134,6 +135,6 @@ func _on_xp_manager_xp_updated(xp):
 
 
 func _on_upgrade_collector_area_entered(area):
-	var upgrade_type = area.upgrade_collected()
-	print(upgrade_type.weapon_name)
+	var upgrade_type: Weapon = area.upgrade_collected()
+#	print(upgrade_type.weapon_name)
 	add_weapon(upgrade_type)

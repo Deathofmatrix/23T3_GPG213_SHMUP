@@ -3,6 +3,7 @@ extends Weapon
 var Bullet = preload("res://bullets/shotgun_bullet.tscn")
 
 var can_shoot = true
+var bullet_lifetime = 0.4
 
 @onready var bullet_spawns = $BulletSpawns
 @onready var shoot_speed_timer = $ShootSpeedTimer
@@ -25,12 +26,15 @@ func shoot_bullet():
 
 
 func spawn_bullet(spawn_point):
-	var bullet = Bullet.instantiate() as Area2D
+	var bullet = Bullet.instantiate() as Bullet
 	bullet.position = spawn_point.global_position
 	var temp_direction = (get_global_mouse_position() - global_position).normalized()
 	bullet.direction = temp_direction.rotated(spawn_point.rotation)
 	bullet.rotation = bullet.direction.angle()
-	get_tree().current_scene.add_child(bullet)
+	bullet.bullet_damage = bullet_damage
+	bullet.bullet_lifetime = bullet_lifetime
+#	get_tree().current_scene.add_child(bullet)
+	GlobalPlayerInfo.player.get_parent().add_child(bullet)
 	return bullet
 
 func upgrade():
@@ -40,8 +44,12 @@ func upgrade():
 			print("level 2 shotgun")
 			shoot_speed_timer.wait_time = 1
 		3:
-			shoot_speed_timer.wait_time = 0.1
+			print("level 3 shotgun")
+			bullet_damage += 10
 		4:
-			pass
+			print("level 4 shotgun")
+			bullet_lifetime += 0.2
 		5:
 			pass
+		_:
+			print("shotgun level outside of scope")

@@ -2,10 +2,11 @@ class_name Weapon
 extends Node2D
 
 @export var icon_image: Texture2D
+@export var bullet_damage: int = 10
 
 var weapon_name: String = ""
 var upgrade_number: int = 1
-var max_upgrades: int = 2
+var max_upgrades: int = 4
 
 
 func _process(_delta):

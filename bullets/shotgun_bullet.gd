@@ -1,5 +1,11 @@
 extends Bullet
 
+var bullet_lifetime = 0.4
+
+@onready var lifespan_timer = %LifespanTimer
+
+func _ready():
+	lifespan_timer.wait_time = bullet_lifetime
 
 func _on_lifespan_timer_timeout():
 	queue_free()
