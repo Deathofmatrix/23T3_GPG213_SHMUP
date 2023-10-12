@@ -1,33 +1,26 @@
 class_name TurretEnemy
 extends Enemy
 
+var move_speed = 100
+var distance_moved = 0
 
-@export var speed = 100  
-var initial_position: Vector2
-var target_position: Vector2
-var is_moving: bool = false
-var end_position: Vector2
-
-func _ready():
-	position = initial_position
-	target_position = end_position
-	start_moving()
-
-func start_moving():
-	if !is_moving:
-#		move_to(target_position)
-		is_moving = true
-
-func stop_moving():
-#	move_and_slide(Vector2.ZERO)
-	is_moving = false
 
 func _process(delta):
-	if is_moving and position.distance_to(target_position) < 1.0:
-		# The enemy is close to the target position, so stop moving.
-		position = target_position
-		stop_moving()
+	if distance_moved < 100:
+		var new_position = position + Vector2(0, move_speed * delta)
+		if new_position.y > 100:
+			new_position.y = 100
+		position = new_position
+		distance_moved = position.y
 
-# Once in place it starts shooting at the player
+	if position.y >= 100:
+		attack_player()
 
-# has around same health as asteroids
+
+func attack_player():
+	print("Now attacking player")
+	look_at(GlobalPlayerInfo.player_position)
+	
+	# find the position of the player
+	# shoot at the player
+	# repeat

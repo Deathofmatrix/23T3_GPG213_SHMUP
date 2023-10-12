@@ -1,3 +1,6 @@
+res://bullets
+res://weapons/wingsword
+res://enemies/weapons
 res://enemies
 res://pickups/upgrades
 res://player
@@ -11,4 +14,3 @@ res://UI
 res://backgrounds
 res://obstacles
 res://weapons
-res://bullets

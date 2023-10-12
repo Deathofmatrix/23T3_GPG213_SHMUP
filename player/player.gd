@@ -36,7 +36,7 @@ func _process(_delta):
 #	if Input.is_action_just_pressed("secondary_action"):
 #		health_system.change_max_health(200)
 #	if Input.is_action_just_pressed("primary_action"):
-#		health_system.change_max_health(100)
+#		health_system.change_max_health(100)	
 
 func _physics_process(delta):
 	

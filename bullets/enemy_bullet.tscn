@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwaf44twlpajm"]
+
+[ext_resource type="Script" path="res://bullets/pistol_bullet.gd" id="1_0n0pl"]
+[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="2_kug8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h4ju"]
+size = Vector2(16, 6)
+
+[node name="EnemyBullet" type="Area2D"]
+collision_layer = 2
+collision_mask = 20
+script = ExtResource("1_0n0pl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.501961, 0, 0.235294, 1)
+rotation = 1.5708
+texture = ExtResource("2_kug8w")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7h4ju")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited" flags=18]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbtxbmpxuppgp"]
+
+[ext_resource type="Script" path="res://enemies/weapons/enemy_weapon.gd" id="1_23l1e"]
+
+[node name="EnemyWeapon" type="Node2D"]
+script = ExtResource("1_23l1e")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="."]
