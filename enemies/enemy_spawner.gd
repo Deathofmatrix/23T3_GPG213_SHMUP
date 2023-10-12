@@ -2,13 +2,11 @@ extends Node2D
 
 signal enemy_killed
 
-@export var chance_to_spawn_enemy = 0.9
-@export var chance_to_spawn_2_enemy = 0.3
+@export var max_enemy_spawns = 1
 
 var enemy_scenes: Array = [
-	preload("res://enemies/follow_enemy.tscn")
-	]
-	
+	preload("res://enemies/follow_enemy.tscn")]
+
 var min_x_spawn: float
 var max_x_spawn: float
 
@@ -16,26 +14,41 @@ var max_x_spawn: float
 @onready var marker_max_x_spawn = $Markers/MarkerMaxXSpawn
 
 func _ready():
+	EventManager.connect("difficulty_level_changed", update_difficulty)
 	min_x_spawn = marker_min_x_spawn.position.x
 	max_x_spawn = marker_max_x_spawn.position.x
 
-func _process(_delta):
-	if round(Time.get_ticks_msec()/1000) > 120:
-		$CreationTimer.wait_time = 0.5
-	elif Time.get_ticks_msec()/1000 > 60:
-		$CreationTimer.wait_time = 1
+
+func create_enemy(enemy_index: int, _max_enemy_spawns: int):
+	for x in randi_range(0, _max_enemy_spawns):
+		var selected_position = Vector2(randf_range(min_x_spawn, max_x_spawn), 0)
+		var enemy = enemy_scenes[enemy_index].instantiate() as Enemy
+		enemy.position = selected_position
+		add_child(enemy)
 
 
-func create_enemy(enemy_index: int):
-	var selected_position = Vector2(randf_range(min_x_spawn, max_x_spawn), 0)
-	var enemy = enemy_scenes[enemy_index].instantiate() as Enemy
-	enemy.position = selected_position
-	add_child(enemy)
-
+func update_difficulty(difficulty_level: int):
+	print("difficulty level: " + str(difficulty_level))
+	match difficulty_level:
+		2:
+			max_enemy_spawns = 2
+		3:
+			max_enemy_spawns = 3
+		4:
+			max_enemy_spawns = 5
+		5:
+			max_enemy_spawns = 8
+		6:
+			pass
+		7:
+			pass
+		8:
+			pass
+		9:
+			pass
+		10:
+			pass
 
 
 func _on_creation_timer_timeout():
-	if randf_range(0,1) <= chance_to_spawn_enemy:
-		create_enemy(0)
-		if randf_range(0,1) <= chance_to_spawn_2_enemy:
-			create_enemy(0)
+	create_enemy(0, max_enemy_spawns)

@@ -24,11 +24,12 @@ func _ready():
 
 func change_max_health(amount):
 	if amount >= max_health:
+		var new_health = health + amount - max_health
 		max_health = amount
-		health += amount - max_health
+		health = new_health
 	elif amount < max_health:
 		max_health = amount
-		if health >= max_health:
+		if health > max_health:
 			health = max_health
 		print("changed Max Health to a lower value")
 	max_health_updated.emit(max_health)

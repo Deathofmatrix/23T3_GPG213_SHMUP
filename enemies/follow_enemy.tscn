@@ -29,7 +29,7 @@ _data = {
 
 [node name="FollowEnemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_3qm14")
@@ -46,7 +46,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0h8my")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_qjubl")]
-max_health = 20
+max_health = 50
 wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

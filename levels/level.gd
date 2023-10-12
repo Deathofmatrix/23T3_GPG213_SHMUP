@@ -35,3 +35,7 @@ func _on_hud_score_increased(score):
 func _on_player_player_killed():
 	load_level("game_over")
 
+
+func _on_difficulty_scaling_timer_timeout():
+	EventManager.increase_difficulty()
+	print("increase difficulty")

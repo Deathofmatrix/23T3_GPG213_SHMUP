@@ -10,8 +10,9 @@ var max_upgrades: int = 4
 
 
 func _process(_delta):
-	if Input.is_action_pressed("primary_action"):
-		shoot_bullet()
+	shoot_bullet()
+#	if Input.is_action_pressed("primary_action"):
+#		shoot_bullet()
 
 func shoot_bullet():
 	pass

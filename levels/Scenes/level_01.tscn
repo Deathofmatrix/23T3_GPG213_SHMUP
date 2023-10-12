@@ -15,6 +15,12 @@ level_name = "main_menu"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="ScalingInfo" type="Node2D" parent="."]
+
+[node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
+wait_time = 60.0
+autostart = true
+
 [node name="HUDCanvas" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUDCanvas" node_paths=PackedStringArray("player_character", "level") instance=ExtResource("4_64i7p")]
@@ -49,6 +55,7 @@ position = Vector2(-320, -180)
 [node name="UpgradeSpawner" parent="." instance=ExtResource("8_ysjd3")]
 position = Vector2(0, -180)
 
+[connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]
 [connection signal="pressed" from="HUDCanvas/Button" to="." method="_on_button_pressed"]
 [connection signal="player_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_health_updated"]

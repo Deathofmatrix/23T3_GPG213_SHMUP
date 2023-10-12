@@ -38,7 +38,7 @@ func create_upgrade(marker):
 
 
 func assign_upgrade_type():
-	print("choosing upgrade")
+#	print("choosing upgrade")
 	var upgrade_choice = all_weapon_upgrades[randi() % all_weapon_upgrades.size()].instantiate()
-	print(upgrade_choice)
+#	print(upgrade_choice)
 	return upgrade_choice

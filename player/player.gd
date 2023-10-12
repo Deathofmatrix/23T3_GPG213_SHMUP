@@ -23,20 +23,20 @@ var Shotgun = preload("res://weapons/shotgun/shotgun.tscn")
 @onready var animation_player = $AnimationPlayer
 @onready var current_weapons = %CurrentWeapons
 
+
 func _ready():
 	weapons.append(current_weapons.get_child(0))
 	GlobalPlayerInfo.player = self
 	health_system.change_max_health(starting_max_health)
-	
 
 func _process(_delta):
 	GlobalPlayerInfo.player_position = global_position
 	lock_player_to_screen()
 	give_invulnerability()
-	if Input.is_action_just_pressed("secondary_action"):
-		var shotgun = Shotgun.instantiate()
-#		print(shotgun)
-		add_weapon(shotgun)
+#	if Input.is_action_just_pressed("secondary_action"):
+#		health_system.change_max_health(200)
+#	if Input.is_action_just_pressed("primary_action"):
+#		health_system.change_max_health(100)
 
 func _physics_process(delta):
 	
@@ -107,7 +107,6 @@ func give_invulnerability():
 
 
 func _on_hit_box_body_entered(_body):
-#	print("playerhit")
 	health_system.handle_damage(10)
 
 
@@ -136,5 +135,4 @@ func _on_xp_manager_xp_updated(xp):
 
 func _on_upgrade_collector_area_entered(area):
 	var upgrade_type: Weapon = area.upgrade_collected()
-#	print(upgrade_type.weapon_name)
 	add_weapon(upgrade_type)

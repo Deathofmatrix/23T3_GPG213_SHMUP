@@ -1,8 +1,9 @@
+Node2D
+Timer
 Sprite2D
 CollisionShape2D
 Area2D
 VisibleOnScreenNotifier2D
-Node2D
 CharacterBody2D
 Marker2D
 Button
@@ -16,7 +17,6 @@ Control
 AnimationPlayer
 Node
 TextureRect
-Timer
 StaticBody2D
 TextureProgressBar
 ProgressBar
