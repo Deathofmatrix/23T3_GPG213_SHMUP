@@ -3,11 +3,10 @@ extends Node2D
 
 @export var icon_image: Texture2D
 @export var bullet_damage: int = 10
+@export var upgrade_number: int = 1
+@export var max_upgrades: int = 4
 
 var weapon_name: String = ""
-var upgrade_number: int = 1
-var max_upgrades: int = 4
-
 
 func _process(_delta):
 	shoot_bullet()
@@ -24,6 +23,7 @@ func check_if_can_upgrade():
 		return false
 	else:
 		return true
+
 
 func upgrade():
 	print("haven't overridden upgrade func")

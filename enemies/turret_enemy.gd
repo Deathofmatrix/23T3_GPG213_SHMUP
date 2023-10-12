@@ -1,5 +1,5 @@
 class_name TurretEnemy
-extends CharacterBody2D
+extends Enemy
 
 
 @export var speed = 100  

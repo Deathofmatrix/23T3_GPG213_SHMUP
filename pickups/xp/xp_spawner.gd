@@ -8,7 +8,7 @@ func _ready():
 	EventManager.connect("enemy_destroyed", spawn_xp)
 
 func spawn_xp(pos, _points):
-	if randi_range(0,10) <= 4: return
+	if randi_range(1,10) <= 3: return
 	
 	var xp = ExperienceScene.instantiate()
 	xp.position = pos

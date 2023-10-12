@@ -86,6 +86,7 @@ func _check_weapon_duplicate(weapon):
 	
 	return false
 
+
 func upgrade_weapon(weapon: Weapon):
 	weapon.upgrade()
 

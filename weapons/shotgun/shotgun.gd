@@ -49,7 +49,5 @@ func upgrade():
 		4:
 			print("level 4 shotgun")
 			bullet_lifetime += 0.2
-		5:
-			pass
 		_:
 			print("shotgun level outside of scope")

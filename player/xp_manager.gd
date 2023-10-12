@@ -16,7 +16,7 @@ var current_xp_required: int = get_required_xp(current_xp_level + 1)
 # the required xp for the first level is 11
 
 func get_required_xp(level):
-	return round(pow(level, 1.2) + level * 7)
+	return round(pow(level, 1.5) + level * 4)
 
 
 func gain_xp(amount):
