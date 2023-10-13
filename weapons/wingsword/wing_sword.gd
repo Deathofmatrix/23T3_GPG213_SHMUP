@@ -14,7 +14,6 @@ func _init():
 
 func _on_shoot_speed_timer_timeout():
 	can_shoot = true
-	
 
 
 func shoot_bullet():
@@ -50,5 +49,5 @@ func upgrade():
 			print("level 4 wingsword")
 			bullet_lifetime += 0.2
 		_:
-			print("shotgun level outside of scope")
+			print("wingsword level outside of scope")
 

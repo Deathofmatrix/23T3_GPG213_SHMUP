@@ -1,6 +1,6 @@
 extends Bullet
 
-var bullet_lifetime = 0.2
+var bullet_lifetime = 2
 
 @onready var lifespan_timer = $Timer
 
