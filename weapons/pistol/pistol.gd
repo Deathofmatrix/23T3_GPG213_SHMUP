@@ -41,13 +41,16 @@ func upgrade():
 		2:
 			print("level 2 pistol")
 			bullet_damage += 10
+			current_description = "Pistol Damage ++"
 		3:
 			print("level 3 pistol")
 			shoot_speed_timer.wait_time = 0.4
+			current_description = "Fire Rate +"
 		4:
 			print("level 4 pistol")
 			bullet_damage += 5
 			shoot_speed_timer.wait_time = 0.2
+			current_description = "Bullet Damage +\nFire Rate ++"
 		5:
 			print("level 5 pistol")	
 		_:

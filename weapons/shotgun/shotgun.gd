@@ -43,11 +43,14 @@ func upgrade():
 		2:
 			print("level 2 shotgun")
 			shoot_speed_timer.wait_time = 1
+			current_description = "Fire Rate +"
 		3:
 			print("level 3 shotgun")
 			bullet_damage += 10
+			current_description = "Shotgun Damage +"
 		4:
 			print("level 4 shotgun")
 			bullet_lifetime += 0.2
+			current_description = "Spread Size +"
 		_:
 			print("shotgun level outside of scope")
