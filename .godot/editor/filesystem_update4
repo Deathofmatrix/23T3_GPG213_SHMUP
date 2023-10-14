@@ -4,12 +4,7 @@ res://player/hit_flash_shader.tres
 res://player/player.tscn
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
-res://weapons/pistol/pistol.tscn
-res://weapons/wingsword/wing_sword.tscn
-res://bullets/sword_bullet.tscn
-res://bullets/shotgun_bullet.tscn
+res://weapons/wingsword/wingarang_gun.tscn
+res://bullets/wingarang_bullet.tscn
 res://weapons/shotgun/shotgun.tscn
-res://pickups/upgrades/upgrade_spawner.tscn
-res://pickups/xp/experience.tscn
-res://player/xp_manager.tscn
-res://player/xp_manager.gd
+res://pickups/upgrades/upgrade_spawner.gd

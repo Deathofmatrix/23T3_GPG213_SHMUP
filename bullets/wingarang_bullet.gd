@@ -1,24 +1,15 @@
 extends Bullet
 
-@export var bullet_lifetime: float = 2
-
-@onready var lifespan_timer = $Timer
+var rotation_speed = 10
 
 func _ready():
-	lifespan_timer.wait_time = bullet_lifetime
+	direction = Vector2.ZERO
 
-func _on_timer_timeout():
-	queue_free()
+func _process(delta):
+	$".".rotate(1 * rotation_speed * delta)
 
 func _on_body_entered(body):
-	queue_free()
 	var child_node = body.get_node_or_null("HealthSystem") 
-	
 
 	if child_node != null and child_node.has_method("handle_damage"):
 		child_node.handle_damage(bullet_damage)
-
-
-
-
-

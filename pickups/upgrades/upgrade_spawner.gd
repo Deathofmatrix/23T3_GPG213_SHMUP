@@ -4,7 +4,8 @@ extends Node2D
 @export var all_weapon_upgrades: Array = [
 	preload("res://weapons/pistol/pistol.tscn"),
 	preload("res://weapons/shotgun/shotgun.tscn"),
-	preload("res://weapons/wingsword/wing_sword.tscn")
+	preload("res://weapons/wingsword/wing_sword.tscn"),
+	preload("res://weapons/wingsword/wingarang_gun.tscn")
 ]
 
 @onready var UpgradePickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")

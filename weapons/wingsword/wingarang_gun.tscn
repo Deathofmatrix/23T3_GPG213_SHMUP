@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxcrxb14d5mmy"]
+
+[ext_resource type="Script" path="res://weapons/wingsword/wingarang_gun.gd" id="1_lwxno"]
+
+[sub_resource type="Curve2D" id="Curve2D_lp5rr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -14, -17, 0, 0, 0, 0, -1, -51, -0.353553, -61.1647, 0.353553, 61.1647, 77, -1, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, -14, 15)
+}
+point_count = 5
+
+[node name="WingarangGun" type="Node2D"]
+script = ExtResource("1_lwxno")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(14, 0)
+curve = SubResource("Curve2D_lp5rr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-14, -17)
+rotation = -1.20559
+rotates = false
+cubic_interp = false
+
+[node name="CantShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="CantShootTimer" to="." method="_on_cant_shoot_timer_timeout"]

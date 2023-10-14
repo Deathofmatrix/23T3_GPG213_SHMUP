@@ -15,7 +15,7 @@ var current_xp_required: int = get_required_xp(current_xp_level + 1)
 #	print (current_xp_required) 
 # the required xp for the first level is 11
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("dev_action"):
 		level_up()
 
