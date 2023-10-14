@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=10 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
 [ext_resource type="PackedScene" uid="uid://cq61d13iqc062" path="res://obstacles/obstacle_spawner.tscn" id="2_24k8o"]
 [ext_resource type="PackedScene" uid="uid://dw5gm0met1k0c" path="res://backgrounds/parallax_scrolling_scene.tscn" id="3_21dg8"]
+[ext_resource type="PackedScene" uid="uid://v5qh65aax1xy" path="res://UI/upgrade_popup.tscn" id="3_70x4p"]
 [ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/hud.tscn" id="4_64i7p"]
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 [ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://pickups/xp/xp_spawner.tscn" id="6_ac72y"]
@@ -36,6 +37,8 @@ offset_bottom = 160.0
 theme_override_font_sizes/font_size = 13
 text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
+
+[node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
