@@ -12,4 +12,4 @@ res://weapons/shotgun/shotgun.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
 res://pickups/xp/experience.tscn
 res://player/xp_manager.tscn
-res://weapons/weapon.gd
+res://player/xp_manager.gd
