@@ -1,10 +1,11 @@
-res://managers/scene_switcher.tscn
+res://bullets/sword_bullet.tscn
 res://shaders/hit_flash_shader.tres
 res://player/hit_flash_shader.tres
+res://managers/scene_switcher.tscn
 res://player/player.tscn
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
 res://weapons/wingsword/wingarang_gun.tscn
 res://bullets/wingarang_bullet.tscn
 res://weapons/shotgun/shotgun.tscn
-res://pickups/upgrades/upgrade_spawner.gd
+res://weapons/wingsword/wing_sword.tscn

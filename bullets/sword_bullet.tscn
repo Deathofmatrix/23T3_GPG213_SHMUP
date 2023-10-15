@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://divay34c5s358"]
 
 [ext_resource type="Script" path="res://bullets/sword_bullet.gd" id="1_xrg35"]
-[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="2_67f0o"]
+[ext_resource type="Texture2D" uid="uid://cwhafdqdp41wb" path="res://bullets/WingSwordAlpha.png" id="2_xplvb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oh18u"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rwpm"]
+radius = 7.0
 
 [node name="SwordBullet" type="Area2D"]
 collision_layer = 2
@@ -13,11 +13,8 @@ script = ExtResource("1_xrg35")
 bullet_lifetime = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 0)
-rotation = 1.5708
-texture = ExtResource("2_67f0o")
-region_enabled = true
-region_rect = Rect2(121, 18, 12, 6)
+position = Vector2(2, 0)
+texture = ExtResource("2_xplvb")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
@@ -25,7 +22,7 @@ one_shot = true
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_oh18u")
+shape = SubResource("CapsuleShape2D_2rwpm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
