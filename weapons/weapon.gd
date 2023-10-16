@@ -5,8 +5,13 @@ extends Node2D
 @export var bullet_damage: int = 10
 @export var upgrade_number: int = 1
 @export var max_upgrades: int = 4
+@export var weapon_name: String = ""
+@export var weapon_description: String = ""
 
-var weapon_name: String = ""
+var current_description: String = ""
+
+func _ready():
+	current_description = weapon_description
 
 func _process(_delta):
 	shoot_bullet()

@@ -7,6 +7,8 @@
 [node name="Shotgun" type="Node2D"]
 script = ExtResource("1_pyvet")
 icon_image = ExtResource("2_1yoj7")
+weapon_name = "Shotgun"
+weapon_description = "Fires bullets in a spread"
 
 [node name="BulletSpawns" type="Node2D" parent="."]
 
