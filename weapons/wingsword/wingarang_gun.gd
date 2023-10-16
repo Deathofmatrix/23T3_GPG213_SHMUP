@@ -37,7 +37,8 @@ func shoot_bullet():
 func spawn_bullet(spawn_point):
 	var bullet = Bullet.instantiate() as Bullet
 	bullet.position = spawn_point.position
-	$Path2D/PathFollow2D.add_child(bullet)
+#	$Path2D/PathFollow2D.add_child(bullet)
+	$Path2D/PathFollow2D.call_deferred("add_child", bullet)
 #	print("fired")
 
 
