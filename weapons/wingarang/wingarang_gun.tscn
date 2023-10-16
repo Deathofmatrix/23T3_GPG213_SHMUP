@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxcrxb14d5mmy"]
+[gd_scene load_steps=4 format=3 uid="uid://dxcrxb14d5mmy"]
 
-[ext_resource type="Script" path="res://weapons/wingsword/wingarang_gun.gd" id="1_lwxno"]
+[ext_resource type="Script" path="res://weapons/wingarang/wingarang_gun.gd" id="1_l36rq"]
+[ext_resource type="Texture2D" uid="uid://dap34n6ldpxsw" path="res://weapons/wingarang/Wingarang_icon.png" id="2_pepcd"]
 
 [sub_resource type="Curve2D" id="Curve2D_lp5rr"]
 _data = {
@@ -9,7 +10,8 @@ _data = {
 point_count = 5
 
 [node name="WingarangGun" type="Node2D"]
-script = ExtResource("1_lwxno")
+script = ExtResource("1_l36rq")
+icon_image = ExtResource("2_pepcd")
 weapon_name = "Wingarang"
 weapon_description = "Shoot a wingarang out that comes back to you"
 

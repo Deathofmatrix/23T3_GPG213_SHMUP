@@ -5,7 +5,7 @@ extends Node2D
 	preload("res://weapons/pistol/pistol.tscn"),
 	preload("res://weapons/shotgun/shotgun.tscn"),
 	preload("res://weapons/wingsword/wing_sword.tscn"),
-	preload("res://weapons/wingsword/wingarang_gun.tscn")
+	preload("res://weapons/wingarang/wingarang_gun.tscn")
 ]
 
 @onready var UpgradePickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
