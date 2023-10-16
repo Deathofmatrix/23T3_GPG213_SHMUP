@@ -42,12 +42,15 @@ func upgrade():
 		2:
 			print("level 2 wingsword")
 			shoot_speed_timer.wait_time = 1
+			current_description = "Wingsword firerate ++"
 		3:
 			print("level 3 wingsword")
 			bullet_damage += 10
+			current_description = "Wingsword Damage ++"
 		4:
 			print("level 4 wingsword")
 			bullet_lifetime += 0.2
+			current_description = "Wingarang distance ++"
 		_:
 			print("wingsword level outside of scope")
 

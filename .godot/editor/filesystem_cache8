@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1697442406
+::res://::1697442463
 export_presets.cfg::TextFile::-1::1696502378::0::1::::<><>::
 icon.svg::CompressedTexture2D::8665198577807248690::1695978994::1695978999::1::::<><>::
 README.md::TextFile::-1::1695995123::0::1::::<><>::
@@ -44,9 +44,9 @@ GameOverController.gd::GDScript::-1::1696502326::0::1::::<>Control<>::
 level_01.tscn::PackedScene::3879722584592675590::1697441189::0::1::::<><>::uid://31dxe106neto
 level_game_over.tscn::PackedScene::2463361371888181357::1696908918::0::1::::<><>::res://levels/level.gd<>uid://b4w4i485t05ij
 level_main_menu.tscn::PackedScene::5290121523084617545::1696829256::0::1::::<><>::res://levels/level.gd<>uid://b4w4i485t05ij
-::res://managers/::1697441892
+::res://managers/::1697442412
 scene_switcher.gd::GDScript::-1::1696498070::0::1::::<>Node<>::
-scene_switcher.tscn::PackedScene::1483727599269413995::1697441892::0::1::::<><>::res://managers/scene_switcher.gd<>uid://chmtr8bwhf6fl::::res://levels/Scenes/level_main_menu.tscn
+scene_switcher.tscn::PackedScene::1483727599269413995::1697442412::0::1::::<><>::res://managers/scene_switcher.gd<>uid://chmtr8bwhf6fl::::res://levels/Scenes/level_main_menu.tscn
 ::res://obstacles/::1696908919
 meteor.gd::GDScript::-1::1696908239::0::1::::Meteor<>CharacterBody2D<>::
 Meteor.png::CompressedTexture2D::8916447383263247848::1696400160::1696400160::1::::<><>::
@@ -112,8 +112,8 @@ pistol_icon.png::CompressedTexture2D::6651781594663911981::1697028804::169702880
 shotgun.gd::GDScript::-1::1697441189::0::1::::<>Weapon<>::
 shotgun.tscn::PackedScene::6309487185152769035::1697441189::0::1::::<><>::res://weapons/shotgun/shotgun.gd<>uid://ch5qurovs508q
 shotgun_icon.png::CompressedTexture2D::5327102708740204806::1697028808::1697028808::1::::<><>::
-::res://weapons/wingsword/::1697441892
+::res://weapons/wingsword/::1697442412
 wingarang_gun.gd::GDScript::-1::1697441181::0::1::::<>Weapon<>::
 wingarang_gun.tscn::PackedScene::8778807566410104736::1697441831::0::1::::<><>::res://weapons/wingsword/wingarang_gun.gd
 wing_sword.gd::GDScript::-1::1697245900::0::1::::<>Weapon<>::
-wing_sword.tscn::PackedScene::1365248947947185196::1697441892::0::1::::<><>::uid://dvpqs4dayer11::::res://icon.svg<>res://weapons/wingsword/wing_sword.gd
+wing_sword.tscn::PackedScene::1365248947947185196::1697442412::0::1::::<><>::uid://dvpqs4dayer11::::res://icon.svg<>res://weapons/wingsword/wing_sword.gd

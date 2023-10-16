@@ -25,10 +25,8 @@ func _on_cant_shoot_timer_timeout():
 func shoot_bullet():	
 	if not can_shoot: return
 
-#	print(can_shoot)
 	for spawn_point in bullet_spawn.get_children():
 		var _new_bullet = spawn_bullet(spawn_point)
-#		print("did shoot")
 
 	can_shoot_timer.start()
 	can_shoot = false
@@ -42,3 +40,21 @@ func spawn_bullet(spawn_point):
 #	print("fired")
 
 
+func upgrade():
+	upgrade_number += 1
+	match upgrade_number:
+		2:
+			print("level 2 Wingarang")
+			bullet_damage += 10
+			current_description = "Wingarang Damage ++"
+		3:
+			print("level 3 Wingarang")
+			current_description = "Wingarang"
+		4:
+			print("level 4 Wingarang")
+			bullet_damage += 5
+			current_description = "Bullet Damage +"
+		5:
+			print("level 5 Wingarang")	
+		_:
+			print("Wingarang level outside of scope")

@@ -5,6 +5,8 @@
 
 [node name="WingSword" type="Node2D"]
 script = ExtResource("1_tsq6q")
+weapon_name = "WingSword"
+weapon_description = "Idk Does something i guess"
 
 [node name="BulletSpawns" type="Node2D" parent="."]
 

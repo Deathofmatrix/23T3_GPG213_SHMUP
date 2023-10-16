@@ -10,6 +10,8 @@ point_count = 5
 
 [node name="WingarangGun" type="Node2D"]
 script = ExtResource("1_lwxno")
+weapon_name = "Wingarang"
+weapon_description = "Shoot a wingarang out that comes back to you"
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(14, 0)

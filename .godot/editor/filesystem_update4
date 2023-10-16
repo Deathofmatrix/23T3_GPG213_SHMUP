@@ -1,2 +1,7 @@
-res://managers/scene_switcher.tscn
+res://weapons/wingsword/wingarang_gun.tscn
+res://weapons/wingsword/wingarang_gun.gd
 res://weapons/wingsword/wing_sword.tscn
+res://weapons/wingsword/wing_sword.gd
+res://managers/scene_switcher.tscn
+res://weapons/pistol/pistol.tscn
+res://weapons/shotgun/shotgun.tscn
