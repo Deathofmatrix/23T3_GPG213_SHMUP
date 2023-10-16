@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+AnimationPlayer
+Label
+TextureRect
+PanelContainer
+Area2D
+CollisionShape2D
+Timer
+>>>>>>> upgrade-feedback
 Sprite2D
 Timer
 PathFollow2D
@@ -9,20 +19,16 @@ Node2D
 CharacterBody2D
 VisibleOnScreenNotifier2D
 Button
-Label
 AudioStreamPlayer2D
 CanvasLayer
 SubViewport
 Camera2D
 ColorRect
 Control
-AnimationPlayer
 Node
-TextureRect
 StaticBody2D
 TextureProgressBar
 ProgressBar
-PanelContainer
 CenterContainer
 MarginContainer
 BoxContainer
