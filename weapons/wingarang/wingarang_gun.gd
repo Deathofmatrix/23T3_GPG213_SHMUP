@@ -1,6 +1,6 @@
 extends Weapon
 
-var Bullet = preload ("res://bullets/wingarang_bullet.tscn")
+var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet.tscn")
 
 var my_delta = 0
 var can_shoot = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://p4pk2b64vi4e"]
+[gd_scene load_steps=7 format=3 uid="uid://p4pk2b64vi4e"]
 
 [ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="1_7nffw"]
 [ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_ghp4w"]
+[ext_resource type="PackedScene" uid="uid://c4vx0f4rkdxre" path="res://enemies/enemy_bullets/turret_bullet.tscn" id="2_so8rb"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_iygrd"]
 [ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="4_14t0u"]
 
@@ -12,9 +13,10 @@ radius = 16.2788
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_7nffw")
+Bullet = ExtResource("2_so8rb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 3.14159
+rotation = -1.5708
 texture = ExtResource("2_ghp4w")
 region_enabled = true
 region_rect = Rect2(99, 3, 32, 24)
@@ -26,3 +28,13 @@ shape = SubResource("CircleShape2D_r87lm")
 wait_time = 0.01
 
 [node name="EnemyWeapon" parent="." instance=ExtResource("4_14t0u")]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
+
+[node name="ReloadTimer" type="Timer" parent="RayCast2D"]
+one_shot = true
+autostart = true
+
+[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
+[connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_reload_timer_timeout"]

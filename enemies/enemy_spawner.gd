@@ -5,7 +5,8 @@ signal enemy_killed
 @export var max_enemy_spawns = 1
 
 var enemy_scenes: Array = [
-	preload("res://enemies/follow_enemy.tscn")]
+	preload("res://enemies/follow_enemy.tscn"),
+	preload("res://enemies/turret_enemy.tscn")]
 
 var min_x_spawn: float
 var max_x_spawn: float
@@ -22,7 +23,8 @@ func _ready():
 func create_enemy(enemy_index: int, _max_enemy_spawns: int):
 	for x in randi_range(0, _max_enemy_spawns):
 		var selected_position = Vector2(randf_range(min_x_spawn, max_x_spawn), 0)
-		var enemy = enemy_scenes[enemy_index].instantiate() as Enemy
+		var selected_enemy_scene = enemy_scenes.pick_random()
+		var enemy = selected_enemy_scene.instantiate() as Enemy
 		enemy.position = selected_position
 		add_child(enemy)
 

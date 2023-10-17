@@ -61,7 +61,7 @@ _data = {
 "invulnerable_flash_anim": SubResource("Animation_fr33m")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_system")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_system") groups=["Player"]]
 collision_mask = 28
 motion_mode = 1
 script = ExtResource("1_d1dy8")
