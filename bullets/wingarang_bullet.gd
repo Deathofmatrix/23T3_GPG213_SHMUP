@@ -7,6 +7,9 @@ func _ready():
 
 func _process(delta):
 	$".".rotate(1 * rotation_speed * delta)
+	
+#	if $Path2D/PathFollow2D.progress_ratio == 1:
+#		$Path2D/PathFollow2D.queue_free()
 
 func _on_body_entered(body):
 	var child_node = body.get_node_or_null("HealthSystem") 

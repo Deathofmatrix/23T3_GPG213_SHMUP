@@ -11,5 +11,11 @@ res://enemies/enemy_bullets/enemy_bullet.tscn
 res://enemies/follow_enemy.tscn
 res://enemies/turret_enemy.tscn
 res://enemies/enemy_spawner.gd
+res://obstacles/obstacle_spawner.tscn
 res://enemies/turret_enemy.gd
-res://player/resources/health_system.gd
+res://pickups/xp/xp_spawner.gd
+res://bullets/pistol_bullet.tscn
+res://weapons/wingarang/wingarang_gun.gd
+res://UI/hud.tscn
+res://player/xp_manager.tscn
+res://bullets/wingarang_bullet.gd

@@ -11,23 +11,34 @@ var move_speed = 150
 
 func _ready():
 	weapon_name = "Wingarang"
-	shoot_bullet()
 
-func _process(delta):
+
+func _process(_delta):
 #	my_delta = delta
+	shoot_bullet()
+#	print (can_shoot)
+#	print(can_shoot_timer.is_stopped())
+
+func _physics_process(delta):
 	$Path2D/PathFollow2D.progress += move_speed * delta
+	if $Path2D/PathFollow2D.progress_ratio == 1:
+		pass
+#		if bullet:
+#			bullet.queue_free()
+
 
 
 func _on_cant_shoot_timer_timeout():
 	can_shoot = true
+	print("timer finished")
 
 
-func shoot_bullet():	
+func shoot_bullet():
 	if not can_shoot: return
 
 	for spawn_point in bullet_spawn.get_children():
 		var _new_bullet = spawn_bullet(spawn_point)
-
+	
 	can_shoot_timer.start()
 	can_shoot = false
 
@@ -38,6 +49,7 @@ func spawn_bullet(spawn_point):
 #	$Path2D/PathFollow2D.add_child(bullet)
 	$Path2D/PathFollow2D.call_deferred("add_child", bullet)
 #	print("fired")
+	
 
 
 func upgrade():

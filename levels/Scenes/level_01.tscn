@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=10 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 [ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://pickups/xp/xp_spawner.tscn" id="6_ac72y"]
 [ext_resource type="PackedScene" uid="uid://d0gynaifufxo8" path="res://pickups/upgrades/upgrade_spawner.tscn" id="8_ysjd3"]
-[ext_resource type="PackedScene" uid="uid://p4pk2b64vi4e" path="res://enemies/turret_enemy.tscn" id="10_7vugq"]
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_hrodq")
@@ -62,9 +61,6 @@ position = Vector2(-320, -180)
 
 [node name="UpgradeSpawner" parent="." instance=ExtResource("8_ysjd3")]
 position = Vector2(0, -180)
-
-[node name="TurretEnemy" parent="." instance=ExtResource("10_7vugq")]
-position = Vector2(-163, -252)
 
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]
