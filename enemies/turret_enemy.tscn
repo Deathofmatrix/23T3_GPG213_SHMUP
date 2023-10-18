@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_iygrd"]
 [ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="4_14t0u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r87lm"]
-radius = 16.2788
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nuknk"]
+radius = 11.0
+height = 32.0
 
 [node name="TurretEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -22,7 +23,7 @@ region_enabled = true
 region_rect = Rect2(99, 3, 32, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_r87lm")
+shape = SubResource("CapsuleShape2D_nuknk")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_iygrd")]
 max_health = 30

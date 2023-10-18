@@ -31,7 +31,6 @@ func create_enemy(_enemy_index: int, _max_enemy_spawns: int):
 		add_child(enemy)
 
 
-
 func update_difficulty(difficulty_level: int):
 	print("difficulty level: " + str(difficulty_level))
 	match difficulty_level:
