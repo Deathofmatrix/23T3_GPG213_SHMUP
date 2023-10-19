@@ -72,7 +72,7 @@ func handle_air_resistance(input_axis, delta):
 
 func add_weapon(weapon):
 	if _check_weapon_duplicate(weapon): 
-		var duplicate_weapon: Weapon = _check_weapon_duplicate(weapon)
+		var duplicate_weapon = _check_weapon_duplicate(weapon)
 		upgrade_weapon(duplicate_weapon)
 		weapon.queue_free()
 		emit_signal("upgrade_added_or_upgraded", duplicate_weapon.weapon_name, duplicate_weapon.upgrade_number, duplicate_weapon.current_description)
