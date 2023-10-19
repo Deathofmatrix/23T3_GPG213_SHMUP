@@ -11,21 +11,15 @@ var current_xp: int = 0
 var current_xp_total: int = 0
 var current_xp_required: int = get_required_xp(current_xp_level + 1)
 
-#func _ready():
-#	print (current_xp_required) 
-# the required xp for the first level is 11
+func _ready():
+	if current_xp_level <= 1:
+		current_xp = get_required_xp(current_xp_level + 1) - 1
 
 func _process(_delta):
 	if Input.is_action_just_pressed("dev_action"):
 		level_up()
 
 func get_required_xp(level):
-	if current_xp_level <= 1:
-		current_xp = 10
-		# a little hack that needs fixing 
-		# this is here just to ensure that the first 
-		# XP pick_up results in an upgrade for the player
-	
 	return round(pow(level, 1.5) + level * 4)
 
 

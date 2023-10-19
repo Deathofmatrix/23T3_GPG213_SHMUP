@@ -1,6 +1,8 @@
 class_name Meteor
 extends CharacterBody2D
 
+@export var damage = 5
+
 var movement_speed: int = 100
 var points = 1000
 

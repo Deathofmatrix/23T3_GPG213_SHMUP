@@ -39,10 +39,6 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
-offset_left = 240.0
-offset_top = 305.0
-offset_right = 400.0
-offset_bottom = 353.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
@@ -56,7 +52,7 @@ position = Vector2(-320, -180)
 position = Vector2(-320, -180)
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
-scrolling_speed = 100.0
+scroll_speed_increase = 40.0
 
 [node name="XPSpawner" parent="." instance=ExtResource("6_ac72y")]
 

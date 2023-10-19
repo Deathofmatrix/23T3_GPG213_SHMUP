@@ -87,9 +87,9 @@ func _check_if_upgrade_maxxed(not_maxxed_upgrade_array: Array, possible_upgrade_
 	print ("appended" + possible_upgrade_instance.scene_file_path)
 
 
-func _check_if_upgrades_onscreen_match(no_duplicate_onscrren_arr: Array, current_onscreen_upgrades: Array, not_maxxed_upgrade_instance):
+func _check_if_upgrades_onscreen_match(no_duplicate_onscrren_array: Array, current_onscreen_upgrades: Array, not_maxxed_upgrade_instance):
 	for onscreen_upgrade in current_onscreen_upgrades:
 		if not_maxxed_upgrade_instance.weapon_name == onscreen_upgrade.upgrade_type.weapon_name:
 			return
-	no_duplicate_onscrren_arr.append(load(not_maxxed_upgrade_instance.scene_file_path))
+	no_duplicate_onscrren_array.append(load(not_maxxed_upgrade_instance.scene_file_path))
 	print ("appended" + not_maxxed_upgrade_instance.scene_file_path)

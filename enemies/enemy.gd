@@ -1,6 +1,9 @@
 class_name Enemy
 extends CharacterBody2D
 
+@export var points = 100 
+@export var damage = 10
+
 signal enemy_killed
 
 func hit_flash(sprite):

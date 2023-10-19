@@ -113,8 +113,8 @@ func give_invulnerability():
 # Signals
 
 
-func _on_hit_box_body_entered(_body):			
-	health_system.handle_damage(10)
+func _on_hit_box_body_entered(body):
+	health_system.handle_damage(body.damage)
 
 
 func _on_health_system_health_updated(health):

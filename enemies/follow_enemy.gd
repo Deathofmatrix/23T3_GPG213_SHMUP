@@ -4,7 +4,6 @@ extends Enemy
 var direction = Vector2(0,1)
 
 @export var movement_speed: int = 50
-@export var points = 100
 
 func _process(_delta):
 	direction.x = global_position.direction_to(GlobalPlayerInfo.player_position).x * 1.5
