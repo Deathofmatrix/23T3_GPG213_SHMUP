@@ -1,6 +1,5 @@
 extends Weapon
 
-func spawn_bullet(_spawn_point):
+func spawn_bullet(spawn_point):
 	var bullet = Bullet.instantiate() as Bullet
-	print(bullet)
-
+	

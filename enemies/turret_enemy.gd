@@ -1,29 +1,43 @@
 class_name TurretEnemy
 extends Enemy
 
-var move_speed = 100
+@export var Bullet: PackedScene = null
+@export var points = 175
+@export var move_speed = 25
+
+var target: Node2D = null
+
+var my_delta = 0
+
 var distance_moved = 0
+#var position_moved_to: Vector2
+#var is_in_position = false
 
 
-func _process(delta):
-	if distance_moved < 100:
-		var new_position = position + Vector2(0, move_speed * delta)
-		if new_position.y > 100:
-			new_position.y = 100
-		position = new_position
-		distance_moved = position.y
+@onready var ray_cast = $RayCast2D
+@onready var reload_timer = $RayCast2D/ReloadTimer
 
-	if position.y >= 100:
-		attack_player()
+func _ready():
+	target = find_player()
+#	position_moved_to = randi_range(-140, -75)
 
+#func _process(delta):
+#	if distance_moved < 100:
+#		var new_position = global_position + Vector2(0, move_speed * delta)
+#		var position_moved_to = position.y
+#		if new_position.y > -140:
+#			new_position.y = -140
+#		global_position = new_position
+#		distance_moved = global_position.y
+#
+#		if new_position.y == -140:
+#			is_in_position = true
 
-func attack_player():
-	print("Now attacking player")
-	look_at(GlobalPlayerInfo.player_position)
+func _physics_process(_delta):
+	var direction = Vector2.DOWN
+	velocity = direction * move_speed
+	move_and_slide()
 	
-	# find the position of the player
-	# shoot at the player
-	# repeat
 	if target != null:
 #		print(target)
 		look_at(GlobalPlayerInfo.player_position)
@@ -69,7 +83,8 @@ func _on_reload_timer_timeout():
 
 
 func _on_health_system_health_updated(_health):
-	hit_flash($Sprite2D)
+	pass
+#	hit_flash($Sprite2D)
 
 
 func _on_health_system_killed():
