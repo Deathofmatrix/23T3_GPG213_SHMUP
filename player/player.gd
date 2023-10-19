@@ -71,7 +71,9 @@ func handle_air_resistance(input_axis, delta):
 
 
 func add_weapon(weapon):
-	if _check_weapon_duplicate(weapon): 
+	if weapon.has_method("heal_player"):
+		health_system.handle_heal(weapon.heal_player())
+	elif _check_weapon_duplicate(weapon): 
 		var duplicate_weapon: Weapon = _check_weapon_duplicate(weapon)
 		upgrade_weapon(duplicate_weapon)
 		weapon.queue_free()

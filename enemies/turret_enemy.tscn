@@ -1,10 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://p4pk2b64vi4e"]
+[gd_scene load_steps=6 format=3 uid="uid://p4pk2b64vi4e"]
+
+[ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="1_7nffw"]
+[ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_ghp4w"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_iygrd"]
+[ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="4_14t0u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r87lm"]
+radius = 16.2788
+[gd_scene load_steps=9 format=3 uid="uid://p4pk2b64vi4e"]
 
 [ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="1_7nffw"]
 [ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_ghp4w"]
 [ext_resource type="PackedScene" uid="uid://c4vx0f4rkdxre" path="res://enemies/enemy_bullets/turret_bullet.tscn" id="2_so8rb"]
+[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="3_byfqg"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_iygrd"]
 [ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="4_14t0u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sw8l0"]
+resource_local_to_scene = true
+shader = ExtResource("3_byfqg")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nuknk"]
 radius = 11.0
@@ -14,30 +30,19 @@ height = 32.0
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_7nffw")
-Bullet = ExtResource("2_so8rb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+material = SubResource("ShaderMaterial_sw8l0")
 rotation = -1.5708
 texture = ExtResource("2_ghp4w")
 region_enabled = true
 region_rect = Rect2(99, 3, 32, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_nuknk")
+shape = SubResource("CircleShape2D_r87lm")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_iygrd")]
-max_health = 30
 wait_time = 0.01
 
 [node name="EnemyWeapon" parent="." instance=ExtResource("4_14t0u")]
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(500, 0)
-
-[node name="ReloadTimer" type="Timer" parent="RayCast2D"]
-one_shot = true
-autostart = true
-
-[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
-[connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
-[connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_reload_timer_timeout"]

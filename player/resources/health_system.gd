@@ -43,6 +43,10 @@ func handle_damage(amount):
 		_handle_health(health - amount)
 
 
+func handle_heal(amount):
+	_handle_health(health + amount)
+
+
 func kill():
 	emit_signal("killed") #incase anything else wants to know you're dead
 	get_parent().queue_free()

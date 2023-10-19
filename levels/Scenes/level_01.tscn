@@ -59,8 +59,9 @@ position = Vector2(-320, -180)
 
 [node name="XPSpawner" parent="." instance=ExtResource("6_ac72y")]
 
-[node name="UpgradeSpawner" parent="." instance=ExtResource("8_ysjd3")]
+[node name="UpgradeSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_ysjd3")]
 position = Vector2(0, -180)
+player = NodePath("../Player")
 
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]

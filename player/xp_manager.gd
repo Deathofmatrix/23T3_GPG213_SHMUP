@@ -20,7 +20,7 @@ func _process(_delta):
 		level_up()
 
 func get_required_xp(level):
-	return round(pow(level, 1.5) + level * 4)
+	return round(pow(level, 1.5) + level * 3)
 
 
 func gain_xp(amount):
