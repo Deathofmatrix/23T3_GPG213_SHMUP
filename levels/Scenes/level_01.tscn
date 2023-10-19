@@ -39,6 +39,10 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
+offset_left = 240.0
+offset_top = 305.0
+offset_right = 400.0
+offset_bottom = 353.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)

@@ -50,7 +50,7 @@ func upgrade():
 			current_description = "Wingsword Damage ++"
 		4:
 			print("level 4 wingsword")
-			bullet_lifetime += 0.2
+			bullet_lifetime += 1
 			current_description = "Wingarang distance ++"
 		_:
 			print("wingsword level outside of scope")

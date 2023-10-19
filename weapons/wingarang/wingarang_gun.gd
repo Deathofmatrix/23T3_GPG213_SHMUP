@@ -2,7 +2,6 @@ extends Weapon
 
 var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet.tscn")
 
-var my_delta = 0
 var can_shoot = true
 var move_speed = 150
 
@@ -58,10 +57,11 @@ func upgrade():
 			current_description = "Wingarang Damage ++"
 		3:
 			print("level 3 Wingarang")
-			current_description = "Wingarang"
+			current_description = "Wingarang fast +"
+			move_speed += 100
 		4:
 			print("level 4 Wingarang")
-			bullet_damage += 5
+			bullet_damage += 20
 			current_description = "Bullet Damage +"
 		5:
 			print("level 5 Wingarang")	
