@@ -10,6 +10,9 @@ var level_parameters: Dictionary = {
 	"high_score" : 0
 }
 
+func _ready():
+	EventManager.reset_difficulty()
+
 func load_level_parameters(new_level_parameters: Dictionary):
 	level_parameters = new_level_parameters
 
