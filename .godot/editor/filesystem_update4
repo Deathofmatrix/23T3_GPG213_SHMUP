@@ -2,3 +2,6 @@ res://managers/scene_switcher.tscn
 res://shaders/hit_flash_shader.tres
 res://player/player.tscn
 res://enemies/turret_enemy.tscn
+res://pickups/upgrades/upgrade_spawner.tscn
+res://weapons/default_health_upgrade.tscn
+res://levels/Scenes/level_01.tscn
