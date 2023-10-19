@@ -1,4 +1,4 @@
-res://player/player.tscn
+res://managers/scene_switcher.tscn
 res://shaders/hit_flash_shader.tres
-res://player/player.gd
-res://player/resources/health_system.gd
+res://player/player.tscn
+res://enemies/turret_enemy.tscn

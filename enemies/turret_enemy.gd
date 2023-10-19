@@ -38,7 +38,6 @@ func _physics_process(_delta):
 	velocity = direction * move_speed
 	move_and_slide()
 	
-<<<<<<< HEAD
 	if target != null:
 #		print(target)
 		look_at(GlobalPlayerInfo.player_position)
@@ -90,8 +89,3 @@ func _on_health_system_health_updated(_health):
 
 func _on_health_system_killed():
 	EventManager.emit_signal("enemy_destroyed", global_position, points)
-=======
-	# find the position of the player
-	# shoot at the player
-	# repeat
->>>>>>> parent of 2f5c313 (Added checks for upgrades spawning)
