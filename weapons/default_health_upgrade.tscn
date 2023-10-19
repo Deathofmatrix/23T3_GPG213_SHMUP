@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgks7lpo83ufx"]
+
+[ext_resource type="Script" path="res://weapons/default_health_upgrade.gd" id="1_ohxrx"]
+[ext_resource type="Texture2D" uid="uid://bpvvc3sqjpejo" path="res://weapons/default_health_upgrade_icon.png" id="2_d8vd2"]
+
+[node name="DefaultHealthUpgrade" type="Node2D"]
+script = ExtResource("1_ohxrx")
+icon_image = ExtResource("2_d8vd2")
+weapon_name = "Health"
