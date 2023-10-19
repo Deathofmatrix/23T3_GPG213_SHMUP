@@ -20,6 +20,12 @@ func _process(_delta):
 		level_up()
 
 func get_required_xp(level):
+	if current_xp_level <= 1:
+		current_xp = 10
+		# a little hack that needs fixing 
+		# this is here just to ensure that the first 
+		# XP pick_up results in an upgrade for the player
+	
 	return round(pow(level, 1.5) + level * 4)
 
 

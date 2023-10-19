@@ -41,6 +41,7 @@ func upgrade():
 	match upgrade_number:
 		2:
 			print("level 2 wingsword")
+			# change this to destroy incoming bullets from enemies
 			shoot_speed_timer.wait_time = 1
 			current_description = "Wingsword firerate ++"
 		3:

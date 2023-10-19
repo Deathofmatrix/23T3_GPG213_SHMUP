@@ -56,6 +56,7 @@ position = Vector2(-320, -180)
 position = Vector2(-320, -180)
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
+scrolling_speed = 100.0
 
 [node name="XPSpawner" parent="." instance=ExtResource("6_ac72y")]
 
