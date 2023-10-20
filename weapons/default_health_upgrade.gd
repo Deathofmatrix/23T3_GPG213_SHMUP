@@ -1,6 +1,6 @@
 extends Weapon
 
-var health_value = 10
+var health_value = 1500
 
 func _init():
 	weapon_name = "Health"

@@ -46,7 +46,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0h8my")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_qjubl")]
-max_health = 50
+max_health = 40
 wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

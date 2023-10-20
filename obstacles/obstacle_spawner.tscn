@@ -8,7 +8,7 @@ script = ExtResource("1_iv8oc")
 current_obstacle_speed = 17
 
 [node name="CreationTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 5.0
 autostart = true
 
 [node name="Markers" type="Node2D" parent="."]

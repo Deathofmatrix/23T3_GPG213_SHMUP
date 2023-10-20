@@ -9,6 +9,7 @@ height = 20.0
 
 [node name="TurretBullet" type="Area2D"]
 collision_layer = 8
+collision_mask = 17
 script = ExtResource("1_atgjm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
