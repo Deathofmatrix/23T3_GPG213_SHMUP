@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://xrb24phfpih4"]
 
 [ext_resource type="Script" path="res://bullets/pistol_bullet.gd" id="1_tjv2m"]
-[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="2_cfkca"]
+[ext_resource type="Texture2D" uid="uid://dtneyu7qfsvlg" path="res://bullets/pistol_bullet.png" id="2_oont1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h4ju"]
-size = Vector2(16, 6)
+size = Vector2(16, 8)
 
 [node name="PistolBullet" type="Area2D"]
 collision_layer = 2
@@ -13,8 +13,7 @@ script = ExtResource("1_tjv2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("2_cfkca")
-region_enabled = true
+texture = ExtResource("2_oont1")
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

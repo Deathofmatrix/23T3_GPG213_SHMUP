@@ -7,6 +7,7 @@ var next_level: Level
 
 func _ready():
 	current_level.connect("level_changed", handle_level_changed)
+	current_level.play_loaded_sound()
 
 
 func handle_level_changed(next_level_name: String):
@@ -46,3 +47,5 @@ func _on_animation_player_animation_finished(anim_name):
 			
 			next_level = null
 			animation_player.play("fade_from_black")
+		"fade_from_black":
+			current_level.play_loaded_sound()

@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=12 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
 [ext_resource type="PackedScene" uid="uid://cq61d13iqc062" path="res://obstacles/obstacle_spawner.tscn" id="2_24k8o"]
+[ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="2_6082k"]
 [ext_resource type="PackedScene" uid="uid://dw5gm0met1k0c" path="res://backgrounds/parallax_scrolling_scene.tscn" id="3_21dg8"]
 [ext_resource type="PackedScene" uid="uid://v5qh65aax1xy" path="res://UI/upgrade_popup.tscn" id="3_70x4p"]
+[ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="3_hsru8"]
 [ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/hud.tscn" id="4_64i7p"]
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 [ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://pickups/xp/xp_spawner.tscn" id="6_ac72y"]
@@ -21,6 +23,14 @@ range_layer_min = -100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_6082k")
+panning_strength = 0.0
+
+[node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hsru8")
+panning_strength = 0.0
+
 [node name="ScalingInfo" type="Node2D" parent="."]
 
 [node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
@@ -34,12 +44,14 @@ player_character = NodePath("../../Player")
 level = NodePath("../..")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="HUDCanvas"]
+[node name="ChangeSceneButton" type="Button" parent="HUDCanvas"]
+unique_name_in_owner = true
 offset_left = 549.0
 offset_top = 129.0
 offset_right = 635.055
 offset_bottom = 160.0
 theme_override_font_sizes/font_size = 13
+disabled = true
 text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
@@ -71,7 +83,7 @@ player = NodePath("../Player")
 
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]
-[connection signal="pressed" from="HUDCanvas/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HUDCanvas/ChangeSceneButton" to="." method="_on_button_pressed"]
 [connection signal="player_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_health_updated"]
 [connection signal="player_killed" from="Player" to="." method="_on_player_player_killed"]
 [connection signal="player_max_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_max_health_updated"]

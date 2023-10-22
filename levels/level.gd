@@ -13,19 +13,31 @@ var level_parameters: Dictionary = {
 func _ready():
 	EventManager.reset_difficulty()
 
+
+func play_loaded_sound():
+	$LevelLoadedAudio.play()
+	%ChangeSceneButton.disabled = false
+	EventManager.is_paused = false
+
+
 func load_level_parameters(new_level_parameters: Dictionary):
 	level_parameters = new_level_parameters
 
 
 func cleanup():
+	if $BeginSceneChangeAudio.playing:
+		await $BeginSceneChangeAudio.finished
 	queue_free()
 
 
 func load_level(level_to_change_to):
 	emit_signal("level_changed", level_to_change_to)
+	EventManager.is_paused = true
 
 
 func _on_button_pressed():
+	$BeginSceneChangeAudio.play()
+	%ChangeSceneButton.disabled = true
 	load_level(level_name)
 
 

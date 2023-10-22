@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7yva"]
 radius = 5.0
-height = 24.0
+height = 18.0
 
 [node name="TurretBullet" type="Area2D"]
 collision_layer = 8
@@ -19,6 +19,7 @@ texture = ExtResource("2_324lp")
 region_rect = Rect2(45, 103, 8, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_k7yva")
 

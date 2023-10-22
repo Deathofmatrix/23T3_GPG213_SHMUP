@@ -14,9 +14,8 @@ func _ready():
 	current_description = weapon_description
 
 func _process(_delta):
+	if EventManager.is_paused: return
 	shoot_bullet()
-#	if Input.is_action_pressed("primary_action"):
-#		shoot_bullet()
 
 func shoot_bullet():
 	pass

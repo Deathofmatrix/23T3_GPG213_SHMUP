@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://chmtr8bwhf6fl"]
+[gd_scene load_steps=5 format=3 uid="uid://chmtr8bwhf6fl"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cxskp"]
 [ext_resource type="Texture2D" uid="uid://b4w4i485t05ij" path="res://levels/MainMenuBackground.png" id="2_155o6"]
+[ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="3_gn8rn"]
+[ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="4_44e7e"]
 
 [node name="LevelMainMenu" type="Node2D"]
 script = ExtResource("1_cxskp")
@@ -24,12 +26,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_155o6")
 
-[node name="Button" type="Button" parent="Control/TextureRect"]
+[node name="ChangeSceneButton" type="Button" parent="Control/TextureRect"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 267.0
 offset_top = 130.0
 offset_right = 367.0
 offset_bottom = 230.0
+disabled = true
 text = "START"
 
-[connection signal="pressed" from="Control/TextureRect/Button" to="." method="_on_button_pressed"]
+[node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gn8rn")
+panning_strength = 0.0
+
+[node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_44e7e")
+panning_strength = 0.0
+
+[connection signal="pressed" from="Control/TextureRect/ChangeSceneButton" to="." method="_on_button_pressed"]

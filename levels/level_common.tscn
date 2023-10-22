@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c37bn3p5g83u6"]
+
+[ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="1_vtu1k"]
+[ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="2_d8ai6"]
+
+[node name="LevelCommon" type="Node"]
+
+[node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_vtu1k")
+panning_strength = 0.0
+
+[node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_d8ai6")
+panning_strength = 0.0

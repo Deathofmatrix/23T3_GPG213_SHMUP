@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbdjg4nhoenp2"]
+[gd_scene load_steps=6 format=3 uid="uid://bbdjg4nhoenp2"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_74kwj"]
 [ext_resource type="Texture2D" uid="uid://b4w4i485t05ij" path="res://levels/MainMenuBackground.png" id="2_efpfr"]
 [ext_resource type="Script" path="res://levels/Scenes/GameOverController.gd" id="2_sh1ts"]
+[ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="4_450su"]
+[ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="5_gpulq"]
 
 [node name="LevelGameOver" type="Node2D"]
 script = ExtResource("1_74kwj")
@@ -58,12 +60,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="MainMenu" type="Button" parent="GameOverController/TextureRect"]
+[node name="ChangeSceneButton" type="Button" parent="GameOverController/TextureRect"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 268.0
 offset_top = 238.0
 offset_right = 372.0
 offset_bottom = 269.0
+disabled = true
 text = "MAIN MENU"
 
-[connection signal="pressed" from="GameOverController/TextureRect/MainMenu" to="." method="_on_button_pressed"]
+[node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_450su")
+panning_strength = 0.0
+
+[node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gpulq")
+panning_strength = 0.0
+
+[connection signal="pressed" from="GameOverController/TextureRect/ChangeSceneButton" to="." method="_on_button_pressed"]

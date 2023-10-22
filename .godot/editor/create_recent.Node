@@ -1,3 +1,5 @@
+Node
+AudioStreamPlayer2D
 PointLight2D
 DirectionalLight2D
 VisibleOnScreenEnabler2D
@@ -17,13 +19,11 @@ Node2D
 CharacterBody2D
 VisibleOnScreenNotifier2D
 Button
-AudioStreamPlayer2D
 CanvasLayer
 SubViewport
 Camera2D
 ColorRect
 Control
-Node
 StaticBody2D
 TextureProgressBar
 ProgressBar
