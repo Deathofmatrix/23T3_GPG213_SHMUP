@@ -1,3 +1,6 @@
+CenterContainer
+TextureRect
+GridContainer
 Node
 AudioStreamPlayer2D
 PointLight2D
@@ -10,7 +13,6 @@ Timer
 RayCast2D
 AnimationPlayer
 Label
-TextureRect
 PanelContainer
 PathFollow2D
 Path2D
@@ -27,6 +29,4 @@ Control
 StaticBody2D
 TextureProgressBar
 ProgressBar
-CenterContainer
 MarginContainer
-BoxContainer

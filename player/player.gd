@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal player_health_updated(health)
 signal player_max_health_updated(max_health)
 signal player_killed
-signal upgrade_added_or_upgraded(upgrade_name: String, upgrade_level: int, upgrade_description: String)
+signal upgrade_added_or_upgraded(weapon)
 
 @export var health_system: HealthSystem
 @export var hud: HUD
@@ -77,12 +77,12 @@ func add_weapon(weapon):
 		var duplicate_weapon = _check_weapon_duplicate(weapon)
 		upgrade_weapon(duplicate_weapon)
 		weapon.queue_free()
-		emit_signal("upgrade_added_or_upgraded", duplicate_weapon.weapon_name, duplicate_weapon.upgrade_number, duplicate_weapon.current_description)
+		emit_signal("upgrade_added_or_upgraded", duplicate_weapon)
 		
 	else:
 		current_weapons.add_child(weapon)
 		weapons.append(weapon)
-		emit_signal("upgrade_added_or_upgraded", weapon.weapon_name, weapon.upgrade_number, weapon.current_description)
+		emit_signal("upgrade_added_or_upgraded", weapon)
 
 
 func _check_weapon_duplicate(weapon):

@@ -16,6 +16,12 @@ var _current_health = 100
 @onready var health_text = %HealthText
 @onready var xp_bar = %XPBar
 
+@onready var upgrade_icon_1 = %UpgradeIcon1
+@onready var upgrade_icon_2 = %UpgradeIcon2
+@onready var upgrade_icon_3 = %UpgradeIcon3
+@onready var upgrade_icon_4 = %UpgradeIcon4
+
+
 func _ready():
 	_current_max_health = player_character.starting_max_health
 	
@@ -38,7 +44,13 @@ func update_health_bar():
 	
 	health_text.text = str(_current_health, "/", _current_max_health)
 
-#leveling
+
+func update_upgrade_icons(weapon):
+	var new_upgrade_data: UpgradeDataResource = UpgradeDataResource.new()
+	new_upgrade_data.upgrade_name = weapon.weapon_name
+	new_upgrade_data.upgrade_level = weapon.upgrade_number
+	new_upgrade_data.upgrade_description = weapon.current_description
+
 
 func update_xp_bar(current_xp):
 	xp_bar.value = current_xp
@@ -47,7 +59,7 @@ func update_max_xp(xp_required):
 	xp_bar.value = 0
 	xp_bar.max_value = xp_required
 
-#finish
+#Signals
 
 func _on_player_player_health_updated(health):
 	_current_health = health
@@ -58,3 +70,6 @@ func _on_player_player_max_health_updated(max_health):
 	_current_max_health = max_health
 	update_health_bar()
 
+
+func _on_player_upgrade_added_or_upgraded(weapon):
+	update_upgrade_icons(weapon)
