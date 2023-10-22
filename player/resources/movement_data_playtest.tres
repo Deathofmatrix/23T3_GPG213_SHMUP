@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_t462q")
-max_speed = 150
-acceleration = 650
-friction = 500
+max_speed = 200
+acceleration = 700
+friction = 700

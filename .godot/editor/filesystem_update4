@@ -1,11 +1,11 @@
-res://levels/Scenes/level_01.tscn
+res://enemies/enemy_bullets/turret_bullet.tscn
 res://shaders/hit_flash_shader.tres
 res://managers/scene_switcher.tscn
 res://player/player.tscn
 res://enemies/turret_enemy.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
 res://weapons/default_health_upgrade.tscn
-res://enemies/enemy_bullets/turret_bullet.tscn
+res://levels/Scenes/level_01.tscn
 res://obstacles/meteor.tscn
 res://weapons/pistol/pistol.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
@@ -13,3 +13,5 @@ res://weapons/wingsword/wing_sword.tscn
 res://weapons/wingarang/wingarang_gun.tscn
 res://enemies/follow_enemy.tscn
 res://obstacles/obstacle_spawner.tscn
+res://bullets/pistol_bullet.tscn
+res://player/resources/movement_data_playtest.tres
