@@ -73,9 +73,11 @@ text = "MAIN MENU"
 [node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_450su")
 panning_strength = 0.0
+bus = &"LevelLoad"
 
 [node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gpulq")
 panning_strength = 0.0
+bus = &"LevelLoad"
 
 [connection signal="pressed" from="GameOverController/TextureRect/ChangeSceneButton" to="." method="_on_button_pressed"]

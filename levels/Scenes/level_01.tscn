@@ -26,10 +26,12 @@ range_layer_min = -100
 [node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_6082k")
 panning_strength = 0.0
+bus = &"LevelLoad"
 
 [node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_hsru8")
 panning_strength = 0.0
+bus = &"LevelLoad"
 
 [node name="ScalingInfo" type="Node2D" parent="."]
 
