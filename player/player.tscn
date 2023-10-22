@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
-[ext_resource type="PackedScene" uid="uid://ch2ay0rg10jid" path="res://weapons/pistol/pistol.tscn" id="3_isbyh"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="3_ouby8"]
 [ext_resource type="Texture2D" uid="uid://bplbk71tbche4" path="res://player/player_ship02.png" id="4_caonp"]
 [ext_resource type="PackedScene" uid="uid://bbhn84hirt6hd" path="res://player/xp_collector.tscn" id="5_65dra"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
+[ext_resource type="AudioStream" uid="uid://bo447r4wggrhf" path="res://player/audio/hurt1.ogg" id="5_k6554"]
 [ext_resource type="PackedScene" uid="uid://dtc87bt45mxrq" path="res://player/xp_manager.tscn" id="5_t24r3"]
 [ext_resource type="PackedScene" uid="uid://blg4j3q5al6cc" path="res://pickups/upgrades/upgrade_collector.tscn" id="6_dhmjd"]
 [ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="10_ge5ce"]
@@ -79,6 +79,16 @@ texture = ExtResource("4_caonp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_25jxs")
 
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="HurtSoundPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_k6554")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="UpgradeSoundPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+bus = &"SFX"
+
 [node name="XPManager" parent="." instance=ExtResource("5_t24r3")]
 
 [node name="UpgradeCollector" parent="." instance=ExtResource("6_dhmjd")]
@@ -89,8 +99,6 @@ xp_manager = NodePath("../XPManager")
 [node name="CurrentWeapons" type="Node2D" parent="."]
 unique_name_in_owner = true
 use_parent_material = true
-
-[node name="Pistol" parent="CurrentWeapons" instance=ExtResource("3_isbyh")]
 
 [node name="HealthSystem" parent="." instance=ExtResource("5_634nx")]
 wait_time = 2.0

@@ -12,23 +12,27 @@ signal upgrade_added_or_upgraded(weapon)
 @export var weapons: Array[Weapon]
 @export var starting_max_health = 100
 
-@export var current_level = 1
-@export var current_xp = 1
-@export var current_xp_required = 1
+var current_level = 1
+var current_xp = 1
+var current_xp_required = 1
 
 var screen_half_height: int = 180
 var screen_half_width: int = 224
 
-var Shotgun = preload("res://weapons/shotgun/shotgun.tscn")
+var Pistol = preload("res://weapons/pistol/pistol.tscn")
+var new_weapon_sound = preload("res://player/audio/new_weapon_sound.ogg")
+var upgrade_weapon_sound = preload("res://player/audio/upgrade_weapon_sound.ogg")
 
 @onready var animation_player = $AnimationPlayer
 @onready var current_weapons = %CurrentWeapons
+@onready var hurt_sound_player = $Audio/HurtSoundPlayer
+@onready var upgrade_sound_player = $Audio/UpgradeSoundPlayer
 
 
 func _ready():
-	weapons.append(current_weapons.get_child(0))
 	GlobalPlayerInfo.player = self
 	health_system.change_max_health(starting_max_health)
+	add_weapon(Pistol.instantiate())
 
 func _process(_delta):
 	GlobalPlayerInfo.player_position = global_position
@@ -78,11 +82,15 @@ func add_weapon(weapon):
 		upgrade_weapon(duplicate_weapon)
 		weapon.queue_free()
 		emit_signal("upgrade_added_or_upgraded", duplicate_weapon)
+		upgrade_sound_player.stream = upgrade_weapon_sound
+		upgrade_sound_player.play()
 		
 	else:
 		current_weapons.add_child(weapon)
 		weapons.append(weapon)
 		emit_signal("upgrade_added_or_upgraded", weapon)
+		upgrade_sound_player.stream = new_weapon_sound
+		upgrade_sound_player.play()
 
 
 func _check_weapon_duplicate(weapon):
@@ -117,8 +125,11 @@ func _on_hit_box_body_entered(body):
 	health_system.handle_damage(body.damage)
 
 
-func _on_health_system_health_updated(health):
+func _on_health_system_health_updated(health, was_damaged):
 	player_health_updated.emit(health)
+	if was_damaged:
+		$Audio/HurtSoundPlayer.play()
+	
 
 
 func _on_health_system_max_health_updated(max_health):
@@ -127,6 +138,7 @@ func _on_health_system_max_health_updated(max_health):
 
 func _on_health_system_killed():
 	emit_signal("player_killed")
+	queue_free()
 
 
 func _on_xp_manager_leveled_up(required_xp, level):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://pdjn2c08tb4m"]
+[gd_scene load_steps=8 format=3 uid="uid://pdjn2c08tb4m"]
 
 [ext_resource type="Script" path="res://obstacles/meteor.gd" id="1_1qnav"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_rrnuj"]
 [ext_resource type="Texture2D" uid="uid://creif071xue2s" path="res://obstacles/Meteor_blue.png" id="3_hll62"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_q510a"]
+[ext_resource type="AudioStream" uid="uid://dhv6d2u3gbdrg" path="res://obstacles/hit1.ogg" id="5_3iygk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl43v"]
 resource_local_to_scene = true
@@ -33,6 +34,12 @@ max_health = 200
 wait_time = 0.01
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3iygk")
+volume_db = -5.0
+pitch_scale = 0.5
+bus = &"SFX"
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

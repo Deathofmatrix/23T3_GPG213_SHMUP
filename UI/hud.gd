@@ -5,6 +5,9 @@ signal score_increased(current_score)
 
 @export var player_character: Player
 @export var level: Level
+@export var upgrade_icon_slots: Array
+@export var upgrade_level_labels: Array
+@export var upgrade_backgrounds: Array
 
 var score = 0
 var _current_max_health = 100
@@ -16,27 +19,24 @@ var _current_health = 100
 @onready var health_text = %HealthText
 @onready var xp_bar = %XPBar
 
-@onready var upgrade_icon_1 = %UpgradeIcon1
-@onready var upgrade_icon_2 = %UpgradeIcon2
-@onready var upgrade_icon_3 = %UpgradeIcon3
-@onready var upgrade_icon_4 = %UpgradeIcon4
-
 
 func _ready():
 	_current_max_health = player_character.starting_max_health
 	
+	initalise_upgrade_icons()
 	EventManager.connect("enemy_destroyed", _on_enemy_destroyed)
-	score_text.text = "SCORE " + str(score)
+	score_text.text = "SCORE:\n" + str(score)
 	emit_signal("score_increased", score)
 	update_health_bar()
 
 
-func _on_enemy_destroyed(_pos, points):
-	score += points
-	score_text.text = "SCORE " + str(score)
-	emit_signal("score_increased", score)
-	high_score_text.text = "HIGHSCORE:\n" + str(level.level_parameters.high_score)
-#	print(score)
+func initalise_upgrade_icons():
+	upgrade_icon_slots = [%UpgradeIcon1, %UpgradeIcon2, %UpgradeIcon3, %UpgradeIcon4]
+	upgrade_level_labels = [%UpgradeLevel1, %UpgradeLevel2, %UpgradeLevel3, %UpgradeLevel4]
+	upgrade_backgrounds = [%UpgradeBackground1, %UpgradeBackground2, %UpgradeBackground3, %UpgradeBackground4]
+	for background in upgrade_backgrounds:
+		background.hide()
+
 
 func update_health_bar():
 	health_bar.max_value = _current_max_health
@@ -45,21 +45,34 @@ func update_health_bar():
 	health_text.text = str(_current_health, "/", _current_max_health)
 
 
-func update_upgrade_icons(weapon):
-	var new_upgrade_data: UpgradeDataResource = UpgradeDataResource.new()
-	new_upgrade_data.upgrade_name = weapon.weapon_name
-	new_upgrade_data.upgrade_level = weapon.upgrade_number
-	new_upgrade_data.upgrade_description = weapon.current_description
+func update_upgrade_icons(upgrade_data):
+	for icon in upgrade_icon_slots:
+		if icon.texture:
+			if icon.texture != upgrade_data.upgrade_icon: continue
+		upgrade_backgrounds[upgrade_icon_slots.find(icon)].show()
+		icon.texture = upgrade_data.upgrade_icon
+		upgrade_level_labels[upgrade_icon_slots.find(icon)].text = str(upgrade_data.upgrade_level)
+		return
 
 
 func update_xp_bar(current_xp):
 	xp_bar.value = current_xp
 
+
 func update_max_xp(xp_required):
 	xp_bar.value = 0
 	xp_bar.max_value = xp_required
 
+
+func _on_enemy_destroyed(_pos, points):
+	score += points
+	score_text.text = "SCORE:\n" + str(score)
+	emit_signal("score_increased", score)
+	high_score_text.text = "HIGHSCORE:\n" + str(level.level_parameters.high_score)
+
+
 #Signals
+
 
 func _on_player_player_health_updated(health):
 	_current_health = health
@@ -72,4 +85,7 @@ func _on_player_player_max_health_updated(max_health):
 
 
 func _on_player_upgrade_added_or_upgraded(weapon):
-	update_upgrade_icons(weapon)
+	var new_upgrade_data: UpgradeDataResource = UpgradeDataResource.new()
+	new_upgrade_data.upgrade_level = weapon.upgrade_number
+	new_upgrade_data.upgrade_icon = weapon.icon_image
+	update_upgrade_icons(new_upgrade_data)

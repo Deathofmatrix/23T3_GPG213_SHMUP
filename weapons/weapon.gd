@@ -18,6 +18,7 @@ func _ready():
 	shoot_sound_player = AudioStreamPlayer2D.new()
 	shoot_sound_player.stream = shoot_sound
 	shoot_sound_player.bus = "SFX"
+	shoot_sound_player.volume_db = -10
 	add_child(shoot_sound_player)
 
 

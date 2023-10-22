@@ -9,7 +9,7 @@ var target: Node2D = null
 @onready var ray_cast = $RayCast2D
 @onready var reload_timer = $RayCast2D/ReloadTimer
 
-func _ready():
+func _enemy_ready():
 	target = find_player()
 
 
@@ -53,9 +53,11 @@ func _on_reload_timer_timeout():
 	ray_cast.enabled = true
 
 
-func _on_health_system_health_updated(_health):
+func _on_health_system_health_updated(_health, _was_damaged):
 	hit_flash($Sprite2D)
+	enemy_hit_player.play()
 
 
 func _on_health_system_killed():
 	EventManager.emit_signal("enemy_destroyed", global_position, points)
+	destroy_enemy()

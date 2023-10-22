@@ -27,6 +27,7 @@ one_shot = true
 autostart = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.495, 1)
 rect = Rect2(-100, -100, 200, 200)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

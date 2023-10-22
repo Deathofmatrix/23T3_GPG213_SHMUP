@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://v5qh65aax1xy"]
+[gd_scene load_steps=9 format=3 uid="uid://v5qh65aax1xy"]
 
 [ext_resource type="Script" path="res://UI/upgrade_popup.gd" id="1_cw60c"]
 [ext_resource type="Texture2D" uid="uid://3dkxjhbki1x1" path="res://UI/upgrade_popup.png" id="1_l5dno"]
+[ext_resource type="FontFile" uid="uid://crl0wispg18u6" path="res://UI/fonts/Kenney Pixel Square.ttf" id="3_pavay"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v5o6t"]
 font_size = 14
-outline_size = 2
+outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pt5qg"]
 line_spacing = 1.0
-font_size = 9
-outline_size = 1
+font = ExtResource("3_pavay")
+font_size = 8
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_hyc1r"]
@@ -77,10 +79,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -55.0
-offset_right = 80.0
-offset_bottom = -7.0
+offset_left = 240.0
+offset_top = 305.0
+offset_right = 400.0
+offset_bottom = 353.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_cw60c")
@@ -112,11 +114,11 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -76.0
-offset_top = -33.0
+offset_top = -29.0
 offset_right = 76.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "close range spread shot "
+text = "close range spread shot"
 label_settings = SubResource("LabelSettings_pt5qg")
 horizontal_alignment = 1
 vertical_alignment = 1
