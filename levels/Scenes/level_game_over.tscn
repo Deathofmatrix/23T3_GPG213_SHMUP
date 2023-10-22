@@ -71,11 +71,13 @@ disabled = true
 text = "MAIN MENU"
 
 [node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("4_450su")
 panning_strength = 0.0
 bus = &"LevelLoad"
 
 [node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("5_gpulq")
 panning_strength = 0.0
 bus = &"LevelLoad"

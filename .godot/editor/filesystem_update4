@@ -1,6 +1,6 @@
-res://default_bus_layout.tres
-res://levels/Scenes/level_main_menu.tscn
+res://weapons/pistol/pistol.tscn
 res://shaders/hit_flash_shader.tres
+res://weapons/weapon.gd
 res://managers/scene_switcher.tscn
 res://player/player.tscn
 res://enemies/turret_enemy.tscn
@@ -9,7 +9,6 @@ res://weapons/default_health_upgrade.tscn
 res://levels/Scenes/level_01.tscn
 res://enemies/enemy_bullets/turret_bullet.tscn
 res://obstacles/meteor.tscn
-res://weapons/pistol/pistol.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://weapons/wingsword/wing_sword.tscn
 res://weapons/wingarang/wingarang_gun.tscn
@@ -20,7 +19,13 @@ res://pickups/upgrades/upgrade_collector.tscn
 res://pickups/upgrades/upgrade_pickup.tscn
 res://pickups/xp/experience.tscn
 res://bullets/shotgun_bullet.tscn
+res://levels/Scenes/level_main_menu.tscn
 res://levels/Scenes/level_game_over.tscn
 res://levels/level_common.tscn
-res://weapons/pistol/pistol.gd
 res://bullets/wingarang_bullet.tscn
+res://weapons/shotgun/shotgun.tscn
+res://weapons/pistol/pistol.gd
+res://weapons/shotgun/shotgun.gd
+res://weapons/wingarang/wingarang_gun.gd
+res://weapons/wingsword/wing_sword.gd
+res://default_bus_layout.tres

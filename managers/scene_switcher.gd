@@ -25,7 +25,8 @@ func handle_level_changed(next_level_name: String):
 	next_level = load("res://levels/Scenes/level_" + next_level_name + ".tscn").instantiate()
 	
 	for child in next_level.get_children():
-		child.hide()
+		if child.has_method("hide"):
+			child.hide()
 	
 	call_deferred("add_child", next_level)
 	animation_player.play("fade_to_black")
@@ -43,7 +44,8 @@ func _on_animation_player_animation_finished(anim_name):
 			current_level = next_level
 			
 			for child in current_level.get_children():
-				child.show()
+				if child.has_method("show"):
+					child.show()
 			
 			next_level = null
 			animation_player.play("fade_from_black")
