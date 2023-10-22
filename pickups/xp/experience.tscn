@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://bv1ao2jfrwb0j"]
 
 [ext_resource type="Script" path="res://pickups/xp/experience.gd" id="1_7s31r"]
-[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="2_jkdhv"]
+[ext_resource type="Texture2D" uid="uid://cccopua6m0m2p" path="res://pickups/xp/XP_PickUp-option2.png" id="2_ckf26"]
 [ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="3_ngobl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pah0"]
-radius = 11.0
+radius = 12.0
 
 [node name="Experience" type="Area2D"]
 collision_layer = 32
@@ -14,8 +14,7 @@ script = ExtResource("1_7s31r")
 speed = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jkdhv")
-region_enabled = true
+texture = ExtResource("2_ckf26")
 region_rect = Rect2(85, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
