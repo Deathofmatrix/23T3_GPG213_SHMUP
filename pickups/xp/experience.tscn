@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv1ao2jfrwb0j"]
+[gd_scene load_steps=5 format=3 uid="uid://bv1ao2jfrwb0j"]
 
 [ext_resource type="Script" path="res://pickups/xp/experience.gd" id="1_7s31r"]
 [ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="2_jkdhv"]
+[ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="3_ngobl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pah0"]
 radius = 11.0
@@ -27,5 +28,11 @@ autostart = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-100, -100, 200, 200)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.741176, 0.12549, 1)
+range_layer_min = -10
+texture = ExtResource("3_ngobl")
+texture_scale = 0.2
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

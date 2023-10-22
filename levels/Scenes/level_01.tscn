@@ -15,7 +15,7 @@ script = ExtResource("1_hrodq")
 level_name = "main_menu"
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="."]
-energy = 0.1
+energy = 0.2
 blend_mode = 1
 range_layer_min = -100
 
