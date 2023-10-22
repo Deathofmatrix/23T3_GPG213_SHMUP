@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ch5xq5a07vtq1" path="res://backgrounds/backgroundgreyscalel.png" id="2_xu3qh"]
 
 [node name="ParallaxScrollingScene" type="ParallaxBackground"]
+layer = -10
 script = ExtResource("1_x8ow8")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]

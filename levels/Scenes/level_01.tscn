@@ -14,6 +14,11 @@
 script = ExtResource("1_hrodq")
 level_name = "main_menu"
 
+[node name="GlobalLight" type="DirectionalLight2D" parent="."]
+energy = 0.1
+blend_mode = 1
+range_layer_min = -100
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="ScalingInfo" type="Node2D" parent="."]
