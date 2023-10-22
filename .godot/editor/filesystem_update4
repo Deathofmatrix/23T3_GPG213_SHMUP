@@ -1,11 +1,10 @@
-res://levels/Scenes/level_01.tscn
-res://shaders/hit_flash_shader.tres
-res://levels/level.gd
 res://managers/scene_switcher.tscn
+res://shaders/hit_flash_shader.tres
+res://enemies/enemy_bullets/turret_bullet.gd
 res://player/player.tscn
 res://enemies/turret_enemy.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
-res://weapons/default_health_upgrade.tscn
+res://levels/Scenes/level_01.tscn
 res://enemies/enemy_bullets/turret_bullet.tscn
 res://obstacles/meteor.tscn
 res://weapons/pistol/pistol.tscn
@@ -19,8 +18,8 @@ res://pickups/upgrades/upgrade_collector.tscn
 res://pickups/upgrades/upgrade_pickup.tscn
 res://pickups/xp/experience.tscn
 res://bullets/shotgun_bullet.tscn
-res://levels/Scenes/level_game_over.tscn
 res://levels/Scenes/level_main_menu.tscn
+res://levels/Scenes/level_game_over.tscn
 res://levels/level_common.tscn
-res://managers/scene_switcher.gd
-res://player/resources/movement_data_playtest.tres
+res://bullets/wingarang_bullet.tscn
+res://bullets/sword_bullet.tscn

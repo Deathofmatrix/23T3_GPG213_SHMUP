@@ -12,6 +12,7 @@ var bullet_lifetime = 0.2
 func _init():
 	weapon_name = "WingSword"
 
+
 func _on_shoot_speed_timer_timeout():
 	can_shoot = true
 
