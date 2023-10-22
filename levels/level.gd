@@ -15,7 +15,7 @@ func _ready():
 
 
 func play_loaded_sound():
-	$LevelLoadedAudio.play()
+	%LevelLoadedAudio.play()
 	%ChangeSceneButton.disabled = false
 	EventManager.is_paused = false
 
@@ -25,8 +25,8 @@ func load_level_parameters(new_level_parameters: Dictionary):
 
 
 func cleanup():
-	if $BeginSceneChangeAudio.playing:
-		await $BeginSceneChangeAudio.finished
+	if %BeginSceneChangeAudio.playing:
+		await %BeginSceneChangeAudio.finished
 	queue_free()
 
 
@@ -36,7 +36,7 @@ func load_level(level_to_change_to):
 
 
 func _on_button_pressed():
-	$BeginSceneChangeAudio.play()
+	%BeginSceneChangeAudio.play()
 	%ChangeSceneButton.disabled = true
 	load_level(level_name)
 

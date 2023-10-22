@@ -2,7 +2,6 @@ extends Weapon
 
 var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet.tscn")
 
-var can_shoot = true
 var move_speed = 150
 
 @onready var bullet_spawn = $BoomerangPath
@@ -30,8 +29,6 @@ func _on_cant_shoot_timer_timeout():
 
 
 func shoot_bullet():
-	if not can_shoot: return
-
 	for spawn_point in bullet_spawn.get_children():
 		var _new_bullet = spawn_bullet(spawn_point)
 	

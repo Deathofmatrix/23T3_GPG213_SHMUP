@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv5mlj6la2cw6"]
+[gd_scene load_steps=5 format=3 uid="uid://cv5mlj6la2cw6"]
 
 [ext_resource type="Script" path="res://weapons/shotgun/shotgun.gd" id="1_pyvet"]
 [ext_resource type="Texture2D" uid="uid://ch5qurovs508q" path="res://weapons/shotgun/shotgun_icon.png" id="2_1yoj7"]
 [ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_vhs7u"]
+[ext_resource type="AudioStream" uid="uid://bhqv7lnryw8nq" path="res://weapons/audio/shotgun_shoot.ogg" id="3_rhvcj"]
 
 [node name="Shotgun" type="Node2D"]
 script = ExtResource("1_pyvet")
 icon_image = ExtResource("2_1yoj7")
 weapon_name = "Shotgun"
 weapon_description = "Fires bullets in a spread"
+shoot_sound = ExtResource("3_rhvcj")
 
 [node name="BulletSpawns" type="Node2D" parent="."]
 

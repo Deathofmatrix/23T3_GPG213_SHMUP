@@ -2,7 +2,6 @@ extends Weapon
 
 var Bullet = preload("res://bullets/sword_bullet.tscn")
 
-var can_shoot = true
 var bullet_lifetime = 0.2
 
 @onready var bullet_spawns = $BulletSpawns
@@ -18,7 +17,6 @@ func _on_shoot_speed_timer_timeout():
 
 
 func shoot_bullet():
-	if not can_shoot: return
 	for spawn_point in bullet_spawns.get_children():
 		spawn_bullet(spawn_point)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=13 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://v5qh65aax1xy" path="res://UI/upgrade_popup.tscn" id="3_70x4p"]
 [ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="3_hsru8"]
 [ext_resource type="PackedScene" uid="uid://d8xrnob8i15r" path="res://UI/hud.tscn" id="4_64i7p"]
+[ext_resource type="AudioStream" uid="uid://b2k8xr3g0hfjy" path="res://levels/audio/soundtrack.mp3" id="4_228m3"]
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 [ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://pickups/xp/xp_spawner.tscn" id="6_ac72y"]
 [ext_resource type="PackedScene" uid="uid://d0gynaifufxo8" path="res://pickups/upgrades/upgrade_spawner.tscn" id="8_ysjd3"]
@@ -23,13 +24,23 @@ range_layer_min = -100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelAudio" type="Node" parent="."]
+
+[node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="LevelAudio"]
+unique_name_in_owner = true
 stream = ExtResource("2_6082k")
 panning_strength = 0.0
+bus = &"LevelLoad"
 
-[node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelLoadedAudio" type="AudioStreamPlayer2D" parent="LevelAudio"]
+unique_name_in_owner = true
 stream = ExtResource("3_hsru8")
 panning_strength = 0.0
+bus = &"LevelLoad"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="LevelAudio"]
+stream = ExtResource("4_228m3")
+autoplay = true
 
 [node name="ScalingInfo" type="Node2D" parent="."]
 
