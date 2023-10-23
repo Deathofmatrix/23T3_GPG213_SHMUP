@@ -27,6 +27,7 @@ var upgrade_weapon_sound = preload("res://player/audio/upgrade_weapon_sound.ogg"
 @onready var current_weapons = %CurrentWeapons
 @onready var hurt_sound_player = $Audio/HurtSoundPlayer
 @onready var upgrade_sound_player = $Audio/UpgradeSoundPlayer
+@onready var movement_sound_player = $Audio/MovementSoundPlayer
 
 
 func _ready():
@@ -51,6 +52,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	look_at(get_global_mouse_position())
+	movement_sound()
 
 
 # Movement
@@ -69,6 +71,11 @@ func handle_acceleration(input_axis, delta):
 func handle_air_resistance(input_axis, delta):
 	if input_axis == Vector2.ZERO:
 		velocity = velocity.move_toward(Vector2.ZERO, movement_data.friction * delta)
+
+func movement_sound():
+	var current_percentage = velocity.length() / movement_data.max_speed
+	
+	movement_sound_player.pitch_scale = lerpf(0.5, 1.5, current_percentage)
 
 
 # Upgrading

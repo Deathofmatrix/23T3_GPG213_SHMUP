@@ -33,6 +33,7 @@ collision_mask = 7
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_3qm14")
+movement_speed = 60
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_wixjh")

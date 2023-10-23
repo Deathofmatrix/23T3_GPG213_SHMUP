@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://31dxe106neto"]
+[gd_scene load_steps=19 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtc87bt45mxrq" path="res://player/xp_manager.tscn" id="5_t24r3"]
 [ext_resource type="AudioStream" uid="uid://yujf07pg8vdq" path="res://player/audio/healsound.ogg" id="6_b5bui"]
 [ext_resource type="PackedScene" uid="uid://blg4j3q5al6cc" path="res://pickups/upgrades/upgrade_collector.tscn" id="6_dhmjd"]
+[ext_resource type="AudioStream" uid="uid://odne150pa5x1" path="res://player/audio/thrusterFire_000.ogg" id="7_a8ox5"]
 [ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="10_ge5ce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nm0x"]
@@ -93,6 +94,11 @@ volume_db = 5.0
 bus = &"SFX"
 
 [node name="UpgradeSoundPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+bus = &"SFX"
+
+[node name="MovementSoundPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_a8ox5")
+autoplay = true
 bus = &"SFX"
 
 [node name="XPManager" parent="." instance=ExtResource("5_t24r3")]

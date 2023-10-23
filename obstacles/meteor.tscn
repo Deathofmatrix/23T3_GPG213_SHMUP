@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://pdjn2c08tb4m"]
+[gd_scene load_steps=12 format=3 uid="uid://pdjn2c08tb4m"]
 
 [ext_resource type="Script" path="res://obstacles/meteor.gd" id="1_1qnav"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_rrnuj"]
-[ext_resource type="Texture2D" uid="uid://creif071xue2s" path="res://obstacles/Meteor_blue.png" id="3_hll62"]
+[ext_resource type="Texture2D" uid="uid://o7dpc7kvpfk" path="res://obstacles/Meteor_red_animated-Sheet.png" id="3_aeppo"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_q510a"]
 [ext_resource type="AudioStream" uid="uid://dhv6d2u3gbdrg" path="res://obstacles/hit1.ogg" id="5_3iygk"]
+[ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="6_toblk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl43v"]
 resource_local_to_scene = true
@@ -15,6 +16,44 @@ shader_parameter/tint = Color(1, 1, 1, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_skbtm"]
 radius = 16.0
 
+[sub_resource type="Animation" id="Animation_ubm40"]
+resource_name = "meteor"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_yhpma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4ivj"]
+_data = {
+"RESET": SubResource("Animation_yhpma"),
+"meteor": SubResource("Animation_ubm40")
+}
+
 [node name="Meteor" type="CharacterBody2D"]
 z_index = -10
 collision_layer = 16
@@ -23,8 +62,10 @@ script = ExtResource("1_1qnav")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_sl43v")
-texture = ExtResource("3_hll62")
-region_rect = Rect2(68, 17, 16, 16)
+position = Vector2(0, -9)
+texture = ExtResource("3_aeppo")
+hframes = 7
+region_rect = Rect2(0, 0, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_skbtm")
@@ -40,6 +81,18 @@ stream = ExtResource("5_3iygk")
 volume_db = -5.0
 pitch_scale = 0.5
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "meteor"
+libraries = {
+"": SubResource("AnimationLibrary_v4ivj")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.6, 0.207843, 0.180392, 1)
+range_layer_min = -10
+texture = ExtResource("6_toblk")
+texture_scale = 0.3
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

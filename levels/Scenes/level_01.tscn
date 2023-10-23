@@ -79,6 +79,7 @@ position = Vector2(-320, -220)
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_24k8o")]
 position = Vector2(-320, -220)
+current_obstacle_speed = 50
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
 scroll_speed_increase = 40.0

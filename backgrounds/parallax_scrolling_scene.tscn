@@ -6,6 +6,8 @@
 [node name="ParallaxScrollingScene" type="ParallaxBackground"]
 layer = -10
 script = ExtResource("1_x8ow8")
+scrolling_speed = 60.0
+scroll_speed_increase = 40.0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(0, 640)
