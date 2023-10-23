@@ -1,3 +1,4 @@
+TextureRect
 PointLight2D
 AnimationPlayer
 AnimatedSprite2D
@@ -8,7 +9,6 @@ Node2D
 Node
 Label
 CenterContainer
-TextureRect
 GridContainer
 DirectionalLight2D
 VisibleOnScreenEnabler2D

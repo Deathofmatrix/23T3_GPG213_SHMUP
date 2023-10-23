@@ -1,6 +1,5 @@
 res://player/player.tscn
 res://shaders/hit_flash_shader.tres
-res://player/player.gd
 res://enemies/turret_enemy.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
 res://levels/Scenes/level_01.tscn
@@ -16,3 +15,5 @@ res://enemies/enemy_bullets/enemy_bullet.tscn
 res://enemies/enemy_bullets/turret_bullet.tscn
 res://obstacles/obstacle_spawner.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
+res://UI/upgrade_popup.gd
+res://weapons/pistol/pistol.tscn

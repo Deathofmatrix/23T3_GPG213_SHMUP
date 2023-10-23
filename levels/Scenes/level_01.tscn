@@ -58,16 +58,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ChangeSceneButton" type="Button" parent="HUDCanvas"]
 unique_name_in_owner = true
-offset_left = 549.0
-offset_top = 129.0
-offset_right = 635.055
-offset_bottom = 160.0
+offset_left = 547.0
+offset_top = 326.0
+offset_right = 637.0
+offset_bottom = 357.0
 theme_override_font_sizes/font_size = 13
 disabled = true
 text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
+offset_left = 644.0
+offset_right = 732.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
@@ -82,7 +84,6 @@ position = Vector2(-320, -220)
 current_obstacle_speed = 50
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
-scroll_speed_increase = 40.0
 
 [node name="XPSpawner" parent="." instance=ExtResource("6_ac72y")]
 

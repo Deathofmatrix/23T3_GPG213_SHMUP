@@ -5,15 +5,17 @@
 [ext_resource type="FontFile" uid="uid://crl0wispg18u6" path="res://UI/fonts/Kenney Pixel Square.ttf" id="3_pavay"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v5o6t"]
-font_size = 14
-outline_size = 3
+font_size = 10
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pt5qg"]
 line_spacing = 1.0
 font = ExtResource("3_pavay")
-font_size = 8
-outline_size = 2
+font_size = 7
+outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_hyc1r"]
@@ -26,7 +28,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(240, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(644, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
@@ -37,7 +39,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(305, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -52,7 +54,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(240, -0.25, 0, 0.25, 0, 240, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(644, 0, 0, 0.2, 85, 548, -0.2, -85, 0, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/1/type = "bezier"
@@ -62,8 +64,8 @@ tracks/1/path = NodePath(".:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(365, 0, 0, 0.2, 85, 305, -0.2, -85, 0, 0),
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 
@@ -74,21 +76,18 @@ _data = {
 }
 
 [node name="UpgradePopup" type="PanelContainer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 240.0
-offset_top = 305.0
-offset_right = 400.0
-offset_bottom = 353.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 92.0
+offset_bottom = 164.0
+grow_horizontal = 0
 script = ExtResource("1_cw60c")
 
 [node name="Background" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.392157)
+self_modulate = Color(1, 1, 1, 0.639216)
 layout_mode = 2
 texture = ExtResource("1_l5dno")
 
@@ -98,31 +97,49 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -42.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 25.0
 grow_horizontal = 2
-text = "Shotgun 1"
+text = "wingsword 1"
 label_settings = SubResource("LabelSettings_v5o6t")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="UpgradeDescriptionText" type="Label" parent="Background"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -76.0
-offset_top = -29.0
-offset_right = 76.0
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -8.0
+offset_right = 42.0
+offset_bottom = 78.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 text = "close range spread shot"
 label_settings = SubResource("LabelSettings_pt5qg")
 horizontal_alignment = 1
-vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="UpgradeIcon" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -54.0
+offset_right = 20.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PopupAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

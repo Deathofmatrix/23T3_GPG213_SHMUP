@@ -5,6 +5,7 @@ signal popup_finished()
 @onready var upgrade_text = %UpgradeText
 @onready var upgrade_description_text = %UpgradeDescriptionText
 @onready var popup_animation_player = %PopupAnimationPlayer
+@onready var upgrade_icon = %UpgradeIcon
 
 var upgrade_queue: Array[UpgradeDataResource]
 var is_looping_queue = false
@@ -16,6 +17,7 @@ func _ready():
 func _update_text(upgrade_data: UpgradeDataResource):
 	upgrade_text.text = upgrade_data.upgrade_name + " " + str(upgrade_data.upgrade_level)
 	upgrade_description_text.text = upgrade_data.upgrade_description
+	upgrade_icon.texture = upgrade_data.upgrade_icon
 
 
 func show_upgrade_info(new_upgrade_data: UpgradeDataResource):
@@ -44,6 +46,7 @@ func _on_player_upgrade_added_or_upgraded(weapon):
 	new_upgrade_data.upgrade_name = weapon.weapon_name
 	new_upgrade_data.upgrade_level = weapon.upgrade_number
 	new_upgrade_data.upgrade_description = weapon.current_description
+	new_upgrade_data.upgrade_icon = weapon.icon_image
 	upgrade_queue.push_front(new_upgrade_data)
 	if not is_looping_queue:
 		loop_queued_upgrades()
