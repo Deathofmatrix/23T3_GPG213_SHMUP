@@ -2,7 +2,7 @@ extends Bullet
 
 @export var bullet_lifetime: float = 2
 
-@onready var lifespan_timer = $Timer
+@onready var lifespan_timer = $LifespanTimer
 
 func _ready():
 	lifespan_timer.wait_time = bullet_lifetime
