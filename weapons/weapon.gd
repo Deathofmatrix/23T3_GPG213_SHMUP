@@ -18,7 +18,9 @@ func _ready():
 	shoot_sound_player = AudioStreamPlayer2D.new()
 	shoot_sound_player.stream = shoot_sound
 	shoot_sound_player.bus = "SFX"
+	shoot_sound_player.volume_db = -10
 	add_child(shoot_sound_player)
+
 
 func _process(_delta):
 	if EventManager.is_paused: return
@@ -29,6 +31,7 @@ func request_shoot_bullet():
 	if not can_shoot: return
 	shoot_bullet()
 	shoot_sound_player.play()
+
 
 func shoot_bullet():
 	pass

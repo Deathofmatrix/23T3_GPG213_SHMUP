@@ -1,7 +1,7 @@
 class_name HealthSystem
 extends Node2D
 
-signal health_updated(health)
+signal health_updated(health, was_damaged: bool)
 signal max_health_updated(max_health)
 signal killed()
 
@@ -48,17 +48,19 @@ func handle_heal(amount):
 
 func kill():
 	emit_signal("killed") #incase anything else wants to know you're dead
-	get_parent().queue_free()
+#	get_parent().queue_free()
 
 
 # handles the health of the node it's on
 func _handle_health(value):
-	# print("_handle_health called") # connection confirmed
+	var was_damaged: bool
 	var prev_health = health
 	health = clamp(value,0 , max_health)
 	if health != prev_health:
+		if health > prev_health: was_damaged = false
+		if health < prev_health: was_damaged = true
 #		print(health) #connection confirmed
-		emit_signal("health_updated", health)
+		emit_signal("health_updated", health, was_damaged)
 		if health <= 0:
 			kill()
 

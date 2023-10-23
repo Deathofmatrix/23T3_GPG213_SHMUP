@@ -41,6 +41,7 @@ bus = &"LevelLoad"
 [node name="Music" type="AudioStreamPlayer2D" parent="LevelAudio"]
 stream = ExtResource("4_228m3")
 autoplay = true
+bus = &"Music"
 
 [node name="ScalingInfo" type="Node2D" parent="."]
 
@@ -78,10 +79,10 @@ rotation = -1.5708
 hud = NodePath("../HUDCanvas/HUD")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_nfb7c")]
-position = Vector2(-320, -180)
+position = Vector2(-320, -220)
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_24k8o")]
-position = Vector2(-320, -180)
+position = Vector2(-320, -220)
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
 scroll_speed_increase = 40.0
@@ -98,4 +99,5 @@ player = NodePath("../Player")
 [connection signal="player_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_health_updated"]
 [connection signal="player_killed" from="Player" to="." method="_on_player_player_killed"]
 [connection signal="player_max_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_max_health_updated"]
+[connection signal="upgrade_added_or_upgraded" from="Player" to="HUDCanvas/HUD" method="_on_player_upgrade_added_or_upgraded"]
 [connection signal="upgrade_added_or_upgraded" from="Player" to="HUDCanvas/UpgradePopup" method="_on_player_upgrade_added_or_upgraded"]

@@ -39,11 +39,11 @@ func loop_queued_upgrades():
 	is_looping_queue = false
 
 
-func _on_player_upgrade_added_or_upgraded(upgrade_name, upgrade_level, upgrade_description):
+func _on_player_upgrade_added_or_upgraded(weapon):
 	var new_upgrade_data: UpgradeDataResource = UpgradeDataResource.new()
-	new_upgrade_data.upgrade_name = upgrade_name
-	new_upgrade_data.upgrade_level = upgrade_level
-	new_upgrade_data.upgrade_description = upgrade_description
+	new_upgrade_data.upgrade_name = weapon.weapon_name
+	new_upgrade_data.upgrade_level = weapon.upgrade_number
+	new_upgrade_data.upgrade_description = weapon.current_description
 	upgrade_queue.push_front(new_upgrade_data)
 	if not is_looping_queue:
 		loop_queued_upgrades()

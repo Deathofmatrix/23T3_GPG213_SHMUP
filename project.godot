@@ -34,6 +34,10 @@ mouse_cursor/custom_image_hotspot=Vector2(32, 32)
 
 project/assembly_name="space shmup"
 
+[gui]
+
+theme/custom_font="res://UI/fonts/Kenney Pixel Square.ttf"
+
 [input]
 
 left={
@@ -86,7 +90,7 @@ dev_action={
 2d_physics/layer_5="Obstacle"
 2d_physics/layer_6="XP"
 2d_physics/layer_7="UpgradePickup"
-2d_physics/layer_8="WingSword"
+2d_physics/layer_8="BulletDeflection"
 
 [physics]
 
