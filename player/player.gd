@@ -129,7 +129,8 @@ func _on_health_system_health_updated(health, was_damaged):
 	player_health_updated.emit(health)
 	if was_damaged:
 		$Audio/HurtSoundPlayer.play()
-	
+	elif not was_damaged:
+		$Audio/HealSoundPlayer.play()
 
 
 func _on_health_system_max_health_updated(max_health):

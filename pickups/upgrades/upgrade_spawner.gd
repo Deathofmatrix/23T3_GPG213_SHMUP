@@ -21,6 +21,8 @@ func _ready():
 
 
 func spawn_upgrades():
+	$UpgradeSpawnedPlayer.play()
+	
 	var markers = spawn_locations.get_children()
 	var current_onscreen_upgrades: Array = []
 	var upgrade1 = create_upgrade(markers[0], current_onscreen_upgrades)
