@@ -16,10 +16,12 @@ weapon_name = "Wingarang"
 weapon_description = "Shoot a wingarang out that comes back to you"
 
 [node name="BoomerangPath" type="Path2D" parent="."]
+visible = false
 position = Vector2(14, 0)
 curve = SubResource("Curve2D_lp5rr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BoomerangPath"]
+visible = false
 position = Vector2(-14, -17)
 rotation = -1.20559
 rotates = false
@@ -29,5 +31,11 @@ loop = false
 [node name="CantShootTimer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
+
+[node name="StartMarker" type="Marker2D" parent="."]
+position = Vector2(0, 10)
+
+[node name="EndMarker" type="Marker2D" parent="."]
+position = Vector2(0, -10)
 
 [connection signal="timeout" from="CantShootTimer" to="." method="_on_cant_shoot_timer_timeout"]

@@ -1,5 +1,7 @@
-res://managers/scene_switcher.tscn
+res://weapons/wingarang/wingarang_gun.tscn
 res://shaders/hit_flash_shader.tres
+res://weapons/wingarang/wingarang_gun.gd
+res://managers/scene_switcher.tscn
 res://player/player.tscn
 res://enemies/turret_enemy.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
@@ -7,7 +9,6 @@ res://obstacles/meteor.tscn
 res://weapons/pistol/pistol.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://weapons/wingsword/wing_sword.tscn
-res://weapons/wingarang/wingarang_gun.tscn
 res://enemies/follow_enemy.tscn
 res://obstacles/obstacle_spawner.tscn
 res://bullets/pistol_bullet.tscn
@@ -25,3 +26,4 @@ res://bullets/sword_bullet.tscn
 res://levels/Scenes/level_01.tscn
 res://enemies/speed_fall_enemy.tscn
 res://player/resources/health_system.tscn
+res://bullets/wingarang_bullet.gd

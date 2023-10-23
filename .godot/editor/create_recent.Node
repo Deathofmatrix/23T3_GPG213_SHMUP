@@ -1,4 +1,5 @@
 VisibleOnScreenNotifier2D
+Marker2D
 Sprite2D
 CollisionShape2D
 CharacterBody2D
@@ -16,7 +17,6 @@ TextureRect
 PanelContainer
 PathFollow2D
 Path2D
-Marker2D
 Node2D
 Button
 CanvasLayer
