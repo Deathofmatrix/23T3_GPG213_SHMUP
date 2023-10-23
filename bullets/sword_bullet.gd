@@ -21,4 +21,6 @@ func _on_body_entered(body):
 		child_node.handle_damage(bullet_damage)
 
 
-
+func _on_area_entered(area):
+	if area.has_method("bullet_blocked"):
+		area.bullet_blocked()

@@ -10,7 +10,7 @@ signal upgrade_added_or_upgraded(upgrade_name: String, upgrade_level: int, upgra
 @export var hud: HUD
 @export var movement_data: MovementData
 @export var weapons: Array[Weapon]
-@export var starting_max_health = 100
+@export var starting_max_health = 50
 
 @export var current_level = 1
 @export var current_xp = 1

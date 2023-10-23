@@ -68,7 +68,6 @@ motion_mode = 1
 script = ExtResource("1_d1dy8")
 health_system = NodePath("HealthSystem")
 movement_data = ExtResource("2_a52vq")
-starting_max_health = 50
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -93,6 +92,7 @@ use_parent_material = true
 [node name="Pistol" parent="CurrentWeapons" instance=ExtResource("3_isbyh")]
 
 [node name="HealthSystem" parent="." instance=ExtResource("5_634nx")]
+max_health = 50
 wait_time = 2.0
 
 [node name="HitBox" type="Area2D" parent="."]

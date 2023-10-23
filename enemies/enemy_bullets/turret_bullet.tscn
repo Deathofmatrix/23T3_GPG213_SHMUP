@@ -12,6 +12,7 @@ height = 18.0
 collision_layer = 8
 collision_mask = 145
 script = ExtResource("1_atgjm")
+speed = 125
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -31,6 +32,5 @@ range_layer_min = -10
 texture = ExtResource("3_sgbf6")
 texture_scale = 0.2
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
