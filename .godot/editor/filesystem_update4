@@ -16,3 +16,4 @@ res://enemies/enemy_bullets/turret_bullet.tscn
 res://obstacles/obstacle_spawner.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://weapons/pistol/pistol.tscn
+res://player/xp_collector.gd
