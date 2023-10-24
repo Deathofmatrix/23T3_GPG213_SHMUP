@@ -35,7 +35,4 @@ one_shot = true
 [node name="StartMarker" type="Marker2D" parent="."]
 position = Vector2(0, 10)
 
-[node name="EndMarker" type="Marker2D" parent="."]
-position = Vector2(0, -10)
-
 [connection signal="timeout" from="CantShootTimer" to="." method="_on_cant_shoot_timer_timeout"]

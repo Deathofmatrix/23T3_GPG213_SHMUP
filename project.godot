@@ -87,6 +87,7 @@ dev_action={
 2d_physics/layer_6="XP"
 2d_physics/layer_7="UpgradePickup"
 2d_physics/layer_8="WingSword"
+2d_physics/layer_9="WeaponClear"
 
 [physics]
 

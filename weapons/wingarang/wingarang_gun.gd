@@ -8,10 +8,6 @@ var move_speed = 150
 @onready var can_shoot_timer = $CantShootTimer
 
 
-#func _physics_process(delta):
-#	$BoomerangPath/PathFollow2D.progress += move_speed * delta
-
-
 func _on_cant_shoot_timer_timeout():
 	can_shoot = true
 #	print("timer finished")
@@ -32,7 +28,6 @@ func spawn_bullet(spawn_point):
 	bullet.bullet_damage = bullet_damage
 	GlobalPlayerInfo.player.get_parent().add_child(bullet)
 	return bullet
-	
 
 
 func upgrade():
