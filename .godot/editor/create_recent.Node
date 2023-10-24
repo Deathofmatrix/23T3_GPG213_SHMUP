@@ -1,3 +1,4 @@
+PanelContainer
 TextureRect
 PointLight2D
 AnimationPlayer
@@ -17,7 +18,6 @@ Sprite2D
 Area2D
 Timer
 RayCast2D
-PanelContainer
 PathFollow2D
 Path2D
 Marker2D

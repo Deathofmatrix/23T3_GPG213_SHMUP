@@ -1,18 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=14 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
-[ext_resource type="Texture2D" uid="uid://bod6x7osmw61r" path="res://UI/BarFill.png" id="3_ugq3e"]
 [ext_resource type="Texture2D" uid="uid://8otolkdp2xj0" path="res://UI/RightGameUI.png" id="4_6yf2j"]
 [ext_resource type="FontFile" uid="uid://crl0wispg18u6" path="res://UI/fonts/Kenney Pixel Square.ttf" id="4_qi488"]
 [ext_resource type="Texture2D" uid="uid://l2inyxy15mou" path="res://UI/XPBarFill.png" id="4_uykw4"]
 [ext_resource type="Texture2D" uid="uid://c11f4u53jwrx2" path="res://weapons/pistol/pistol_icon.png" id="5_6okm4"]
 [ext_resource type="Texture2D" uid="uid://bp7rke1fsxbm8" path="res://UI/sidebar_icon_background.png" id="5_30lvw"]
 [ext_resource type="FontFile" uid="uid://c38vatl1wnjmj" path="res://UI/fonts/Kenney Pixel.ttf" id="7_o7677"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_rkrnn"]
-font = ExtResource("4_qi488")
-font_size = 6
+[ext_resource type="Texture2D" uid="uid://dkqucdjn5ahd2" path="res://UI/Healthbar.png" id="8_lfbbb"]
+[ext_resource type="Texture2D" uid="uid://dwcbwtnofs33q" path="res://UI/Healthbar-fill.png" id="9_5k2e4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_abb1i"]
 font = ExtResource("7_o7677")
@@ -23,6 +20,12 @@ outline_color = Color(0.054902, 0.0196078, 0.133333, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_4ylym"]
 line_spacing = 10.0
 font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkrnn"]
+font = ExtResource("4_qi488")
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -43,28 +46,6 @@ grow_vertical = 2
 [node name="LeftBackground" type="TextureRect" parent="LeftPanelContainer"]
 layout_mode = 2
 texture = ExtResource("2_3q863")
-
-[node name="HealthBar" type="TextureProgressBar" parent="LeftPanelContainer/LeftBackground"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 8.0
-offset_top = 219.0
-offset_right = 88.0
-offset_bottom = 239.0
-value = 100.0
-texture_progress = ExtResource("3_ugq3e")
-
-[node name="HealthText" type="Label" parent="LeftPanelContainer/LeftBackground"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 32.0
-offset_top = 194.0
-offset_right = 64.0
-offset_bottom = 208.0
-text = "100/100"
-label_settings = SubResource("LabelSettings_rkrnn")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="XPBar" type="TextureProgressBar" parent="LeftPanelContainer/LeftBackground"]
 unique_name_in_owner = true
@@ -257,5 +238,43 @@ grow_vertical = 0
 text = "HIGHSCORE: 
 "
 label_settings = SubResource("LabelSettings_4ylym")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -16.0
+offset_right = 218.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+texture_under = ExtResource("8_lfbbb")
+texture_progress = ExtResource("9_5k2e4")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="HealthText" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -17.0
+offset_right = 40.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "100/100"
+label_settings = SubResource("LabelSettings_rkrnn")
 horizontal_alignment = 1
 vertical_alignment = 1
