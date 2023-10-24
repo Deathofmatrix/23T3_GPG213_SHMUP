@@ -1,6 +1,6 @@
 extends Weapon
 
-var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet.tscn")
+var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet_new.tscn")
 
 var move_speed = 150
 
