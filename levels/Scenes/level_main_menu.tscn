@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://chmtr8bwhf6fl"]
+[gd_scene load_steps=6 format=3 uid="uid://chmtr8bwhf6fl"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cxskp"]
 [ext_resource type="Texture2D" uid="uid://b4w4i485t05ij" path="res://levels/MainMenuBackground.png" id="2_155o6"]
 [ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="3_gn8rn"]
+[ext_resource type="Texture2D" uid="uid://dlp673phwujvp" path="res://UI/logox200.png" id="3_j5e8y"]
 [ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="4_44e7e"]
 
 [node name="LevelMainMenu" type="Node2D"]
@@ -26,13 +27,35 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_155o6")
 
+[node name="Logo" type="TextureRect" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -155.0
+offset_right = 204.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_j5e8y")
+
 [node name="ChangeSceneButton" type="Button" parent="Control/TextureRect"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 267.0
-offset_top = 130.0
-offset_right = 367.0
-offset_bottom = 230.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 16.0
+offset_right = 100.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
 disabled = true
 text = "START"
 

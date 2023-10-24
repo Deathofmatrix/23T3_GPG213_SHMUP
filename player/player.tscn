@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://31dxe106neto"]
+[gd_scene load_steps=20 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="3_ouby8"]
-[ext_resource type="Texture2D" uid="uid://bplbk71tbche4" path="res://player/player_ship02.png" id="4_caonp"]
+[ext_resource type="Texture2D" uid="uid://cxbyd1g5i1f7w" path="res://player/player_ship02-Sheet.png" id="4_xbi5s"]
 [ext_resource type="PackedScene" uid="uid://bbhn84hirt6hd" path="res://player/xp_collector.tscn" id="5_65dra"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
 [ext_resource type="AudioStream" uid="uid://bo447r4wggrhf" path="res://player/audio/hurt1.ogg" id="5_k6554"]
@@ -41,6 +41,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShipSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_fr33m"]
 resource_name = "invulnerable_flash_anim"
@@ -58,10 +70,28 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_yrpaa"]
+resource_name = "ship_flame_anim"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShipSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_13n0k"]
 _data = {
 "RESET": SubResource("Animation_nidj5"),
-"invulnerable_flash_anim": SubResource("Animation_fr33m")
+"invulnerable_flash_anim": SubResource("Animation_fr33m"),
+"ship_flame_anim": SubResource("Animation_yrpaa")
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_system") groups=["Player"]]
@@ -76,7 +106,8 @@ starting_max_health = 50
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_3nm0x")
 rotation = 1.5708
-texture = ExtResource("4_caonp")
+texture = ExtResource("4_xbi5s")
+hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_25jxs")

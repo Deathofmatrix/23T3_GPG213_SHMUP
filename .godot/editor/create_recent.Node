@@ -1,5 +1,5 @@
-PanelContainer
 TextureRect
+PanelContainer
 PointLight2D
 AnimationPlayer
 AnimatedSprite2D

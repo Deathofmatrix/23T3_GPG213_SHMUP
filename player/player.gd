@@ -35,10 +35,13 @@ func _ready():
 	health_system.change_max_health(starting_max_health)
 	add_weapon(Pistol.instantiate())
 
+
 func _process(_delta):
 	GlobalPlayerInfo.player_position = global_position
 	lock_player_to_screen()
 	give_invulnerability()
+	movement_animation()
+	movement_sound()
 #	if Input.is_action_just_pressed("secondary_action"):
 #		health_system.change_max_health(200)
 #	if Input.is_action_just_pressed("primary_action"):
@@ -52,7 +55,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	look_at(get_global_mouse_position())
-	movement_sound()
 
 
 # Movement
@@ -77,6 +79,12 @@ func movement_sound():
 	
 	movement_sound_player.pitch_scale = lerpf(0.5, 1.5, current_percentage)
 
+
+func movement_animation():
+	if velocity.length() != 0:
+		animation_player.queue("ship_flame_anim")
+	if velocity.length() == 0:
+		animation_player.play("RESET")
 
 # Upgrading
 
