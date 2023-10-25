@@ -46,7 +46,7 @@ bus = &"Music"
 [node name="ScalingInfo" type="Node2D" parent="."]
 
 [node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
-wait_time = 30.0
+wait_time = 15.0
 autostart = true
 
 [node name="HUDCanvas" type="CanvasLayer" parent="."]

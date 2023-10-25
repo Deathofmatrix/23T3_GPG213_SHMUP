@@ -1,36 +1,20 @@
 extends Weapon
 
-var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet.tscn")
+var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet_new.tscn")
 
 var move_speed = 150
 
-@onready var bullet_spawn = $BoomerangPath
+@onready var bullet_spawn = $StartMarker
 @onready var can_shoot_timer = $CantShootTimer
-
-#func _ready():
-#	weapon_name = "Wingarang"
-
-
-#func _process(_delta):
-##	my_delta = delta
-#	$Path2D/PathFollow2D.progress += move_speed * delta
-#	shoot_bullet()
-#
-##	print (can_shoot)
-##	print(can_shoot_timer.is_stopped())
-
-func _physics_process(delta):
-	$BoomerangPath/PathFollow2D.progress += move_speed * delta
 
 
 func _on_cant_shoot_timer_timeout():
 	can_shoot = true
-	print("timer finished")
+#	print("timer finished")
 
 
 func shoot_bullet():
-	for spawn_point in bullet_spawn.get_children():
-		var _new_bullet = spawn_bullet(spawn_point)
+	var _new_bullet = spawn_bullet(bullet_spawn)
 	
 	can_shoot_timer.start()
 	can_shoot = false
@@ -38,11 +22,12 @@ func shoot_bullet():
 
 func spawn_bullet(spawn_point):
 	var bullet = Bullet.instantiate() as Bullet
-	bullet.position = spawn_point.position
-#	$Path2D/PathFollow2D.add_child(bullet)
-	$BoomerangPath/PathFollow2D.call_deferred("add_child", bullet)
-#	print("fired")
-	
+	bullet.position = spawn_point.global_position
+	bullet.direction = (get_global_mouse_position() - global_position).normalized()
+	bullet.rotation = bullet.direction.angle()
+	bullet.bullet_damage = bullet_damage
+	GlobalPlayerInfo.player.get_parent().add_child(bullet)
+	return bullet
 
 
 func upgrade():

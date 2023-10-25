@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjec4t674a21o"]
+
+[ext_resource type="Script" path="res://bullets/wingarang_bullet_new.gd" id="1_vy7dr"]
+[ext_resource type="Texture2D" uid="uid://glcmxqtoyl22" path="res://bullets/wingarang.png" id="2_avbky"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qxag"]
+
+[node name="WingarangBulletNew" type="Area2D"]
+collision_layer = 2
+collision_mask = 276
+script = ExtResource("1_vy7dr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_avbky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7qxag")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="LifespanTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="LifespanTimer" to="." method="_on_lifespan_timer_timeout"]
+[connection signal="timeout" from="LifespanTimer" to="." method="_on_comeback_timer_timeout"]

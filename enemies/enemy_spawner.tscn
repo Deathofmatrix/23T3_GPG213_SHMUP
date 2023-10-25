@@ -7,7 +7,7 @@
 script = ExtResource("1_mnnqm")
 
 [node name="CreationTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.25
 autostart = true
 
 [node name="Markers" type="Node2D" parent="."]

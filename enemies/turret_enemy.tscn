@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="1_7nffw"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="1_wsp5j"]
-[ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_ghp4w"]
 [ext_resource type="PackedScene" uid="uid://c4vx0f4rkdxre" path="res://enemies/enemy_bullets/turret_bullet.tscn" id="2_so8rb"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_iygrd"]
 [ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="4_14t0u"]
+[ext_resource type="Texture2D" uid="uid://bfwtnuu7t5fb5" path="res://enemies/Turret_Enemy.png" id="4_fedmv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4riiu"]
 resource_local_to_scene = true
@@ -26,16 +26,15 @@ points = 175
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_4riiu")
-rotation = -1.5708
-texture = ExtResource("2_ghp4w")
-region_enabled = true
+rotation = 1.5708
+texture = ExtResource("4_fedmv")
 region_rect = Rect2(99, 3, 32, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nuknk")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_iygrd")]
-max_health = 20
+max_health = 25
 wait_time = 0.01
 
 [node name="EnemyWeapon" parent="." instance=ExtResource("4_14t0u")]
@@ -44,6 +43,7 @@ wait_time = 0.01
 target_position = Vector2(500, 0)
 
 [node name="ReloadTimer" type="Timer" parent="RayCast2D"]
+wait_time = 1.5
 one_shot = true
 autostart = true
 

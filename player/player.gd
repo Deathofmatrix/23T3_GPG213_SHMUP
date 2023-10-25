@@ -10,7 +10,7 @@ signal upgrade_added_or_upgraded(weapon)
 @export var hud: HUD
 @export var movement_data: MovementData
 @export var weapons: Array[Weapon]
-@export var starting_max_health = 100
+@export var starting_max_health = 50
 
 var current_level = 1
 var current_xp = 1
@@ -138,6 +138,7 @@ func give_invulnerability():
 
 func _on_hit_box_body_entered(body):
 	health_system.handle_damage(body.damage)
+	
 
 
 func _on_health_system_health_updated(health, was_damaged):
@@ -171,3 +172,8 @@ func _on_xp_manager_xp_updated(xp):
 func _on_upgrade_collector_area_entered(area):
 	var upgrade_type: Weapon = area.upgrade_collected()
 	add_weapon(upgrade_type)
+
+
+func _on_weapon_clear_box_area_entered(area):
+	if area.has_method("clear_weapon"):
+		area.clear_weapon()

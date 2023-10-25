@@ -20,15 +20,11 @@ func _on_body_entered(body):
 		child_node.handle_damage(bullet_damage)
 
 
-func _on_area_entered(area):
-#	if sword_bullet:
-#		print("Collided with SwordBullet")
-#		bullet_blocked()
-#	else:
-	print("Collided with something else: ", area)
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()
+
 
 func bullet_blocked():
-	print("bullet_blocked function called")
 	queue_free()
 
 
