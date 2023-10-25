@@ -93,7 +93,6 @@ dev_action={
 2d_physics/layer_8="BulletDeflection"
 2d_physics/layer_9="WeaponClear"
 
-
 [physics]
 
 common/physics_ticks_per_second=120
