@@ -20,3 +20,4 @@ func _on_health_system_killed():
 
 func _on_health_system_health_updated(health, _was_damaged):
 	hit_flash($Sprite2D)
+	enemy_hit_player.play()
