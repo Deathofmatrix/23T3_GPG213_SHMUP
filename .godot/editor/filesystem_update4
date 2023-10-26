@@ -1,6 +1,5 @@
 res://enemies/enemy_spawner.tscn
 res://shaders/hit_flash_shader.tres
-res://enemies/enemy_spawner.gd
 res://player/player.tscn
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
@@ -13,3 +12,10 @@ res://weapons/wingarang/wingarang_gun.tscn
 res://weapons/wingsword/wing_sword.tscn
 res://bullets/sword_bullet.tscn
 res://bullets/shotgun_bullet.tscn
+res://managers/scene_switcher.tscn
+res://UI/setings_window.tscn
+res://UI/settings_window.tscn
+res://UI/settings_window.gd
+res://levels/level.gd
+res://levels/Scenes/MainMenuManager.gd
+res://default_bus_layout.tres

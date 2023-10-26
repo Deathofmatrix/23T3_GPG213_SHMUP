@@ -55,3 +55,4 @@ func _on_difficulty_scaling_timer_timeout():
 	$ScalingInfo/DifficultyScalingTimer.wait_time = 45
 	EventManager.increase_difficulty()
 	print("increase difficulty")
+

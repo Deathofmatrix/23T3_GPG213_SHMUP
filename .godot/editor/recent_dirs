@@ -1,3 +1,6 @@
+res://UI
+res://player
+res://backgrounds
 C:/Users/twins/Files/Godot/Builds/SCHMUP_Builds/MacOS
 res://UI/fonts
 res://levels
@@ -5,16 +8,13 @@ res://common
 C:/Users/twins/Files/Godot/Builds/SCHMUP_Builds/Build03
 res://shaders
 res://bullets
-res://UI
 res://weapons/wingsword
 res://enemies/weapons
 res://enemies
 res://pickups/upgrades
-res://player
 res://player/resources
 res://managers
 res://
 res://autoloads
-res://backgrounds
 res://obstacles
 res://weapons

@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="space shmup"
+config/name="SEKMETICA"
 run/main_scene="res://managers/scene_switcher.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/image="res://player/player_ship02.png"
+config/icon="res://player/player_ship02.png"
 
 [autoload]
 

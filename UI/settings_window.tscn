@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2mtu1tctk2bh"]
+
+[ext_resource type="Script" path="res://UI/settings_window.gd" id="1_iiy1l"]
+[ext_resource type="Texture2D" uid="uid://0mqf17xycdva" path="res://UI/Button.png" id="2_we52i"]
+
+[node name="SettingsWindow" type="CanvasLayer"]
+script = ExtResource("1_iiy1l")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.776471)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="FullscreenButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.278431, 0.278431, 0.278431, 1)
+theme_override_colors/font_hover_color = Color(0.164706, 0.164706, 0.164706, 1)
+theme_override_colors/font_focus_color = Color(0.164706, 0.164706, 0.164706, 1)
+text = "FULLSCREEN"
+icon = ExtResource("2_we52i")
+icon_alignment = 1
+
+[node name="WindowedButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.278431, 0.278431, 0.278431, 1)
+theme_override_colors/font_hover_color = Color(0.164706, 0.164706, 0.164706, 1)
+theme_override_colors/font_focus_color = Color(0.164706, 0.164706, 0.164706, 1)
+text = "WINDOWED"
+icon = ExtResource("2_we52i")
+icon_alignment = 1
+
+[node name="MusicVolume" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SFX Volume" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MasterVolume" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.278431, 0.278431, 0.278431, 1)
+theme_override_colors/font_hover_color = Color(0.164706, 0.164706, 0.164706, 1)
+theme_override_colors/font_focus_color = Color(0.164706, 0.164706, 0.164706, 1)
+text = "BACK
+"
+icon = ExtResource("2_we52i")
+icon_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/WindowedButton" to="." method="_on_windowed_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
