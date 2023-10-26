@@ -2,7 +2,7 @@ extends Weapon
 
 var Bullet: PackedScene = preload ("res://bullets/wingarang_bullet_new.tscn")
 
-var move_speed = 150
+var bullet_speed = 150
 
 @onready var bullet_spawn = $StartMarker
 @onready var can_shoot_timer = $CantShootTimer
@@ -36,14 +36,14 @@ func upgrade():
 		2:
 			print("level 2 Wingarang")
 			bullet_damage += 10
-			current_description = "Wingarang Damage ++"
+			current_description = "3 Wingarangs"
 		3:
 			print("level 3 Wingarang")
-			current_description = "Wingarang fast +"
-			move_speed += 100
+			bullet_speed += 50
+			current_description = "Wingarang Speed +"
 		4:
 			print("level 4 Wingarang")
-			bullet_damage += 20
+			bullet_damage += 5
 			current_description = "Bullet Damage +"
 		5:
 			print("level 5 Wingarang")	

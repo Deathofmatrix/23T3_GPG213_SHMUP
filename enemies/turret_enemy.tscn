@@ -17,23 +17,6 @@ shader_parameter/tint = Color(1, 1, 1, 1)
 radius = 11.0
 height = 32.0
 
-[sub_resource type="Animation" id="Animation_vhtsg"]
-resource_name = "moving"
-length = 1.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TurretEnemySprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.343697, 0.694854, 1.06839, 1.30267),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-
 [sub_resource type="Animation" id="Animation_usf7v"]
 length = 0.2
 loop_mode = 1
@@ -48,6 +31,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vhtsg"]
+resource_name = "moving"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.343697, 0.694854, 1.06839, 1.30267),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ohi6m"]
@@ -88,7 +87,6 @@ one_shot = true
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "moving"
 libraries = {
 "": SubResource("AnimationLibrary_ohi6m")
 }

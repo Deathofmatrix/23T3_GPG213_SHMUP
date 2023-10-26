@@ -10,8 +10,8 @@ signal score_increased(current_score)
 @export var upgrade_backgrounds: Array
 
 var score = 0
-var _current_max_health = 100
-var _current_health = 100
+var _current_max_health = 50
+var _current_health = 50
 
 @onready var score_text = %ScoreText
 @onready var high_score_text = %HighScoreText

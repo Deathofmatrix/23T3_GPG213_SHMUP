@@ -14,7 +14,6 @@ func _physics_process(_delta):
 	move_and_slide()
 
 
-
 func _on_health_system_killed():
 #	print(name + "killed")
 	EventManager.emit_signal("enemy_destroyed", global_position, points)

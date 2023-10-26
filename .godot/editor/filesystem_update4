@@ -19,5 +19,11 @@ res://weapons/pistol/pistol.tscn
 res://levels/Scenes/level_main_menu.tscn
 res://enemies/speed_fall_enemy.tscn
 res://enemies/enemy_spawner.tscn
-res://enemies/follow_enemy.gd
-res://enemies/speed_fall_enemy.gd
+res://default_bus_layout.tres
+res://bullets/wingarang_bullet_new.tscn
+res://bullets/wingarang_bullet_new.gd
+res://player/resources/movement_data_playtest.tres
+res://weapons/wingarang/wingarang_gun.tscn
+res://weapons/wingarang/wingarang_gun.gd
+res://UI/hud.gd
+res://enemies/turret_enemy.gd

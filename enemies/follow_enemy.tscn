@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jvoeqb4k138e"]
+[gd_scene load_steps=10 format=3 uid="uid://jvoeqb4k138e"]
 
 [ext_resource type="Script" path="res://enemies/follow_enemy.gd" id="1_3qm14"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_dt7pd"]
@@ -15,35 +15,19 @@ shader_parameter/tint = Color(1, 1, 1, 1)
 size = Vector2(22, 29)
 
 [sub_resource type="Animation" id="Animation_vjnb4"]
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Moving")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
 }
-
-[sub_resource type="Animation" id="Animation_4yxf3"]
-resource_name = "hit_flash"
-length = 0.2
 
 [sub_resource type="Animation" id="Animation_mmi1x"]
 resource_name = "moving"
@@ -65,7 +49,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sln50"]
 _data = {
 "RESET": SubResource("Animation_vjnb4"),
-"hit_flash": SubResource("Animation_4yxf3"),
 "moving": SubResource("Animation_mmi1x")
 }
 

@@ -11,6 +11,7 @@ var target: Node2D = null
 
 func _enemy_ready():
 	target = find_player()
+	$AnimationPlayer.play("moving")
 
 
 func _physics_process(_delta):
@@ -38,6 +39,8 @@ func shoot_at_player():
 		bullet.global_rotation = ray_cast.global_rotation
 	
 	reload_timer.start()
+	$AnimationPlayer.play("moving")
+	$AnimationPlayer.queue("RESET")
 
 
 func find_player():
@@ -45,7 +48,7 @@ func find_player():
 	
 	if get_tree().has_group("Player"):
 		current_target = get_tree().get_nodes_in_group("Player")[0]
-		
+	
 	return current_target
 
 
@@ -54,7 +57,7 @@ func _on_reload_timer_timeout():
 
 
 func _on_health_system_health_updated(_health, _was_damaged):
-	hit_flash($Sprite2D)
+	hit_flash($TurretEnemySprite)
 	enemy_hit_player.play()
 
 
