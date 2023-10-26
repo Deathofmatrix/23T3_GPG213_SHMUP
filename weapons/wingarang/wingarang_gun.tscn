@@ -30,7 +30,6 @@ cubic_interp = false
 loop = false
 
 [node name="CantShootTimer" type="Timer" parent="."]
-wait_time = 2.5
 one_shot = true
 
 [node name="StartMarker" type="Marker2D" parent="."]

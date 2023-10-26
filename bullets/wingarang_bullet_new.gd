@@ -17,8 +17,8 @@ func _on_body_entered(body):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	
-	direction.x = position.direction_to(GlobalPlayerInfo.player_position).x *2.5
-	direction.y = position.direction_to(GlobalPlayerInfo.player_position).y *2.5
+	direction.x = position.direction_to(GlobalPlayerInfo.player_position).x * 1.75
+	direction.y = position.direction_to(GlobalPlayerInfo.player_position).y * 1.75
 
 # this is incase it doesn't hit the clear box at the back of the player
 func _on_lifespan_timer_timeout():

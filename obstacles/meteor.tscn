@@ -33,7 +33,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ubm40"]
 resource_name = "meteor"
-length = 0.6
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -42,7 +42,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
@@ -90,6 +90,7 @@ libraries = {
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.6, 0.207843, 0.180392, 1)
+energy = 0.5
 range_layer_min = -10
 texture = ExtResource("6_toblk")
 texture_scale = 0.3

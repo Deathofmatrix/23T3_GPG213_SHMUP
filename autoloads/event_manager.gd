@@ -6,6 +6,7 @@ var is_paused: bool = false
 signal enemy_destroyed(global_position: Vector2, points: int)
 signal player_leveled_up()
 signal difficulty_level_changed(level: int)
+signal wingarang_left_tree()
 
 #func _ready():
 #	difficulty_level = 1

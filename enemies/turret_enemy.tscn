@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://p4pk2b64vi4e"]
+[gd_scene load_steps=13 format=3 uid="uid://p4pk2b64vi4e"]
 
 [ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="1_7nffw"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="1_wsp5j"]
@@ -49,9 +49,26 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_85ryd"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ohi6m"]
 _data = {
 "RESET": SubResource("Animation_usf7v"),
+"idle": SubResource("Animation_85ryd"),
 "moving": SubResource("Animation_vhtsg")
 }
 
@@ -67,6 +84,7 @@ material = SubResource("ShaderMaterial_4riiu")
 rotation = 1.5708
 texture = ExtResource("4_rhi0w")
 hframes = 5
+vframes = 2
 region_rect = Rect2(99, 3, 32, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

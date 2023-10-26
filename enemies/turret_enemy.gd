@@ -40,7 +40,7 @@ func shoot_at_player():
 	
 	reload_timer.start()
 	$AnimationPlayer.play("moving")
-	$AnimationPlayer.queue("RESET")
+	$AnimationPlayer.queue("idle")
 
 
 func find_player():
