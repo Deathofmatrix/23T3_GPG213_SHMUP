@@ -45,17 +45,27 @@ func upgrade():
 	match upgrade_number:
 		2:
 			print("level 2 Wingarang")
-			max_bullets_on_screen += 1
-			current_description = "2 Wingarangs"
-		3:
-			print("level 3 Wingarang")
 			bullet_speed += 50
 			current_description = "Wingarang Speed +"
+		3:
+			print("level 3 Wingarang")
+			max_bullets_on_screen += 1
+			current_description = "2 Wingarangs"
 		4:
 			print("level 4 Wingarang")
 			bullet_damage += 5
 			current_description = "Wingarang Damage +"
 		5:
-			print("level 5 Wingarang")	
+			bullet_speed += 50
+			current_description = "Wingarang Speed +"
+		6:
+			max_bullets_on_screen += 1
+			current_description = "3 Wingarangs"
+		7:
+			bullet_damage += 5
+			current_description = "Wingarang Damage +"
+		8:
+			max_bullets_on_screen += 2
+			current_description = "5 Wingarangs"
 		_:
 			print("Wingarang level outside of scope")

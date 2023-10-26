@@ -3,6 +3,7 @@ extends Weapon
 var Bullet = preload("res://bullets/sword_bullet.tscn")
 
 var bullet_lifetime = 0.2
+var bullet_size = 1
 
 @onready var bullet_spawns = $BulletSpawns
 @onready var shoot_speed_timer = $ShootSpeedTimer
@@ -32,6 +33,7 @@ func spawn_bullet(spawn_point):
 	bullet.rotation = bullet.direction.angle()
 	bullet.bullet_damage = bullet_damage
 	bullet.bullet_lifetime = bullet_lifetime
+	bullet.bullet_size = bullet_size
 	GlobalPlayerInfo.player.get_parent().add_child(bullet)
 	return bullet
 
@@ -50,7 +52,20 @@ func upgrade():
 		4:
 			print("level 4 wingsword")
 			bullet_lifetime += 1
+			current_description = "Wingsword distance ++"
+		5:
+			shoot_speed_timer.wait_time = 1.75
+			bullet_damage += 5
+			current_description = "Wingsword damage +\nWingsword firerate +"
+		6:
+			bullet_lifetime += 1
 			current_description = "Wingarang distance ++"
+		7:
+			shoot_speed_timer.wait_time = 1.5
+			current_description = "Wingsword firerate +"
+		8:
+			bullet_size = 2
+			current_description = "BIG SWORD"
 		_:
 			print("wingsword level outside of scope")
 

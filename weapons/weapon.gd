@@ -4,7 +4,7 @@ extends Node2D
 @export var icon_image: Texture2D
 @export var bullet_damage: int = 10
 @export var upgrade_number: int = 1
-@export var max_upgrades: int = 4
+@export var max_upgrades: int = 8
 @export var weapon_name: String = ""
 @export var weapon_description: String = ""
 @export var shoot_sound: AudioStream

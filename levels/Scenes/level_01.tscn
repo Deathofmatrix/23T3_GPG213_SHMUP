@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=13 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
@@ -12,14 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 [ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://pickups/xp/xp_spawner.tscn" id="6_ac72y"]
 [ext_resource type="PackedScene" uid="uid://d0gynaifufxo8" path="res://pickups/upgrades/upgrade_spawner.tscn" id="8_ysjd3"]
-[ext_resource type="PackedScene" uid="uid://p4pk2b64vi4e" path="res://enemies/turret_enemy.tscn" id="13_hxf2s"]
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_hrodq")
 level_name = "main_menu"
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="."]
-energy = 0.1
+energy = 0.15
 blend_mode = 1
 range_layer_min = -100
 
@@ -71,8 +70,6 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
-offset_left = 4.0
-offset_right = 92.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
@@ -93,8 +90,6 @@ current_obstacle_speed = 50
 [node name="UpgradeSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_ysjd3")]
 position = Vector2(0, -180)
 player = NodePath("../Player")
-
-[node name="TurretEnemy" parent="." instance=ExtResource("13_hxf2s")]
 
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]

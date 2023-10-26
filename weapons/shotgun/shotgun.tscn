@@ -68,6 +68,26 @@ visible = false
 scale = Vector2(0.001, 0.001)
 texture = ExtResource("2_vhs7u")
 
+[node name="ExtraBulletSpawn" type="Node2D" parent="."]
+
+[node name="BulletSpawn5" type="Marker2D" parent="ExtraBulletSpawn"]
+position = Vector2(6, -7)
+rotation = -1.309
+
+[node name="Sprite2D" type="Sprite2D" parent="ExtraBulletSpawn/BulletSpawn5"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("2_vhs7u")
+
+[node name="BulletSpawn6" type="Marker2D" parent="ExtraBulletSpawn"]
+position = Vector2(6, 7)
+rotation = 1.309
+
+[node name="Sprite2D2" type="Sprite2D" parent="ExtraBulletSpawn/BulletSpawn6"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("2_vhs7u")
+
 [node name="ShootSpeedTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true

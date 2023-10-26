@@ -1,11 +1,16 @@
 extends Bullet
 
 @export var bullet_lifetime: float = 2
+@export var bullet_size = 1
 
 @onready var lifespan_timer = $LifespanTimer
+@onready var sprite_2d = $Sprite2D
+@onready var collision_shape_2d = $CollisionShape2D
 
 func _ready():
 	lifespan_timer.wait_time = bullet_lifetime
+	sprite_2d.scale = Vector2(bullet_size, bullet_size)
+	collision_shape_2d.scale = Vector2(bullet_size, bullet_size)
 
 func _on_timer_timeout():
 	queue_free()

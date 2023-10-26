@@ -2,7 +2,10 @@ extends Weapon
 
 var Bullet = preload("res://bullets/pistol_bullet.tscn")
 
+var can_shoot_backwards = false
+
 @onready var bullet_spawns = $BulletSpawns
+@onready var backward_bullet_spawn = $BackwardBulletSpawn
 @onready var shoot_speed_timer = $ShootSpeedTimer
 
 
@@ -17,7 +20,9 @@ func _on_shoot_speed_timer_timeout():
 func shoot_bullet():
 	for spawn_point in bullet_spawns.get_children():
 		var _new_bullet = spawn_bullet(spawn_point)
-	
+	if can_shoot_backwards:
+		var _new_back_bullet = spawn_bullet(backward_bullet_spawn)
+		_new_back_bullet.direction *= -1
 	shoot_speed_timer.start()
 	can_shoot = false
 
@@ -41,14 +46,26 @@ func upgrade():
 			current_description = "Pistol Damage +"
 		3:
 			print("level 3 pistol")
-			shoot_speed_timer.wait_time = 0.4
-			current_description = "Fire Rate +"
+			can_shoot_backwards = true
+			current_description = "Backwards Bullet"
 		4:
 			print("level 4 pistol")
-			bullet_damage += 5
-			shoot_speed_timer.wait_time = 0.3
-			current_description = "Bullet Damage +\nFire Rate +"
+			shoot_speed_timer.wait_time = 0.5
+			current_description = "Fire Rate +"
 		5:
 			print("level 5 pistol")	
+			bullet_damage += 5
+			current_description = "Pistol Damage +"
+		6:
+			shoot_speed_timer.wait_time = 0.4
+			current_description = "Fire Rate +"
+		7:
+			shoot_speed_timer.wait_time = 0.3
+			current_description = "Fire Rate ++"
+		8:
+			var spawnpoint = Marker2D.new()
+			spawnpoint.position = Vector2(9, 0)
+			bullet_spawns.add_child(spawnpoint)
+			current_description = "Triple Bullet"
 		_:
 			print("pistol level outside of scope")
