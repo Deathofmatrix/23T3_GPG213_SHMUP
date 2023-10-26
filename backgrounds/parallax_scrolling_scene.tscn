@@ -1,20 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw5gm0met1k0c"]
+[gd_scene load_steps=7 format=3 uid="uid://dw5gm0met1k0c"]
 
 [ext_resource type="Script" path="res://backgrounds/parallax_scrolling_scene.gd" id="1_x8ow8"]
-[ext_resource type="Texture2D" uid="uid://ch5xq5a07vtq1" path="res://backgrounds/backgroundgreyscalel.png" id="2_xu3qh"]
+[ext_resource type="Texture2D" uid="uid://c3006208kvdtl" path="res://backgrounds/paralaxbackground+1.png" id="2_ut5ko"]
+[ext_resource type="Texture2D" uid="uid://di8rlthr1wm0b" path="res://backgrounds/paralaxbackground+2.png" id="3_vrat5"]
+[ext_resource type="Texture2D" uid="uid://cbqgal4cn3hr7" path="res://backgrounds/paralaxbackground+3.png" id="4_dmu3n"]
+[ext_resource type="Texture2D" uid="uid://bybdph2rymp63" path="res://backgrounds/paralaxbackground+4.png" id="5_otdiv"]
+[ext_resource type="Texture2D" uid="uid://dvhjcqe8hnpro" path="res://backgrounds/paralaxbackground+5.png" id="6_xxdah"]
 
 [node name="ParallaxScrollingScene" type="ParallaxBackground"]
 layer = -10
 script = ExtResource("1_x8ow8")
-scrolling_speed = 60.0
-scroll_speed_increase = 40.0
+scrolling_speed = 20.0
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="ParallaxLayer+1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0.1)
 motion_mirroring = Vector2(0, 640)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+1"]
 self_modulate = Color(0.341176, 0.576471, 0.72549, 1)
 scale = Vector2(2, 2)
-texture = ExtResource("2_xu3qh")
+texture = ExtResource("2_ut5ko")
+offset = Vector2(0, 160)
+region_rect = Rect2(0, 0, 224, 320)
+
+[node name="ParallaxLayer+2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0.4)
+motion_mirroring = Vector2(0, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+2"]
+self_modulate = Color(0.341176, 0.576471, 0.72549, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_vrat5")
+offset = Vector2(0, 160)
+region_rect = Rect2(0, 0, 224, 320)
+
+[node name="ParallaxLayer+3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0.6)
+motion_mirroring = Vector2(0, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+3"]
+self_modulate = Color(0.341176, 0.576471, 0.72549, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("4_dmu3n")
+offset = Vector2(0, 160)
+region_rect = Rect2(0, 0, 224, 320)
+
+[node name="ParallaxLayer+4" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+4"]
+self_modulate = Color(0.341176, 0.576471, 0.72549, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("5_otdiv")
+offset = Vector2(0, 160)
+region_rect = Rect2(0, 0, 224, 320)
+
+[node name="ParallaxLayer+5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0.5)
+motion_mirroring = Vector2(0, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+5"]
+self_modulate = Color(0.341176, 0.576471, 0.72549, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("6_xxdah")
 offset = Vector2(0, 160)
 region_rect = Rect2(0, 0, 224, 320)
