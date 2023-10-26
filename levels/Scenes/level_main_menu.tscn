@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://chmtr8bwhf6fl"]
+[gd_scene load_steps=7 format=3 uid="uid://chmtr8bwhf6fl"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cxskp"]
 [ext_resource type="Texture2D" uid="uid://b4w4i485t05ij" path="res://levels/MainMenuBackground.png" id="2_155o6"]
 [ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="3_gn8rn"]
 [ext_resource type="Texture2D" uid="uid://dlp673phwujvp" path="res://UI/logox200.png" id="3_j5e8y"]
 [ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="4_44e7e"]
+[ext_resource type="AudioStream" uid="uid://bitmbm1x3cfq8" path="res://levels/audio/menuTheme.ogg" id="6_ovlmh"]
 
 [node name="LevelMainMenu" type="Node2D"]
 script = ExtResource("1_cxskp")
@@ -70,5 +71,10 @@ unique_name_in_owner = true
 stream = ExtResource("4_44e7e")
 panning_strength = 0.0
 bus = &"LevelLoad"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ovlmh")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Control/TextureRect/ChangeSceneButton" to="." method="_on_button_pressed"]

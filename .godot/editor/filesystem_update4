@@ -10,9 +10,10 @@ res://enemies/speed_fall_enemy.tscn
 res://weapons/wingarang/wingarang_gun.tscn
 res://bullets/wingarang_bullet_new.tscn
 res://enemies/turret_enemy.tscn
-res://enemies/turret_enemy.gd
 res://obstacles/meteor.tscn
-res://bullets/wingarang_bullet_new.gd
-res://weapons/wingarang/wingarang_gun.gd
-res://autoloads/event_manager.gd
-res://default_bus_layout.tres
+res://enemies/enemy_spawner.tscn
+res://enemies/enemy_spawner.gd
+res://bullets/sword_bullet.tscn
+res://weapons/pistol/pistol.tscn
+res://weapons/shotgun/shotgun.tscn
+res://weapons/wingsword/wing_sword.tscn

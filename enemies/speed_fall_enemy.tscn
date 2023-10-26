@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcdutovxp1imu"]
+[gd_scene load_steps=10 format=3 uid="uid://bcdutovxp1imu"]
 
 [ext_resource type="Script" path="res://enemies/speed_fall_enemy.gd" id="1_ydey1"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_u052i"]
-[ext_resource type="Texture2D" uid="uid://fmmt7w4mijv8" path="res://enemies/Speed_Fall_Enemy.png" id="3_cglpq"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_m1g7b"]
+[ext_resource type="Texture2D" uid="uid://brklbdcjwb31o" path="res://enemies/SpeedEnemy-Sheet.png" id="3_xig1x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nlu4a"]
 resource_local_to_scene = true
@@ -12,7 +12,43 @@ shader_parameter/enabled = true
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl27j"]
-height = 22.0
+height = 28.0
+
+[sub_resource type="Animation" id="Animation_o0puc"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1)
+}
+
+[sub_resource type="Animation" id="Animation_ka6xy"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sg0n0"]
+_data = {
+"RESET": SubResource("Animation_ka6xy"),
+"idle": SubResource("Animation_o0puc")
+}
 
 [node name="SpeedFallEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -23,10 +59,13 @@ damage = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nlu4a")
-texture = ExtResource("3_cglpq")
+rotation = 3.14159
+texture = ExtResource("3_xig1x")
+hframes = 6
 region_rect = Rect2(104, 70, 23, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_dl27j")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_m1g7b")]
@@ -38,6 +77,12 @@ wait_time = 0.1
 position = Vector2(6.49641e-06, -1.5625)
 rotation = -3.14159
 scale = Vector2(1, 1.30625)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_sg0n0")
+}
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
