@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://jvoeqb4k138e"]
 
 [ext_resource type="Script" path="res://enemies/follow_enemy.gd" id="1_3qm14"]
-[ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="1_r5b5g"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_dt7pd"]
+[ext_resource type="Texture2D" uid="uid://di20s03kt5ggg" path="res://enemies/Follow_Enemy.png" id="3_mulwa"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_qjubl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wixjh"]
@@ -12,7 +12,7 @@ shader_parameter/enabled = true
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0h8my"]
-size = Vector2(28, 20)
+size = Vector2(22, 29)
 
 [sub_resource type="Animation" id="Animation_vjnb4"]
 length = 0.001
@@ -38,16 +38,15 @@ movement_speed = 60
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_wixjh")
 rotation = 3.14159
-texture = ExtResource("1_r5b5g")
-region_enabled = true
+texture = ExtResource("3_mulwa")
 region_rect = Rect2(66, 99, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0h8my")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_qjubl")]
-max_health = 40
+max_health = 30
 wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcdutovxp1imu"]
+
+[ext_resource type="Script" path="res://enemies/speed_fall_enemy.gd" id="1_ydey1"]
+[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_u052i"]
+[ext_resource type="Texture2D" uid="uid://fmmt7w4mijv8" path="res://enemies/Speed_Fall_Enemy.png" id="3_cglpq"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_m1g7b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nlu4a"]
+resource_local_to_scene = true
+shader = ExtResource("2_u052i")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl27j"]
+height = 22.0
+
+[node name="SpeedFallEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 19
+script = ExtResource("1_ydey1")
+damage = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nlu4a")
+texture = ExtResource("3_cglpq")
+region_rect = Rect2(104, 70, 23, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dl27j")
+
+[node name="HealthSystem" parent="." instance=ExtResource("3_m1g7b")]
+rotation = -3.14159
+max_health = 15
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(6.49641e-06, -1.5625)
+rotation = -3.14159
+scale = Vector2(1, 1.30625)
+
+[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
+[connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

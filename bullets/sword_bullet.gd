@@ -22,4 +22,3 @@ func _on_body_entered(body):
 func _on_area_entered(area):
 	if area.has_method("bullet_blocked"):
 		area.bullet_blocked()
-

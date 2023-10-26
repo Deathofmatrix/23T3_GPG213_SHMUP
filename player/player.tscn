@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://31dxe106neto"]
+[gd_scene load_steps=21 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
@@ -26,6 +26,9 @@ height = 16.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5swk7"]
 radius = 9.0
 height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phead"]
+size = Vector2(26, 57)
 
 [sub_resource type="Animation" id="Animation_nidj5"]
 length = 0.001
@@ -100,7 +103,6 @@ motion_mode = 1
 script = ExtResource("1_d1dy8")
 health_system = NodePath("HealthSystem")
 movement_data = ExtResource("2_a52vq")
-starting_max_health = 50
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -144,6 +146,7 @@ unique_name_in_owner = true
 use_parent_material = true
 
 [node name="HealthSystem" parent="." instance=ExtResource("5_634nx")]
+max_health = 50
 wait_time = 2.0
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -151,6 +154,15 @@ collision_mask = 28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CapsuleShape2D_5swk7")
+
+[node name="WeaponClearBox" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponClearBox"]
+position = Vector2(-34, 0)
+scale = Vector2(1, 1.44)
+shape = SubResource("RectangleShape2D_phead")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -169,3 +181,4 @@ texture_scale = 0.3
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
 [connection signal="max_health_updated" from="HealthSystem" to="." method="_on_health_system_max_health_updated"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="area_entered" from="WeaponClearBox" to="." method="_on_weapon_clear_box_area_entered"]
