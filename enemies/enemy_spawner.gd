@@ -2,7 +2,7 @@ extends Node2D
 
 signal enemy_killed
 
-const max_enemy_spawn_count = 10
+const max_enemy_spawn_count = 8
 
 @export var max_enemy_spawns = 1
 
@@ -60,28 +60,28 @@ func update_difficulty(difficulty_level: int):
 			max_enemy_spawns = 2
 			$CreationTimer.wait_time += .25 # 1.50
 		3:
-			max_enemy_spawns = 3
+			max_enemy_spawns = 2
 			$CreationTimer.wait_time += .5 # 2.00
 			enemy_weights = [30, 20, 50]
 		4:
-			max_enemy_spawns = 4
-			$CreationTimer.wait_time += .25 # 2.25
+			max_enemy_spawns = 3
+			$CreationTimer.wait_time += 0.5 # 2.50
 		5:
 			max_enemy_spawns = 5
-			$CreationTimer.wait_time += .25 # 2.50
-		6:
-			max_enemy_spawns = 6
 			$CreationTimer.wait_time += .25 # 2.75
+		6:
+			max_enemy_spawns = 4
+			$CreationTimer.wait_time -= 0.25 # 2.5
 			enemy_weights = [35, 25, 40]
 		7:
-			max_enemy_spawns = 7
-			$CreationTimer.wait_time += .25 # 3.00
+			max_enemy_spawns = 6
+			$CreationTimer.wait_time += 0 # 2.5
 		8:
-			max_enemy_spawns = 8
-			$CreationTimer.wait_time += .5 # 3.5
+			max_enemy_spawns = 7
+			$CreationTimer.wait_time += 0.25 # 2.25
 		9:
-			max_enemy_spawns = 9
-			$CreationTimer.wait_time += .5 # 4
+			max_enemy_spawns = 7
+			$CreationTimer.wait_time += 0 # 2.25
 			enemy_weights = [40, 35, 25]
 		10:
 			max_enemy_spawns = max_enemy_spawn_count
