@@ -16,7 +16,7 @@ height = 22.0
 
 [node name="SpeedFallEnemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 19
+collision_mask = 3
 script = ExtResource("1_ydey1")
 damage = 15
 

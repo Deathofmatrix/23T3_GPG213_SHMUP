@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://p4pk2b64vi4e"]
+[gd_scene load_steps=12 format=3 uid="uid://p4pk2b64vi4e"]
 
 [ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="1_7nffw"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="1_wsp5j"]
 [ext_resource type="PackedScene" uid="uid://c4vx0f4rkdxre" path="res://enemies/enemy_bullets/turret_bullet.tscn" id="2_so8rb"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_iygrd"]
 [ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="4_14t0u"]
-[ext_resource type="Texture2D" uid="uid://bfwtnuu7t5fb5" path="res://enemies/Turret_Enemy.png" id="4_fedmv"]
+[ext_resource type="Texture2D" uid="uid://cfy40oxf4lo20" path="res://enemies/turret_enemy_sheet.png" id="4_rhi0w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4riiu"]
 resource_local_to_scene = true
@@ -17,6 +17,45 @@ shader_parameter/tint = Color(1, 1, 1, 1)
 radius = 11.0
 height = 32.0
 
+[sub_resource type="Animation" id="Animation_vhtsg"]
+resource_name = "moving"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.343697, 0.694854, 1.06839, 1.30267),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_usf7v"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ohi6m"]
+_data = {
+"RESET": SubResource("Animation_usf7v"),
+"moving": SubResource("Animation_vhtsg")
+}
+
 [node name="TurretEnemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 7
@@ -24,10 +63,11 @@ script = ExtResource("1_7nffw")
 Bullet = ExtResource("2_so8rb")
 points = 175
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TurretEnemySprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_4riiu")
 rotation = 1.5708
-texture = ExtResource("4_fedmv")
+texture = ExtResource("4_rhi0w")
+hframes = 5
 region_rect = Rect2(99, 3, 32, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -46,6 +86,12 @@ target_position = Vector2(500, 0)
 wait_time = 1.5
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "moving"
+libraries = {
+"": SubResource("AnimationLibrary_ohi6m")
+}
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

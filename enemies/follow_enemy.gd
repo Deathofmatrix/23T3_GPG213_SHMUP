@@ -7,6 +7,7 @@ var direction = Vector2(0,1)
 
 func _process(_delta):
 	direction.x = global_position.direction_to(GlobalPlayerInfo.player_position).x * 1.5
+	look_at(GlobalPlayerInfo.player_position)
 
 func _physics_process(_delta):
 	velocity = direction * movement_speed

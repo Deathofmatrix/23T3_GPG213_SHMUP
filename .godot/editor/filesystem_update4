@@ -1,10 +1,10 @@
-res://player/player.tscn
+res://enemies/follow_enemy.tscn
 res://shaders/hit_flash_shader.tres
+res://player/player.tscn
 res://enemies/turret_enemy.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
 res://levels/Scenes/level_01.tscn
 res://obstacles/meteor.tscn
-res://enemies/follow_enemy.tscn
 res://UI/hud.tscn
 res://UI/upgrade_popup.tscn
 res://pickups/xp/experience.tscn
@@ -18,4 +18,6 @@ res://backgrounds/parallax_scrolling_scene.tscn
 res://weapons/pistol/pistol.tscn
 res://levels/Scenes/level_main_menu.tscn
 res://enemies/speed_fall_enemy.tscn
+res://enemies/enemy_spawner.tscn
+res://enemies/follow_enemy.gd
 res://enemies/speed_fall_enemy.gd
