@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://jvoeqb4k138e"]
+[gd_scene load_steps=11 format=3 uid="uid://jvoeqb4k138e"]
 
 [ext_resource type="Script" path="res://enemies/follow_enemy.gd" id="1_3qm14"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_dt7pd"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_qjubl"]
 [ext_resource type="Texture2D" uid="uid://btuu1tdm4076i" path="res://enemies/Follow_Enemy-Sheet-Sheet.png" id="3_wg4wj"]
+[ext_resource type="PackedScene" uid="uid://bilou8rl5ot6k" path="res://enemies/enemy_light.tscn" id="5_0su3y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wixjh"]
 resource_local_to_scene = true
@@ -83,6 +84,8 @@ libraries = {
 }
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="EnemyLight" parent="." instance=ExtResource("5_0su3y")]
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

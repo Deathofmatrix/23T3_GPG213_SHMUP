@@ -1,3 +1,4 @@
+res://enemies
 res://UI
 res://player
 res://backgrounds
@@ -10,7 +11,6 @@ res://shaders
 res://bullets
 res://weapons/wingsword
 res://enemies/weapons
-res://enemies
 res://pickups/upgrades
 res://player/resources
 res://managers

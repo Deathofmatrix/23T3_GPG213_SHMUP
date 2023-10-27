@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bilou8rl5ot6k"]
+
+[ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="1_twb4r"]
+
+[node name="EnemyLight" type="PointLight2D"]
+energy = 0.5
+texture = ExtResource("1_twb4r")
+texture_scale = 0.25

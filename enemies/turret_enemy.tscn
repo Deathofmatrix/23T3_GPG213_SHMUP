@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://p4pk2b64vi4e"]
+[gd_scene load_steps=14 format=3 uid="uid://p4pk2b64vi4e"]
 
 [ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="1_7nffw"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="1_wsp5j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_iygrd"]
 [ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="4_14t0u"]
 [ext_resource type="Texture2D" uid="uid://cfy40oxf4lo20" path="res://enemies/turret_enemy_sheet.png" id="4_rhi0w"]
+[ext_resource type="PackedScene" uid="uid://bilou8rl5ot6k" path="res://enemies/enemy_light.tscn" id="7_1ca6q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4riiu"]
 resource_local_to_scene = true
@@ -108,6 +109,8 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_ohi6m")
 }
+
+[node name="EnemyLight" parent="." instance=ExtResource("7_1ca6q")]
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

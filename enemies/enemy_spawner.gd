@@ -28,7 +28,10 @@ func _ready():
 
 
 func create_enemy(_enemy_index: int, _max_enemy_spawns: int):
-	for x in randi_range(1, _max_enemy_spawns):
+	var min_enemy_spawns = _max_enemy_spawns - 3
+	if max_enemy_spawns <= 3:
+		min_enemy_spawns = 1
+	for x in randi_range(min_enemy_spawns, _max_enemy_spawns):
 		var selected_position = Vector2(randf_range(min_x_spawn, max_x_spawn), 0)
 		var selected_enemy_scene = weighted_spawn_chance()
 		var enemy = selected_enemy_scene.instantiate() as Enemy
@@ -78,7 +81,7 @@ func update_difficulty(difficulty_level: int):
 			$CreationTimer.wait_time += 0 # 2.5
 		8:
 			max_enemy_spawns = 7
-			$CreationTimer.wait_time += 0.25 # 2.25
+			$CreationTimer.wait_time -= 0.25 # 2.25
 		9:
 			max_enemy_spawns = 7
 			$CreationTimer.wait_time += 0 # 2.25
