@@ -18,7 +18,7 @@ script = ExtResource("1_hrodq")
 level_name = "main_menu"
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="."]
-energy = 0.2
+energy = 0.4
 blend_mode = 1
 range_layer_min = -100
 
@@ -70,6 +70,8 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
+offset_left = 4.0
+offset_right = 92.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
@@ -77,7 +79,7 @@ rotation = -1.5708
 hud = NodePath("../HUDCanvas/HUD")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_nfb7c")]
-position = Vector2(-320, -220)
+position = Vector2(-320, -204)
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_24k8o")]
 position = Vector2(-320, -220)

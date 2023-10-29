@@ -17,7 +17,6 @@ motion_scale = Vector2(1, 0.1)
 motion_mirroring = Vector2(0, 640)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+1"]
-self_modulate = Color(0.341176, 0.576471, 0.72549, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("2_ut5ko")
 offset = Vector2(0, 160)
@@ -28,9 +27,8 @@ motion_scale = Vector2(1, 0.2)
 motion_mirroring = Vector2(0, 640)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+2"]
-self_modulate = Color(0.615686, 0.627451, 0.647059, 1)
 scale = Vector2(2, 2)
-texture = ExtResource("6_xxdah")
+texture = ExtResource("3_vrat5")
 offset = Vector2(0, 160)
 region_rect = Rect2(0, 0, 224, 320)
 
@@ -39,9 +37,8 @@ motion_scale = Vector2(1, 0.4)
 motion_mirroring = Vector2(0, 640)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+3"]
-self_modulate = Color(0.615686, 0.627451, 0.647059, 1)
 scale = Vector2(2, 2)
-texture = ExtResource("3_vrat5")
+texture = ExtResource("4_dmu3n")
 offset = Vector2(0, 160)
 region_rect = Rect2(0, 0, 224, 320)
 
@@ -50,9 +47,8 @@ motion_scale = Vector2(1, 0.6)
 motion_mirroring = Vector2(0, 640)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+4"]
-self_modulate = Color(0.615686, 0.627451, 0.647059, 1)
 scale = Vector2(2, 2)
-texture = ExtResource("4_dmu3n")
+texture = ExtResource("5_otdiv")
 offset = Vector2(0, 160)
 region_rect = Rect2(0, 0, 224, 320)
 
@@ -60,8 +56,8 @@ region_rect = Rect2(0, 0, 224, 320)
 motion_mirroring = Vector2(0, 640)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer+6"]
-self_modulate = Color(0.341176, 0.576471, 0.72549, 1)
+self_modulate = Color(1, 1, 1, 0.54902)
 scale = Vector2(2, 2)
-texture = ExtResource("5_otdiv")
+texture = ExtResource("6_xxdah")
 offset = Vector2(0, 160)
 region_rect = Rect2(0, 0, 224, 320)

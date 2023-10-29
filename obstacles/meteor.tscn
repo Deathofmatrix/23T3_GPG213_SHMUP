@@ -89,9 +89,6 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.6, 0.207843, 0.180392, 1)
-energy = 0.5
-range_layer_min = -10
 texture = ExtResource("6_toblk")
 texture_scale = 0.3
 

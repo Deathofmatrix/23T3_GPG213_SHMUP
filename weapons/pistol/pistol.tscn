@@ -41,7 +41,7 @@ scale = Vector2(0.016, 0.016)
 texture = ExtResource("2_t8tuc")
 
 [node name="ShootSpeedTimer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.4
 one_shot = true
 
 [connection signal="timeout" from="ShootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]

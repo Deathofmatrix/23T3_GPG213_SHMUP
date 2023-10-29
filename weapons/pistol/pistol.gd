@@ -50,18 +50,18 @@ func upgrade():
 			current_description = "Backwards Bullet"
 		4:
 			print("level 4 pistol")
-			shoot_speed_timer.wait_time = 0.5
+			shoot_speed_timer.wait_time = 0.3
 			current_description = "Fire Rate +"
 		5:
 			print("level 5 pistol")	
 			bullet_damage += 5
 			current_description = "Pistol Damage +"
 		6:
-			shoot_speed_timer.wait_time = 0.4
+			shoot_speed_timer.wait_time = 0.2
 			current_description = "Fire Rate +"
 		7:
-			shoot_speed_timer.wait_time = 0.3
-			current_description = "Fire Rate ++"
+			bullet_damage += 5
+			current_description = "Pistol Damage +"
 		8:
 			var spawnpoint = Marker2D.new()
 			spawnpoint.position = Vector2(9, 0)
