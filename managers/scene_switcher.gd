@@ -49,5 +49,6 @@ func _on_animation_player_animation_finished(anim_name):
 			
 			next_level = null
 			animation_player.play("fade_from_black")
+			current_level.handle_level_loading()
 		"fade_from_black":
 			current_level.play_loaded_sound()

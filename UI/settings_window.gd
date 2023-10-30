@@ -10,7 +10,6 @@ extends CanvasLayer
 var default_bus_layout = preload("res://default_bus_layout.tres")
 
 func _ready():
-	hide()
 	set_slider_values("Music", music_slider, -10)
 	set_slider_values("SFX", sfx_slider, -9)
 	set_slider_values("Master", master_slider, 0)

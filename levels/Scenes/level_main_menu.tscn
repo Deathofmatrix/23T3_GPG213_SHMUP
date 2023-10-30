@@ -77,6 +77,7 @@ text = "QUIT
 "
 
 [node name="SettingsWindow" parent="." instance=ExtResource("7_3bf1p")]
+visible = false
 
 [node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -95,6 +96,7 @@ stream = ExtResource("6_ovlmh")
 autoplay = true
 bus = &"Music"
 
+[connection signal="loading_level" from="." to="MainMenuManager" method="_on_level_main_menu_loading_level"]
 [connection signal="pressed" from="MainMenuManager/TextureRect/HBoxContainer/ChangeSceneButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MainMenuManager/TextureRect/HBoxContainer/SettingsButton" to="MainMenuManager" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenuManager/TextureRect/HBoxContainer/QuitButton" to="MainMenuManager" method="_on_quit_button_pressed"]

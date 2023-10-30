@@ -2,6 +2,8 @@ class_name Level
 extends Node2D
 
 signal level_changed(level_name)
+signal loading_level
+signal level_loaded
 
 @export var level_name: String = "level_name"
 
@@ -18,6 +20,7 @@ func play_loaded_sound():
 	%LevelLoadedAudio.play()
 	%ChangeSceneButton.disabled = false
 	EventManager.is_paused = false
+	emit_signal("level_loaded")
 
 
 func load_level_parameters(new_level_parameters: Dictionary):
@@ -34,6 +37,9 @@ func load_level(level_to_change_to):
 	emit_signal("level_changed", level_to_change_to)
 	EventManager.is_paused = true
 
+
+func handle_level_loading():
+	emit_signal("loading_level")
 
 func _on_button_pressed():
 	%BeginSceneChangeAudio.play()
