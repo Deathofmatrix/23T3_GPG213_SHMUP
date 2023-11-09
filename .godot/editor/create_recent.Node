@@ -1,3 +1,4 @@
+Sprite2D
 Node2D
 PointLight2D
 VBoxContainer
@@ -12,7 +13,6 @@ Control
 CanvasLayer
 AudioStreamPlayer2D
 AnimationPlayer
-Sprite2D
 PanelContainer
 AnimatedSprite2D
 VisibleOnScreenNotifier2D

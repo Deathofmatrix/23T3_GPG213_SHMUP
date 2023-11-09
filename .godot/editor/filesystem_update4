@@ -1,5 +1,8 @@
-res://player/player.tscn
+res://enemies/set_pieces/set_piece_spawner.tscn
 res://shaders/hit_flash_shader.tres
+res://enemies/set_pieces/set_piece_spawner.gd
+res://enemies/set_pieces/meteor_setpiece.tscn
+res://player/player.tscn
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
 res://UI/upgrade_popup.tscn
@@ -20,5 +23,5 @@ res://enemies/speed_fall_enemy.tscn
 res://enemies/enemy_light.tscn
 res://obstacles/meteor.tscn
 res://levels/level_common.tscn
-res://enemies/set_pieces/set_piece_spawner.tscn
-res://enemies/set_pieces/set_piece_spawner.gd
+res://obstacles/obstacle_spawner.tscn
+res://obstacles/obstacle_spawner.gd
