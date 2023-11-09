@@ -3,11 +3,13 @@ extends Enemy
 
 @export var Bullet: PackedScene = null
 @export var move_speed = 25
+ 
 
 var target: Node2D = null
 
 @onready var ray_cast = $RayCast2D
 @onready var reload_timer = $RayCast2D/ReloadTimer
+
 
 func _enemy_ready():
 	target = find_player()

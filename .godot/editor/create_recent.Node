@@ -1,3 +1,4 @@
+Node2D
 PointLight2D
 VBoxContainer
 HBoxContainer
@@ -16,7 +17,6 @@ PanelContainer
 AnimatedSprite2D
 VisibleOnScreenNotifier2D
 AudioStreamPlayer
-Node2D
 Node
 GridContainer
 DirectionalLight2D
