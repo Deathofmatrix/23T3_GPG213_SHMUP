@@ -3,7 +3,7 @@ extends Area2D
 @export var upgrade_type: Weapon
 
 var upgrades_on_screen: Array
-var movement_speed
+var movement_speed = 30
 var icon: Texture2D
 
 @onready var icon_sprite = %IconSprite

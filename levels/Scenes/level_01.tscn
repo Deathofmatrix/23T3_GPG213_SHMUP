@@ -49,7 +49,7 @@ bus = &"Music"
 [node name="ScalingInfo" type="Node2D" parent="."]
 
 [node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
-wait_time = 15.0
+wait_time = 30.0
 autostart = true
 
 [node name="HUDCanvas" type="CanvasLayer" parent="."]
@@ -71,6 +71,8 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
+offset_left = 4.0
+offset_right = 92.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
@@ -81,8 +83,9 @@ hud = NodePath("../HUDCanvas/HUD")
 position = Vector2(-320, -204)
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_24k8o")]
-position = Vector2(-320, -220)
-current_obstacle_speed = 50
+position = Vector2(-320, -204)
+current_obstacle_speed = 80
+obstacle_spawn_cooldown = 3
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
 
@@ -93,6 +96,7 @@ position = Vector2(0, -180)
 player = NodePath("../Player")
 
 [node name="SetPieceSpawner" parent="." instance=ExtResource("13_egcnq")]
+position = Vector2(-320, -204)
 
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]

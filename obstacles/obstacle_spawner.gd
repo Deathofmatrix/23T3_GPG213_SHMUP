@@ -15,6 +15,7 @@ var max_x_spawn: float
 
 
 func _ready():
+	EventManager.connect("pause_for_setpiece", play_pause_timer)
 	min_x_spawn = marker_min_x_spawn.position.x
 	max_x_spawn = marker_max_x_spawn.position.x
 	creation_timer.wait_time = obstacle_spawn_cooldown
@@ -26,6 +27,10 @@ func create_obstacle():
 	obstacle.position = selected_position
 	obstacle.movement_speed = current_obstacle_speed
 	add_child(obstacle)
+
+
+func play_pause_timer(pause: bool):
+	creation_timer.paused = pause
 
 
 func _on_creation_timer_timeout():

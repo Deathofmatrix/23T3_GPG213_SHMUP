@@ -1,19 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://djrdvebvkyxv4"]
+[gd_scene load_steps=3 format=3 uid="uid://djrdvebvkyxv4"]
 
 [ext_resource type="Script" path="res://enemies/set_pieces/meteor_setpiece.gd" id="1_c2vw3"]
 [ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_q6mhj"]
-[ext_resource type="PackedScene" uid="uid://cq61d13iqc062" path="res://obstacles/obstacle_spawner.tscn" id="3_nlcwr"]
 
 [node name="MeteorSetpiece" type="Node2D"]
 script = ExtResource("1_c2vw3")
+current_obstacle_speed = 200
+obstacle_spawn_cooldown = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_q6mhj")
 
-[node name="ObstacleSpawner" parent="." instance=ExtResource("3_nlcwr")]
-position = Vector2(-320, -220)
-current_obstacle_speed = 80
-chance_to_spawn_obstacle = 1.0
-chance_to_spawn_2_obstacle = 1.0
-obstacle_spawn_cooldown = 1
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+
+[node name="CreationTimer" type="Timer" parent="ObstacleSpawner"]
+autostart = true
+
+[node name="Markers" type="Node2D" parent="ObstacleSpawner"]
+unique_name_in_owner = true
+
+[node name="MarkerMinXSpawn" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(96, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/MarkerMinXSpawn"]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_q6mhj")
+
+[node name="MarkerMaxXSpawn" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(544, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ObstacleSpawner/Markers/MarkerMaxXSpawn"]
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_q6mhj")
+
+[connection signal="timeout" from="ObstacleSpawner/CreationTimer" to="." method="_on_creation_timer_timeout"]
