@@ -1,8 +1,9 @@
 extends Node2D
 
-@export var current_obstacle_speed = 100
-@export var max_obstacles = 7
-@export var obstacle_spawn_cooldown = 5.0
+@export var current_obstacle_speed = 200
+@export var min_obstacles = 5
+@export var max_obstacles = 8
+@export var obstacle_spawn_cooldown = 1.0
 
 var obstacle_scene: PackedScene = preload("res://obstacles/meteor.tscn")
 var min_x_spawn: float
@@ -37,5 +38,5 @@ func destroy_setpiece():
 
 
 func _on_creation_timer_timeout():
-	for i in randi_range(5, max_obstacles):
+	for i in randi_range(min_obstacles, max_obstacles):
 		create_obstacle()

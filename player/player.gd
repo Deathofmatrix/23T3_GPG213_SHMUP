@@ -177,3 +177,7 @@ func _on_upgrade_collector_area_entered(area):
 func _on_weapon_clear_box_area_entered(area):
 	if area.has_method("clear_weapon"):
 		area.clear_weapon()
+
+
+func _on_health_system_reached_low_health(is_low_health):
+	AudioServer.set_bus_effect_enabled(0, 0, is_low_health)

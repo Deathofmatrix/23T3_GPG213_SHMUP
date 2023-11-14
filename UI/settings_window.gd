@@ -28,6 +28,7 @@ func set_slider_values(_bus_name: String, slider_variable: Slider, start_value: 
 func change_volume(bus, value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), value)
 
+
 func _on_back_button_pressed():
 	hide()
 
