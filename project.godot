@@ -35,6 +35,10 @@ mouse_cursor/custom_image_hotspot=Vector2(32, 32)
 
 project/assembly_name="space shmup"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+
 [gui]
 
 theme/custom_font="res://UI/fonts/Kenney Pixel Square.ttf"

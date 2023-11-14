@@ -1,7 +1,6 @@
-res://enemies/turret_enemy.tscn
-res://shaders/hit_flash_shader.tres
-res://enemies/turret_enemy.gd
 res://bosses/boss.tscn
+res://shaders/hit_flash_shader.tres
+res://bosses/boss_one_scene.tscn
 res://player/player.tscn
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
@@ -18,7 +17,15 @@ res://bullets/shotgun_bullet.tscn
 res://managers/scene_switcher.tscn
 res://UI/settings_window.tscn
 res://enemies/follow_enemy.tscn
+res://enemies/turret_enemy.tscn
 res://enemies/speed_fall_enemy.tscn
 res://enemies/enemy_light.tscn
 res://obstacles/meteor.tscn
 res://levels/level_common.tscn
+res://bosses/BossOne.gd
+res://addons/godot_state_charts/utilities/state_chart_debugger.tscn
+res://bosses/boss_weapons/boss_shotgun.gd
+res://weapons/shotgun/shotgun.gd
+res://bosses/boss_weapons/boss_shotgun.tscn
+res://enemies/enemy_bullets/enemy_bullet.tscn
+res://bullets/pistol_bullet.tscn

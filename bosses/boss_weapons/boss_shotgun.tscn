@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://xfxlxvaa6fc6"]
+
+[ext_resource type="Script" path="res://bosses/boss_weapons/boss_shotgun.gd" id="1_6gvcq"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="1_owybx"]
+
+[node name="BossShotgun" type="Node2D"]
+script = ExtResource("1_6gvcq")
+
+[node name="BulletSpawns" type="Node2D" parent="."]
+
+[node name="BulletSpawn1" type="Marker2D" parent="BulletSpawns"]
+position = Vector2(11, -1)
+rotation = -0.0872665
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn1"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("1_owybx")
+
+[node name="BulletSpawn2" type="Marker2D" parent="BulletSpawns"]
+position = Vector2(11, 1)
+rotation = 0.0872665
+
+[node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn2"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("1_owybx")
+
+[node name="BulletSpawn3" type="Marker2D" parent="BulletSpawns"]
+position = Vector2(10, -4)
+rotation = -0.349066
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn3"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("1_owybx")
+
+[node name="BulletSpawn4" type="Marker2D" parent="BulletSpawns"]
+position = Vector2(10, 4)
+rotation = 0.349066
+
+[node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn4"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("1_owybx")
+
+[node name="BulletSpawn5" type="Marker2D" parent="BulletSpawns"]
+position = Vector2(8, -6)
+rotation = -0.785398
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn5"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("1_owybx")
+
+[node name="BulletSpawn6" type="Marker2D" parent="BulletSpawns"]
+position = Vector2(8, 6)
+rotation = 0.785398
+
+[node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn6"]
+visible = false
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("1_owybx")
+
+[node name="BossShotTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="BossShotTimer" to="." method="_on_boss_shot_timer_timeout"]

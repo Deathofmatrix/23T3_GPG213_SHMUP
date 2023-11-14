@@ -1,4 +1,9 @@
+Timer
+CollisionShape2D
+CharacterBody2D
+Sprite2D
 Node2D
+StateChart
 PointLight2D
 VBoxContainer
 HBoxContainer
@@ -12,7 +17,6 @@ Control
 CanvasLayer
 AudioStreamPlayer2D
 AnimationPlayer
-Sprite2D
 PanelContainer
 AnimatedSprite2D
 VisibleOnScreenNotifier2D
@@ -21,12 +25,8 @@ Node
 GridContainer
 DirectionalLight2D
 VisibleOnScreenEnabler2D
-CollisionShape2D
 Area2D
-Timer
 RayCast2D
 PathFollow2D
 Path2D
 Marker2D
-CharacterBody2D
-SubViewport
