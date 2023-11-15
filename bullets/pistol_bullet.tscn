@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h4ju"]
 size = Vector2(16, 8)
 
-[node name="PistolBullet" type="Area2D"]
+[node name="PistolBullet" type="Area2D" groups=["PlayerBullet"]]
 collision_layer = 2
 collision_mask = 20
 script = ExtResource("1_tjv2m")
+bullet_damage = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

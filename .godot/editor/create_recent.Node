@@ -1,7 +1,10 @@
 Timer
+RayCast2D
+Camera2D
+Sprite2D
 CollisionShape2D
 CharacterBody2D
-Sprite2D
+Area2D
 Node2D
 StateChart
 PointLight2D
@@ -25,8 +28,5 @@ Node
 GridContainer
 DirectionalLight2D
 VisibleOnScreenEnabler2D
-Area2D
-RayCast2D
 PathFollow2D
 Path2D
-Marker2D

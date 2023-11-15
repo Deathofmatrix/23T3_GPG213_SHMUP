@@ -22,6 +22,7 @@ func _ready():
 	invulnerability_timer.wait_time = wait_time
 
 
+
 func change_max_health(amount):
 	if amount >= max_health:
 		var new_health = health + amount - max_health

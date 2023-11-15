@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkjn8tf25x6g"]
+
+[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="1_aopv2"]
+[ext_resource type="Script" path="res://enemies/strafe_enemy.gd" id="1_qipym"]
+[ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="2_2pkl0"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="4_p88hy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gur6v"]
+
+[node name="StrafeEnemy2" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_qipym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aopv2")
+region_enabled = true
+region_rect = Rect2(87, 18, 12, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gur6v")
+
+[node name="HealthSystem" parent="." instance=ExtResource("4_p88hy")]
+wait_time = 0.001
+
+[node name="EnemyWeapon" parent="." instance=ExtResource("2_2pkl0")]
+
+[node name="AimingRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
+
+[node name="ShootingTimer" type="Timer" parent="AimingRaycast"]
+one_shot = true
+autostart = true
+
+[node name="DodgingRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 200)
+collision_mask = 2
+
+[node name="CanDodge" type="Timer" parent="DodgingRaycast"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="AimingRaycast/ShootingTimer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,7 @@
+res://
+res://enemies
 res://bosses/boss_weapons
 res://bosses
-res://enemies
 res://UI
 res://player
 res://backgrounds
@@ -16,7 +17,6 @@ res://enemies/weapons
 res://pickups/upgrades
 res://player/resources
 res://managers
-res://
 res://autoloads
 res://obstacles
 res://weapons

@@ -1,10 +1,12 @@
+class_name BossShotgun
 extends Node2D
 
 var Bullet = preload("res://enemies/enemy_bullets/turret_bullet.tscn")
 
 
 var bullet_damage = 10
-var can_shoot = false
+
+@export var can_shoot = false
 
 @onready var bullet_spawns = $BulletSpawns
 @onready var shoot_speed_timer = $BossShotTimer

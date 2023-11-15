@@ -114,4 +114,5 @@ libraries = {
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="ready" from="RayCast2D" to="." method="_on_ray_cast_2d_ready"]
 [connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_reload_timer_timeout"]
