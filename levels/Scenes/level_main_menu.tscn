@@ -92,6 +92,7 @@ panning_strength = 0.0
 bus = &"LevelLoad"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("6_ovlmh")
 autoplay = true
 bus = &"Music"
