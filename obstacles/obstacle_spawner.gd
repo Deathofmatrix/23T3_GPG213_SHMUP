@@ -3,6 +3,7 @@ extends Node2D
 @export var current_obstacle_speed = 100
 @export var chance_to_spawn_obstacle = 0.9
 @export var chance_to_spawn_2_obstacle = 0.3
+@export var obstacle_spawn_cooldown = 5
 
 var obstacle_scene: PackedScene = preload("res://obstacles/meteor.tscn")
 var min_x_spawn: float
@@ -10,10 +11,14 @@ var max_x_spawn: float
 
 @onready var marker_min_x_spawn = $Markers/MarkerMinXSpawn
 @onready var marker_max_x_spawn = $Markers/MarkerMaxXSpawn
+@onready var creation_timer = $CreationTimer
+
 
 func _ready():
+	EventManager.connect("pause_for_setpiece", play_pause_timer)
 	min_x_spawn = marker_min_x_spawn.position.x
 	max_x_spawn = marker_max_x_spawn.position.x
+	creation_timer.wait_time = obstacle_spawn_cooldown
 
 
 func create_obstacle():
@@ -22,6 +27,10 @@ func create_obstacle():
 	obstacle.position = selected_position
 	obstacle.movement_speed = current_obstacle_speed
 	add_child(obstacle)
+
+
+func play_pause_timer(pause: bool):
+	creation_timer.paused = pause
 
 
 func _on_creation_timer_timeout():

@@ -14,6 +14,7 @@ var level_parameters: Dictionary = {
 
 func _ready():
 	EventManager.reset_difficulty()
+	EventManager.connect("pause_for_setpiece", play_pause_timer)
 
 
 func play_loaded_sound():
@@ -41,6 +42,12 @@ func load_level(level_to_change_to):
 func handle_level_loading():
 	emit_signal("loading_level")
 
+
+func play_pause_timer(pause: bool):
+	if $ScalingInfo/DifficultyScalingTimer.is_inside_tree():
+		$ScalingInfo/DifficultyScalingTimer.paused = pause
+
+
 func _on_button_pressed():
 	%BeginSceneChangeAudio.play()
 	%ChangeSceneButton.disabled = true
@@ -58,7 +65,6 @@ func _on_player_player_killed():
 
 
 func _on_difficulty_scaling_timer_timeout():
-	$ScalingInfo/DifficultyScalingTimer.wait_time = 45
 	EventManager.increase_difficulty()
 	print("increase difficulty")
 

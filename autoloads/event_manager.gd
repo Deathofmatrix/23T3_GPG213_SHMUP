@@ -7,6 +7,7 @@ signal enemy_destroyed(global_position: Vector2, points: int)
 signal player_leveled_up()
 signal difficulty_level_changed(level: int)
 signal wingarang_left_tree()
+signal pause_for_setpiece(pause: bool)
 
 #func _ready():
 #	difficulty_level = 1

@@ -1,6 +1,17 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dnvnbt0eiq6gp"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://dnvnbt0eiq6gp"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_0nthc"]
+resource_name = "LowPassFilter"
+db = 1
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_l3y0l"]
+resource_name = "LowPassFilter"
+resonance = 1.0
+db = 1
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_0nthc")
+bus/0/effect/0/enabled = false
 bus/1/name = &"UI"
 bus/1/solo = false
 bus/1/mute = false
@@ -17,7 +28,7 @@ bus/3/name = &"Music"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -10.0841
+bus/3/volume_db = -5.33971
 bus/3/send = &"Master"
 bus/4/name = &"SFX"
 bus/4/solo = false
@@ -25,3 +36,11 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = -8.79367
 bus/4/send = &"Master"
+bus/5/name = &"MusicLowPass"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.413893
+bus/5/send = &"Music"
+bus/5/effect/0/effect = SubResource("AudioEffectLowPassFilter_l3y0l")
+bus/5/effect/0/enabled = true

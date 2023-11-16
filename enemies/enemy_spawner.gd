@@ -20,9 +20,11 @@ var max_x_spawn: float
 
 @onready var marker_min_x_spawn = $Markers/MarkerMinXSpawn
 @onready var marker_max_x_spawn = $Markers/MarkerMaxXSpawn
+@onready var creation_timer = $CreationTimer
 
 func _ready():
 	EventManager.connect("difficulty_level_changed", update_difficulty)
+	EventManager.connect("pause_for_setpiece", play_pause_timer)
 	min_x_spawn = marker_min_x_spawn.position.x
 	max_x_spawn = marker_max_x_spawn.position.x
 
@@ -61,33 +63,37 @@ func update_difficulty(difficulty_level: int):
 	match difficulty_level:
 		2:
 			max_enemy_spawns = 2
-			$CreationTimer.wait_time += .25 # 1.50
+			creation_timer.wait_time += .25 # 1.50
 		3:
 			max_enemy_spawns = 2
-			$CreationTimer.wait_time += .5 # 2.00
+			creation_timer.wait_time += .5 # 2.00
 			enemy_weights = [30, 20, 50]
 		4:
 			max_enemy_spawns = 3
-			$CreationTimer.wait_time += 0.5 # 2.50
+			creation_timer.wait_time += 0.5 # 2.50
 		5:
 			max_enemy_spawns = 5
-			$CreationTimer.wait_time += .25 # 2.75
+			creation_timer.wait_time += .25 # 2.75
 		6:
 			max_enemy_spawns = 4
-			$CreationTimer.wait_time -= 0.25 # 2.5
+			creation_timer.wait_time -= 0.25 # 2.5
 			enemy_weights = [35, 25, 40]
 		7:
 			max_enemy_spawns = 6
-			$CreationTimer.wait_time += 0 # 2.5
+			creation_timer.wait_time += 0 # 2.5
 		8:
 			max_enemy_spawns = 7
-			$CreationTimer.wait_time -= 0.25 # 2.25
+			creation_timer.wait_time -= 0.25 # 2.25
 		9:
 			max_enemy_spawns = 7
-			$CreationTimer.wait_time += 0 # 2.25
+			creation_timer.wait_time += 0 # 2.25
 			enemy_weights = [40, 35, 25]
 		10:
 			max_enemy_spawns = max_enemy_spawn_count
+
+
+func play_pause_timer(pause: bool):
+	creation_timer.paused = pause
 
 
 func _on_creation_timer_timeout():

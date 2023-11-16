@@ -28,9 +28,15 @@ func set_slider_values(_bus_name: String, slider_variable: Slider, start_value: 
 func change_volume(bus, value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), value)
 
+
+func _input(event):
+	if event.is_action_pressed("pause_button"):
+		get_tree().paused = not get_tree().paused
+		visible = get_tree().paused
+
 func _on_back_button_pressed():
 	hide()
-
+	get_tree().paused = false
 
 func _on_fullscreen_button_pressed():
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -50,3 +56,7 @@ func _on_sfx_slider_value_changed(value):
 
 func _on_master_slider_value_changed(value):
 	change_volume("Master", value)
+
+
+func _on_level_loading():
+	hide()

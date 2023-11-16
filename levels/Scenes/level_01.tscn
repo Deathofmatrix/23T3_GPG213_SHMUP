@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=15 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
@@ -12,8 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://b5s4k7dtq4xy7" path="res://enemies/enemy_spawner.tscn" id="5_nfb7c"]
 [ext_resource type="PackedScene" uid="uid://0uv3q6ylqes0" path="res://pickups/xp/xp_spawner.tscn" id="6_ac72y"]
 [ext_resource type="PackedScene" uid="uid://d0gynaifufxo8" path="res://pickups/upgrades/upgrade_spawner.tscn" id="8_ysjd3"]
+[ext_resource type="PackedScene" uid="uid://bl61xpq88yaf2" path="res://enemies/set_pieces/set_piece_spawner.tscn" id="13_egcnq"]
+[ext_resource type="PackedScene" uid="uid://b2mtu1tctk2bh" path="res://UI/settings_window.tscn" id="14_qo3ix"]
 
 [node name="Level01" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_hrodq")
 level_name = "main_menu"
 
@@ -40,6 +43,7 @@ panning_strength = 0.0
 bus = &"LevelLoad"
 
 [node name="Music" type="AudioStreamPlayer2D" parent="LevelAudio"]
+process_mode = 3
 position = Vector2(50, -26)
 stream = ExtResource("4_pn4bc")
 autoplay = true
@@ -48,7 +52,7 @@ bus = &"Music"
 [node name="ScalingInfo" type="Node2D" parent="."]
 
 [node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
-wait_time = 15.0
+wait_time = 5.0
 autostart = true
 
 [node name="HUDCanvas" type="CanvasLayer" parent="."]
@@ -71,6 +75,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
 
+[node name="SettingsWindow" parent="." instance=ExtResource("14_qo3ix")]
+visible = false
+
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
 rotation = -1.5708
@@ -80,8 +87,9 @@ hud = NodePath("../HUDCanvas/HUD")
 position = Vector2(-320, -204)
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_24k8o")]
-position = Vector2(-320, -220)
-current_obstacle_speed = 50
+position = Vector2(-320, -204)
+current_obstacle_speed = 80
+obstacle_spawn_cooldown = 3
 
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("3_21dg8")]
 
@@ -91,6 +99,10 @@ current_obstacle_speed = 50
 position = Vector2(0, -180)
 player = NodePath("../Player")
 
+[node name="SetPieceSpawner" parent="." instance=ExtResource("13_egcnq")]
+position = Vector2(-320, -180)
+
+[connection signal="loading_level" from="." to="SettingsWindow" method="_on_level_loading"]
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]
 [connection signal="pressed" from="HUDCanvas/ChangeSceneButton" to="." method="_on_button_pressed"]

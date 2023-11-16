@@ -3,6 +3,7 @@ extends Node2D
 
 signal health_updated(health, was_damaged: bool)
 signal max_health_updated(max_health)
+signal reached_low_health(is_low_health: bool)
 signal killed()
 
 @export var max_health: int = 100 
@@ -64,6 +65,11 @@ func _handle_health(value):
 		emit_signal("health_updated", health, was_damaged)
 		if health <= 0:
 			kill()
+		elif health <= max_health / 5:
+			emit_signal("reached_low_health", true)
+		elif health > max_health / 5:
+			emit_signal("reached_low_health", false)
+		
 
 
 func _on_invulnerability_timer_timeout():
