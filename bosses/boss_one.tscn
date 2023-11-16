@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqjudw705l5eq"]
+
+[ext_resource type="Script" path="res://bosses/boss_one.gd" id="1_g5n8p"]
+[ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_qrty0"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_lb1jy"]
+[ext_resource type="PackedScene" uid="uid://p4pk2b64vi4e" path="res://enemies/turret_enemy.tscn" id="4_1bt2g"]
+[ext_resource type="PackedScene" uid="uid://xfxlxvaa6fc6" path="res://bosses/boss_weapons/boss_shotgun.tscn" id="5_4ruon"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="6_lvugj"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="7_7mc8c"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="8_16qdv"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="9_1rsh7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_743ce"]
+size = Vector2(242, 76)
+
+[node name="BossOne" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_g5n8p")
+
+[node name="BossSprite" type="Sprite2D" parent="."]
+position = Vector2(-4, -2.84217e-14)
+rotation = -3.14159
+scale = Vector2(8, 4.856)
+texture = ExtResource("2_qrty0")
+region_enabled = true
+region_rect = Rect2(67, 103, 31, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -14)
+shape = SubResource("RectangleShape2D_743ce")
+
+[node name="HealthSystem" parent="." instance=ExtResource("3_lb1jy")]
+max_health = 1000
+wait_time = 0.001
+
+[node name="Phases" type="Node2D" parent="."]
+
+[node name="PhaseOne" type="Node2D" parent="Phases"]
+
+[node name="FrontRight" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+position = Vector2(50, 20)
+move_speed = 0
+
+[node name="BackRight" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+position = Vector2(100, 0)
+move_speed = 0
+
+[node name="FrontLeft" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+position = Vector2(-50, 20)
+move_speed = 0
+
+[node name="BackLeft" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+position = Vector2(-100, 0)
+move_speed = 0
+
+[node name="PhaseTwo" type="Node2D" parent="Phases"]
+
+[node name="BossShotgun" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
+position = Vector2(0, 48)
+
+[node name="BossShotgun2" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
+position = Vector2(-83, 26)
+
+[node name="BossShotgun3" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
+position = Vector2(81, 27)
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("6_lvugj")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("7_7mc8c")
+initial_state = NodePath("PhaseOne")
+
+[node name="PhaseOne" type="Node" parent="StateChart/Root"]
+script = ExtResource("8_16qdv")
+
+[node name="EnterPhaseTwo" type="Node" parent="StateChart/Root/PhaseOne"]
+script = ExtResource("9_1rsh7")
+to = NodePath("../../PhaseTwo")
+event = &"phase_two"
+
+[node name="PhaseTwo" type="Node" parent="StateChart/Root"]
+script = ExtResource("8_16qdv")
+
+[connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="state_entered" from="StateChart/Root/PhaseTwo" to="." method="_on_phase_two_state_entered"]

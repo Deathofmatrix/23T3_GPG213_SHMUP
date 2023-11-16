@@ -33,6 +33,5 @@ func _on_phase_two_state_entered():
 	can_move = true
 
 
-
 func _on_health_system_killed():
 	destroy_enemy()

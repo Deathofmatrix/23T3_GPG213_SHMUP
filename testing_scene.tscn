@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce8qwflxxyo0u"]
 
-[ext_resource type="PackedScene" uid="uid://w03f1ar1mavb" path="res://bosses/boss_one_scene.tscn" id="1_0ukb4"]
+[ext_resource type="PackedScene" uid="uid://bqjudw705l5eq" path="res://bosses/boss_one.tscn" id="2_5sstx"]
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="2_j57bs"]
 
 [node name="TestingScene" type="Node2D"]
@@ -10,5 +10,5 @@
 [node name="Player" parent="." instance=ExtResource("2_j57bs")]
 position = Vector2(-4, 142)
 
-[node name="BossOneScene" parent="." instance=ExtResource("1_0ukb4")]
-position = Vector2(-1, -126)
+[node name="BossOne" parent="." instance=ExtResource("2_5sstx")]
+position = Vector2(0, -112)

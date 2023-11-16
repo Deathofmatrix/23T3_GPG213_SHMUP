@@ -3,17 +3,16 @@ extends Node2D
 
 var Bullet = preload("res://enemies/enemy_bullets/turret_bullet.tscn")
 
-
 var bullet_damage = 10
 
-@export var can_shoot = false
+@export var can_shoot = true
 
 @onready var bullet_spawns = $BulletSpawns
 @onready var shoot_speed_timer = $BossShotTimer
 
 
 func _process(_delta):
-	if can_shoot == true:
+	if can_shoot:
 #		print(can_shoot)
 		shoot_bullet()
 
@@ -30,13 +29,16 @@ func shoot_bullet():
 	shoot_speed_timer.start()
 	can_shoot = false
 
+
 func spawn_bullet(spawn_point):
+	
 	var bullet = Bullet.instantiate() as Bullet
-	bullet.position = spawn_point.global_position
+	bullet.position = spawn_point.position
 	var temp_direction = Vector2.DOWN.normalized()
 	bullet.direction = temp_direction.rotated(spawn_point.rotation)
 	bullet.rotation = bullet.direction.angle()
 	bullet.bullet_damage = bullet_damage
-	get_parent().add_child(bullet)
+	add_child(bullet)
+
 	return bullet
 
