@@ -2,9 +2,9 @@ class_name SpeedFallEnemy
 extends Enemy
 
 @export var move_speed = 150 
+@export var direction = Vector2.DOWN
 
 func _physics_process(_delta):
-	var direction = Vector2.DOWN
 	velocity = direction * move_speed
 	move_and_slide()
 

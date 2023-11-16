@@ -28,6 +28,7 @@ func create_obstacle():
 	obstacle.position = selected_position
 	obstacle.movement_speed = current_obstacle_speed
 	add_child(obstacle)
+	obstacle.add_to_group("SetPiece")
 	last_obstacle = obstacle
 
 

@@ -1,10 +1,10 @@
+Sprite2D
+PointLight2D
 Marker2D
 ColorRect
 AudioStreamPlayer2D
 Timer
-Sprite2D
 Node2D
-PointLight2D
 VBoxContainer
 HBoxContainer
 CenterContainer

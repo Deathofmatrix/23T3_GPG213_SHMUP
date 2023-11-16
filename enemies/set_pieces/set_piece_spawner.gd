@@ -11,12 +11,13 @@ var pickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
 
 var setpieces: Array = [
 	preload("res://enemies/set_pieces/meteor_setpiece.tscn"),
+	preload("res://enemies/set_pieces/speed_fall_setpiece.tscn")
 	]
 
 
 func _ready():
+	randomize()
 	EventManager.connect("difficulty_level_changed", spawn_at_difficulty)
-
 
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:

@@ -59,6 +59,7 @@ z_index = -10
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_1qnav")
+damage = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_sl43v")

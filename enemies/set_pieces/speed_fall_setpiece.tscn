@@ -1,0 +1,224 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy8qspopu75ni"]
+
+[ext_resource type="Script" path="res://enemies/set_pieces/speed_fall_setpiece.gd" id="1_cwxbk"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_06usl"]
+[ext_resource type="Texture2D" uid="uid://d1h1oergndqbi" path="res://tilemaps/tiles.png" id="3_vvaek"]
+[ext_resource type="PackedScene" uid="uid://bxg1gxjm1x3gi" path="res://enemies/set_pieces/warning_light.tscn" id="4_kan77"]
+
+[node name="SpeedFallSetpiece" type="Node2D"]
+script = ExtResource("1_cwxbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_06usl")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+
+[node name="CreationTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 2.0
+autostart = true
+
+[node name="Markers" type="Node2D" parent="EnemySpawner"]
+unique_name_in_owner = true
+
+[node name="LeftSpawn01" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 25)
+rotation = -6.28319
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn01"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn01/Sprite2D" instance=ExtResource("4_kan77")]
+energy = 0.5
+range_layer_min = -100
+texture_scale = 0.2
+
+[node name="LeftSpawn02" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 75)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn02"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn02/Sprite2D" instance=ExtResource("4_kan77")]
+
+[node name="LeftSpawn03" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 125)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn03"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn03/Sprite2D" instance=ExtResource("4_kan77")]
+
+[node name="LeftSpawn04" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 175)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn04"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn04/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="LeftSpawn05" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 225)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn05"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn05/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="LeftSpawn06" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 275)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn06"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn06/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="LeftSpawn07" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 325)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn07"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn07/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn01" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 25)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn01"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn01/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn02" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 75)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn02"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn02/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn03" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 125)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn03"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn03/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn04" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 175)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn04"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn04/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn05" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 225)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn05"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn05/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn06" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 275)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn06"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn06/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn07" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 325)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn07"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn07/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[connection signal="timeout" from="EnemySpawner/CreationTimer" to="." method="_on_creation_timer_timeout"]

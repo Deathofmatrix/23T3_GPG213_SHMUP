@@ -52,7 +52,7 @@ bus = &"Music"
 [node name="ScalingInfo" type="Node2D" parent="."]
 
 [node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
-wait_time = 30.0
+wait_time = 5.0
 autostart = true
 
 [node name="HUDCanvas" type="CanvasLayer" parent="."]
@@ -74,8 +74,6 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
-offset_left = 4.0
-offset_right = 92.0
 
 [node name="SettingsWindow" parent="." instance=ExtResource("14_qo3ix")]
 visible = false
@@ -102,7 +100,7 @@ position = Vector2(0, -180)
 player = NodePath("../Player")
 
 [node name="SetPieceSpawner" parent="." instance=ExtResource("13_egcnq")]
-position = Vector2(-320, -204)
+position = Vector2(-320, -180)
 
 [connection signal="loading_level" from="." to="SettingsWindow" method="_on_level_loading"]
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]

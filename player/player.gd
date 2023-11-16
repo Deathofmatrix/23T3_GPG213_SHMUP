@@ -155,6 +155,7 @@ func _on_health_system_max_health_updated(max_health):
 
 func _on_health_system_killed():
 	emit_signal("player_killed")
+	AudioServer.set_bus_effect_enabled(0, 0, false)
 	queue_free()
 
 

@@ -44,7 +44,8 @@ func handle_level_loading():
 
 
 func play_pause_timer(pause: bool):
-	$ScalingInfo/DifficultyScalingTimer.paused = pause
+	if $ScalingInfo/DifficultyScalingTimer.is_inside_tree():
+		$ScalingInfo/DifficultyScalingTimer.paused = pause
 
 
 func _on_button_pressed():
