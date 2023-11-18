@@ -11,6 +11,12 @@ func _ready():
 	current_level.play_loaded_sound()
 
 
+func _process(_delta):
+	if current_level == $Level01:
+		$SceneSwitcherCam.enabled = false
+	else: 
+		$SceneSwitcherCam.enabled = true
+
 func handle_level_changed(next_level_name: String):
 #	var next_level_name: String
 #
@@ -33,7 +39,8 @@ func handle_level_changed(next_level_name: String):
 	animation_player.play("fade_to_black")
 	next_level.connect("level_changed", handle_level_changed)
 	transfer_data_between_scenes(current_level, next_level)
-	$SceneSwitcherCam.enabled = false
+	
+
 
 func transfer_data_between_scenes(old_scene, new_scene):
 	new_scene.load_level_parameters(old_scene.level_parameters)
