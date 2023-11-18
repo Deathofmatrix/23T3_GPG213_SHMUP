@@ -1,5 +1,6 @@
 extends Node
 
+
 var next_level: Level
 
 @onready var current_level = $MainMenu
@@ -32,7 +33,7 @@ func handle_level_changed(next_level_name: String):
 	animation_player.play("fade_to_black")
 	next_level.connect("level_changed", handle_level_changed)
 	transfer_data_between_scenes(current_level, next_level)
-
+	$SceneSwitcherCam.enabled = false
 
 func transfer_data_between_scenes(old_scene, new_scene):
 	new_scene.load_level_parameters(old_scene.level_parameters)
@@ -52,3 +53,4 @@ func _on_animation_player_animation_finished(anim_name):
 			current_level.handle_level_loading()
 		"fade_from_black":
 			current_level.play_loaded_sound()
+

@@ -15,3 +15,4 @@ func _on_quit_button_pressed():
 
 func _on_level_main_menu_loading_level():
 	settings_window.hide()
+	

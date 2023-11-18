@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqjudw705l5eq"]
+[gd_scene load_steps=12 format=3 uid="uid://bqjudw705l5eq"]
 
 [ext_resource type="Script" path="res://bosses/boss_one.gd" id="1_g5n8p"]
 [ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_qrty0"]
@@ -9,9 +9,10 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="7_7mc8c"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="8_16qdv"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="9_1rsh7"]
+[ext_resource type="PackedScene" uid="uid://cb2manrvpwtff" path="res://enemies/enemy_UI/enemy_health_bar.tscn" id="10_mh4ts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_743ce"]
-size = Vector2(242, 76)
+size = Vector2(242, 3)
 
 [node name="BossOne" type="CharacterBody2D"]
 collision_layer = 4
@@ -27,7 +28,7 @@ region_enabled = true
 region_rect = Rect2(67, 103, 31, 23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, -14)
+position = Vector2(-4, 17.5)
 shape = SubResource("RectangleShape2D_743ce")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_lb1jy")]
@@ -39,19 +40,23 @@ wait_time = 0.001
 [node name="PhaseOne" type="Node2D" parent="Phases"]
 
 [node name="FrontRight" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-position = Vector2(50, 20)
+position = Vector2(50, -5)
+collision_mask = 5
 move_speed = 0
 
 [node name="BackRight" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-position = Vector2(100, 0)
+position = Vector2(100, -25)
+collision_mask = 5
 move_speed = 0
 
 [node name="FrontLeft" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-position = Vector2(-50, 20)
+position = Vector2(-50, -5)
+collision_mask = 5
 move_speed = 0
 
 [node name="BackLeft" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-position = Vector2(-100, 0)
+position = Vector2(-100, -25)
+collision_mask = 5
 move_speed = 0
 
 [node name="PhaseTwo" type="Node2D" parent="Phases"]
@@ -82,6 +87,12 @@ event = &"phase_two"
 
 [node name="PhaseTwo" type="Node" parent="StateChart/Root"]
 script = ExtResource("8_16qdv")
+
+[node name="EnemyHealthBar" parent="." instance=ExtResource("10_mh4ts")]
+offset_left = -321.0
+offset_top = -91.0
+offset_right = -321.0
+offset_bottom = -91.0
 
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
 [connection signal="state_entered" from="StateChart/Root/PhaseTwo" to="." method="_on_phase_two_state_entered"]

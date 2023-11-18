@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1700167621
-default_bus_layout.tres::AudioBusLayout::8115861094665708823::1700123218::0::1::::<><>::
+::res://::1700267351
+default_bus_layout.tres::AudioBusLayout::8115861094665708823::1700167627::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1700124315::0::1::::<><>::
 icon.svg::CompressedTexture2D::8665198577807248690::1696040773::1696040773::1::::<><>::
 README.md::TextFile::-1::1696040773::0::1::::<><>::
@@ -91,7 +91,7 @@ enemy_spawner.tscn::PackedScene::4531025129403864500::1700122128::0::1::::<><>::
 Follow_Enemy-Sheet-Sheet.png::CompressedTexture2D::3762558041556833918::1698273158::1698273158::1::::<><>::
 follow_enemy.gd::GDScript::-1::1698296122::0::1::::FollowEnemy<>Enemy<>::
 Follow_Enemy.png::CompressedTexture2D::7778062425471834058::1698272101::1698272101::1::::<><>::
-follow_enemy.tscn::PackedScene::675909549902349606::1700124321::0::1::::<><>::res://enemies/follow_enemy.gd<>uid://bxglgqho27r6p::::res://shaders/hit_flash_shader.tres<>uid://b0ip1ow4i64ql::::res://player/resources/health_system.tscn<>uid://btuu1tdm4076i::::res://enemies/Follow_Enemy-Sheet-Sheet.png<>uid://bilou8rl5ot6k::::res://enemies/enemy_light.tscn
+follow_enemy.tscn::PackedScene::675909549902349606::1700124321::0::1::::<><>::res://enemies/follow_enemy.gd<>uid://bxglgqho27r6p
 SpeedEnemy-Sheet.png::CompressedTexture2D::3600944636892635386::1698352817::1698352817::1::::<><>::
 speed_fall_enemy.gd::GDScript::-1::1700121280::0::1::::SpeedFallEnemy<>Enemy<>::
 speed_fall_enemy.tscn::PackedScene::2534240543004753580::1700122129::0::1::::<><>::res://enemies/speed_fall_enemy.gd<>uid://bxglgqho27r6p
@@ -233,7 +233,7 @@ pistol_shoot.ogg::AudioStreamOggVorbis::7431258075781389642::1698007407::1698007
 shotgun_shoot.ogg::AudioStreamOggVorbis::2912105434122023134::1698007407::1698007407::1::::<><>::
 ::res://weapons/pistol/::1700123975
 pistol.gd::GDScript::-1::1699428211::0::1::::<>Weapon<>::
-pistol.tscn::PackedScene::5319945670919539487::1700123975::0::1::::<><>::res://weapons/pistol/pistol.gd<>uid://c11f4u53jwrx2::::res://weapons/pistol/pistol_icon.png<>uid://dvpqs4dayer11::::res://icon.svg<>uid://dd40y8odj6hju::::res://weapons/audio/pistol_shoot.ogg
+pistol.tscn::PackedScene::5319945670919539487::1700123975::0::1::::<><>::res://weapons/pistol/pistol.gd<>uid://c11f4u53jwrx2
 pistol_icon.png::CompressedTexture2D::6651781594663911981::1698272094::1697057124::1::::<><>::
 ::res://weapons/shotgun/::1699954817
 shotgun.gd::GDScript::-1::1699951121::0::1::::<>Weapon<>::

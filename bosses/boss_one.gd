@@ -1,11 +1,16 @@
 class_name BossOne
 extends Enemy
 
+signal requires_health_bar
+
 var can_move = false
 var slide_speed = 10
 
 @onready var health_system = $HealthSystem
 @onready var boss_shotguns = $Phases/PhaseTwo
+
+func _ready():
+	emit_signal("requires_health_bar")
 
 func _process(_delta):
 	if  health_system.health <= 500:

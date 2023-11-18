@@ -34,11 +34,11 @@ func spawn_bullet(spawn_point):
 	
 	var bullet = Bullet.instantiate() as Bullet
 	bullet.position = spawn_point.position
-	var temp_direction = Vector2.DOWN.normalized()
+	var temp_direction = Vector2.DOWN
 	bullet.direction = temp_direction.rotated(spawn_point.rotation)
 	bullet.rotation = bullet.direction.angle()
 	bullet.bullet_damage = bullet_damage
 	add_child(bullet)
-
+				# THESE BULLETS ARE NOW SWERVING WITH THE BOSS
 	return bullet
 

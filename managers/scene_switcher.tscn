@@ -58,7 +58,7 @@ _data = {
 [node name="SceneSwitcher" type="Node"]
 script = ExtResource("1_2smtc")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="SceneSwitcherCam" type="Camera2D" parent="."]
 
 [node name="OverlayLayer" type="CanvasLayer" parent="."]
 layer = 128

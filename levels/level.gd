@@ -7,12 +7,14 @@ signal level_loaded
 
 @export var level_name: String = "level_name"
 
+
 var level_parameters: Dictionary = {
 	"current_score" : 0,
 	"high_score" : 0
 }
 
 func _ready():
+
 	EventManager.reset_difficulty()
 	EventManager.connect("pause_for_setpiece", play_pause_timer)
 
