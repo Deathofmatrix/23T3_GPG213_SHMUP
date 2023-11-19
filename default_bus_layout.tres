@@ -10,6 +10,7 @@ resonance = 1.0
 db = 1
 
 [resource]
+bus/0/volume_db = 0.0694828
 bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_0nthc")
 bus/0/effect/0/enabled = false
 bus/1/name = &"UI"

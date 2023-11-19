@@ -64,7 +64,7 @@ func lock_player_to_screen():
 	var viewport_pos = get_viewport_rect().position
 	var top_left = viewport_pos - Vector2(screen_half_width, screen_half_height)
 	var bottom_right = viewport_pos + Vector2(screen_half_width, screen_half_height)
-	global_position = global_position.clamp(top_left, bottom_right)
+	global_position = global_position.clamp(top_left + Vector2(10, 10), bottom_right - Vector2(10, 10))
 
 func handle_acceleration(input_axis, delta):
 	if input_axis != Vector2.ZERO:
