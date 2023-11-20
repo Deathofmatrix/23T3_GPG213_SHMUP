@@ -1,10 +1,6 @@
 res://default_bus_layout.tres
-res://enemies/speed_fall_enemy.tscn
-res://shaders/hit_flash_shader.tres
-res://enemies/set_pieces/speed_fall_setpiece.tscn
-res://enemies/speed_fall_enemy.gd
-res://enemies/set_pieces/speed_fall_setpiece.gd
 res://player/player.tscn
+res://shaders/hit_flash_shader.tres
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
 res://UI/upgrade_popup.tscn
@@ -21,12 +17,13 @@ res://weapons/default_health_upgrade.tscn
 res://pickups/upgrades/upgrade_pickup.tscn
 res://pickups/upgrades/upgrade_collector.tscn
 res://UI/settings_window.tscn
+res://enemies/set_pieces/speed_fall_setpiece.tscn
+res://enemies/speed_fall_enemy.tscn
 res://pickups/xp/experience.tscn
 res://enemies/set_pieces/warning_light.tscn
 res://weapons/pistol/pistol.tscn
 res://enemies/follow_enemy.tscn
 res://enemies/turret_enemy.tscn
 res://bosses/boss_one.tscn
-res://enemies/set_pieces/meteor_setpiece.gd
+res://levels/level.gd
 res://UI/settings_window.gd
-res://player/player.gd

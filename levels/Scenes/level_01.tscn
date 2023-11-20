@@ -74,6 +74,8 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
+offset_left = 4.0
+offset_right = 92.0
 
 [node name="SettingsWindow" parent="." instance=ExtResource("14_qo3ix")]
 visible = false

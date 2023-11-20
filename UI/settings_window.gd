@@ -18,7 +18,7 @@ func _ready():
 	set_slider_values("Master", master_slider, 0)
 
 
-func set_slider_values(bus_name: String, slider_variable: Slider, start_value: float):
+func set_slider_values(bus_name: String, slider_variable: Slider, _start_value: float):
 	slider_variable.min_value = min_volume
 	slider_variable.max_value = max_volume
 	
@@ -73,5 +73,5 @@ func _on_sfx_slider_drag_started():
 	$SFXTestPlayer.play()
 
 
-func _on_sfx_slider_drag_ended(value_changed):
+func _on_sfx_slider_drag_ended(_value_changed):
 	$SFXTestPlayer.stop()

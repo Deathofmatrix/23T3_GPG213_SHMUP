@@ -6,7 +6,6 @@
 
 [node name="MeteorSetpiece" type="Node2D"]
 script = ExtResource("1_c2vw3")
-current_obstacle_speed = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
