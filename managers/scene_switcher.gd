@@ -4,17 +4,14 @@ var next_level: Level
 
 @onready var current_level = $MainMenu
 @onready var animation_player = $AnimationPlayer
+@onready var scene_switcher_cam = $SceneSwitcherCam
+
 
 func _ready():
 	current_level.connect("level_changed", handle_level_changed)
 	current_level.play_loaded_sound()
 
-# currently giving an error while it looks for $Level01
-func _process(_delta):
-	if current_level == $Level01:
-		$SceneSwitcherCam.enabled = false
-	else: 
-		$SceneSwitcherCam.enabled = true
+
 
 func handle_level_changed(next_level_name: String):
 #	var next_level_name: String
@@ -43,6 +40,7 @@ func handle_level_changed(next_level_name: String):
 
 func transfer_data_between_scenes(old_scene, new_scene):
 	new_scene.load_level_parameters(old_scene.level_parameters)
+	new_scene.main_cam = scene_switcher_cam
 
 func _on_animation_player_animation_finished(anim_name):
 	match anim_name:

@@ -30,9 +30,9 @@ func _ready():
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		2:
-#			enter_boss_fight()
-			choose_set_piece()
-			player_warning()
+			enter_boss_fight()
+#			choose_set_piece()
+#			player_warning()
 		4:
 			choose_set_piece()
 			player_warning()
@@ -100,7 +100,7 @@ func _on_set_piece_timer_timeout():
 func enter_boss_fight():
 	var boss_fight_zoom = Vector2(0.5, 0.5)
 	var tween = get_tree().create_tween()
-	tween.tween_property(level_camera, "zoom", boss_fight_zoom, 2)
+	tween.tween_property(get_parent().main_cam, "zoom", boss_fight_zoom, 2)
 	
 	var current_boss_fight = boss_fights[0].instantiate() 
 	current_boss_fight.position = Vector2(250, -100)

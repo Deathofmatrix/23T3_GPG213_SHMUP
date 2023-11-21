@@ -26,6 +26,7 @@ blend_mode = 1
 range_layer_min = -100
 
 [node name="LevelOneCam" type="Camera2D" parent="."]
+enabled = false
 
 [node name="LevelAudio" type="Node" parent="."]
 process_mode = 1
@@ -52,7 +53,7 @@ bus = &"Music"
 [node name="ScalingInfo" type="Node2D" parent="."]
 
 [node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
-wait_time = 30.0
+wait_time = 5.0
 autostart = true
 
 [node name="HUDCanvas" type="CanvasLayer" parent="."]

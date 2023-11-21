@@ -6,6 +6,8 @@
 [node name="TestingScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(35, -9)
+enabled = false
 
 [node name="Player" parent="." instance=ExtResource("2_j57bs")]
 position = Vector2(-4, 142)

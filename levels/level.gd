@@ -5,6 +5,8 @@ signal level_changed(level_name)
 signal loading_level
 signal level_loaded
 
+var main_cam: Camera2D
+
 @export var level_name: String = "level_name"
 
 
