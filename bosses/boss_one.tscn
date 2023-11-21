@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqjudw705l5eq"]
+[gd_scene load_steps=14 format=3 uid="uid://bqjudw705l5eq"]
 
 [ext_resource type="Script" path="res://bosses/boss_one.gd" id="1_g5n8p"]
+[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_jjci3"]
 [ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_qrty0"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_lb1jy"]
 [ext_resource type="PackedScene" uid="uid://p4pk2b64vi4e" path="res://enemies/turret_enemy.tscn" id="4_1bt2g"]
@@ -11,6 +12,11 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="9_1rsh7"]
 [ext_resource type="PackedScene" uid="uid://cb2manrvpwtff" path="res://enemies/enemy_UI/enemy_health_bar.tscn" id="10_mh4ts"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxcc7"]
+shader = ExtResource("2_jjci3")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_743ce"]
 size = Vector2(242, 3)
 
@@ -20,6 +26,7 @@ collision_mask = 3
 script = ExtResource("1_g5n8p")
 
 [node name="BossSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yxcc7")
 position = Vector2(-4, -2.84217e-14)
 rotation = -3.14159
 scale = Vector2(8, 4.856)
@@ -93,6 +100,10 @@ offset_left = -321.0
 offset_top = -91.0
 offset_right = -321.0
 offset_bottom = -91.0
+_current_max_health = 1000
+_current_health = 1000
 
+[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
+[connection signal="health_updated" from="HealthSystem" to="EnemyHealthBar" method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
 [connection signal="state_entered" from="StateChart/Root/PhaseTwo" to="." method="_on_phase_two_state_entered"]

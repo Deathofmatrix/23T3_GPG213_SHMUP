@@ -9,8 +9,9 @@ var slide_speed = 10
 @onready var health_system = $HealthSystem
 @onready var boss_shotguns = $Phases/PhaseTwo
 
-func _ready():
+func _enemy_ready():
 	emit_signal("requires_health_bar")
+
 
 func _process(_delta):
 	if  health_system.health <= 500:
@@ -38,5 +39,11 @@ func _on_phase_two_state_entered():
 	can_move = true
 
 
+
 func _on_health_system_killed():
 	destroy_enemy()
+
+
+func _on_health_system_health_updated(_health, _was_damaged):
+	hit_flash($BossSprite)
+	enemy_hit_player.play()

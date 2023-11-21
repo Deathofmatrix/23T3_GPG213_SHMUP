@@ -30,9 +30,9 @@ func _ready():
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		2:
-			enter_boss_fight()
-#			choose_set_piece()
-#			player_warning()
+#			enter_boss_fight()
+			choose_set_piece()
+			player_warning()
 		4:
 			choose_set_piece()
 			player_warning()
@@ -44,8 +44,7 @@ func spawn_at_difficulty(difficulty_level):
 			
 		_:
 			pass
-# implement boss summon here
-# 2, 4, 7, 9(boss)
+
 
 func player_warning():
 	warning_sound_player.play()

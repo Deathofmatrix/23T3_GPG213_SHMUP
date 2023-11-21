@@ -1,6 +1,5 @@
 extends Node
 
-
 var next_level: Level
 
 @onready var current_level = $MainMenu
@@ -10,7 +9,7 @@ func _ready():
 	current_level.connect("level_changed", handle_level_changed)
 	current_level.play_loaded_sound()
 
-
+# currently giving an error while it looks for $Level01
 func _process(_delta):
 	if current_level == $Level01:
 		$SceneSwitcherCam.enabled = false
