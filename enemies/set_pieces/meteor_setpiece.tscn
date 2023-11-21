@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://djrdvebvkyxv4"]
+[gd_scene load_steps=4 format=3 uid="uid://djrdvebvkyxv4"]
 
 [ext_resource type="Script" path="res://enemies/set_pieces/meteor_setpiece.gd" id="1_c2vw3"]
 [ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_q6mhj"]
+[ext_resource type="Texture2D" uid="uid://buomq0mfljt3k" path="res://obstacles/MeteorAA2.png" id="3_naj1r"]
 
 [node name="MeteorSetpiece" type="Node2D"]
 script = ExtResource("1_c2vw3")
-current_obstacle_speed = 280
-max_obstacles = 7
+min_obstacles = 3
+max_obstacles = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -20,21 +21,90 @@ autostart = true
 [node name="Markers" type="Node2D" parent="ObstacleSpawner"]
 unique_name_in_owner = true
 
-[node name="MarkerMinXSpawn" type="Marker2D" parent="ObstacleSpawner/Markers"]
+[node name="Marker01" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(140, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker01"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker02" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(180, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker02"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker03" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(220, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker03"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker04" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(260, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker04"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker05" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(300, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker05"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker06" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(340, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker06"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker07" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(380, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker07"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker08" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(420, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker08"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker09" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(460, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker09"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="Marker10" type="Marker2D" parent="ObstacleSpawner/Markers"]
+position = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/Marker10"]
+visible = false
+texture = ExtResource("3_naj1r")
+
+[node name="MinXMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(96, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ObstacleSpawner/Markers/MarkerMinXSpawn"]
+[node name="Sprite2D" type="Sprite2D" parent="MinXMarker"]
 visible = false
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_q6mhj")
+texture = ExtResource("3_naj1r")
 
-[node name="MarkerMaxXSpawn" type="Marker2D" parent="ObstacleSpawner/Markers"]
+[node name="MaxXMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(544, 0)
 
-[node name="Sprite2D3" type="Sprite2D" parent="ObstacleSpawner/Markers/MarkerMaxXSpawn"]
+[node name="Sprite2D" type="Sprite2D" parent="MaxXMarker"]
 visible = false
-position = Vector2(0, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_q6mhj")
+texture = ExtResource("3_naj1r")
 
 [connection signal="timeout" from="ObstacleSpawner/CreationTimer" to="." method="_on_creation_timer_timeout"]

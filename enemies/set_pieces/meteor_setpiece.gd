@@ -1,35 +1,38 @@
 extends Node2D
 
 @export var current_obstacle_speed = 200
-@export var min_obstacles = 5
-@export var max_obstacles = 8
+@export var min_obstacles = 4
+@export var max_obstacles = 4.75
 @export var obstacle_spawn_cooldown = 1.0
 
 var obstacle_scene: PackedScene = preload("res://obstacles/meteor.tscn")
-var min_x_spawn: float
-var max_x_spawn: float
 var last_obstacle = null
+var markers = null
 
 
 @onready var creation_timer = $ObstacleSpawner/CreationTimer
-@onready var marker_min_x_spawn = $ObstacleSpawner/Markers/MarkerMinXSpawn
-@onready var marker_max_x_spawn = $ObstacleSpawner/Markers/MarkerMaxXSpawn
+@onready var markers_parent = %Markers
+@onready var min_x_marker = %MinXMarker
+@onready var max_x_marker = %MaxXMarker
+
 
 
 func _ready():
-	min_x_spawn = marker_min_x_spawn.position.x
-	max_x_spawn = marker_max_x_spawn.position.x
+	markers = markers_parent.get_children()
 	creation_timer.wait_time = obstacle_spawn_cooldown
 
 
-func create_obstacle():
-	var selected_position = Vector2(randf_range(min_x_spawn, max_x_spawn), 0)
+func create_obstacle(selected_position: Vector2):
 	var obstacle = obstacle_scene.instantiate() as Meteor
 	obstacle.position = selected_position
 	obstacle.movement_speed = current_obstacle_speed
 	add_child(obstacle)
 	obstacle.add_to_group("SetPiece")
 	last_obstacle = obstacle
+
+func create_constant_meteors():
+	create_obstacle(min_x_marker.position)
+	create_obstacle(max_x_marker.position)
 
 
 func destroy_setpiece():
@@ -39,5 +42,15 @@ func destroy_setpiece():
 
 
 func _on_creation_timer_timeout():
+	min_obstacles += 0.2
+	max_obstacles += 0.25
+	print(str(min_obstacles) + " " + str(max_obstacles))
+	var temp_markers: Array = markers.duplicate()
+	var temp_position = Vector2.ZERO
 	for i in randi_range(min_obstacles, max_obstacles):
-		create_obstacle()
+		var index: int = randi_range(0, temp_markers.size() - 1)
+		temp_position = temp_markers[index].position
+		create_obstacle(temp_position)
+		temp_markers.remove_at(index)
+	
+	create_constant_meteors()

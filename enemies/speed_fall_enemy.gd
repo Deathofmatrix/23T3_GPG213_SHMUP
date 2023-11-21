@@ -3,6 +3,12 @@ extends Enemy
 
 @export var move_speed = 150 
 @export var direction = Vector2.DOWN
+@export var max_health = 15
+
+@onready var health_system = $HealthSystem
+
+func _enemy_ready():
+	health_system.max_health = max_health
 
 func _physics_process(_delta):
 	velocity = direction * move_speed

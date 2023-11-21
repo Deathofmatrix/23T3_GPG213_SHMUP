@@ -15,6 +15,7 @@ func _ready():
 	enemy_hit_player.bus = "SFX"
 	enemy_hit_player.volume_db = 0
 	add_child(enemy_hit_player)
+	add_to_group("enemy")
 	_enemy_ready()
 
 

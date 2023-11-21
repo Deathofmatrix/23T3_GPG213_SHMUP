@@ -7,6 +7,8 @@
 
 [node name="SpeedFallSetpiece" type="Node2D"]
 script = ExtResource("1_cwxbk")
+max_spawns = 8
+min_spawns = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -20,10 +22,10 @@ autostart = true
 
 [node name="Markers" type="Node2D" parent="EnemySpawner"]
 unique_name_in_owner = true
+position = Vector2(0, -9)
 
 [node name="LeftSpawn01" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
-position = Vector2(96, 25)
-rotation = -6.28319
+position = Vector2(96, 29)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn01"]
 visible = false
@@ -40,7 +42,7 @@ range_layer_min = -100
 texture_scale = 0.2
 
 [node name="LeftSpawn02" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
-position = Vector2(96, 75)
+position = Vector2(96, 65)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn02"]
 visible = false
@@ -54,7 +56,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn02/Sprite2D" instance=ExtResource("4_kan77")]
 
 [node name="LeftSpawn03" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
-position = Vector2(96, 125)
+position = Vector2(96, 100)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn03"]
 visible = false
@@ -68,7 +70,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn03/Sprite2D" instance=ExtResource("4_kan77")]
 
 [node name="LeftSpawn04" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
-position = Vector2(96, 175)
+position = Vector2(96, 135)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn04"]
 visible = false
@@ -82,7 +84,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn04/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="LeftSpawn05" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
-position = Vector2(96, 225)
+position = Vector2(96, 170)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn05"]
 visible = false
@@ -96,7 +98,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn05/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="LeftSpawn06" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
-position = Vector2(96, 275)
+position = Vector2(96, 205)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn06"]
 visible = false
@@ -110,7 +112,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn06/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="LeftSpawn07" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
-position = Vector2(96, 325)
+position = Vector2(96, 240)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn07"]
 visible = false
@@ -123,8 +125,50 @@ region_rect = Rect2(51, 0, 16, 16)
 
 [node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn07/Sprite2D2" instance=ExtResource("4_kan77")]
 
+[node name="LeftSpawn08" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 275)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn08"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn08/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="LeftSpawn09" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 310)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn09"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn09/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="LeftSpawn10" type="Marker2D" parent="EnemySpawner/Markers" groups=["LeftSpawn"]]
+position = Vector2(96, 345)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/LeftSpawn10"]
+visible = false
+position = Vector2(15, 0)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/LeftSpawn10/Sprite2D2" instance=ExtResource("4_kan77")]
+
 [node name="RightSpawn01" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
-position = Vector2(544, 25)
+position = Vector2(544, 29)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn01"]
 visible = false
@@ -138,7 +182,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn01/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="RightSpawn02" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
-position = Vector2(544, 75)
+position = Vector2(544, 65)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn02"]
 visible = false
@@ -152,7 +196,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn02/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="RightSpawn03" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
-position = Vector2(544, 125)
+position = Vector2(544, 100)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn03"]
 visible = false
@@ -166,7 +210,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn03/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="RightSpawn04" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
-position = Vector2(544, 175)
+position = Vector2(544, 135)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn04"]
 visible = false
@@ -180,7 +224,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn04/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="RightSpawn05" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
-position = Vector2(544, 225)
+position = Vector2(544, 170)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn05"]
 visible = false
@@ -194,7 +238,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn05/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="RightSpawn06" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
-position = Vector2(544, 275)
+position = Vector2(544, 205)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn06"]
 visible = false
@@ -208,7 +252,7 @@ region_rect = Rect2(51, 0, 16, 16)
 [node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn06/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [node name="RightSpawn07" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
-position = Vector2(544, 325)
+position = Vector2(544, 240)
 
 [node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn07"]
 visible = false
@@ -220,5 +264,47 @@ region_enabled = true
 region_rect = Rect2(51, 0, 16, 16)
 
 [node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn07/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn08" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 275)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn08"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn08/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn09" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 310)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn09"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn09/Sprite2D2" instance=ExtResource("4_kan77")]
+
+[node name="RightSpawn10" type="Marker2D" parent="EnemySpawner/Markers" groups=["RightSpawn"]]
+position = Vector2(544, 345)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemySpawner/Markers/RightSpawn10"]
+visible = false
+position = Vector2(-15, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vvaek")
+region_enabled = true
+region_rect = Rect2(51, 0, 16, 16)
+
+[node name="PointLight2D" parent="EnemySpawner/Markers/RightSpawn10/Sprite2D2" instance=ExtResource("4_kan77")]
 
 [connection signal="timeout" from="EnemySpawner/CreationTimer" to="." method="_on_creation_timer_timeout"]
