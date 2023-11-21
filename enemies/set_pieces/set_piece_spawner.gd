@@ -14,6 +14,10 @@ var setpieces: Array = [
 	preload("res://enemies/set_pieces/speed_fall_setpiece.tscn")
 	]
 
+var boss_fights: Array = [
+	preload("res://bosses/boss_one.tscn")
+]
+
 
 func _ready():
 	randomize()
@@ -23,7 +27,8 @@ func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		2:
 			clear_screen("enemy")
-			choose_set_piece()
+			enter_boss_fight()
+#			choose_set_piece()
 			player_warning()
 		5:
 			clear_screen("enemy")
@@ -77,6 +82,20 @@ func clear_screen(group_string: String):
 	for node in get_tree().get_nodes_in_group(group_string):
 		node.destroy_enemy()
 
+
+func enter_boss_fight():
+	var boss_fight_zoom = Vector2(0.5, 0.5)
+	var tween = get_tree().create_tween()
+	tween.tween_property(get_parent().main_cam, "zoom", boss_fight_zoom, 2)
+
+	var current_boss_fight: BossOne = boss_fights[0].instantiate() 
+	current_boss_fight.position = Vector2(250, -100)
+	add_child(current_boss_fight)
+
+	EventManager.pause_for_setpiece.emit(true)
+	await get_tree().create_timer(20).timeout
+	EventManager.pause_for_setpiece.emit(false)
+	
 
 func _on_set_piece_timer_timeout():
 	current_setpiece.destroy_setpiece()

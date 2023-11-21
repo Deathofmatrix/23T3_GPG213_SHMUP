@@ -98,7 +98,7 @@ wait_time = 0.01
 [node name="EnemyWeapon" parent="." instance=ExtResource("4_14t0u")]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(500, 0)
+target_position = Vector2(1000, 0)
 
 [node name="ReloadTimer" type="Timer" parent="RayCast2D"]
 wait_time = 1.5
