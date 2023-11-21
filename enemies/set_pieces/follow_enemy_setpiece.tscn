@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://chvvep051fb6t"]
+
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_21u20"]
+
+[node name="FollowEnemySetpiece" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_21u20")
+
+[node name="Marker2D" type="Marker2D" parent="."]

@@ -6,6 +6,8 @@
 
 [node name="MeteorSetpiece" type="Node2D"]
 script = ExtResource("1_c2vw3")
+min_obstacles = 3
+max_obstacles = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

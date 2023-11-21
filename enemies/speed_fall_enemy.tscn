@@ -51,7 +51,7 @@ _data = {
 "idle": SubResource("Animation_o0puc")
 }
 
-[node name="SpeedFallEnemy" type="CharacterBody2D"]
+[node name="SpeedFallEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_ydey1")

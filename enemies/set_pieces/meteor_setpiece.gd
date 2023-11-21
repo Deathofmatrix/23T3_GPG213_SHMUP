@@ -42,8 +42,8 @@ func destroy_setpiece():
 
 
 func _on_creation_timer_timeout():
-	min_obstacles += 0.25
-	max_obstacles += 0.2
+	min_obstacles += 0.2
+	max_obstacles += 0.25
 	print(str(min_obstacles) + " " + str(max_obstacles))
 	var temp_markers: Array = markers.duplicate()
 	var temp_position = Vector2.ZERO

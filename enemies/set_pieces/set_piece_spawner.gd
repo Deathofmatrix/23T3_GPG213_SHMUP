@@ -22,12 +22,15 @@ func _ready():
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		2:
+			clear_screen("enemy")
 			choose_set_piece()
 			player_warning()
 		5:
+			clear_screen("enemy")
 			choose_set_piece()
 			player_warning()
 		9:
+			clear_screen("enemy")
 			choose_set_piece()
 			player_warning()
 		_:
@@ -68,6 +71,11 @@ func spawn_set_piece(set_peice_to_spawn):
 	add_child(set_piece_instance)
 	current_setpiece = set_piece_instance
 	EventManager.pause_for_setpiece.emit(true)
+
+
+func clear_screen(group_string: String):
+	for node in get_tree().get_nodes_in_group(group_string):
+		node.destroy_enemy()
 
 
 func _on_set_piece_timer_timeout():

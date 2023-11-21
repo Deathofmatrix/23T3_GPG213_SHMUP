@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://1m5tawvb6ckt"]
+
+[ext_resource type="Script" path="res://enemies/set_pieces/follow_enemy_miniboss/follow_enemy_miniboss.gd" id="1_p00n7"]
+[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_hptay"]
+[ext_resource type="Texture2D" uid="uid://btuu1tdm4076i" path="res://enemies/Follow_Enemy-Sheet-Sheet.png" id="3_6mbdq"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="4_a15wj"]
+[ext_resource type="PackedScene" uid="uid://bilou8rl5ot6k" path="res://enemies/enemy_light.tscn" id="5_yw5bv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wixjh"]
+resource_local_to_scene = true
+shader = ExtResource("2_hptay")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x35q4"]
+radius = 13.5023
+
+[sub_resource type="Animation" id="Animation_vjnb4"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_mmi1x"]
+resource_name = "moving"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sln50"]
+_data = {
+"RESET": SubResource("Animation_vjnb4"),
+"moving": SubResource("Animation_mmi1x")
+}
+
+[node name="FollowEnemyMiniboss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_p00n7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wixjh")
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_6mbdq")
+hframes = 4
+frame = 1
+region_rect = Rect2(66, 99, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_x35q4")
+
+[node name="HealthSystem" parent="." instance=ExtResource("4_a15wj")]
+max_health = 1000
+wait_time = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "moving"
+libraries = {
+"": SubResource("AnimationLibrary_sln50")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="EnemyLight" parent="." instance=ExtResource("5_yw5bv")]
+energy = 0.8
+texture_scale = 0.3
+
+[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
+[connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
