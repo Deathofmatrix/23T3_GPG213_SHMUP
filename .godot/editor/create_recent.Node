@@ -1,9 +1,10 @@
 Marker2D
+Camera2D
+Timer
 AudioStreamPlayer2D
 Sprite2D
 PointLight2D
 ColorRect
-Timer
 Node2D
 VBoxContainer
 HBoxContainer
@@ -29,4 +30,3 @@ RayCast2D
 PathFollow2D
 Path2D
 CharacterBody2D
-SubViewport

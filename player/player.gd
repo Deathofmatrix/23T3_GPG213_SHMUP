@@ -16,6 +16,7 @@ var current_level = 1
 var current_xp = 1
 var current_xp_required = 1
 
+var viewport_pos: Vector2
 var screen_half_height: int = 180
 var screen_half_width: int = 224
 
@@ -34,6 +35,8 @@ func _ready():
 	GlobalPlayerInfo.player = self
 	health_system.change_max_health(starting_max_health)
 	add_weapon(Pistol.instantiate())
+	viewport_pos = get_viewport_rect().position
+	EventManager.connect("boss_spawned", change_viewport_size)
 
 
 func _process(_delta):
@@ -58,21 +61,28 @@ func _physics_process(delta):
 
 
 # Movement
+func change_viewport_size():
+	viewport_pos += Vector2(0, 180)
+	screen_half_height *= 2
+	screen_half_width *= 2
 
 
 func lock_player_to_screen():
-	var viewport_pos = get_viewport_rect().position
 	var top_left = viewport_pos - Vector2(screen_half_width, screen_half_height)
 	var bottom_right = viewport_pos + Vector2(screen_half_width, screen_half_height)
 	global_position = global_position.clamp(top_left + Vector2(10, 10), bottom_right - Vector2(10, 10))
+	print(viewport_pos)
+
 
 func handle_acceleration(input_axis, delta):
 	if input_axis != Vector2.ZERO:
 		velocity = velocity.move_toward(input_axis * movement_data.max_speed, movement_data.acceleration * delta)
 
+
 func handle_air_resistance(input_axis, delta):
 	if input_axis == Vector2.ZERO:
 		velocity = velocity.move_toward(Vector2.ZERO, movement_data.friction * delta)
+
 
 func movement_sound():
 	var current_percentage = velocity.length() / movement_data.max_speed
