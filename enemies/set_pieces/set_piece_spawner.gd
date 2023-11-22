@@ -15,6 +15,10 @@ var setpieces: Array = [
 	preload("res://enemies/set_pieces/speed_fall_setpiece.tscn")
 	]
 
+var minibosses: Array = [
+	preload("res://enemies/set_pieces/follow_enemy_setpiece.tscn")
+]
+
 var boss_fights: Array = [
 	preload("res://bosses/boss_one.tscn")
 ]
@@ -28,16 +32,19 @@ func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		2:
 			clear_screen("enemy")
-			enter_boss_fight()
-#			choose_set_piece()
+			choose_set_piece(minibosses)
 			player_warning()
 		5:
 			clear_screen("enemy")
-			choose_set_piece()
+			choose_set_piece(setpieces)
 			player_warning()
 		9:
 			clear_screen("enemy")
-			choose_set_piece()
+			choose_set_piece(minibosses)
+			player_warning()
+		11:
+			clear_screen("enemy")
+			enter_boss_fight()
 			player_warning()
 		_:
 			pass
@@ -66,8 +73,8 @@ func flash_screen():
 	await get_tree().create_timer(0.2).timeout
 	danger_flash.hide()
 
-func choose_set_piece():
-	var chosen_set_piece = setpieces.pick_random()
+func choose_set_piece(array_to_choose_from: Array):
+	var chosen_set_piece = array_to_choose_from.pick_random()
 	spawn_set_piece(chosen_set_piece)
 	set_piece_timer.start()
 

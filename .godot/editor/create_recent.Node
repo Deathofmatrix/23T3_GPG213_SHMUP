@@ -1,4 +1,5 @@
 Marker2D
+AnimationPlayer
 Camera2D
 Timer
 AudioStreamPlayer2D
@@ -15,7 +16,6 @@ Button
 TextureRect
 Control
 CanvasLayer
-AnimationPlayer
 PanelContainer
 AnimatedSprite2D
 VisibleOnScreenNotifier2D
