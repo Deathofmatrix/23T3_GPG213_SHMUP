@@ -2,6 +2,7 @@ class_name BossOne
 extends Enemy
 
 signal requires_health_bar
+signal boss_defeated
 
 var can_move = false
 var slide_speed = 10
@@ -47,3 +48,5 @@ func _on_health_system_killed():
 func _on_health_system_health_updated(_health, _was_damaged):
 	hit_flash($BossSprite)
 	enemy_hit_player.play()
+
+

@@ -39,6 +39,12 @@ func spawn_bullet(spawn_point):
 	bullet.rotation = bullet.direction.angle()
 	bullet.bullet_damage = bullet_damage
 	add_child(bullet)
-				# THESE BULLETS ARE NOW SWERVING WITH THE BOSS
+	bullet.reparent(get_tree().current_scene)
+
 	return bullet
+
+
+
+func _on_boss_one_boss_defeated():
+	queue_free()
 

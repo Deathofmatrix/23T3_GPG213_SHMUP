@@ -1,5 +1,6 @@
 extends Node
 
+
 var next_level: Level
 
 @onready var current_level = $MainMenu

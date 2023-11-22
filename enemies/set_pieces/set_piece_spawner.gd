@@ -29,7 +29,7 @@ func spawn_at_difficulty(difficulty_level):
 			clear_screen("enemy")
 			enter_boss_fight()
 #			choose_set_piece()
-			player_warning()
+#			player_warning()
 		5:
 			clear_screen("enemy")
 			choose_set_piece()
@@ -93,8 +93,8 @@ func enter_boss_fight():
 	add_child(current_boss_fight)
 
 	EventManager.pause_for_setpiece.emit(true)
-	await get_tree().create_timer(20).timeout
-	EventManager.pause_for_setpiece.emit(false)
+#	await get_tree().create_timer(20).timeout
+#	EventManager.pause_for_setpiece.emit(false)
 	
 
 func _on_set_piece_timer_timeout():

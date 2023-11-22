@@ -1,14 +1,14 @@
 res://default_bus_layout.tres
-res://enemies/set_pieces/set_piece_spawner.tscn
-res://shaders/hit_flash_shader.tres
-res://enemies/set_pieces/set_piece_spawner.gd
-res://managers/scene_switcher.tscn
 res://player/player.tscn
+res://shaders/hit_flash_shader.tres
+res://bosses/boss_weapons/boss_shotgun.gd
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
 res://UI/upgrade_popup.tscn
 res://levels/Scenes/level_main_menu.tscn
 res://bullets/shotgun_bullet.tscn
+res://managers/scene_switcher.tscn
+res://enemies/set_pieces/set_piece_spawner.tscn
 res://enemies/set_pieces/meteor_setpiece.tscn
 res://obstacles/obstacle_spawner.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
@@ -29,4 +29,8 @@ res://bosses/boss_one.tscn
 res://enemies/set_pieces/follow_enemy_setpiece.tscn
 res://enemies/set_pieces/follow_enemy_miniboss/follow_enemy_miniboss.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
+res://testing_scene.tscn
+res://bosses/boss_one.gd
+res://bosses/boss_weapons/boss_shotgun.tscn
+res://enemies/set_pieces/set_piece_spawner.gd
 res://managers/scene_switcher.gd
