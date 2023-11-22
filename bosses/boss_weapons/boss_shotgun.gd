@@ -34,7 +34,7 @@ func spawn_bullet(spawn_point):
 	
 	var bullet = Bullet.instantiate() as Bullet
 	bullet.position = spawn_point.position
-	var temp_direction = Vector2.DOWN
+	var temp_direction = Vector2.RIGHT
 	bullet.direction = temp_direction.rotated(spawn_point.rotation)
 	bullet.rotation = bullet.direction.angle()
 	bullet.bullet_damage = bullet_damage

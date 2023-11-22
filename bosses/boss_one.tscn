@@ -70,12 +70,23 @@ move_speed = 0
 
 [node name="BossShotgun" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
 position = Vector2(0, 48)
+rotation = 1.5708
 
 [node name="BossShotgun2" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(-83, 26)
+position = Vector2(-95, 20)
+rotation = 1.5708
 
 [node name="BossShotgun3" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(81, 27)
+position = Vector2(95, 20)
+rotation = 1.5708
+
+[node name="RightScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Phases/PhaseTwo"]
+position = Vector2(320, -17)
+scale = Vector2(0.25, 2.5)
+
+[node name="LeftScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Phases/PhaseTwo"]
+position = Vector2(-320, -21)
+scale = Vector2(0.25, 2.5)
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("6_lvugj")
@@ -107,4 +118,6 @@ _current_health = 1000
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="health_updated" from="HealthSystem" to="EnemyHealthBar" method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="screen_exited" from="Phases/PhaseTwo/RightScreenNotifier" to="." method="_on_right_screen_notifier_screen_exited"]
+[connection signal="screen_exited" from="Phases/PhaseTwo/LeftScreenNotifier" to="." method="_on_left_screen_notifier_screen_exited"]
 [connection signal="state_entered" from="StateChart/Root/PhaseTwo" to="." method="_on_phase_two_state_entered"]

@@ -1,3 +1,4 @@
+VisibleOnScreenNotifier2D
 Marker2D
 AudioStreamPlayer2D
 Sprite2D
@@ -17,7 +18,6 @@ CanvasLayer
 AnimationPlayer
 PanelContainer
 AnimatedSprite2D
-VisibleOnScreenNotifier2D
 AudioStreamPlayer
 Node
 GridContainer
