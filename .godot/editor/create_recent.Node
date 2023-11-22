@@ -1,9 +1,10 @@
+Camera2D
+Timer
 Marker2D
 AudioStreamPlayer2D
 Sprite2D
 PointLight2D
 ColorRect
-Timer
 Node2D
 VBoxContainer
 HBoxContainer

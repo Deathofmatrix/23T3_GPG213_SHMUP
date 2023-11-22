@@ -1,3 +1,4 @@
+res://
 res://enemies/enemy_UI
 C:/Users/conal/Godot/Godot Builds/Week_9
 res://enemies/set_pieces
@@ -15,7 +16,6 @@ res://enemies/weapons
 res://pickups/upgrades
 res://player/resources
 res://managers
-res://
 res://autoloads
 res://obstacles
 res://weapons

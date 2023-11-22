@@ -90,6 +90,12 @@ libraries = {
 energy = 0.8
 texture_scale = 0.3
 
+[node name="ChargeCooldown" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="ChargeCooldown" to="." method="_on_charge_cooldown_timeout"]
