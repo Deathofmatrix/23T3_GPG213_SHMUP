@@ -8,6 +8,7 @@ var pickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
 @onready var looped_warning_player = $LoopedWarningPlayer
 @onready var danger_flash = $DangerFlash
 @onready var set_piece_timer = $SetPieceTimer
+@onready var boss_spawn = $BossSpawn
 
 var setpieces: Array = [
 	preload("res://enemies/set_pieces/meteor_setpiece.tscn"),
@@ -84,12 +85,16 @@ func clear_screen(group_string: String):
 
 
 func enter_boss_fight():
+	var camera = get_parent().main_cam
 	var boss_fight_zoom = Vector2(0.5, 0.5)
-	var tween = get_tree().create_tween()
-	tween.tween_property(get_parent().main_cam, "zoom", boss_fight_zoom, 2)
+	var boss_fight_camera_movement = Vector2(0, 180)
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(camera, "zoom", boss_fight_zoom, 2)
+	tween.tween_property(camera, "position", camera.position + boss_fight_camera_movement, 2)
+	EventManager.boss_spawned.emit()
 
 	var current_boss_fight: BossOne = boss_fights[0].instantiate() 
-	current_boss_fight.position = Vector2(250, -100)
+	current_boss_fight.position = boss_spawn.position
 	add_child(current_boss_fight)
 
 	EventManager.pause_for_setpiece.emit(true)

@@ -1,9 +1,6 @@
 res://default_bus_layout.tres
-res://enemies/set_pieces/follow_enemy_miniboss/follow_enemy_miniboss.tscn
-res://shaders/hit_flash_shader.tres
-res://enemies/set_pieces/follow_enemy_miniboss/follow_enemy_miniboss.gd
-res://weapons/shotgun/shotgun.tscn
 res://player/player.tscn
+res://shaders/hit_flash_shader.tres
 res://levels/Scenes/level_01.tscn
 res://UI/hud.tscn
 res://UI/upgrade_popup.tscn
@@ -29,5 +26,12 @@ res://enemies/follow_enemy.tscn
 res://enemies/turret_enemy.tscn
 res://bosses/boss_one.tscn
 res://enemies/set_pieces/follow_enemy_setpiece.tscn
+res://enemies/set_pieces/follow_enemy_miniboss/follow_enemy_miniboss.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
+res://weapons/shotgun/shotgun.tscn
 res://test.tscn
+res://enemies/set_pieces/set_piece_spawner.gd
+res://managers/scene_switcher.gd
+res://player/player.gd
+res://autoloads/event_manager.gd
+res://player/xp_manager.tscn
