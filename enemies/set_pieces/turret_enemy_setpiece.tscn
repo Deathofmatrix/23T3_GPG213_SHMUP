@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5mu7ini8nfu4"]
+
+[ext_resource type="Script" path="res://enemies/set_pieces/turret_enemy_setpiece.gd" id="1_mergm"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="2_lhc3v"]
+[ext_resource type="PackedScene" uid="uid://cyyeld5orw07e" path="res://enemies/set_pieces/turret_enemy_miniboss/turret_enemy_miniboss.tscn" id="3_sswdr"]
+
+[node name="FollowEnemySetpiece" type="Node2D"]
+script = ExtResource("1_mergm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_lhc3v")
+
+[node name="TurretEnemyMiniboss" parent="." instance=ExtResource("3_sswdr")]
+position = Vector2(320, -100)
+
+[node name="TurretEnemyMiniboss2" parent="." instance=ExtResource("3_sswdr")]
+position = Vector2(320, -100)
+
+[node name="Enemy1Spawn" type="Marker2D" parent="."]
+position = Vector2(246, 50)
+
+[node name="Enemy2Spawn" type="Marker2D" parent="."]
+position = Vector2(394, 50)
+
+[connection signal="miniboss_killed" from="TurretEnemyMiniboss" to="." method="_on_turret_enemy_miniboss_miniboss_killed"]
+[connection signal="miniboss_killed" from="TurretEnemyMiniboss2" to="." method="_on_turret_enemy_miniboss_miniboss_killed"]

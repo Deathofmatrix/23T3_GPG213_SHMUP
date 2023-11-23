@@ -1,8 +1,11 @@
+CollisionShape2D
+Area2D
 Marker2D
+Sprite2D
+AnimationPlayer
 Camera2D
 Timer
 AudioStreamPlayer2D
-Sprite2D
 PointLight2D
 ColorRect
 Node2D
@@ -15,7 +18,6 @@ Button
 TextureRect
 Control
 CanvasLayer
-AnimationPlayer
 PanelContainer
 AnimatedSprite2D
 VisibleOnScreenNotifier2D
@@ -24,8 +26,6 @@ Node
 GridContainer
 DirectionalLight2D
 VisibleOnScreenEnabler2D
-CollisionShape2D
-Area2D
 RayCast2D
 PathFollow2D
 Path2D

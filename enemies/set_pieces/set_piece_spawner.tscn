@@ -32,6 +32,9 @@ mouse_filter = 2
 color = Color(0.890196, 0, 0, 0.294118)
 
 [node name="HealthMarker" type="Marker2D" parent="."]
+position = Vector2(320, -25)
+
+[node name="UpgradeMarker" type="Marker2D" parent="."]
 position = Vector2(320, 0)
 
 [node name="BossSpawn" type="Marker2D" parent="."]

@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://cyyeld5orw07e"]
+
+[ext_resource type="Script" path="res://enemies/set_pieces/turret_enemy_miniboss/turret_enemy_miniboss.gd" id="1_4ap6o"]
+[ext_resource type="PackedScene" uid="uid://c4vx0f4rkdxre" path="res://enemies/enemy_bullets/turret_bullet.tscn" id="2_vdrl0"]
+[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="3_l2i7i"]
+[ext_resource type="Texture2D" uid="uid://cfy40oxf4lo20" path="res://enemies/turret_enemy_sheet.png" id="4_bfstl"]
+[ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_4itqa"]
+[ext_resource type="PackedScene" uid="uid://bbtxbmpxuppgp" path="res://enemies/weapons/enemy_weapon.tscn" id="6_5hbbw"]
+[ext_resource type="PackedScene" uid="uid://bilou8rl5ot6k" path="res://enemies/enemy_light.tscn" id="7_ttatt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4riiu"]
+resource_local_to_scene = true
+shader = ExtResource("3_l2i7i")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nuknk"]
+radius = 11.0
+height = 32.0
+
+[sub_resource type="Animation" id="Animation_usf7v"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_85ryd"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_vhtsg"]
+resource_name = "moving"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.343697, 0.694854, 1.06839, 1.30267),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ohi6m"]
+_data = {
+"RESET": SubResource("Animation_usf7v"),
+"idle": SubResource("Animation_85ryd"),
+"moving": SubResource("Animation_vhtsg")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwaqp"]
+radius = 72.1734
+
+[node name="TurretEnemyMiniboss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_4ap6o")
+Bullet = ExtResource("2_vdrl0")
+move_speed = 70
+
+[node name="TurretEnemySprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4riiu")
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("4_bfstl")
+hframes = 5
+vframes = 2
+region_rect = Rect2(99, 3, 32, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nuknk")
+
+[node name="HealthSystem" parent="." instance=ExtResource("5_4itqa")]
+max_health = 500
+wait_time = 0.01
+
+[node name="EnemyWeapon" parent="." instance=ExtResource("6_5hbbw")]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(1000, 0)
+
+[node name="ReloadTimer" type="Timer" parent="RayCast2D"]
+wait_time = 0.8
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ohi6m")
+}
+
+[node name="EnemyLight" parent="." instance=ExtResource("7_ttatt")]
+
+[node name="BulletDetection" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetection"]
+shape = SubResource("CircleShape2D_dwaqp")
+
+[connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
+[connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
+[connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="area_entered" from="BulletDetection" to="." method="_on_bullet_detection_area_entered"]

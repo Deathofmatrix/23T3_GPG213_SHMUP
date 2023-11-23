@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://31dxe106neto"]
+[gd_scene load_steps=23 format=3 uid="uid://31dxe106neto"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://blg4j3q5al6cc" path="res://pickups/upgrades/upgrade_collector.tscn" id="6_dhmjd"]
 [ext_resource type="AudioStream" uid="uid://odne150pa5x1" path="res://player/audio/thrusterFire_000.ogg" id="7_a8ox5"]
 [ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="10_ge5ce"]
+[ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="13_0c71f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nm0x"]
 resource_local_to_scene = true
@@ -102,6 +103,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_system") groups=["Player"]]
+top_level = true
 collision_mask = 28
 motion_mode = 1
 script = ExtResource("1_d1dy8")
@@ -177,6 +179,13 @@ libraries = {
 range_layer_min = -10
 texture = ExtResource("10_ge5ce")
 texture_scale = 0.3
+
+[node name="FuturePosition" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="FuturePosition"]
+visible = false
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("13_0c71f")
 
 [connection signal="leveled_up" from="XPManager" to="." method="_on_xp_manager_leveled_up"]
 [connection signal="xp_updated" from="XPManager" to="." method="_on_xp_manager_xp_updated"]
