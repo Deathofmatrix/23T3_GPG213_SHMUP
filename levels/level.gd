@@ -19,6 +19,7 @@ func _ready():
 
 	EventManager.reset_difficulty()
 	EventManager.connect("pause_for_setpiece", play_pause_timer)
+	AudioServer.set_bus_effect_enabled(0, 0, false)
 
 
 func play_loaded_sound():
@@ -72,3 +73,14 @@ func _on_difficulty_scaling_timer_timeout():
 	EventManager.increase_difficulty()
 	print("increase difficulty")
 
+
+
+
+func _on_boss_one_boss_defeated():
+	load_level("win_screen")
+
+
+
+
+func _on_change_scene_button_pressed():
+	_on_button_pressed()

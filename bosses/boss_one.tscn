@@ -24,6 +24,7 @@ size = Vector2(242, 3)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_g5n8p")
+slide_speed = 275
 
 [node name="BossSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_yxcc7")
@@ -39,7 +40,7 @@ position = Vector2(-4, 17.5)
 shape = SubResource("RectangleShape2D_743ce")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_lb1jy")]
-max_health = 1000
+max_health = 3500
 wait_time = 0.001
 
 [node name="Phases" type="Node2D" parent="."]
@@ -70,12 +71,15 @@ move_speed = 0
 
 [node name="BossShotgun" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
 position = Vector2(0, 48)
+rotation = 1.5708
 
 [node name="BossShotgun2" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
 position = Vector2(-83, 26)
+rotation = 1.5708
 
 [node name="BossShotgun3" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
 position = Vector2(81, 27)
+rotation = 1.5708
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("6_lvugj")
@@ -100,8 +104,8 @@ offset_left = -321.0
 offset_top = -91.0
 offset_right = -321.0
 offset_bottom = -91.0
-_current_max_health = 1000
-_current_health = 1000
+_current_max_health = 3500
+_current_health = 3500
 
 [connection signal="boss_defeated" from="." to="Phases/PhaseTwo/BossShotgun" method="_on_boss_one_boss_defeated"]
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]

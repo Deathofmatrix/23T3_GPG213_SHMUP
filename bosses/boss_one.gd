@@ -5,7 +5,7 @@ signal requires_health_bar
 signal boss_defeated
 
 var can_move = false
-var slide_speed = 10
+@export var slide_speed = 250
 
 @onready var health_system = $HealthSystem
 @onready var boss_shotguns = $Phases/PhaseTwo
@@ -15,9 +15,8 @@ func _enemy_ready():
 
 
 func _process(_delta):
-	if  health_system.health <= 500:
+	if  health_system.health <= 2500:
 		$StateChart.send_event("phase_two")
-
 
 func _physics_process(delta):
 	if can_move == true:
@@ -42,6 +41,7 @@ func _on_phase_two_state_entered():
 
 
 func _on_health_system_killed():
+	$"../../..".handle_level_changed("win_screen")
 	destroy_enemy()
 
 

@@ -1,3 +1,8 @@
+AudioStreamPlayer2D
+Button
+Label
+TextureRect
+Control
 CollisionShape2D
 Area2D
 Marker2D
@@ -5,18 +10,13 @@ Sprite2D
 AnimationPlayer
 Camera2D
 Timer
-AudioStreamPlayer2D
 PointLight2D
 ColorRect
 Node2D
 VBoxContainer
 HBoxContainer
 CenterContainer
-Label
 HSlider
-Button
-TextureRect
-Control
 CanvasLayer
 PanelContainer
 AnimatedSprite2D

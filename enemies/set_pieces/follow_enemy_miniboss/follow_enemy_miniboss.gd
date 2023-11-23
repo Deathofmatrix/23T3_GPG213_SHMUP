@@ -23,7 +23,7 @@ func _physics_process(_delta):
 	match current_state:
 		STATE.FOLLOWING:
 			follow_player()
-			sprite_2d.modulate = Color.WHITE
+			sprite_2d.modulate = Color.GOLDENROD
 		STATE.WAITING:
 			pause_before_charge()
 			sprite_2d.modulate = Color.FIREBRICK
