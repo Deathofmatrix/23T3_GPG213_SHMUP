@@ -40,8 +40,7 @@ func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		2:
 			clear_screen("enemy")
-			enter_boss_fight()
-#			choose_set_piece(setpieces)
+			choose_set_piece(setpieces)
 			player_warning()
 		5:
 			clear_screen("enemy")
