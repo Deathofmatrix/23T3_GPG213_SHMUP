@@ -6,9 +6,12 @@ var bullet_lifetime = 0.4
 
 func _ready():
 	lifespan_timer.wait_time = bullet_lifetime
+	lifespan_timer.start()
+
 
 func _on_lifespan_timer_timeout():
 	queue_free()
+
 
 func _on_body_entered(body):
 	queue_free()

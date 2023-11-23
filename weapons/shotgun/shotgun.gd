@@ -2,7 +2,8 @@ extends Weapon
 
 var Bullet = preload("res://bullets/shotgun_bullet.tscn")
 
-var bullet_lifetime = 0.4
+var bullet_lifetime = 0.5
+var bullet_speed = 150
 var can_shoot_extra_bullets = false
 
 @onready var bullet_spawns = $BulletSpawns
@@ -34,6 +35,7 @@ func spawn_bullet(spawn_point):
 	bullet.rotation = bullet.direction.angle()
 	bullet.bullet_damage = bullet_damage
 	bullet.bullet_lifetime = bullet_lifetime
+	bullet.speed = bullet_speed
 	GlobalPlayerInfo.player.get_parent().add_child(bullet)
 	return bullet
 
@@ -50,7 +52,8 @@ func upgrade():
 			current_description = "Shotgun Damage +"
 		4:
 			print("level 4 shotgun")
-			bullet_lifetime += 0.2
+			bullet_lifetime += 0.5
+			bullet_speed += 50
 			current_description = "Spread Size +"
 		5:
 			can_shoot_extra_bullets = true

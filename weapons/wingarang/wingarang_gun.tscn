@@ -13,6 +13,7 @@ point_count = 5
 [node name="WingarangGun" type="Node2D"]
 script = ExtResource("1_l36rq")
 icon_image = ExtResource("2_pepcd")
+bullet_damage = 20
 weapon_name = "Wingarang"
 weapon_description = "Shoot a wingarang out that comes back to you"
 

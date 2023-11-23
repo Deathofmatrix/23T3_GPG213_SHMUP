@@ -59,13 +59,13 @@ func upgrade():
 			bullet_speed += 50
 			current_description = "Wingarang Speed +"
 		6:
-			max_bullets_on_screen += 1
-			current_description = "3 Wingarangs"
+			max_bullets_on_screen += 2
+			current_description = "4 Wingarangs"
 		7:
 			bullet_damage += 5
 			current_description = "Wingarang Damage +"
 		8:
-			max_bullets_on_screen += 2
-			current_description = "5 Wingarangs"
+			max_bullets_on_screen += 3
+			current_description = "7 Wingarangs"
 		_:
 			print("Wingarang level outside of scope")
