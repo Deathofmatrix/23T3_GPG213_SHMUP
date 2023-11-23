@@ -20,6 +20,8 @@ var viewport_pos: Vector2
 var screen_half_height: int = 180
 var screen_half_width: int = 224
 
+var future_position: Vector2
+
 var Pistol = preload("res://weapons/pistol/pistol.tscn")
 var new_weapon_sound = preload("res://player/audio/new_weapon_sound.ogg")
 var upgrade_weapon_sound = preload("res://player/audio/upgrade_weapon_sound.ogg")
@@ -29,6 +31,7 @@ var upgrade_weapon_sound = preload("res://player/audio/upgrade_weapon_sound.ogg"
 @onready var hurt_sound_player = $Audio/HurtSoundPlayer
 @onready var upgrade_sound_player = $Audio/UpgradeSoundPlayer
 @onready var movement_sound_player = $Audio/MovementSoundPlayer
+@onready var future_position_marker = $FuturePosition
 
 
 func _ready():
@@ -45,6 +48,7 @@ func _process(_delta):
 	give_invulnerability()
 	movement_animation()
 	movement_sound()
+	move_future_position()
 #	if Input.is_action_just_pressed("secondary_action"):
 #		health_system.change_max_health(200)
 #	if Input.is_action_just_pressed("primary_action"):
@@ -71,7 +75,6 @@ func lock_player_to_screen():
 	var top_left = viewport_pos - Vector2(screen_half_width, screen_half_height)
 	var bottom_right = viewport_pos + Vector2(screen_half_width, screen_half_height)
 	global_position = global_position.clamp(top_left + Vector2(10, 10), bottom_right - Vector2(10, 10))
-	print(viewport_pos)
 
 
 func handle_acceleration(input_axis, delta):
@@ -95,6 +98,11 @@ func movement_animation():
 		animation_player.queue("ship_flame_anim")
 	if velocity.length() == 0:
 		animation_player.play("RESET")
+
+
+func move_future_position():
+	future_position_marker.global_position = position + velocity / 3
+	future_position = future_position_marker.global_position
 
 # Upgrading
 

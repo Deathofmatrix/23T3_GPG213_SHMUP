@@ -11,7 +11,7 @@ var enemy_scenes: Array = [
 	preload("res://enemies/follow_enemy.tscn"),
 	preload("res://enemies/turret_enemy.tscn"),
 	preload("res://enemies/speed_fall_enemy.tscn")]
-var enemy_weights = [40, 10, 50]
+var enemy_weights = [15, 20, 65]
 
 
 var min_x_spawn: float
@@ -67,7 +67,7 @@ func update_difficulty(difficulty_level: int):
 		3:
 			max_enemy_spawns = 2
 			creation_timer.wait_time += .5 # 2.00
-			enemy_weights = [30, 20, 50]
+			enemy_weights = [20, 25, 55]
 		4:
 			max_enemy_spawns = 3
 			creation_timer.wait_time += 0.5 # 2.50

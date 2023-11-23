@@ -59,6 +59,9 @@ collision_mask = 7
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_p00n7")
+movement_speed = 60
+charge_speed = 500
+points = 10000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_wixjh")
@@ -75,6 +78,7 @@ scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_x35q4")
 
 [node name="HealthSystem" parent="." instance=ExtResource("4_a15wj")]
+max_health = 1500
 wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -90,7 +94,7 @@ energy = 0.8
 texture_scale = 0.3
 
 [node name="ChargeCooldown" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]

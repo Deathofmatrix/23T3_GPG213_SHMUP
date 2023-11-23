@@ -7,8 +7,15 @@ var pickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
 @onready var warning_sound_player = $WarningSoundPlayer
 @onready var looped_warning_player = $LoopedWarningPlayer
 @onready var danger_flash = $DangerFlash
-@onready var set_piece_timer = $SetPieceTimer
+@onready var set_piece_timer: Timer = $SetPieceTimer
 @onready var boss_spawn = $BossSpawn
+
+var upgrades: Array = [
+	preload("res://weapons/pistol/pistol.tscn"), 
+	preload("res://weapons/shotgun/shotgun.tscn"), 
+	preload("res://weapons/wingarang/wingarang_gun.tscn"), 
+	preload("res://weapons/wingsword/wing_sword.tscn")
+]
 
 var setpieces: Array = [
 	preload("res://enemies/set_pieces/meteor_setpiece.tscn"),
@@ -16,7 +23,8 @@ var setpieces: Array = [
 	]
 
 var minibosses: Array = [
-	preload("res://enemies/set_pieces/follow_enemy_setpiece.tscn")
+	preload("res://enemies/set_pieces/follow_enemy_setpiece.tscn"),
+	preload("res://enemies/set_pieces/turret_enemy_setpiece.tscn")
 ]
 
 var boss_fights: Array = [
@@ -32,7 +40,7 @@ func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		2:
 			clear_screen("enemy")
-			choose_set_piece(minibosses)
+			choose_set_piece(setpieces)
 			player_warning()
 		5:
 			clear_screen("enemy")
@@ -41,6 +49,7 @@ func spawn_at_difficulty(difficulty_level):
 		9:
 			clear_screen("enemy")
 			choose_set_piece(minibosses)
+			current_setpiece.miniboss_killed_early.connect(miniboss_killed_early)
 			player_warning()
 		11:
 			clear_screen("enemy")
@@ -107,7 +116,22 @@ func enter_boss_fight():
 	EventManager.pause_for_setpiece.emit(true)
 	await get_tree().create_timer(20).timeout
 	EventManager.pause_for_setpiece.emit(false)
+
+
+func miniboss_killed_early():
+	print("miniboss killed early")
+	var upgrade_instance = upgrades.pick_random().instantiate()
+	var pickup_instance = pickup.instantiate()
+	pickup_instance.upgrade_type = upgrade_instance
+	pickup_instance.icon = upgrade_instance.icon_image
+	pickup_instance.upgrades_on_screen = [pickup_instance]
+	pickup_instance.position = $UpgradeMarker.position
+	call_deferred("add_child", pickup_instance)
 	
+	if set_piece_timer.is_stopped() == true: return
+	set_piece_timer.stop()
+	set_piece_timer.emit_signal("timeout")
+
 
 func _on_set_piece_timer_timeout():
 	current_setpiece.destroy_setpiece()
@@ -119,4 +143,4 @@ func _on_set_piece_timer_timeout():
 	pickup_instance.icon = health_instance.icon_image
 	pickup_instance.upgrades_on_screen = [pickup_instance]
 	pickup_instance.position = $HealthMarker.position
-	add_child(pickup_instance)
+	call_deferred("add_child", pickup_instance)

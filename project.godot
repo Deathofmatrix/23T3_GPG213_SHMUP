@@ -103,6 +103,7 @@ pause_button={
 2d_physics/layer_7="UpgradePickup"
 2d_physics/layer_8="BulletDeflection"
 2d_physics/layer_9="WeaponClear"
+2d_physics/layer_10="Area"
 
 [physics]
 
