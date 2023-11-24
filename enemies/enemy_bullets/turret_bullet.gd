@@ -7,7 +7,6 @@ var bullet_direction = Vector2.RIGHT
 #	var last_position = GlobalPlayerInfo.player_position
 #	bullet_direction.x = position.direction_to(last_position).x * 1.5
 
-
 func _physics_process(delta):
 	var movement = bullet_direction.rotated(rotation) * speed * delta
 	global_position += movement

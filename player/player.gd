@@ -59,6 +59,10 @@ func _physics_process(delta):
 	var input_axis = Input.get_vector("left", "right", "up", "down")
 	handle_acceleration(input_axis, delta)
 	handle_air_resistance(input_axis, delta)
+	if input_axis.x != 0:
+		%ShipSprite.scale.x = 0.9
+	else:
+		%ShipSprite.scale.x = 1
 	move_and_slide()
 	
 	look_at(get_global_mouse_position())

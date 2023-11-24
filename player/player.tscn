@@ -30,7 +30,7 @@ height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5swk7"]
 radius = 9.0
-height = 26.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phead"]
 size = Vector2(14, 9.72222)
@@ -112,12 +112,14 @@ movement_data = ExtResource("2_a52vq")
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+modulate = Color(1.5, 1.5, 1.5, 1)
 material = SubResource("ShaderMaterial_3nm0x")
 rotation = 1.5708
 texture = SubResource("CanvasTexture_8sprp")
 hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_25jxs")
 
 [node name="Audio" type="Node2D" parent="."]
@@ -159,6 +161,8 @@ wait_time = 2.0
 collision_mask = 28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5swk7")
 
 [node name="WeaponClearBox" type="Area2D" parent="."]
@@ -176,7 +180,9 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 1.5
 range_layer_min = -10
+range_layer_max = -5
 texture = ExtResource("10_ge5ce")
 texture_scale = 0.3
 

@@ -1,3 +1,4 @@
+WorldEnvironment
 AudioStreamPlayer2D
 Button
 Label
@@ -29,4 +30,3 @@ VisibleOnScreenEnabler2D
 RayCast2D
 PathFollow2D
 Path2D
-CharacterBody2D
