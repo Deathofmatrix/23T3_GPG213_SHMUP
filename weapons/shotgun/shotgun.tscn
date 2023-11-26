@@ -9,7 +9,7 @@
 script = ExtResource("1_pyvet")
 icon_image = ExtResource("2_1yoj7")
 weapon_name = "Shotgun"
-weapon_description = "Fires bullets in a spread"
+weapon_description = "Fires spread bullets"
 shoot_sound = ExtResource("3_rhvcj")
 
 [node name="BulletSpawns" type="Node2D" parent="."]

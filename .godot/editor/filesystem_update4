@@ -1,9 +1,8 @@
 res://default_bus_layout.tres
-res://player/player.tscn
+res://levels/Scenes/level_01.tscn
 res://shaders/hit_flash_shader.tres
 res://enemies/set_pieces/set_piece_spawner.gd
-res://player/player.gd
-res://levels/Scenes/level_01.tscn
+res://player/player.tscn
 res://managers/scene_switcher.tscn
 res://levels/Scenes/level_game_over.tscn
 res://levels/Scenes/level_win_screen.tscn
@@ -18,8 +17,9 @@ res://enemies/set_pieces/follow_enemy_miniboss/follow_enemy_miniboss.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://enemies/enemy_light.tscn
 res://enemies/enemy_bullets/enemy_bullet.tscn
-res://bullets/bullet.gd
 res://enemies/enemy_bullets/turret_bullet.tscn
-res://enemies/enemy_bullets/turret_bullet.gd
-res://bullets/pistol_bullet.gd
-res://weapons/pistol/pistol.gd
+res://UI/hud.tscn
+res://UI/upgrade_popup.tscn
+res://weapons/shotgun/shotgun.tscn
+res://weapons/wingarang/wingarang_gun.tscn
+res://weapons/wingsword/wing_sword.tscn

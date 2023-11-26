@@ -1,7 +1,7 @@
+Label
 WorldEnvironment
 AudioStreamPlayer2D
 Button
-Label
 TextureRect
 Control
 CollisionShape2D

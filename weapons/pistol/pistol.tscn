@@ -10,7 +10,7 @@ script = ExtResource("1_30c5q")
 icon_image = ExtResource("2_5twy5")
 bullet_damage = 5
 weapon_name = "Pistol"
-weapon_description = "Fires 2 bullets straight ahead"
+weapon_description = "Fires 2 bullets"
 shoot_sound = ExtResource("3_d4543")
 
 [node name="BulletSpawns" type="Node2D" parent="."]

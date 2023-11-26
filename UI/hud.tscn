@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=15 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://dkqucdjn5ahd2" path="res://UI/Healthbar.png" id="8_lfbbb"]
 [ext_resource type="Texture2D" uid="uid://dwcbwtnofs33q" path="res://UI/Healthbar-fill.png" id="9_5k2e4"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_18p3a"]
+line_spacing = 1.0
+font_size = 8
+
 [sub_resource type="LabelSettings" id="LabelSettings_abb1i"]
 font = ExtResource("7_o7677")
 font_size = 24
@@ -18,7 +22,7 @@ outline_size = 3
 outline_color = Color(0.054902, 0.0196078, 0.133333, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ylym"]
-line_spacing = 10.0
+line_spacing = 5.0
 font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_rkrnn"]
@@ -37,6 +41,7 @@ grow_vertical = 2
 script = ExtResource("1_04bju")
 
 [node name="LeftPanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -50,12 +55,21 @@ texture = ExtResource("2_3q863")
 [node name="XPBar" type="TextureProgressBar" parent="LeftPanelContainer/LeftBackground"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 18.0
-offset_top = 124.0
-offset_right = 78.0
-offset_bottom = 144.0
+offset_left = 12.0
+offset_top = 113.0
+offset_right = 84.0
+offset_bottom = 131.0
 max_value = 11.0
 texture_progress = ExtResource("4_uykw4")
+
+[node name="Label" type="Label" parent="LeftPanelContainer/LeftBackground/XPBar"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 72.0
+offset_bottom = -4.0
+text = "EXPERIENCE"
+label_settings = SubResource("LabelSettings_18p3a")
+horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="LeftPanelContainer/LeftBackground"]
 layout_mode = 1
@@ -68,7 +82,7 @@ offset_right = 98.0
 offset_bottom = -67.0
 grow_vertical = 2
 theme_override_constants/h_separation = 41
-theme_override_constants/v_separation = 56
+theme_override_constants/v_separation = 41
 columns = 2
 
 [node name="UpgradeIcons" type="CenterContainer" parent="LeftPanelContainer/LeftBackground/GridContainer"]
@@ -191,6 +205,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="RightPanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -211,9 +226,9 @@ layout_mode = 2
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 232.0
-offset_top = 187.0
+offset_top = 87.0
 offset_right = 312.0
-offset_bottom = 232.0
+offset_bottom = 132.0
 grow_horizontal = 2
 text = "SCORE:
 111"
@@ -230,9 +245,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 242.0
-offset_top = -113.0
+offset_top = -249.0
 offset_right = 302.0
-offset_bottom = -79.0
+offset_bottom = -215.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "HIGHSCORE: 
