@@ -68,14 +68,15 @@ bus = &"Music"
 [node name="ScalingInfo" type="Node2D" parent="."]
 
 [node name="DifficultyScalingTimer" type="Timer" parent="ScalingInfo"]
-wait_time = 30.0
+wait_time = 5.0
 autostart = true
 
 [node name="HUDCanvas" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="HUDCanvas" node_paths=PackedStringArray("player_character", "level") instance=ExtResource("4_64i7p")]
+[node name="HUD" parent="HUDCanvas" node_paths=PackedStringArray("player_character", "level", "difficulty_scaling_timer") instance=ExtResource("4_64i7p")]
 player_character = NodePath("../../Player")
 level = NodePath("../..")
+difficulty_scaling_timer = NodePath("../../ScalingInfo/DifficultyScalingTimer")
 metadata/_edit_use_anchors_ = true
 
 [node name="ChangeSceneButton" type="Button" parent="HUDCanvas"]
@@ -90,8 +91,6 @@ text = "MAINMENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
-offset_left = 644.0
-offset_right = 732.0
 
 [node name="SettingsWindow" parent="." instance=ExtResource("14_qo3ix")]
 visible = false

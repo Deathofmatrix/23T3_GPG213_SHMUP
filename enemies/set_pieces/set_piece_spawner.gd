@@ -38,11 +38,11 @@ func _ready():
 
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
-		2:
+		5:
 			clear_screen("enemy")
 			choose_set_piece(setpieces)
 			player_warning()
-		5:
+		7:
 			clear_screen("enemy")
 			choose_set_piece(minibosses)
 			current_setpiece.miniboss_killed_early.connect(miniboss_killed_early)

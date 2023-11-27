@@ -1,8 +1,11 @@
+VisibleOnScreenNotifier2D
+TextureRect
+VSlider
+TextureProgressBar
 Label
 WorldEnvironment
 AudioStreamPlayer2D
 Button
-TextureRect
 Control
 CollisionShape2D
 Area2D
@@ -21,12 +24,9 @@ HSlider
 CanvasLayer
 PanelContainer
 AnimatedSprite2D
-VisibleOnScreenNotifier2D
 AudioStreamPlayer
 Node
 GridContainer
 DirectionalLight2D
 VisibleOnScreenEnabler2D
 RayCast2D
-PathFollow2D
-Path2D

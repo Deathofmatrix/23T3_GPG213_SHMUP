@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=22 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
@@ -9,7 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bp7rke1fsxbm8" path="res://UI/sidebar_icon_background.png" id="5_30lvw"]
 [ext_resource type="FontFile" uid="uid://c38vatl1wnjmj" path="res://UI/fonts/Kenney Pixel.ttf" id="7_o7677"]
 [ext_resource type="Texture2D" uid="uid://dkqucdjn5ahd2" path="res://UI/Healthbar.png" id="8_lfbbb"]
+[ext_resource type="Texture2D" uid="uid://cxvrdvhhvq55p" path="res://UI/ProgressionMarker.png" id="8_qnmwh"]
 [ext_resource type="Texture2D" uid="uid://dwcbwtnofs33q" path="res://UI/Healthbar-fill.png" id="9_5k2e4"]
+[ext_resource type="Texture2D" uid="uid://cgd8fb57ppnwx" path="res://UI/ProgressionBar.png" id="9_sjyss"]
+[ext_resource type="Texture2D" uid="uid://b6s1l46oulesj" path="res://UI/BossMarker.png" id="10_261l4"]
+[ext_resource type="Texture2D" uid="uid://dhhyihifpqx8h" path="res://UI/SetpieceMarker.png" id="11_giqum"]
+[ext_resource type="Texture2D" uid="uid://ecv6w1ildojg" path="res://UI/MinibossMarker.png" id="12_ygsx8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_18p3a"]
 line_spacing = 1.0
@@ -24,6 +29,13 @@ outline_color = Color(0.054902, 0.0196078, 0.133333, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_4ylym"]
 line_spacing = 5.0
 font_size = 8
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5ves"]
+texture = ExtResource("9_sjyss")
+texture_margin_left = 12.0
+texture_margin_right = 12.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k0me"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rkrnn"]
 font = ExtResource("4_qi488")
@@ -255,6 +267,72 @@ text = "HIGHSCORE:
 label_settings = SubResource("LabelSettings_4ylym")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressBar" type="VSlider" parent="RightPanelContainer/RightBackground"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -206.0
+offset_right = 12.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("8_qnmwh")
+theme_override_icons/grabber_highlight = ExtResource("8_qnmwh")
+theme_override_icons/grabber_disabled = ExtResource("8_qnmwh")
+theme_override_styles/slider = SubResource("StyleBoxTexture_i5ves")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_0k0me")
+max_value = 300.0
+step = 0.0
+value = 300.0
+editable = false
+scrollable = false
+
+[node name="BossMarker" type="TextureRect" parent="RightPanelContainer/RightBackground/ProgressBar"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 9.0
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("10_261l4")
+stretch_mode = 2
+
+[node name="SetpiceMarker02" type="TextureRect" parent="RightPanelContainer/RightBackground/ProgressBar"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 26.0
+offset_right = 42.0
+offset_bottom = 40.0
+pivot_offset = Vector2(2, 7)
+texture = ExtResource("11_giqum")
+stretch_mode = 2
+
+[node name="MinibossMarker" type="TextureRect" parent="RightPanelContainer/RightBackground/ProgressBar"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 59.0
+offset_right = 45.0
+offset_bottom = 71.0
+pivot_offset = Vector2(5, 6)
+texture = ExtResource("12_ygsx8")
+stretch_mode = 2
+
+[node name="SetpiceMarker01" type="TextureRect" parent="RightPanelContainer/RightBackground/ProgressBar"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 90.0
+offset_right = 42.0
+offset_bottom = 104.0
+pivot_offset = Vector2(2, 7)
+texture = ExtResource("11_giqum")
+stretch_mode = 2
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true

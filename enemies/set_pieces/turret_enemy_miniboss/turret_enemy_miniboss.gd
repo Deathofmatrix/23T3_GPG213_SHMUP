@@ -7,6 +7,9 @@ signal miniboss_killed()
 @export var move_speed = 25
  
 var target: Node2D = null
+var clamp_left = 106
+var clamp_right = 534
+var moving_to_centre = false
 
 @onready var ray_cast = $RayCast2D
 @onready var reload_timer = $RayCast2D/ReloadTimer
@@ -18,7 +21,11 @@ func _enemy_ready():
 
 
 func _process(_delta):
-	position = position.clamp(Vector2(106, position.y),  Vector2(534, position.y))
+	position = position.clamp(Vector2(clamp_left, position.y),  Vector2(clamp_right, position.y))
+	is_at_edge_of_screen()
+	if position.x >= clamp_right - clamp_left - 100 and position.x <= clamp_right - clamp_left + 100:
+		print("not moving to centre")
+		moving_to_centre = false
 
 
 func _physics_process(_delta):
@@ -75,6 +82,19 @@ func find_player():
 	return current_target
 
 
+func move_to_centre(direction: int):
+	print("exited Screen")
+	moving_to_centre = true
+	velocity.x = direction * move_speed
+
+
+func is_at_edge_of_screen():
+	if position.x == clamp_left:
+		move_to_centre(1)
+	if position.x == clamp_right:
+		move_to_centre(-1)
+
+
 func _on_reload_timer_timeout():
 	ray_cast.enabled = true
 
@@ -91,10 +111,9 @@ func _on_health_system_killed():
 
 
 func _on_bullet_detection_area_entered(area):
+	if moving_to_centre: return
 	var direction_to_bullet = global_position.direction_to(area.global_position).x
 	if direction_to_bullet < 0:
 		velocity.x = floori(direction_to_bullet) * move_speed * -1
 	if direction_to_bullet > 0:
 		velocity.x = ceili(direction_to_bullet) * move_speed * -1
-	print(roundi(direction_to_bullet))
-
