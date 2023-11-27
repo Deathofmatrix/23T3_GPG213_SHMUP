@@ -1,3 +1,6 @@
+Button
+TextureButton
+ColorRect
 VisibleOnScreenNotifier2D
 TextureRect
 VSlider
@@ -5,7 +8,6 @@ TextureProgressBar
 Label
 WorldEnvironment
 AudioStreamPlayer2D
-Button
 Control
 CollisionShape2D
 Area2D
@@ -15,7 +17,6 @@ AnimationPlayer
 Camera2D
 Timer
 PointLight2D
-ColorRect
 Node2D
 VBoxContainer
 HBoxContainer
@@ -29,4 +30,3 @@ Node
 GridContainer
 DirectionalLight2D
 VisibleOnScreenEnabler2D
-RayCast2D

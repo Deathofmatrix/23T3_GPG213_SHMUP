@@ -1,10 +1,1 @@
 res://default_bus_layout.tres
-res://UI/hud.tscn
-res://enemies/set_pieces/set_piece_spawner.gd
-res://shaders/hit_flash_shader.tres
-res://player/player.tscn
-res://levels/Scenes/level_01.tscn
-res://managers/scene_switcher.tscn
-res://enemies/set_pieces/set_piece_spawner.tscn
-res://testing_scene.tscn
-res://bullets/pistol_bullet.tscn

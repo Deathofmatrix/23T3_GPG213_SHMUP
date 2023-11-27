@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://chmtr8bwhf6fl"]
+[gd_scene load_steps=10 format=3 uid="uid://chmtr8bwhf6fl"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cxskp"]
-[ext_resource type="Texture2D" uid="uid://b4w4i485t05ij" path="res://levels/MainMenuBackground.png" id="2_155o6"]
 [ext_resource type="Script" path="res://levels/Scenes/MainMenuManager.gd" id="2_mp68t"]
 [ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="3_gn8rn"]
-[ext_resource type="Texture2D" uid="uid://dlp673phwujvp" path="res://UI/logox200.png" id="3_j5e8y"]
+[ext_resource type="PackedScene" uid="uid://dw5gm0met1k0c" path="res://backgrounds/parallax_scrolling_scene.tscn" id="3_kfvqt"]
 [ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="4_44e7e"]
+[ext_resource type="Texture2D" uid="uid://weslj6q4jt3c" path="res://UI/logox100.png" id="4_51n7a"]
+[ext_resource type="Theme" uid="uid://blnoseh1kub1y" path="res://UI/buttons/button_theme.tres" id="5_5x4jb"]
 [ext_resource type="AudioStream" uid="uid://bitmbm1x3cfq8" path="res://levels/audio/menuTheme.ogg" id="6_ovlmh"]
 [ext_resource type="PackedScene" uid="uid://b2mtu1tctk2bh" path="res://UI/settings_window.tscn" id="7_3bf1p"]
 
@@ -22,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mp68t")
 
-[node name="TextureRect" type="TextureRect" parent="MainMenuManager"]
+[node name="TextureRect" type="ColorRect" parent="MainMenuManager"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,17 +34,26 @@ offset_right = 320.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_155o6")
+color = Color(0.054902, 0.0196078, 0.133333, 0.34902)
+
+[node name="ParallaxScrollingScene" parent="MainMenuManager/TextureRect" instance=ExtResource("3_kfvqt")]
+dark_layer_on = false
 
 [node name="Logo" type="TextureRect" parent="MainMenuManager/TextureRect"]
-layout_mode = 2
-offset_left = 116.0
-offset_top = 25.0
-offset_right = 524.0
-offset_bottom = 169.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -116.0
+offset_right = 102.0
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_j5e8y")
+texture = ExtResource("4_51n7a")
+stretch_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="MainMenuManager/TextureRect"]
 custom_minimum_size = Vector2(160, 0)
@@ -64,17 +74,21 @@ theme_override_constants/separation = 4
 [node name="ChangeSceneButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-disabled = true
+theme = ExtResource("5_5x4jb")
+action_mode = 0
 text = "START"
 
 [node name="SettingsButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
 layout_mode = 2
-text = "Settings"
+theme = ExtResource("5_5x4jb")
+action_mode = 0
+text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
 layout_mode = 2
-text = "QUIT
-"
+theme = ExtResource("5_5x4jb")
+action_mode = 0
+text = "QUIT"
 
 [node name="SettingsWindow" parent="." instance=ExtResource("7_3bf1p")]
 visible = false
