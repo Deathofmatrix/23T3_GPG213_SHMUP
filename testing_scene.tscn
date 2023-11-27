@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce8qwflxxyo0u"]
 
-[ext_resource type="PackedScene" uid="uid://c5mu7ini8nfu4" path="res://enemies/set_pieces/turret_enemy_setpiece.tscn" id="2_hn1ew"]
+[ext_resource type="PackedScene" uid="uid://dy8qspopu75ni" path="res://enemies/set_pieces/speed_fall_setpiece.tscn" id="2_1pygf"]
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="2_j57bs"]
 
 [node name="TestingScene" type="Node2D"]
@@ -10,5 +10,4 @@
 [node name="Player" parent="." instance=ExtResource("2_j57bs")]
 position = Vector2(-4, 142)
 
-[node name="FollowEnemySetpiece" parent="." instance=ExtResource("2_hn1ew")]
-position = Vector2(-320, -180)
+[node name="SpeedFallSetpiece" parent="." instance=ExtResource("2_1pygf")]

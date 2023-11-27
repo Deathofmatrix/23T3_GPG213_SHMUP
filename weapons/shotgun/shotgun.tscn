@@ -7,7 +7,9 @@
 
 [node name="Shotgun" type="Node2D"]
 script = ExtResource("1_pyvet")
+bullet_speed = 300
 icon_image = ExtResource("2_1yoj7")
+bullet_damage = 5
 weapon_name = "Shotgun"
 weapon_description = "Fires spread bullets"
 shoot_sound = ExtResource("3_rhvcj")

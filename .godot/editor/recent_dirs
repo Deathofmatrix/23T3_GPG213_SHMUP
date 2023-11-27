@@ -1,3 +1,4 @@
+res://common
 res://UI
 res://levels/Scenes
 res://enemies/set_pieces
@@ -9,7 +10,6 @@ res://player
 res://backgrounds
 res://UI/fonts
 res://levels
-res://common
 res://shaders
 res://bullets
 res://weapons/wingsword

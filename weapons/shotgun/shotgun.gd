@@ -2,8 +2,9 @@ extends Weapon
 
 var Bullet = preload("res://bullets/shotgun_bullet.tscn")
 
+@export var bullet_speed = 150
+
 var bullet_lifetime = 0.5
-var bullet_speed = 150
 var can_shoot_extra_bullets = false
 
 @onready var bullet_spawns = $BulletSpawns
@@ -48,7 +49,7 @@ func upgrade():
 			current_description = "Fire Rate +"
 		3:
 			print("level 3 shotgun")
-			bullet_damage += 10
+			bullet_damage += 5
 			current_description = "Shotgun Damage +"
 		4:
 			print("level 4 shotgun")

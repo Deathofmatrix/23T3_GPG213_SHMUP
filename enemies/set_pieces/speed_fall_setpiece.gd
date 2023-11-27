@@ -38,11 +38,11 @@ func pick_spawn_pos():
 func create_enemy(pos: Vector2, dir: Vector2):
 	var selected_position = pos
 	var enemy = speed_fall_enemy.instantiate() as Enemy
+	enemy.max_health = 250
 	last_obstacle = enemy
 	enemy.position = selected_position
 	enemy.direction = dir
 	enemy.move_speed = enemy_speed
-	enemy.max_health = 1000
 	if dir == Vector2.LEFT:
 		enemy.rotation_degrees = 90
 	else:

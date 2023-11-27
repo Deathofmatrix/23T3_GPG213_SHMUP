@@ -16,16 +16,15 @@ var level_parameters: Dictionary = {
 }
 
 func _ready():
-
 	EventManager.reset_difficulty()
 	EventManager.connect("pause_for_setpiece", play_pause_timer)
-	AudioServer.set_bus_effect_enabled(0, 0, false)
 
 
 func play_loaded_sound():
 	%LevelLoadedAudio.play()
 	%ChangeSceneButton.disabled = false
 	EventManager.is_paused = false
+	AudioServer.set_bus_effect_enabled(0, 0, false)
 	emit_signal("level_loaded")
 
 
@@ -56,6 +55,9 @@ func play_pause_timer(pause: bool):
 func _on_button_pressed():
 	%BeginSceneChangeAudio.play()
 	%ChangeSceneButton.disabled = true
+	get_tree().paused = false
+	if GlobalPlayerInfo.player != null:
+		GlobalPlayerInfo.player.give_infinite_invulnerability()
 	load_level(level_name)
 
 
@@ -74,12 +76,8 @@ func _on_difficulty_scaling_timer_timeout():
 	print("increase difficulty")
 
 
-
-
 func _on_boss_one_boss_defeated():
 	load_level("win_screen")
-
-
 
 
 func _on_change_scene_button_pressed():

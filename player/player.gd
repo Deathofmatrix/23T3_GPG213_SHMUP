@@ -155,6 +155,11 @@ func give_invulnerability():
 		$CollisionShape2D.set_deferred("disabled", false)
 
 
+func give_infinite_invulnerability():
+	print("invulnerable")
+	health_system.is_invulnerable = true
+
+
 # Signals
 
 

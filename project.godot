@@ -13,8 +13,10 @@ config_version=5
 config/name="SEKMETICA"
 run/main_scene="res://managers/scene_switcher.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-boot_splash/image="res://player/player_ship02.png"
+boot_splash/bg_color=Color(0.054902, 0.0196078, 0.133333, 1)
+boot_splash/image="res://common/LogoSplash.png"
 config/icon="res://player/player_ship02.png"
+boot_splash/minimum_display_time=200
 
 [autoload]
 

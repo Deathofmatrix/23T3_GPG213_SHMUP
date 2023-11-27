@@ -45,7 +45,6 @@ environment = SubResource("Environment_p14cu")
 enabled = false
 
 [node name="LevelAudio" type="Node" parent="."]
-process_mode = 1
 
 [node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="LevelAudio"]
 unique_name_in_owner = true
@@ -80,32 +79,30 @@ level = NodePath("../..")
 difficulty_scaling_timer = NodePath("../../ScalingInfo/DifficultyScalingTimer")
 metadata/_edit_use_anchors_ = true
 
-[node name="ChangeSceneButton" type="Button" parent="HUDCanvas"]
-unique_name_in_owner = true
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -34.0
-offset_right = -8.0
-offset_bottom = -6.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("6_vuuf4")
-theme_override_font_sizes/font_size = 8
-disabled = true
-text = "MAINMENU"
-
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
 offset_left = 4.0
 offset_right = 92.0
 
 [node name="SettingsWindow" parent="." instance=ExtResource("14_qo3ix")]
 visible = false
+
+[node name="ChangeSceneButton" type="Button" parent="SettingsWindow"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -48.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_vuuf4")
+text = "Main Menu
+"
+icon_alignment = 1
 
 [node name="Player" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("1_5a0w1")]
 position = Vector2(0, 150)
@@ -134,7 +131,7 @@ position = Vector2(-320, -180)
 [connection signal="loading_level" from="." to="SettingsWindow" method="_on_level_loading"]
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]
-[connection signal="pressed" from="HUDCanvas/ChangeSceneButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SettingsWindow/ChangeSceneButton" to="." method="_on_change_scene_button_pressed"]
 [connection signal="player_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_health_updated"]
 [connection signal="player_killed" from="Player" to="." method="_on_player_player_killed"]
 [connection signal="player_max_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_max_health_updated"]

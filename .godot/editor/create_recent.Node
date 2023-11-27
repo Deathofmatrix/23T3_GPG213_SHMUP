@@ -1,9 +1,9 @@
+VSlider
 Button
 TextureButton
 ColorRect
 VisibleOnScreenNotifier2D
 TextureRect
-VSlider
 TextureProgressBar
 Label
 WorldEnvironment

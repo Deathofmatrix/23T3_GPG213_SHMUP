@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b2mtu1tctk2bh" path="res://UI/settings_window.tscn" id="7_3bf1p"]
 
 [node name="LevelMainMenu" type="Node2D"]
+top_level = true
 script = ExtResource("1_cxskp")
 level_name = "01"
 
@@ -56,17 +57,17 @@ texture = ExtResource("4_51n7a")
 stretch_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="MainMenuManager/TextureRect"]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 23.0
-offset_right = 50.0
-offset_bottom = 127.0
+offset_left = -64.0
+offset_top = -22.0
+offset_right = 64.0
+offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 4
@@ -75,19 +76,16 @@ theme_override_constants/separation = 4
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_5x4jb")
-action_mode = 0
 text = "START"
 
 [node name="SettingsButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_5x4jb")
-action_mode = 0
 text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_5x4jb")
-action_mode = 0
 text = "QUIT"
 
 [node name="SettingsWindow" parent="." instance=ExtResource("7_3bf1p")]
