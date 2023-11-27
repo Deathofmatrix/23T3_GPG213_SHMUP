@@ -10,48 +10,47 @@ can_shoot = false
 [node name="BulletSpawns" type="Node2D" parent="."]
 
 [node name="BulletSpawn1" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(11, -6)
+position = Vector2(11, -7)
 
 [node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn1"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_owybx")
 
 [node name="BulletSpawn2" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(11, 6)
+position = Vector2(11, 7)
 
 [node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn2"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_owybx")
 
 [node name="BulletSpawn3" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(10, -12)
+position = Vector2(10, -14)
 
 [node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn3"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_owybx")
 
 [node name="BulletSpawn4" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(10, 12)
+position = Vector2(10, 14)
 
 [node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn4"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_owybx")
 
 [node name="BulletSpawn5" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(8, -18)
+position = Vector2(8, -21)
 
 [node name="Sprite2D" type="Sprite2D" parent="BulletSpawns/BulletSpawn5"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_owybx")
 
 [node name="BulletSpawn6" type="Marker2D" parent="BulletSpawns"]
-position = Vector2(8, 18)
+position = Vector2(8, 21)
 
 [node name="Sprite2D2" type="Sprite2D" parent="BulletSpawns/BulletSpawn6"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_owybx")
 
 [node name="BossShotTimer" type="Timer" parent="."]
-wait_time = 0.6
 
 [connection signal="timeout" from="BossShotTimer" to="." method="_on_boss_shot_timer_timeout"]

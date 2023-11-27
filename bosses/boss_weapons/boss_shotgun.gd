@@ -4,6 +4,7 @@ extends Node2D
 var Bullet = preload("res://enemies/enemy_bullets/turret_bullet.tscn")
 
 var bullet_damage = 10
+var bullet_colour
 
 @export var can_shoot = true
 
@@ -31,7 +32,7 @@ func shoot_bullet():
 
 
 func spawn_bullet(spawn_point):
-	
+
 	var bullet = Bullet.instantiate() as Bullet
 	bullet.position = spawn_point.position
 	var temp_direction = Vector2.RIGHT
@@ -40,6 +41,7 @@ func spawn_bullet(spawn_point):
 	bullet.bullet_damage = bullet_damage
 	add_child(bullet)
 	bullet.reparent(get_tree().current_scene)
+
 
 	return bullet
 

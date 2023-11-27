@@ -40,7 +40,6 @@ position = Vector2(-4, 17.5)
 shape = SubResource("RectangleShape2D_743ce")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_lb1jy")]
-max_health = 3500
 wait_time = 0.001
 
 [node name="Phases" type="Node2D" parent="."]
@@ -69,16 +68,16 @@ move_speed = 0
 
 [node name="PhaseTwo" type="Node2D" parent="Phases"]
 
-[node name="BossShotgun" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
+[node name="BossShotgun1" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
 position = Vector2(0, 48)
 rotation = 1.5708
 
 [node name="BossShotgun2" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(-83, 26)
+position = Vector2(-90, 20)
 rotation = 1.5708
 
 [node name="BossShotgun3" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(81, 27)
+position = Vector2(90, 20)
 rotation = 1.5708
 
 [node name="StateChart" type="Node" parent="."]
@@ -99,16 +98,25 @@ event = &"phase_two"
 [node name="PhaseTwo" type="Node" parent="StateChart/Root"]
 script = ExtResource("8_16qdv")
 
+[node name="EnterPhaseThree" type="Node" parent="StateChart/Root/PhaseTwo"]
+script = ExtResource("9_1rsh7")
+to = NodePath("../../PhaseThree")
+event = &"phase_three"
+
+[node name="PhaseThree" type="Node" parent="StateChart/Root"]
+script = ExtResource("8_16qdv")
+
 [node name="EnemyHealthBar" parent="." instance=ExtResource("10_mh4ts")]
 offset_left = -321.0
 offset_top = -91.0
 offset_right = -321.0
 offset_bottom = -91.0
-_current_max_health = 3500
-_current_health = 3500
+_current_max_health = 100
+_current_health = 100
 
-[connection signal="boss_defeated" from="." to="Phases/PhaseTwo/BossShotgun" method="_on_boss_one_boss_defeated"]
+[connection signal="boss_defeated" from="." to="Phases/PhaseTwo/BossShotgun1" method="_on_boss_one_boss_defeated"]
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="health_updated" from="HealthSystem" to="EnemyHealthBar" method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
 [connection signal="state_entered" from="StateChart/Root/PhaseTwo" to="." method="_on_phase_two_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/PhaseThree" to="." method="_on_phase_three_state_entered"]

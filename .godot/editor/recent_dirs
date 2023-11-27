@@ -1,3 +1,4 @@
+res://bosses/polish
 res://levels/Scenes
 res://enemies/set_pieces
 res://
@@ -19,4 +20,3 @@ res://player/resources
 res://managers
 res://autoloads
 res://obstacles
-res://weapons
