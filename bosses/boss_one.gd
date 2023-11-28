@@ -6,7 +6,9 @@ signal boss_defeated
 
 var can_move = false
 var shotgun_timers = []
+var shotgun_animators = []
 var can_shotgun_shoot = []
+var turret_fire_rate = []
 
 @export var slide_speed = 250
 
@@ -18,6 +20,13 @@ func _enemy_ready():
 #		var timer_node = get_node(path)
 #		print("Path:", path)
 #		print("Timer Node:", timer_node)
+#
+#	for i in range(1,5):
+#		var reload_timer_nodes = get_node("Phases/PhaseOne/Turret" + str(i) + "/RayCast2D/ReloadTimer")
+#		turret_fire_rate.append(reload_timer_nodes)
+#
+#	for fire_rate in turret_fire_rate:
+#		fire_rate.wait_time = 1
 	
 	emit_signal("requires_health_bar")
 
@@ -60,7 +69,14 @@ func _on_phase_three_state_entered():
 		shotgun_timers.append(shotgun_timer_node)
 	
 	for timer in shotgun_timers:
-		timer.wait_time = .7
+		timer.wait_time = .8
+	
+	for i in range(1,4):
+		var animator_player = get_node("Phases/PhaseTwo/BossShotgun" + str(i) + "/AnimationPlayer")
+		shotgun_animators.append(animator_player)
+	
+	for animators in shotgun_animators:
+		animators.play("phase_three_anim")
 	
 	EventManager.pause_for_setpiece.emit(false)
 

@@ -10,6 +10,8 @@ var bullet_colour
 
 @onready var bullet_spawns = $BulletSpawns
 @onready var shoot_speed_timer = $BossShotTimer
+@onready var anim_player = $AnimationPlayer
+@onready var audio_player = $AudioStreamPlayer2D
 
 
 func _process(_delta):
@@ -27,6 +29,7 @@ func shoot_bullet():
 	for spawn_point in bullet_spawns.get_children():
 #		print("found children")
 		spawn_bullet(spawn_point)
+	audio_player.play()
 	shoot_speed_timer.start()
 	can_shoot = false
 
@@ -38,6 +41,7 @@ func spawn_bullet(spawn_point):
 	var temp_direction = Vector2.RIGHT
 	bullet.direction = temp_direction.rotated(spawn_point.rotation)
 	bullet.rotation = bullet.direction.angle()
+	bullet.speed = 200
 	bullet.bullet_damage = bullet_damage
 	add_child(bullet)
 	bullet.reparent(get_tree().current_scene)
