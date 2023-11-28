@@ -31,6 +31,7 @@ func _ready():
 	difficulty_scaling_timer.connect("timeout", increase_notch)
 	progress_bar.max_value = difficulty_scaling_timer.wait_time * 10
 	score_text.text = "SCORE:\n" + str(score)
+	high_score_text.text = "HIGHSCORE:\n" + str(level.level_parameters.high_score)
 	emit_signal("score_increased", score)
 	update_health_bar()
 

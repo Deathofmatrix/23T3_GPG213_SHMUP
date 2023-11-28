@@ -22,7 +22,8 @@ func _ready():
 
 func play_loaded_sound():
 	%LevelLoadedAudio.play()
-	%ChangeSceneButton.disabled = false
+#	%ChangeSceneButton.disabled = false
+	get_tree().call_group("Change_Scene_Buttons", "set_disabled", false)
 	EventManager.is_paused = false
 	AudioServer.set_bus_effect_enabled(0, 0, false)
 	emit_signal("level_loaded")
@@ -54,7 +55,8 @@ func play_pause_timer(pause: bool):
 
 func _on_button_pressed():
 	%BeginSceneChangeAudio.play()
-	%ChangeSceneButton.disabled = true
+#	%ChangeSceneButton.disabled = true
+	get_tree().call_group("Change_Scene_Buttons", "set_disabled", true)
 	get_tree().paused = false
 	if GlobalPlayerInfo.player != null:
 		GlobalPlayerInfo.player.give_infinite_invulnerability()
@@ -82,3 +84,13 @@ func _on_boss_one_boss_defeated():
 
 func _on_change_scene_button_pressed():
 	_on_button_pressed()
+
+
+func _on_restart_button_pressed():
+	%BeginSceneChangeAudio.play()
+#	%RestartButton.disabled = true
+	get_tree().call_group("Change_Scene_Buttons", "set_disabled", true)
+	get_tree().paused = false
+	if GlobalPlayerInfo.player != null:
+		GlobalPlayerInfo.player.give_infinite_invulnerability()
+	load_level("01")
