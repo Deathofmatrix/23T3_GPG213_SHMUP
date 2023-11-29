@@ -1,8 +1,8 @@
+TextureRect
 CPUParticles2D
 Sprite2D
 Button
 AnimationPlayer
-TextureRect
 AnimatedSprite2D
 Label
 VBoxContainer
@@ -30,4 +30,3 @@ PanelContainer
 AudioStreamPlayer
 Node
 GridContainer
-DirectionalLight2D
