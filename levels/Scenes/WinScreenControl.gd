@@ -4,7 +4,7 @@ extends Control
 
 func _ready():
 	
-	$TextureRect/Score.text = "SCORE\n" + str(level.level_parameters.current_score)
-	$TextureRect/Highscore.text = "HIGHSCORE\n " + str(level.level_parameters.high_score)
+	%Score.text = "SCORE\n" + str(level.level_parameters.current_score)
+	%HighScore.text = "HIGHSCORE\n " + str(level.level_parameters.high_score)
 	
 

@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://chmtr8bwhf6fl"]
+[gd_scene load_steps=10 format=3 uid="uid://chmtr8bwhf6fl"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cxskp"]
-[ext_resource type="Texture2D" uid="uid://b4w4i485t05ij" path="res://levels/MainMenuBackground.png" id="2_155o6"]
 [ext_resource type="Script" path="res://levels/Scenes/MainMenuManager.gd" id="2_mp68t"]
 [ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="3_gn8rn"]
-[ext_resource type="Texture2D" uid="uid://dlp673phwujvp" path="res://UI/logox200.png" id="3_j5e8y"]
+[ext_resource type="PackedScene" uid="uid://dw5gm0met1k0c" path="res://backgrounds/parallax_scrolling_scene.tscn" id="3_kfvqt"]
 [ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="4_44e7e"]
+[ext_resource type="Texture2D" uid="uid://weslj6q4jt3c" path="res://UI/logox100.png" id="4_51n7a"]
+[ext_resource type="Theme" uid="uid://blnoseh1kub1y" path="res://UI/buttons/ui_theme.tres" id="5_icnva"]
 [ext_resource type="AudioStream" uid="uid://bitmbm1x3cfq8" path="res://levels/audio/menuTheme.ogg" id="6_ovlmh"]
 [ext_resource type="PackedScene" uid="uid://b2mtu1tctk2bh" path="res://UI/settings_window.tscn" id="7_3bf1p"]
 
 [node name="LevelMainMenu" type="Node2D"]
+top_level = true
 script = ExtResource("1_cxskp")
 level_name = "01"
 
@@ -22,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mp68t")
 
-[node name="TextureRect" type="TextureRect" parent="MainMenuManager"]
+[node name="TextureRect" type="ColorRect" parent="MainMenuManager"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,48 +35,89 @@ offset_right = 320.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_155o6")
+color = Color(0.054902, 0.0196078, 0.133333, 0.34902)
 
-[node name="Logo" type="TextureRect" parent="MainMenuManager/TextureRect"]
-layout_mode = 2
-offset_left = 116.0
-offset_top = 25.0
-offset_right = 524.0
-offset_bottom = 169.0
+[node name="ParallaxScrollingScene" parent="MainMenuManager/TextureRect" instance=ExtResource("3_kfvqt")]
+dark_layer_on = false
+
+[node name="LogoPanel" type="Panel" parent="MainMenuManager/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 32.0
+offset_right = 120.0
+offset_bottom = 144.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_j5e8y")
+theme = ExtResource("5_icnva")
+theme_type_variation = &"Panel_Dark"
 
-[node name="HBoxContainer" type="VBoxContainer" parent="MainMenuManager/TextureRect"]
-custom_minimum_size = Vector2(160, 0)
+[node name="Logo" type="TextureRect" parent="MainMenuManager/TextureRect/LogoPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 23.0
-offset_right = 50.0
-offset_bottom = 127.0
+offset_left = -102.0
+offset_top = -36.0
+offset_right = 102.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 4
+texture = ExtResource("4_51n7a")
+stretch_mode = 2
 
-[node name="ChangeSceneButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
+[node name="ButtonPanel" type="Panel" parent="MainMenuManager/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -20.0
+offset_right = 56.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_icnva")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MainMenuManager/TextureRect/ButtonPanel"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -45.0
+offset_right = 40.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="ChangeSceneButton" type="Button" parent="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer" groups=["Change_Scene_Buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
-disabled = true
+theme = ExtResource("5_icnva")
+theme_override_font_sizes/font_size = 8
 text = "START"
 
-[node name="SettingsButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer"]
 layout_mode = 2
-text = "Settings"
+theme = ExtResource("5_icnva")
+theme_override_font_sizes/font_size = 8
+text = "SETTINGS"
 
-[node name="QuitButton" type="Button" parent="MainMenuManager/TextureRect/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer"]
 layout_mode = 2
-text = "QUIT
-"
+theme = ExtResource("5_icnva")
+theme_override_font_sizes/font_size = 8
+text = "QUIT"
 
 [node name="SettingsWindow" parent="." instance=ExtResource("7_3bf1p")]
 visible = false
@@ -98,6 +141,6 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="loading_level" from="." to="MainMenuManager" method="_on_level_main_menu_loading_level"]
-[connection signal="pressed" from="MainMenuManager/TextureRect/HBoxContainer/ChangeSceneButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MainMenuManager/TextureRect/HBoxContainer/SettingsButton" to="MainMenuManager" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MainMenuManager/TextureRect/HBoxContainer/QuitButton" to="MainMenuManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer/ChangeSceneButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer/SettingsButton" to="MainMenuManager" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer/QuitButton" to="MainMenuManager" method="_on_quit_button_pressed"]

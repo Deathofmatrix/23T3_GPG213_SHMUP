@@ -1,15 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce8qwflxxyo0u"]
 
-[ext_resource type="PackedScene" uid="uid://bqjudw705l5eq" path="res://bosses/boss_one.tscn" id="2_5nyil"]
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="2_j57bs"]
+[ext_resource type="PackedScene" uid="uid://chvvep051fb6t" path="res://enemies/set_pieces/follow_enemy_setpiece.tscn" id="2_wrjc5"]
 
 [node name="TestingScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(35, -9)
 
 [node name="Player" parent="." instance=ExtResource("2_j57bs")]
 position = Vector2(-4, 142)
 
-[node name="BossOne" parent="." instance=ExtResource("2_5nyil")]
-position = Vector2(35, -99)
+[node name="FollowEnemySetpiece" parent="." instance=ExtResource("2_wrjc5")]
+position = Vector2(-320, -180)

@@ -56,6 +56,7 @@ _data = {
 }
 
 [node name="SceneSwitcher" type="Node"]
+process_mode = 3
 script = ExtResource("1_2smtc")
 
 [node name="SceneSwitcherCam" type="Camera2D" parent="."]

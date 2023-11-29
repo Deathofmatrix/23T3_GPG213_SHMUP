@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2mtu1tctk2bh"]
 
 [ext_resource type="Script" path="res://UI/settings_window.gd" id="1_iiy1l"]
-[ext_resource type="Texture2D" uid="uid://0mqf17xycdva" path="res://UI/Button.png" id="2_we52i"]
+[ext_resource type="Theme" uid="uid://blnoseh1kub1y" path="res://UI/buttons/ui_theme.tres" id="2_mydsd"]
 [ext_resource type="AudioStream" uid="uid://cgqo4alheaf2i" path="res://enemies/set_pieces/forceField_002.ogg" id="3_6y3ar"]
 
 [node name="SettingsWindow" type="CanvasLayer"]
@@ -14,43 +14,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.776471)
+color = Color(0, 0, 0, 0.843137)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -126.5
+offset_right = 64.0
+offset_bottom = 126.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
+theme = ExtResource("2_mydsd")
 theme_override_constants/separation = 5
 
 [node name="FullscreenButton" type="Button" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.278431, 0.278431, 0.278431, 1)
-theme_override_colors/font_hover_color = Color(0.164706, 0.164706, 0.164706, 1)
-theme_override_colors/font_focus_color = Color(0.164706, 0.164706, 0.164706, 1)
+theme = ExtResource("2_mydsd")
 text = "FULLSCREEN"
-icon = ExtResource("2_we52i")
 icon_alignment = 1
 
 [node name="WindowedButton" type="Button" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.278431, 0.278431, 0.278431, 1)
-theme_override_colors/font_hover_color = Color(0.164706, 0.164706, 0.164706, 1)
-theme_override_colors/font_focus_color = Color(0.164706, 0.164706, 0.164706, 1)
+theme = ExtResource("2_mydsd")
 text = "WINDOWED"
-icon = ExtResource("2_we52i")
 icon_alignment = 1
 
 [node name="MusicVolume" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_mydsd")
 text = "Music Volume"
 horizontal_alignment = 1
 
@@ -62,6 +63,7 @@ max_value = 6.0
 
 [node name="SFX Volume" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_mydsd")
 text = "SFX Volume"
 horizontal_alignment = 1
 
@@ -70,9 +72,11 @@ unique_name_in_owner = true
 layout_mode = 2
 min_value = -80.0
 max_value = 6.0
+value = -25.0
 
 [node name="MasterVolume" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_mydsd")
 text = "Master Volume"
 horizontal_alignment = 1
 
@@ -85,13 +89,9 @@ max_value = 6.0
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.278431, 0.278431, 0.278431, 1)
-theme_override_colors/font_hover_color = Color(0.164706, 0.164706, 0.164706, 1)
-theme_override_colors/font_focus_color = Color(0.164706, 0.164706, 0.164706, 1)
+theme = ExtResource("2_mydsd")
 text = "BACK
 "
-icon = ExtResource("2_we52i")
 icon_alignment = 1
 
 [node name="SFXTestPlayer" type="AudioStreamPlayer2D" parent="."]

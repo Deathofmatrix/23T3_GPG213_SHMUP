@@ -1,16 +1,15 @@
-res://bosses/polish
+res://common
+res://UI
 res://levels/Scenes
 res://enemies/set_pieces
 res://
 res://enemies/enemy_UI
 C:/Users/conal/Godot/Godot Builds/Week_9
 res://enemies
-res://UI
 res://player
 res://backgrounds
 res://UI/fonts
 res://levels
-res://common
 res://shaders
 res://bullets
 res://weapons/wingsword
@@ -20,3 +19,4 @@ res://player/resources
 res://managers
 res://autoloads
 res://obstacles
+res://weapons

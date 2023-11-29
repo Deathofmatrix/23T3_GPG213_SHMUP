@@ -9,7 +9,7 @@ script = ExtResource("1_tsq6q")
 icon_image = ExtResource("2_m5f6h")
 bullet_damage = 20
 weapon_name = "WingSword"
-weapon_description = "Shoots Swords that destroy bullets"
+weapon_description = "Shoots bullet destroying swords"
 
 [node name="BulletSpawns" type="Node2D" parent="."]
 

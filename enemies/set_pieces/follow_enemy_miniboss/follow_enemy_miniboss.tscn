@@ -60,7 +60,6 @@ motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_p00n7")
 movement_speed = 60
-charge_speed = 500
 points = 10000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

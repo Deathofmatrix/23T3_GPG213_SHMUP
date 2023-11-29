@@ -8,16 +8,19 @@ signal score_increased(current_score)
 @export var upgrade_icon_slots: Array
 @export var upgrade_level_labels: Array
 @export var upgrade_backgrounds: Array
+@export var difficulty_scaling_timer: Timer
 
 var score = 0
 var _current_max_health = 50
 var _current_health = 50
+var progression_notch = 0
 
 @onready var score_text = %ScoreText
 @onready var high_score_text = %HighScoreText
 @onready var health_bar = %HealthBar
 @onready var health_text = %HealthText
 @onready var xp_bar = %XPBar
+@onready var progress_bar = %ProgressBar
 
 
 func _ready():
@@ -25,9 +28,16 @@ func _ready():
 	
 	initalise_upgrade_icons()
 	EventManager.connect("enemy_destroyed", _on_enemy_destroyed)
+	difficulty_scaling_timer.connect("timeout", increase_notch)
+	progress_bar.max_value = difficulty_scaling_timer.wait_time * 10
 	score_text.text = "SCORE:\n" + str(score)
+	high_score_text.text = "HIGHSCORE:\n" + str(level.level_parameters.high_score)
 	emit_signal("score_increased", score)
 	update_health_bar()
+
+
+func _process(_delta):
+	update_progression_bar()
 
 
 func initalise_upgrade_icons():
@@ -70,6 +80,14 @@ func _on_enemy_destroyed(_pos, points):
 	emit_signal("score_increased", score)
 	high_score_text.text = "HIGHSCORE:\n" + str(level.level_parameters.high_score)
 
+
+func update_progression_bar():
+	var time_left_in_notch = difficulty_scaling_timer.wait_time - difficulty_scaling_timer.time_left
+	progress_bar.value = (progression_notch * difficulty_scaling_timer.wait_time) + time_left_in_notch
+
+
+func increase_notch():
+	progression_notch += 1
 
 #Signals
 

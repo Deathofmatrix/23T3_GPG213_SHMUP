@@ -13,5 +13,6 @@ texture = ExtResource("2_21u20")
 
 [node name="FollowEnemyMiniboss" parent="." instance=ExtResource("2_w8v1u")]
 position = Vector2(320, -100)
+charge_speed = 500
 
 [connection signal="miniboss_killed" from="FollowEnemyMiniboss" to="." method="_on_follow_enemy_miniboss_enemy_killed"]

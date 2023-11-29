@@ -9,6 +9,7 @@ extends Enemy
 
 func _enemy_ready():
 	health_system.max_health = max_health
+	health_system.health = max_health
 
 func _physics_process(_delta):
 	velocity = direction * move_speed

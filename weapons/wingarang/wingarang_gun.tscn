@@ -15,7 +15,7 @@ script = ExtResource("1_l36rq")
 icon_image = ExtResource("2_pepcd")
 bullet_damage = 20
 weapon_name = "Wingarang"
-weapon_description = "Shoot a wingarang out that comes back to you"
+weapon_description = "Shoot a wingarang"
 
 [node name="BoomerangPath" type="Path2D" parent="."]
 visible = false

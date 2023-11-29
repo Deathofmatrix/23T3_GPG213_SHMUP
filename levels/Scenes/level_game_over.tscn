@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbdjg4nhoenp2"]
+[gd_scene load_steps=7 format=3 uid="uid://bbdjg4nhoenp2"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_74kwj"]
 [ext_resource type="Texture2D" uid="uid://b4w4i485t05ij" path="res://levels/MainMenuBackground.png" id="2_efpfr"]
 [ext_resource type="Script" path="res://levels/Scenes/GameOverController.gd" id="2_sh1ts"]
 [ext_resource type="AudioStream" uid="uid://ckq7qn6go182f" path="res://levels/audio/button_clicked_sound.ogg" id="4_450su"]
+[ext_resource type="Theme" uid="uid://blnoseh1kub1y" path="res://UI/buttons/ui_theme.tres" id="4_kke6p"]
 [ext_resource type="AudioStream" uid="uid://c1k83j4yc2k4u" path="res://levels/audio/level_loaded_sound.ogg" id="5_gpulq"]
 
 [node name="LevelGameOver" type="Node2D"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_kke6p")
 script = ExtResource("2_sh1ts")
 level = NodePath("..")
 
@@ -29,46 +31,94 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_efpfr")
 
-[node name="Score" type="Label" parent="GameOverController/TextureRect"]
+[node name="Panel" type="Panel" parent="GameOverController/TextureRect"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -28.0
-offset_top = 52.115
-offset_right = 28.0
-offset_bottom = 78.115
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = 56.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverController/TextureRect/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -17.0
+offset_right = 26.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score" type="Label" parent="GameOverController/TextureRect/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Score:
+9999999999999999999999999999
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="HighScore" type="Label" parent="GameOverController/TextureRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -46.0
-offset_top = 122.58
-offset_right = 46.0
-offset_bottom = 148.58
-grow_horizontal = 2
-text = "Highscore"
+[node name="HighScore" type="Label" parent="GameOverController/TextureRect/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Highscore:
+9999999999999999999999999999"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ChangeSceneButton" type="Button" parent="GameOverController/TextureRect"]
+[node name="ButtonVBox" type="VBoxContainer" parent="GameOverController/TextureRect"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -100.0
+offset_right = 48.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RestartButton" type="Button" parent="GameOverController/TextureRect/ButtonVBox" groups=["Change_Scene_Buttons"]]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 268.0
-offset_top = 238.0
-offset_right = 372.0
-offset_bottom = 269.0
+layout_mode = 2
+theme = ExtResource("4_kke6p")
+disabled = true
+text = "RESTART"
+
+[node name="ChangeSceneButton" type="Button" parent="GameOverController/TextureRect/ButtonVBox" groups=["Change_Scene_Buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_kke6p")
 disabled = true
 text = "MAIN MENU"
+
+[node name="Label" type="Label" parent="GameOverController/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 24.0
+offset_right = 105.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER"
 
 [node name="BeginSceneChangeAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -82,4 +132,5 @@ stream = ExtResource("5_gpulq")
 panning_strength = 0.0
 bus = &"LevelLoad"
 
-[connection signal="pressed" from="GameOverController/TextureRect/ChangeSceneButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GameOverController/TextureRect/ButtonVBox/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverController/TextureRect/ButtonVBox/ChangeSceneButton" to="." method="_on_button_pressed"]

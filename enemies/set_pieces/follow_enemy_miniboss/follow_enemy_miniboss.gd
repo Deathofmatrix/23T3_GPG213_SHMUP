@@ -46,7 +46,7 @@ func pause_before_charge():
 
 func charge_at_player():
 	velocity = future_player_direction * charge_speed
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.7).timeout
 	current_state = STATE.FOLLOWING
 
 
