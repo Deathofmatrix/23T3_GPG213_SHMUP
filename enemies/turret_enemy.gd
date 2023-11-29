@@ -9,6 +9,7 @@ var target: Node2D = null
 
 @onready var ray_cast = $RayCast2D
 @onready var reload_timer = $RayCast2D/ReloadTimer
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 
 func _enemy_ready():
@@ -28,6 +29,7 @@ func _physics_process(_delta):
 		if ray_cast.is_colliding() and ray_cast.get_collider().is_in_group("Player"):
 			if reload_timer.is_stopped():
 				shoot_at_player()
+				audio_stream_player_2d.play()
 
 
 func shoot_at_player():

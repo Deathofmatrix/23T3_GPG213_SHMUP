@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqjudw705l5eq"]
+[gd_scene load_steps=17 format=3 uid="uid://bqjudw705l5eq"]
 
 [ext_resource type="Script" path="res://bosses/boss_one.gd" id="1_g5n8p"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_jjci3"]
-[ext_resource type="Texture2D" uid="uid://b7doyrjl5l0il" path="res://tilemaps/ships.png" id="2_qrty0"]
+[ext_resource type="Texture2D" uid="uid://djyhtn2dc5f3b" path="res://bosses/Boss_Sprite.png" id="3_18akf"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_lb1jy"]
 [ext_resource type="PackedScene" uid="uid://p4pk2b64vi4e" path="res://enemies/turret_enemy.tscn" id="4_1bt2g"]
 [ext_resource type="PackedScene" uid="uid://xfxlxvaa6fc6" path="res://bosses/boss_weapons/boss_shotgun.tscn" id="5_4ruon"]
@@ -20,6 +20,15 @@ shader_parameter/tint = Color(1, 1, 1, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_743ce"]
 size = Vector2(242, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkx2m"]
+size = Vector2(240, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qtg3"]
+size = Vector2(7, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd06x"]
+size = Vector2(6, 69)
+
 [node name="BossOne" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -28,57 +37,53 @@ slide_speed = 275
 
 [node name="BossSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_yxcc7")
-position = Vector2(-4, -2.84217e-14)
-rotation = -3.14159
-scale = Vector2(8, 4.856)
-texture = ExtResource("2_qrty0")
-region_enabled = true
+scale = Vector2(2, 2)
+texture = ExtResource("3_18akf")
 region_rect = Rect2(67, 103, 31, 23)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 17.5)
-shape = SubResource("RectangleShape2D_743ce")
-
 [node name="HealthSystem" parent="." instance=ExtResource("3_lb1jy")]
-max_health = 3500
 wait_time = 0.001
 
 [node name="Phases" type="Node2D" parent="."]
 
 [node name="PhaseOne" type="Node2D" parent="Phases"]
 
-[node name="FrontRight" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+[node name="Turret1" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+visible = false
 position = Vector2(50, -5)
 collision_mask = 5
 move_speed = 0
 
-[node name="BackRight" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+[node name="Turret2" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+visible = false
 position = Vector2(100, -25)
 collision_mask = 5
 move_speed = 0
 
-[node name="FrontLeft" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+[node name="Turret3" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+visible = false
 position = Vector2(-50, -5)
 collision_mask = 5
 move_speed = 0
 
-[node name="BackLeft" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+[node name="Turret4" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+visible = false
 position = Vector2(-100, -25)
 collision_mask = 5
 move_speed = 0
 
 [node name="PhaseTwo" type="Node2D" parent="Phases"]
 
-[node name="BossShotgun" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(0, 48)
+[node name="BossShotgun1" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
+position = Vector2(0, 12)
 rotation = 1.5708
 
 [node name="BossShotgun2" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(-83, 26)
+position = Vector2(-90, 20)
 rotation = 1.5708
 
 [node name="BossShotgun3" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(81, 27)
+position = Vector2(90, 20)
 rotation = 1.5708
 
 [node name="StateChart" type="Node" parent="."]
@@ -99,16 +104,41 @@ event = &"phase_two"
 [node name="PhaseTwo" type="Node" parent="StateChart/Root"]
 script = ExtResource("8_16qdv")
 
+[node name="EnterPhaseThree" type="Node" parent="StateChart/Root/PhaseTwo"]
+script = ExtResource("9_1rsh7")
+to = NodePath("../../PhaseThree")
+event = &"phase_three"
+
+[node name="PhaseThree" type="Node" parent="StateChart/Root"]
+script = ExtResource("8_16qdv")
+
 [node name="EnemyHealthBar" parent="." instance=ExtResource("10_mh4ts")]
 offset_left = -321.0
 offset_top = -91.0
 offset_right = -321.0
 offset_bottom = -91.0
-_current_max_health = 3500
-_current_health = 3500
+_current_max_health = 100
+_current_health = 100
 
-[connection signal="boss_defeated" from="." to="Phases/PhaseTwo/BossShotgun" method="_on_boss_one_boss_defeated"]
+[node name="FrontCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_743ce")
+
+[node name="BackCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_dkx2m")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-125.5, -16.5)
+shape = SubResource("RectangleShape2D_5qtg3")
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+position = Vector2(123, -16.5)
+shape = SubResource("RectangleShape2D_wd06x")
+
+[connection signal="boss_defeated" from="." to="Phases/PhaseTwo/BossShotgun1" method="_on_boss_one_boss_defeated"]
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="health_updated" from="HealthSystem" to="EnemyHealthBar" method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]
 [connection signal="state_entered" from="StateChart/Root/PhaseTwo" to="." method="_on_phase_two_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/PhaseThree" to="." method="_on_phase_three_state_entered"]
