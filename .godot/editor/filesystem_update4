@@ -1,10 +1,9 @@
 res://default_bus_layout.tres
-res://levels/Scenes/level_win_screen.tscn
-res://enemies/set_pieces/set_piece_spawner.gd
+res://player/player.tscn
 res://shaders/hit_flash_shader.tres
+res://enemies/set_pieces/set_piece_spawner.gd
 res://UI/buttons/ui_theme.tres
 res://player/hit_flash_shader.tres
-res://player/player.tscn
 res://levels/Scenes/level_01.tscn
 res://managers/scene_switcher.tscn
 res://UI/hud.tscn
@@ -13,6 +12,14 @@ res://backgrounds/parallax_scrolling_scene.tscn
 res://UI/settings_window.tscn
 res://enemies/speed_fall_enemy.tscn
 res://levels/Scenes/level_game_over.tscn
+res://levels/Scenes/level_win_screen.tscn
 res://enemies/enemy_bullets/turret_bullet.tscn
 res://enemies/set_pieces/follow_enemy_setpiece.tscn
 res://enemies/set_pieces/follow_enemy_miniboss/follow_enemy_miniboss.tscn
+res://testing_scene.tscn
+res://enemies/enemy_spawner.tscn
+res://enemies/enemy_spawner.gd
+res://obstacles/obstacle_spawner.tscn
+res://player/xp_collector.gd
+res://pickups/xp/experience.gd
+res://pickups/xp/experience.tscn

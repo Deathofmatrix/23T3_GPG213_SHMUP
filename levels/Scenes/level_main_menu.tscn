@@ -83,6 +83,7 @@ offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_icnva")
+theme_type_variation = &"Panel_Dark"
 
 [node name="HBoxContainer" type="VBoxContainer" parent="MainMenuManager/TextureRect/ButtonPanel"]
 custom_minimum_size = Vector2(80, 0)
