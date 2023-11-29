@@ -42,6 +42,7 @@ func spawn_bullet(spawn_point):
 	bullet.direction = temp_direction.rotated(spawn_point.rotation)
 	bullet.rotation = bullet.direction.angle()
 	bullet.speed = 200
+	bullet.modulate = Color.CORAL
 	bullet.bullet_damage = bullet_damage
 	add_child(bullet)
 	bullet.reparent(get_tree().current_scene)

@@ -75,7 +75,7 @@ move_speed = 0
 [node name="PhaseTwo" type="Node2D" parent="Phases"]
 
 [node name="BossShotgun1" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
-position = Vector2(0, 14)
+position = Vector2(0, 12)
 rotation = 1.5708
 
 [node name="BossShotgun2" parent="Phases/PhaseTwo" instance=ExtResource("5_4ruon")]
@@ -121,11 +121,11 @@ _current_max_health = 100
 _current_health = 100
 
 [node name="FrontCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 17.5)
+position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_743ce")
 
 [node name="BackCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -50)
+position = Vector2(0, -50)
 shape = SubResource("RectangleShape2D_dkx2m")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
