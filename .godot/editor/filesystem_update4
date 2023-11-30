@@ -20,13 +20,5 @@ res://testing_scene.tscn
 res://obstacles/obstacle_spawner.tscn
 res://enemies/enemy_spawner.tscn
 res://pickups/xp/experience.tscn
-res://UI/hud.gd
-res://levels/level.gd
+res://pickups/upgrades/upgrade_pickup.tscn
 res://managers/tutorial_manager.gd
-res://enemies/enemy_spawner.gd
-res://enemies/speed_fall_enemy_tutorial.gd
-res://enemies/speed_fall_enemy.gd
-res://enemies/enemy.gd
-res://player/player.gd
-res://pickups/upgrades/upgrade_spawner.gd
-res://player/xp_manager.gd

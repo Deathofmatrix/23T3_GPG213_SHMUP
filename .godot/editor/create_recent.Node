@@ -1,3 +1,5 @@
+CollisionShape2D
+Area2D
 VisibleOnScreenNotifier2D
 Node2D
 Label
@@ -17,8 +19,6 @@ TextureProgressBar
 WorldEnvironment
 AudioStreamPlayer2D
 Control
-CollisionShape2D
-Area2D
 Marker2D
 Camera2D
 Timer

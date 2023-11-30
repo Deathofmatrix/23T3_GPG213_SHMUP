@@ -76,12 +76,12 @@ func update_difficulty(difficulty_level: int):
 			creation_timer.wait_time += 0 # 1.50
 			enemy_weights = [10, 25, 65]
 		5:
-			max_enemy_spawns = 5
-			creation_timer.wait_time += .25 # 1.75
-		6:
 			max_enemy_spawns = 4
+			creation_timer.wait_time += 0.25 # 1.75
+		6:
+			max_enemy_spawns = 5
 			creation_timer.wait_time -= 0.25 # 1.5
-			enemy_weights = [25, 30, 45]
+			enemy_weights = [20, 25, 55]
 		7:
 			max_enemy_spawns = 6
 			creation_timer.wait_time += 0 # 1.5

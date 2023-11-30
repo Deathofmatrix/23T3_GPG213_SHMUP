@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bvjmp1skspd2m"]
+[gd_scene load_steps=22 format=3 uid="uid://bvjmp1skspd2m"]
 
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="1_5a0w1"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hrodq"]
@@ -29,6 +29,12 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.9
 glow_hdr_luminance_cap = 1.6
 fog_light_energy = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqfbj"]
+size = Vector2(642, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kseyb"]
+size = Vector2(640, 20)
 
 [node name="Level01" type="Node2D"]
 process_mode = 1
@@ -89,6 +95,22 @@ process_mode = 3
 script = ExtResource("7_cfmfn")
 hud = NodePath("../HUD")
 
+[node name="Area2D" type="Area2D" parent="HUDCanvas/TutorialManager"]
+position = Vector2(0, -192)
+collision_layer = 0
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HUDCanvas/TutorialManager/Area2D"]
+shape = SubResource("RectangleShape2D_hqfbj")
+
+[node name="Area2D2" type="Area2D" parent="HUDCanvas/TutorialManager"]
+position = Vector2(0, 202)
+collision_layer = 0
+collision_mask = 96
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HUDCanvas/TutorialManager/Area2D2"]
+shape = SubResource("RectangleShape2D_kseyb")
+
 [node name="TutorialEnemy" parent="." instance=ExtResource("8_cpff2")]
 position = Vector2(0, -350)
 move_speed = 80
@@ -122,7 +144,6 @@ icon_alignment = 1
 position = Vector2(0, 150)
 rotation = -1.5708
 hud = NodePath("../HUDCanvas/HUD")
-starting_max_health = 50
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_nfb7c")]
 position = Vector2(-320, -204)
@@ -146,6 +167,7 @@ position = Vector2(-320, -180)
 [connection signal="loading_level" from="." to="SettingsWindow" method="_on_level_loading"]
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]
 [connection signal="score_increased" from="HUDCanvas/HUD" to="." method="_on_hud_score_increased"]
+[connection signal="area_entered" from="HUDCanvas/TutorialManager/Area2D2" to="HUDCanvas/TutorialManager" method="_on_area_2d_2_area_entered"]
 [connection signal="enemy_killed" from="TutorialEnemy" to="HUDCanvas/TutorialManager" method="_on_tutorial_enemy_enemy_killed"]
 [connection signal="screen_exited" from="TutorialEnemy/VisibleOnScreenNotifier2D2" to="TutorialEnemy/VisibleOnScreenNotifier2D2" method="_on_screen_exited"]
 [connection signal="pressed" from="SettingsWindow/ChangeSceneButton" to="." method="_on_change_scene_button_pressed"]

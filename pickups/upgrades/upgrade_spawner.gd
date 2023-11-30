@@ -29,11 +29,11 @@ func spawn_upgrades():
 	
 	if is_first_upgrade:
 		is_first_upgrade == false
-		var upgrade1 = create_custom_upgrade(markers[0], current_onscreen_upgrades, all_weapon_upgrades[0])
+		var upgrade1 = create_custom_upgrade(markers[0], all_weapon_upgrades[0])
 		current_onscreen_upgrades.append(upgrade1)
-		var upgrade2 = create_custom_upgrade(markers[1], current_onscreen_upgrades, all_weapon_upgrades[1])
+		var upgrade2 = create_custom_upgrade(markers[1], all_weapon_upgrades[1])
 		current_onscreen_upgrades.append(upgrade2)
-		var upgrade3 = create_custom_upgrade(markers[2], current_onscreen_upgrades, all_weapon_upgrades[2])
+		var upgrade3 = create_custom_upgrade(markers[2], all_weapon_upgrades[2])
 		current_onscreen_upgrades.append(upgrade3)
 	
 	else:
@@ -59,7 +59,7 @@ func create_upgrade(marker, current_onscreen_upgrades: Array):
 	return upgrade_pickup
 
 
-func create_custom_upgrade(marker, current_onscreen_upgrades: Array, upgrade_type):
+func create_custom_upgrade(marker, upgrade_type):
 	var selected_position = marker.position
 	var upgrade_pickup = UpgradePickup.instantiate()
 	var weapon_type = upgrade_type.instantiate() as Weapon

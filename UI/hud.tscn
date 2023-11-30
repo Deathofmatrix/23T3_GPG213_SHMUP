@@ -364,12 +364,13 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 101.0
-offset_top = -128.0
+offset_left = 94.0
+offset_top = -199.0
 offset_right = 221.0
-offset_bottom = -28.0
+offset_bottom = -39.0
 grow_vertical = 0
 theme = ExtResource("16_ca1js")
+theme_type_variation = &"Panel_Speech"
 
 [node name="DialogueText" type="Label" parent="DialoguePanel"]
 unique_name_in_owner = true
@@ -377,11 +378,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 6
-text = "PREMABLE
--Press Space to continue-"
+theme_override_font_sizes/font_size = 5
+text = "Your proficiency in collecting technology has borne fruit, human. A ship upgrade awaits. Approach it and choose wisely from the available enhancements. The upgrades will be hidden until you pick them up, then refer to the top right corner of your hud for the computer's analysis.
+[PRESS SPACEBAR]"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
