@@ -1,10 +1,11 @@
 res://default_bus_layout.tres
-res://player/player.tscn
+res://levels/Scenes/level_01.tscn
 res://shaders/hit_flash_shader.tres
 res://enemies/set_pieces/set_piece_spawner.gd
 res://UI/buttons/ui_theme.tres
 res://player/hit_flash_shader.tres
-res://levels/Scenes/level_01.tscn
+res://managers/tutorial_manager.gd
+res://player/player.tscn
 res://managers/scene_switcher.tscn
 res://UI/hud.tscn
 res://levels/Scenes/level_main_menu.tscn

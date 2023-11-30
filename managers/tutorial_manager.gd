@@ -28,6 +28,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("tutorial_skip"):
+		if is_tutorial_on_screen == false: return
 		skips += 1
 		is_tutorial_on_screen = false
 		hud.display_dialogue(false)
