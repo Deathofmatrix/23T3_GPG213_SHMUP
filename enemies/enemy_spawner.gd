@@ -98,3 +98,8 @@ func play_pause_timer(pause: bool):
 
 func _on_creation_timer_timeout():
 	create_enemy(0, max_enemy_spawns)
+
+
+func _on_set_piece_spawner_entered_boss_fight():
+	max_x_spawn = $Node2D/NewMaxMarker.position.x
+	min_x_spawn = $Node2D/NewMinMarker.position.x

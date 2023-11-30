@@ -30,4 +30,12 @@ position = Vector2(0, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_1edjd")
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="NewMinMarker" type="Marker2D" parent="Node2D"]
+position = Vector2(-235, 0)
+
+[node name="NewMaxMarker" type="Marker2D" parent="Node2D"]
+position = Vector2(854, 1)
+
 [connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]

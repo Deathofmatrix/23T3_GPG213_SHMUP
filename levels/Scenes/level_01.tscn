@@ -135,3 +135,5 @@ position = Vector2(-320, -180)
 [connection signal="player_max_health_updated" from="Player" to="HUDCanvas/HUD" method="_on_player_player_max_health_updated"]
 [connection signal="upgrade_added_or_upgraded" from="Player" to="HUDCanvas/HUD" method="_on_player_upgrade_added_or_upgraded"]
 [connection signal="upgrade_added_or_upgraded" from="Player" to="HUDCanvas/UpgradePopup" method="_on_player_upgrade_added_or_upgraded"]
+[connection signal="entered_boss_fight" from="SetPieceSpawner" to="Player" method="_on_set_piece_spawner_entered_boss_fight"]
+[connection signal="entered_boss_fight" from="SetPieceSpawner" to="EnemySpawner" method="_on_set_piece_spawner_entered_boss_fight"]

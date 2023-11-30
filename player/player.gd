@@ -209,3 +209,7 @@ func _on_weapon_clear_box_area_entered(area):
 
 func _on_health_system_reached_low_health(is_low_health):
 	AudioServer.set_bus_effect_enabled(0, 0, is_low_health)
+
+
+func _on_set_piece_spawner_entered_boss_fight():
+	movement_data.max_speed = 155

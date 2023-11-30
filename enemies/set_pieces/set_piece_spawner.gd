@@ -1,5 +1,7 @@
 extends Node2D
 
+signal entered_boss_fight
+
 var current_setpiece
 var health_upgrade = preload("res://weapons/default_health_upgrade.tscn")
 var pickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
@@ -40,8 +42,9 @@ func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		5:
 			clear_screen("enemy")
-			choose_set_piece(setpieces)
-			player_warning()
+			enter_boss_fight()
+#			choose_set_piece(setpieces)
+#			player_warning()
 		7:
 			clear_screen("enemy")
 			choose_set_piece(minibosses)
@@ -108,7 +111,7 @@ func enter_boss_fight():
 	tween.tween_property(camera, "zoom", boss_fight_zoom, 2)
 	tween.tween_property(camera, "position", camera.position + boss_fight_camera_movement, 2)
 	EventManager.boss_spawned.emit()
-
+	emit_signal("entered_boss_fight")
 	var current_boss_fight: BossOne = boss_fights[0].instantiate() 
 	current_boss_fight.position = boss_spawn.position
 	add_child(current_boss_fight)

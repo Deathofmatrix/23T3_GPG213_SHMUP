@@ -1,3 +1,6 @@
+Marker2D
+Node2D
+Node
 Button
 AnimationPlayer
 Sprite2D
@@ -17,16 +20,13 @@ AudioStreamPlayer2D
 Control
 CollisionShape2D
 Area2D
-Marker2D
 Camera2D
 Timer
 PointLight2D
-Node2D
 HBoxContainer
 HSlider
 CanvasLayer
 PanelContainer
 AudioStreamPlayer
-Node
 GridContainer
 DirectionalLight2D
