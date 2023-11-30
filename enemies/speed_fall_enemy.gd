@@ -5,6 +5,7 @@ extends Enemy
 @export var direction = Vector2.DOWN
 @export var max_health = 15
 
+@onready var enemy_killed_particle = $enemy_killed_particle
 @onready var health_system = $HealthSystem
 
 func _enemy_ready():
@@ -22,6 +23,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_health_system_killed():
 	EventManager.emit_signal("enemy_destroyed", global_position, points)
+	enemy_killed_particle.emitting = true
 	destroy_enemy()
 
 

@@ -7,6 +7,7 @@ extends Enemy
 
 var target: Node2D = null
 
+@onready var enemy_killed_particle = $enemy_killed_particle
 @onready var ray_cast = $RayCast2D
 @onready var reload_timer = $RayCast2D/ReloadTimer
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
@@ -67,4 +68,5 @@ func _on_health_system_health_updated(_health, _was_damaged):
 
 func _on_health_system_killed():
 	EventManager.emit_signal("enemy_destroyed", global_position, points)
+	enemy_killed_particle.emitting = true
 	destroy_enemy()

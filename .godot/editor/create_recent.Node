@@ -1,6 +1,7 @@
+CPUParticles2D
+Node2D
 AnimationPlayer
 Marker2D
-Node2D
 Node
 Button
 Sprite2D
@@ -29,4 +30,3 @@ CanvasLayer
 PanelContainer
 AudioStreamPlayer
 GridContainer
-DirectionalLight2D

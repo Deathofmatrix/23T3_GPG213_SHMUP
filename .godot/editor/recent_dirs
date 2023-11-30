@@ -1,3 +1,4 @@
+res://enemies/enemy_common
 res://common
 res://UI
 res://levels/Scenes
@@ -19,4 +20,3 @@ res://player/resources
 res://managers
 res://autoloads
 res://obstacles
-res://weapons

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://crmvhlj0yv0xh"]
+
+[ext_resource type="Texture2D" uid="uid://euqhnk8tpb4w" path="res://enemies/enemy_common/Killed_Particle.png" id="1_pcs4p"]
+
+[node name="enemy_killed_particle" type="CPUParticles2D"]
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+texture = ExtResource("1_pcs4p")
+spread = 180.0
+gravity = Vector2(10, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_max = 3.0
+color = Color(0.886275, 0.384314, 0.305882, 0.733333)

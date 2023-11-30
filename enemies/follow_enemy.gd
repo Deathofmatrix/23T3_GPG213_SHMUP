@@ -3,6 +3,8 @@ extends Enemy
 
 var direction = Vector2(0,1)
 
+@onready var enemy_killed_particle = $enemy_killed_particle
+
 @export var movement_speed: int = 50
 
 func _process(_delta):
@@ -17,6 +19,7 @@ func _physics_process(_delta):
 func _on_health_system_killed():
 #	print(name + "killed")
 	EventManager.emit_signal("enemy_destroyed", global_position, points)
+	enemy_killed_particle.emitting = true
 	destroy_enemy()
 
 
