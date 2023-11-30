@@ -31,4 +31,5 @@ func hit_flash(sprite):
 func destroy_enemy():
 	if enemy_hit_player.playing:
 		await enemy_hit_player.finished
+		emit_signal("enemy_killed")
 	queue_free()

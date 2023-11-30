@@ -12,7 +12,8 @@ var main_cam: Camera2D
 
 var level_parameters: Dictionary = {
 	"current_score" : 0,
-	"high_score" : 0
+	"high_score" : 0,
+	"tutorial_active" : false
 }
 
 func _ready():

@@ -89,6 +89,11 @@ libraries = {
 [node name="EnemyLight" parent="." instance=ExtResource("5_a2y7t")]
 
 [node name="enemy_killed_particle" parent="." instance=ExtResource("6_vpso0")]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 649.21
 
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]
 [connection signal="killed" from="HealthSystem" to="." method="_on_health_system_killed"]

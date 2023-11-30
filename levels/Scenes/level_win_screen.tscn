@@ -42,7 +42,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(105, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(93, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -81,7 +81,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(103, -0.25, 0, 0.25, 0, 105, -0.25, 0, 0.25, 0, 107, -0.25, 0, 0.25, 0, 105, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(93, -0.25, 0, 0.25, 0, 95, -0.25, 0, 0.25, 0, 97, -0.25, 0, 0.25, 0, 95, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
 }
 
@@ -109,7 +109,7 @@ scrolling_speed = 500.0
 scroll_speed_increase = 0.0
 
 [node name="TextureRect2" type="TextureRect" parent="WinScreenControl"]
-self_modulate = Color(1, 1, 1, 0.439216)
+self_modulate = Color(0.592157, 0.74902, 0, 0.713726)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,29 +143,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -40.0
+offset_top = -60.0
 offset_right = 100.0
-offset_bottom = 56.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"Panel_Dark"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WinScreenControl/TextureRect2/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -17.0
-offset_right = 26.0
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Score" type="Label" parent="WinScreenControl/TextureRect2/Panel/VBoxContainer"]
+[node name="Score" type="Label" parent="WinScreenControl/TextureRect2/Panel"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Score:
 9999999999999999999999999999
 "
@@ -173,9 +165,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="HighScore" type="Label" parent="WinScreenControl/TextureRect2/Panel/VBoxContainer"]
+[node name="Panel2" type="Panel" parent="WinScreenControl/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 8.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Panel_Dark"
+
+[node name="HighScore" type="Label" parent="WinScreenControl/TextureRect2/Panel2"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Highscore:
 9999999999999999999999999999"
 horizontal_alignment = 1
@@ -191,9 +203,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -48.0
-offset_top = -100.0
+offset_top = -98.0
 offset_right = 48.0
-offset_bottom = -40.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -212,7 +224,7 @@ disabled = true
 text = "MAIN MENU"
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="WinScreenControl/TextureRect2"]
-position = Vector2(320, 105)
+position = Vector2(320, 93)
 texture = ExtResource("6_6ocvh")
 hframes = 5
 
