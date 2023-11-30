@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqjudw705l5eq"]
+[gd_scene load_steps=20 format=3 uid="uid://bqjudw705l5eq"]
 
 [ext_resource type="Script" path="res://bosses/boss_one.gd" id="1_g5n8p"]
 [ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="2_jjci3"]
-[ext_resource type="Texture2D" uid="uid://djyhtn2dc5f3b" path="res://bosses/Boss_Sprite.png" id="3_18akf"]
+[ext_resource type="Texture2D" uid="uid://boospt7ak281x" path="res://bosses/Boss_Sprite-Sheet-Sheet.png" id="3_ga126"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="3_lb1jy"]
 [ext_resource type="PackedScene" uid="uid://p4pk2b64vi4e" path="res://enemies/turret_enemy.tscn" id="4_1bt2g"]
 [ext_resource type="PackedScene" uid="uid://xfxlxvaa6fc6" path="res://bosses/boss_weapons/boss_shotgun.tscn" id="5_4ruon"]
@@ -29,6 +29,44 @@ size = Vector2(7, 69)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd06x"]
 size = Vector2(6, 69)
 
+[sub_resource type="Animation" id="Animation_dfvk0"]
+resource_name = "boss_idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_wxijp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyx2n"]
+_data = {
+"RESET": SubResource("Animation_wxijp"),
+"boss_idle": SubResource("Animation_dfvk0")
+}
+
 [node name="BossOne" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -38,7 +76,8 @@ slide_speed = 275
 [node name="BossSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_yxcc7")
 scale = Vector2(2, 2)
-texture = ExtResource("3_18akf")
+texture = ExtResource("3_ga126")
+hframes = 5
 region_rect = Rect2(67, 103, 31, 23)
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_lb1jy")]
@@ -49,26 +88,32 @@ wait_time = 0.001
 [node name="PhaseOne" type="Node2D" parent="Phases"]
 
 [node name="Turret1" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-visible = false
-position = Vector2(50, -5)
+position = Vector2(60, 0)
 collision_mask = 5
 move_speed = 0
 
 [node name="Turret2" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-visible = false
 position = Vector2(100, -25)
 collision_mask = 5
 move_speed = 0
 
 [node name="Turret3" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-visible = false
-position = Vector2(-50, -5)
+position = Vector2(-60, 0)
 collision_mask = 5
 move_speed = 0
 
 [node name="Turret4" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
-visible = false
 position = Vector2(-100, -25)
+collision_mask = 5
+move_speed = 0
+
+[node name="Turret5" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+position = Vector2(40, -28)
+collision_mask = 5
+move_speed = 0
+
+[node name="Turret6" parent="Phases/PhaseOne" instance=ExtResource("4_1bt2g")]
+position = Vector2(-40, -28)
 collision_mask = 5
 move_speed = 0
 
@@ -135,6 +180,12 @@ shape = SubResource("RectangleShape2D_5qtg3")
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 position = Vector2(123, -16.5)
 shape = SubResource("RectangleShape2D_wd06x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../BossSprite")
+libraries = {
+"": SubResource("AnimationLibrary_jyx2n")
+}
 
 [connection signal="boss_defeated" from="." to="Phases/PhaseTwo/BossShotgun1" method="_on_boss_one_boss_defeated"]
 [connection signal="health_updated" from="HealthSystem" to="." method="_on_health_system_health_updated"]

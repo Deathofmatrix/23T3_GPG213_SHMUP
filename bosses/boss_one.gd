@@ -8,7 +8,7 @@ var can_move = false
 var shotgun_timers = []
 var shotgun_animators = []
 var can_shotgun_shoot = []
-var turret_fire_rate = []
+var turret_hp = []
 
 @export var slide_speed = 250
 
@@ -21,12 +21,13 @@ func _enemy_ready():
 #		print("Path:", path)
 #		print("Timer Node:", timer_node)
 #
-#	for i in range(1,5):
-#		var reload_timer_nodes = get_node("Phases/PhaseOne/Turret" + str(i) + "/RayCast2D/ReloadTimer")
-#		turret_fire_rate.append(reload_timer_nodes)
-#
-#	for fire_rate in turret_fire_rate:
-#		fire_rate.wait_time = 1
+	for i in range(1,7):
+		
+		var boss_turret_health = get_node("Phases/PhaseOne/Turret" + str (i) + "/HealthSystem")
+		turret_hp.append(boss_turret_health)
+
+	for hp in turret_hp:
+		hp.max_health = 200
 	
 	emit_signal("requires_health_bar")
 
