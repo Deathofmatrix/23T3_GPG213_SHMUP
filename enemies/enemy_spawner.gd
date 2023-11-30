@@ -27,6 +27,8 @@ func _ready():
 	EventManager.connect("pause_for_setpiece", play_pause_timer)
 	min_x_spawn = marker_min_x_spawn.position.x
 	max_x_spawn = marker_max_x_spawn.position.x
+	await get_tree().create_timer(1).timeout
+	creation_timer.start()
 
 
 func create_enemy(_enemy_index: int, _max_enemy_spawns: int):

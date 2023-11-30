@@ -14,6 +14,7 @@ var current_xp_required: int = get_required_xp(current_xp_level + 1)
 func _ready():
 	if current_xp_level <= 1:
 		current_xp = get_required_xp(current_xp_level + 1) - 1
+		gain_xp(0)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("dev_action"):

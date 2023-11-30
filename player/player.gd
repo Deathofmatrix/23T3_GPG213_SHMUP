@@ -5,6 +5,7 @@ signal player_health_updated(health)
 signal player_max_health_updated(max_health)
 signal player_killed
 signal upgrade_added_or_upgraded(weapon)
+signal player_leveled_up()
 
 @export var health_system: HealthSystem
 @export var hud: HUD
@@ -190,6 +191,7 @@ func _on_xp_manager_leveled_up(required_xp, level):
 	current_xp_required = required_xp
 	current_level = level
 	hud.update_max_xp(current_xp_required)
+	emit_signal("player_leveled_up")
 
 
 func _on_xp_manager_xp_updated(xp):

@@ -9,6 +9,8 @@ extends Node2D
 	preload("res://weapons/wingarang/wingarang_gun.tscn")
 ]
 
+var is_first_upgrade = true
+
 var default_heal_upgrade = preload("res://weapons/default_health_upgrade.tscn")
 
 @onready var UpgradePickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
@@ -22,15 +24,25 @@ func _ready():
 
 func spawn_upgrades():
 	$UpgradeSpawnedPlayer.play()
-	
 	var markers = spawn_locations.get_children()
 	var current_onscreen_upgrades: Array = []
-	var upgrade1 = create_upgrade(markers[0], current_onscreen_upgrades)
-	current_onscreen_upgrades.append(upgrade1)
-	var upgrade2 = create_upgrade(markers[1], current_onscreen_upgrades)
-	current_onscreen_upgrades.append(upgrade2)
-	var upgrade3 = create_upgrade(markers[2], current_onscreen_upgrades)
-	current_onscreen_upgrades.append(upgrade3)
+	
+	if is_first_upgrade:
+		is_first_upgrade == false
+		var upgrade1 = create_custom_upgrade(markers[0], current_onscreen_upgrades, all_weapon_upgrades[0])
+		current_onscreen_upgrades.append(upgrade1)
+		var upgrade2 = create_custom_upgrade(markers[1], current_onscreen_upgrades, all_weapon_upgrades[1])
+		current_onscreen_upgrades.append(upgrade2)
+		var upgrade3 = create_custom_upgrade(markers[2], current_onscreen_upgrades, all_weapon_upgrades[2])
+		current_onscreen_upgrades.append(upgrade3)
+	
+	else:
+		var upgrade1 = create_upgrade(markers[0], current_onscreen_upgrades)
+		current_onscreen_upgrades.append(upgrade1)
+		var upgrade2 = create_upgrade(markers[1], current_onscreen_upgrades)
+		current_onscreen_upgrades.append(upgrade2)
+		var upgrade3 = create_upgrade(markers[2], current_onscreen_upgrades)
+		current_onscreen_upgrades.append(upgrade3)
 	
 	for upgrade in current_onscreen_upgrades:
 		upgrade.upgrades_on_screen = current_onscreen_upgrades
@@ -47,8 +59,20 @@ func create_upgrade(marker, current_onscreen_upgrades: Array):
 	return upgrade_pickup
 
 
-func assign_upgrade_type(current_onscreen_upgrades: Array):
-	var possible_upgrades_array: Array = all_weapon_upgrades
+func create_custom_upgrade(marker, current_onscreen_upgrades: Array, upgrade_type):
+	var selected_position = marker.position
+	var upgrade_pickup = UpgradePickup.instantiate()
+	var weapon_type = upgrade_type.instantiate() as Weapon
+	upgrade_pickup.position = selected_position
+	upgrade_pickup.movement_speed = current_pickup_speed
+	upgrade_pickup.upgrade_type = weapon_type
+	upgrade_pickup.icon = upgrade_pickup.upgrade_type.icon_image
+	add_child(upgrade_pickup)
+	return upgrade_pickup
+	
+
+func assign_upgrade_type(current_onscreen_upgrades: Array):	
+	var possible_upgrades_array: Array = all_weapon_upgrades.duplicate()
 	if player.weapons.size() >= 4:
 		possible_upgrades_array.clear()
 		for i in player.weapons:
