@@ -89,8 +89,6 @@ difficulty_scaling_timer = NodePath("../../ScalingInfo/DifficultyScalingTimer")
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradePopup" parent="HUDCanvas" instance=ExtResource("3_70x4p")]
-offset_left = 4.0
-offset_right = 92.0
 
 [node name="TutorialManager" type="Node2D" parent="HUDCanvas" node_paths=PackedStringArray("hud")]
 process_mode = 3
