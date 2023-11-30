@@ -89,6 +89,7 @@ libraries = {
 [node name="EnemyLight" parent="." instance=ExtResource("5_a2y7t")]
 
 [node name="enemy_killed_particle" parent="." instance=ExtResource("6_vpso0")]
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
 spread = 180.0
