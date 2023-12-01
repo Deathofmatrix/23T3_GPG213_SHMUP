@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=24 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://l2inyxy15mou" path="res://UI/XPBarFill.png" id="4_uykw4"]
 [ext_resource type="Texture2D" uid="uid://c11f4u53jwrx2" path="res://weapons/pistol/pistol_icon.png" id="5_6okm4"]
 [ext_resource type="Texture2D" uid="uid://bp7rke1fsxbm8" path="res://UI/sidebar_icon_background.png" id="5_30lvw"]
+[ext_resource type="Texture2D" uid="uid://bbkbep3yu3yxi" path="res://UI/DogAI.png" id="7_5mah6"]
 [ext_resource type="FontFile" uid="uid://c38vatl1wnjmj" path="res://UI/fonts/Kenney Pixel.ttf" id="7_o7677"]
 [ext_resource type="Texture2D" uid="uid://cxvrdvhhvq55p" path="res://UI/ProgressionMarker.png" id="8_qnmwh"]
 [ext_resource type="Texture2D" uid="uid://cgd8fb57ppnwx" path="res://UI/ProgressionBar.png" id="9_sjyss"]
@@ -246,6 +247,14 @@ text = "HIGHSCORE:
 label_settings = SubResource("LabelSettings_4ylym")
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="LeftPanelContainer/LeftBackground"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 292.0
+offset_right = 82.0
+offset_bottom = 342.0
+texture = ExtResource("7_5mah6")
 
 [node name="RightPanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
