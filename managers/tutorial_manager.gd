@@ -10,10 +10,10 @@ var dialogue_number = 0
 var skips = 0
 var max_dialogue_number = 3
 var dialogues: Array = [
-	"Grateful for your assistance, human. We've eluded our corrupt captors, but one of them lurks ahead. Stay alert; our journey to safety depends on you. You must destroy the enemy.",
-	"Commendations for your victory over the minor foe, human. Ahead lies an opportunity to assimilate their technology for a ship upgrade. This piece will fill your tech bar on the right so you can upgrade your ship.",
-	"Your proficiency in collecting technology has borne fruit, human. A ship upgrade awaits. Approach it and choose wisely from the available enhancements. The upgrades will be hidden until you pick them up, then refer to the top right corner of your hud for the computer's analysis.",
-	"Admirable choice, human. With the upgrade secured, my attention turns to crafting new technology for our journey. Your decisions shape our destiny; may they lead us to triumph."
+	"Thank you for your assistance, Human. We've evaded our captors, but one remains nearby. You must eliminate the approaching threat. - D0GB0T",
+	"Commendations on defeating the minor foe. Ahead, an opportunity to assimilate their tech and fill your left tech bar for a ship upgrade. - D0GB0T",
+	"Your tech collection proficiency pays off, human. A ship upgrade awaits. Upgrades remain hidden until picked up; check the screen for the computer's analysis. - D0GB0T",
+	"Admirable choice, human. With the upgrade secured, my focus shifts to crafting new tech for our journey. Your decisions shape our destiny; may they lead us to triumph. - D0GB0T"
 ]
 
 @onready var tutorial_enemy = $"../../TutorialEnemy"
@@ -41,15 +41,15 @@ func _input(event):
 func _process(_delta):
 	if level_loaded == false: return
 	EventManager.pause_for_setpiece.emit(true)
-	if is_tutorial_on_screen == false: return
-	get_tree().paused = true
+#	if is_tutorial_on_screen == false: return
+#	get_tree().paused = true
 
 
 func display_dialogue():
 	if dialogue_number > max_dialogue_number: return
 	is_tutorial_on_screen = true
-	hud.change_dialogue_text(dialogues[dialogue_number] + "\n[PRESS SPACEBAR]")
-	hud.display_dialogue(true)
+	hud.change_dialogue_text(dialogues[dialogue_number])
+#	hud.display_dialogue(true)
 	dialogue_number += 1
 
 
@@ -65,7 +65,7 @@ func _on_player_player_leveled_up():
 	display_dialogue()
 
 
-func _on_player_upgrade_added_or_upgraded(_weapon):
+func _on_popup_finished():
 	player_upgrades += 1
 	if player_upgrades >= 3: return
 	if player_upgrades == 1: return

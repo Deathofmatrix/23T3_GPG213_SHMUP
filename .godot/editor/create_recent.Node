@@ -1,12 +1,12 @@
+Sprite2D
 TextureRect
+Label
 CollisionShape2D
 Area2D
 VisibleOnScreenNotifier2D
 Node2D
-Label
 Panel
 CPUParticles2D
-Sprite2D
 Button
 AnimationPlayer
 AnimatedSprite2D

@@ -6,6 +6,7 @@ signal popup_finished()
 @onready var upgrade_description_text = %UpgradeDescriptionText
 @onready var popup_animation_player = %PopupAnimationPlayer
 @onready var upgrade_icon = %UpgradeIcon
+@onready var overlay = %Overlay
 
 var upgrade_queue: Array[UpgradeDataResource]
 var is_looping_queue = false
@@ -25,7 +26,7 @@ func show_upgrade_info(new_upgrade_data: UpgradeDataResource):
 	show()
 	popup_animation_player.play("popin_anim")
 	await popup_animation_player.animation_finished
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(5).timeout
 	popup_animation_player.play_backwards("popin_anim")
 	await popup_animation_player.animation_finished
 	emit_signal("popup_finished")
@@ -39,6 +40,7 @@ func loop_queued_upgrades():
 		await self.popup_finished
 		entry = upgrade_queue.pop_back()
 	is_looping_queue = false
+	hide()
 
 
 func _on_player_upgrade_added_or_upgraded(weapon):

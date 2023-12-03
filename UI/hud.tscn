@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=25 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bp7rke1fsxbm8" path="res://UI/sidebar_icon_background.png" id="5_30lvw"]
 [ext_resource type="Texture2D" uid="uid://bbkbep3yu3yxi" path="res://UI/DogAI.png" id="7_5mah6"]
 [ext_resource type="FontFile" uid="uid://c38vatl1wnjmj" path="res://UI/fonts/Kenney Pixel.ttf" id="7_o7677"]
+[ext_resource type="FontFile" uid="uid://doj6yla5enyt7" path="res://UI/fonts/Kenney Thick.ttf" id="8_k45gw"]
 [ext_resource type="Texture2D" uid="uid://cxvrdvhhvq55p" path="res://UI/ProgressionMarker.png" id="8_qnmwh"]
 [ext_resource type="Texture2D" uid="uid://cgd8fb57ppnwx" path="res://UI/ProgressionBar.png" id="9_sjyss"]
 [ext_resource type="Texture2D" uid="uid://b6s1l46oulesj" path="res://UI/BossMarker.png" id="10_261l4"]
@@ -28,17 +29,17 @@ font_size = 24
 outline_size = 3
 outline_color = Color(0.054902, 0.0196078, 0.133333, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_4ylym"]
-line_spacing = 5.0
-font_size = 8
-shadow_size = 0
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5ves"]
 texture = ExtResource("9_sjyss")
 texture_margin_left = 12.0
 texture_margin_right = 12.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k0me"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ylym"]
+line_spacing = 5.0
+font_size = 8
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_rkrnn"]
 font = ExtResource("4_qi488")
@@ -71,18 +72,18 @@ texture = ExtResource("2_3q863")
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 12.0
-offset_top = 112.0
+offset_top = 110.0
 offset_right = 84.0
-offset_bottom = 130.0
+offset_bottom = 128.0
 max_value = 11.0
 texture_progress = ExtResource("4_uykw4")
 
 [node name="Label" type="Label" parent="LeftPanelContainer/LeftBackground/XPBar"]
 layout_mode = 0
-offset_top = -17.0
+offset_top = -15.0
 offset_right = 72.0
-offset_bottom = -4.0
-text = "TECHNOLOGY"
+offset_bottom = -2.0
+text = "TECH"
 label_settings = SubResource("LabelSettings_18p3a")
 horizontal_alignment = 1
 
@@ -219,35 +220,6 @@ label_settings = SubResource("LabelSettings_abb1i")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="ScoreText" type="Label" parent="LeftPanelContainer/LeftBackground"]
-unique_name_in_owner = true
-top_level = true
-layout_mode = 0
-offset_left = 20.0
-offset_top = 152.0
-offset_right = 76.0
-offset_bottom = 220.0
-text = "SCORE:
-"
-label_settings = SubResource("LabelSettings_4ylym")
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="HighScoreText" type="Label" parent="LeftPanelContainer/LeftBackground"]
-unique_name_in_owner = true
-top_level = true
-layout_mode = 0
-offset_left = 20.0
-offset_top = 217.0
-offset_right = 76.0
-offset_bottom = 302.0
-text = "HIGHSCORE:
-
-"
-label_settings = SubResource("LabelSettings_4ylym")
-horizontal_alignment = 1
-autowrap_mode = 3
-
 [node name="TextureRect" type="TextureRect" parent="LeftPanelContainer/LeftBackground"]
 layout_mode = 0
 offset_left = 12.0
@@ -255,6 +227,19 @@ offset_top = 292.0
 offset_right = 82.0
 offset_bottom = 342.0
 texture = ExtResource("7_5mah6")
+
+[node name="DialogueText" type="Label" parent="LeftPanelContainer/LeftBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 151.0
+offset_right = 80.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("8_k45gw")
+theme_override_font_sizes/font_size = 4
+text = "Your tech collection proficiency pays off, human. A ship upgrade awaits. Upgrades remain hidden until picked up; check the screen for the computer's analysis. - D0GB0T"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="RightPanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -280,9 +265,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -12.0
-offset_top = -198.0
+offset_top = -190.0
 offset_right = 12.0
-offset_bottom = -35.0
+offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/center_grabber = 1
@@ -337,6 +322,36 @@ pivot_offset = Vector2(2, 7)
 texture = ExtResource("11_giqum")
 stretch_mode = 2
 
+[node name="ScoreText" type="Label" parent="RightPanelContainer/RightBackground"]
+unique_name_in_owner = true
+top_level = true
+layout_mode = 2
+offset_left = 564.0
+offset_top = 16.0
+offset_right = 620.0
+offset_bottom = 84.0
+text = "SCORE:
+
+"
+label_settings = SubResource("LabelSettings_4ylym")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HighScoreText" type="Label" parent="RightPanelContainer/RightBackground"]
+unique_name_in_owner = true
+top_level = true
+layout_mode = 2
+offset_left = 564.0
+offset_top = 81.0
+offset_right = 620.0
+offset_bottom = 166.0
+text = "HIGHSCORE:
+
+"
+label_settings = SubResource("LabelSettings_4ylym")
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -382,7 +397,6 @@ theme = ExtResource("16_ca1js")
 theme_type_variation = &"Panel_Speech"
 
 [node name="DialogueText" type="Label" parent="DialoguePanel"]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
