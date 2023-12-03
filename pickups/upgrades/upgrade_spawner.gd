@@ -27,8 +27,8 @@ func spawn_upgrades():
 	var markers = spawn_locations.get_children()
 	var current_onscreen_upgrades: Array = []
 	
-	if is_first_upgrade:
-		is_first_upgrade == false
+	if is_first_upgrade == true:
+		is_first_upgrade = false
 		var upgrade1 = create_custom_upgrade(markers[0], all_weapon_upgrades[0])
 		current_onscreen_upgrades.append(upgrade1)
 		var upgrade2 = create_custom_upgrade(markers[1], all_weapon_upgrades[1])

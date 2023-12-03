@@ -23,3 +23,4 @@ res://pickups/xp/experience.tscn
 res://pickups/upgrades/upgrade_pickup.tscn
 res://bosses/boss_one.tscn
 res://enemies/enemy_common/enemy_killed_particle.tscn
+res://pickups/upgrades/upgrade_spawner.gd
