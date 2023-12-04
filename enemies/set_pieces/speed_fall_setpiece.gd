@@ -11,6 +11,7 @@ var last_obstacle
 
 @onready var markers = %Markers
 @onready var creation_timer = $EnemySpawner/CreationTimer
+@onready var spawn_sound = $SpawnSound
 
 func ready():
 	for i in randi_range(4, max_spawns):
@@ -60,5 +61,6 @@ func destroy_setpiece():
 func _on_creation_timer_timeout():
 	max_spawns += 0.5
 	min_spawns += (1/3)
+	spawn_sound.play()
 	for i in randi_range(min_spawns, max_spawns):
 		pick_spawn_pos()

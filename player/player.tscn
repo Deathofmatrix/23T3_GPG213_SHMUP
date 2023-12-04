@@ -139,6 +139,7 @@ bus = &"SFX"
 
 [node name="MovementSoundPlayer" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("7_a8ox5")
+pitch_scale = 7.0
 autoplay = true
 bus = &"SFX"
 

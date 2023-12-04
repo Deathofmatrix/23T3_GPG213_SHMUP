@@ -27,6 +27,7 @@ func _on_health_system_killed():
 	destroy_enemy()
 
 
-func _on_health_system_health_updated(_health, _was_damaged):
-	hit_flash($Sprite2D)
-	enemy_hit_player.play()
+func _on_health_system_health_updated(_health, was_damaged):
+	if was_damaged:
+		hit_flash($Sprite2D)
+		enemy_hit_player.play()

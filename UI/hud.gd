@@ -21,9 +21,7 @@ var progression_notch = 0
 @onready var health_text = %HealthText
 @onready var xp_bar = %XPBar
 @onready var progress_bar = %ProgressBar
-@onready var dialogue_panel = %DialoguePanel
 @onready var dialogue_text = %DialogueText
-
 
 
 func _ready():
@@ -94,10 +92,6 @@ func increase_notch():
 
 
 #Dialogue
-
-
-func display_dialogue(is_on_screen: bool):
-	dialogue_panel.visible = is_on_screen
 
 
 func change_dialogue_text(text: String):

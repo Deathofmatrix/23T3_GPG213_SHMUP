@@ -1,3 +1,4 @@
+res://default_bus_layout.tres
 res://player/player.tscn
 res://enemies/set_pieces/set_piece_spawner.gd
 res://shaders/hit_flash_shader.tres
@@ -9,5 +10,10 @@ res://UI/hud.tscn
 res://levels/Scenes/level_main_menu.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://UI/upgrade_popup.tscn
-res://managers/tutorial_manager.gd
-res://levels/level.gd
+res://UI/settings_window.tscn
+res://UI/hud.gd
+res://enemies/set_pieces/speed_fall_setpiece.tscn
+res://enemies/speed_fall_enemy.tscn
+res://enemies/speed_fall_enemy.gd
+res://enemies/set_pieces/speed_fall_setpiece.gd
+res://enemies/turret_enemy.tscn

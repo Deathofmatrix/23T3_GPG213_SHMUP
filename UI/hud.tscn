@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=24 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://ecv6w1ildojg" path="res://UI/MinibossMarker.png" id="12_ygsx8"]
 [ext_resource type="Texture2D" uid="uid://diqyv6c3xngcv" path="res://UI/healthbarnew.png" id="13_gtpa3"]
 [ext_resource type="Texture2D" uid="uid://borpiwia2o381" path="res://UI/healthbarfillnew.png" id="14_i0l8m"]
-[ext_resource type="Theme" uid="uid://blnoseh1kub1y" path="res://UI/buttons/ui_theme.tres" id="16_ca1js"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_18p3a"]
 line_spacing = 1.0
@@ -237,7 +236,6 @@ offset_right = 80.0
 offset_bottom = 270.0
 theme_override_fonts/font = ExtResource("8_k45gw")
 theme_override_font_sizes/font_size = 4
-text = "Your tech collection proficiency pays off, human. A ship upgrade awaits. Upgrades remain hidden until picked up; check the screen for the computer's analysis. - D0GB0T"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -380,36 +378,3 @@ text = "100/100"
 label_settings = SubResource("LabelSettings_rkrnn")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="DialoguePanel" type="Panel" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 94.0
-offset_top = -199.0
-offset_right = 221.0
-offset_bottom = -39.0
-grow_vertical = 0
-theme = ExtResource("16_ca1js")
-theme_type_variation = &"Panel_Speech"
-
-[node name="DialogueText" type="Label" parent="DialoguePanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 26.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 5
-text = "Your proficiency in collecting technology has borne fruit, human. A ship upgrade awaits. Approach it and choose wisely from the available enhancements. The upgrades will be hidden until you pick them up, then refer to the top right corner of your hud for the computer's analysis.
-[PRESS SPACEBAR]"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
