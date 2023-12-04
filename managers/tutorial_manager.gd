@@ -1,10 +1,11 @@
 extends Node2D
 
 @export var hud: HUD
+@export var is_active = true
 
-var is_tutorial_on_screen = true
+var is_restart_button_shown = false
 var has_player_leveled_once = false
-var player_upgrades = 0
+var is_first_upgrade = true
 var level_loaded = false
 var dialogue_number = 0
 var skips = 0
@@ -19,42 +20,47 @@ var dialogues: Array = [
 @onready var tutorial_enemy = $"../../TutorialEnemy"
 @onready var area_2d = $Area2D
 @onready var area_2d_2 = $Area2D2
+@onready var restart_tutorial_panel = $"../RestartTutorialPanel"
+@onready var level_01 = $"../.."
 
 func _ready():
+	if not level_01.level_parameters.tutorial_active: 
+		process_mode = Node.PROCESS_MODE_DISABLED
+		is_active = false
+		hud.change_dialogue_text("")
+		return
 	await get_parent().get_parent().level_loaded
 	level_loaded = true
 	display_dialogue()
 
 
-func _input(event):
-	if event.is_action_pressed("tutorial_skip"):
-		if is_tutorial_on_screen == false: return
-		skips += 1
-		is_tutorial_on_screen = false
-		hud.display_dialogue(false)
-		get_tree().paused = false
-		if skips != max_dialogue_number + 1: return
-		process_mode = Node.PROCESS_MODE_DISABLED
-		EventManager.pause_for_setpiece.emit(false)
+#func _input(event):
+#	if event.is_action_pressed("tutorial_skip"):
+#		if is_tutorial_on_screen == false: return
+#		skips += 1
+#		is_tutorial_on_screen = false
+#		hud.display_dialogue(false)
+#		get_tree().paused = false
+#		if skips != max_dialogue_number + 1: return
+#		process_mode = Node.PROCESS_MODE_DISABLED
+#		EventManager.pause_for_setpiece.emit(false)
 
 
 func _process(_delta):
 	if level_loaded == false: return
 	EventManager.pause_for_setpiece.emit(true)
-#	if is_tutorial_on_screen == false: return
-#	get_tree().paused = true
+	if is_restart_button_shown == false: return
+	get_tree().paused = true
 
 
 func display_dialogue():
+	if is_active == false: return
 	if dialogue_number > max_dialogue_number: return
-	is_tutorial_on_screen = true
 	hud.change_dialogue_text(dialogues[dialogue_number])
-#	hud.display_dialogue(true)
 	dialogue_number += 1
 
 
 func _on_tutorial_enemy_enemy_killed():
-	print("tut enemy killed")
 	display_dialogue()
 
 
@@ -66,12 +72,33 @@ func _on_player_player_leveled_up():
 
 
 func _on_popup_finished():
-	player_upgrades += 1
-	if player_upgrades >= 3: return
-	if player_upgrades == 1: return
-	await get_tree().create_timer(0.4).timeout
+	if not is_first_upgrade: return
+	is_first_upgrade = false
 	display_dialogue()
+	await get_tree().create_timer(2).timeout
+	show_restart_button()
 
+
+func show_restart_button():
+	if is_active == false: return
+	is_restart_button_shown = true
+	restart_tutorial_panel.show()
 
 func _on_area_2d_2_area_entered(area):
 	area.global_position.y = area_2d.position.y
+
+
+func _on_continue_button_pressed():
+	is_restart_button_shown = false
+	restart_tutorial_panel.hide()
+	hud.change_dialogue_text("")
+	get_tree().paused = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+	EventManager.pause_for_setpiece.emit(false)
+	level_01.level_parameters.tutorial_active = false
+
+
+func _on_restart_button_pressed():
+	is_restart_button_shown = false
+	get_tree().paused = false
+	process_mode = Node.PROCESS_MODE_ALWAYS

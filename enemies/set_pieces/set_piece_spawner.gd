@@ -40,6 +40,14 @@ func _ready():
 
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
+		3:
+			var health_instance = health_upgrade.instantiate()
+			var pickup_instance = pickup.instantiate()
+			pickup_instance.upgrade_type = health_instance
+			pickup_instance.icon = health_instance.icon_image
+			pickup_instance.upgrades_on_screen = [pickup_instance]
+			pickup_instance.position = $HealthMarker.position
+			call_deferred("add_child", pickup_instance)
 		5:
 			clear_screen("enemy")
 #			enter_boss_fight()

@@ -10,6 +10,7 @@ signal popup_finished()
 
 var upgrade_queue: Array[UpgradeDataResource]
 var is_looping_queue = false
+var is_first_upgrade = true
 
 func _ready():
 	hide()
@@ -44,6 +45,9 @@ func loop_queued_upgrades():
 
 
 func _on_player_upgrade_added_or_upgraded(weapon):
+	if is_first_upgrade:
+		is_first_upgrade = false
+		return
 	var new_upgrade_data: UpgradeDataResource = UpgradeDataResource.new()
 	new_upgrade_data.upgrade_name = weapon.weapon_name
 	new_upgrade_data.upgrade_level = weapon.upgrade_number

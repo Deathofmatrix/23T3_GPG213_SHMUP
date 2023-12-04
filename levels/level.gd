@@ -13,7 +13,7 @@ var main_cam: Camera2D
 var level_parameters: Dictionary = {
 	"current_score" : 0,
 	"high_score" : 0,
-	"tutorial_active" : false
+	"tutorial_active" : true
 }
 
 func _ready():
@@ -89,7 +89,6 @@ func _on_change_scene_button_pressed():
 
 func _on_restart_button_pressed():
 	%BeginSceneChangeAudio.play()
-#	%RestartButton.disabled = true
 	get_tree().call_group("Change_Scene_Buttons", "set_disabled", true)
 	get_tree().paused = false
 	if GlobalPlayerInfo.player != null:
