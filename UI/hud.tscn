@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=27 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://l2inyxy15mou" path="res://UI/XPBarFill.png" id="4_uykw4"]
 [ext_resource type="Texture2D" uid="uid://c11f4u53jwrx2" path="res://weapons/pistol/pistol_icon.png" id="5_6okm4"]
 [ext_resource type="Texture2D" uid="uid://bp7rke1fsxbm8" path="res://UI/sidebar_icon_background.png" id="5_30lvw"]
-[ext_resource type="Texture2D" uid="uid://bbkbep3yu3yxi" path="res://UI/DogAI.png" id="7_5mah6"]
+[ext_resource type="Texture2D" uid="uid://8inlydnpkuf0" path="res://UI/DogAI_anim-Sheet.png" id="7_5tm50"]
 [ext_resource type="FontFile" uid="uid://c38vatl1wnjmj" path="res://UI/fonts/Kenney Pixel.ttf" id="7_o7677"]
 [ext_resource type="FontFile" uid="uid://doj6yla5enyt7" path="res://UI/fonts/Kenney Thick.ttf" id="8_k45gw"]
 [ext_resource type="Texture2D" uid="uid://cxvrdvhhvq55p" path="res://UI/ProgressionMarker.png" id="8_qnmwh"]
@@ -45,6 +45,44 @@ font = ExtResource("4_qi488")
 font_size = 4
 font_color = Color(0, 0, 0, 1)
 outline_size = 3
+
+[sub_resource type="Animation" id="Animation_7hbbq"]
+resource_name = "dog_talk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftPanelContainer/LeftBackground/DogAI:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_hardw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftPanelContainer/LeftBackground/DogAI:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bpa5d"]
+_data = {
+"RESET": SubResource("Animation_hardw"),
+"dog_talk": SubResource("Animation_7hbbq")
+}
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -219,13 +257,11 @@ label_settings = SubResource("LabelSettings_abb1i")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="LeftPanelContainer/LeftBackground"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 292.0
-offset_right = 82.0
-offset_bottom = 342.0
-texture = ExtResource("7_5mah6")
+[node name="DogAI" type="Sprite2D" parent="LeftPanelContainer/LeftBackground"]
+position = Vector2(48, 318)
+texture = ExtResource("7_5tm50")
+hframes = 3
+region_rect = Rect2(0, 0, 210, 50)
 
 [node name="DialogueText" type="Label" parent="LeftPanelContainer/LeftBackground"]
 unique_name_in_owner = true
@@ -378,3 +414,8 @@ text = "100/100"
 label_settings = SubResource("LabelSettings_rkrnn")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bpa5d")
+}

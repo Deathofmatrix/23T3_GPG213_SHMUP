@@ -58,6 +58,7 @@ func display_dialogue():
 	if dialogue_number > max_dialogue_number: return
 	hud.change_dialogue_text(dialogues[dialogue_number])
 	dialogue_number += 1
+	hud.animate_dog(true)
 
 
 func _on_tutorial_enemy_enemy_killed():
@@ -93,6 +94,7 @@ func _on_continue_button_pressed():
 	restart_tutorial_panel.hide()
 	hud.change_dialogue_text("")
 	get_tree().paused = false
+	hud.animate_dog(false)
 	process_mode = Node.PROCESS_MODE_DISABLED
 	EventManager.pause_for_setpiece.emit(false)
 	level_01.level_parameters.tutorial_active = false

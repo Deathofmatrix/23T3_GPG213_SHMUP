@@ -22,6 +22,7 @@ var progression_notch = 0
 @onready var xp_bar = %XPBar
 @onready var progress_bar = %ProgressBar
 @onready var dialogue_text = %DialogueText
+@onready var animation_player = $AnimationPlayer
 
 
 func _ready():
@@ -96,6 +97,13 @@ func increase_notch():
 
 func change_dialogue_text(text: String):
 	dialogue_text.text = text
+
+
+func animate_dog(do_start: bool):
+	if do_start:
+		animation_player.play("dog_talk")
+	if not do_start:
+		animation_player.stop()
 
 
 #Signals
