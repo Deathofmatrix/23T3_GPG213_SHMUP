@@ -23,6 +23,7 @@ var progression_notch = 0
 @onready var progress_bar = %ProgressBar
 @onready var dialogue_text = %DialogueText
 @onready var animation_player = $AnimationPlayer
+@onready var on_player_healthbar = $OnPlayerHealthbar
 
 
 func _ready():
@@ -40,6 +41,7 @@ func _ready():
 
 func _process(_delta):
 	update_progression_bar()
+	update_healthbar_location()
 
 
 func initalise_upgrade_icons():
@@ -53,6 +55,9 @@ func initalise_upgrade_icons():
 func update_health_bar():
 	health_bar.max_value = _current_max_health
 	health_bar.value = _current_health
+	
+	on_player_healthbar.max_value = _current_max_health
+	on_player_healthbar.value = _current_health
 	
 	health_text.text = str(_current_health, "/", _current_max_health)
 
@@ -74,6 +79,10 @@ func update_xp_bar(current_xp):
 func update_max_xp(xp_required):
 	xp_bar.value = 0
 	xp_bar.max_value = xp_required
+
+
+func update_healthbar_location():
+	on_player_healthbar.position = GlobalPlayerInfo.player_position + Vector2(287, 205)
 
 
 func _on_enemy_destroyed(_pos, points):

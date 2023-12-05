@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d8xrnob8i15r"]
+[gd_scene load_steps=34 format=3 uid="uid://d8xrnob8i15r"]
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_04bju"]
 [ext_resource type="Texture2D" uid="uid://beuthc3rus8od" path="res://UI/LeftGameUI.png" id="2_3q863"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://ecv6w1ildojg" path="res://UI/MinibossMarker.png" id="12_ygsx8"]
 [ext_resource type="Texture2D" uid="uid://diqyv6c3xngcv" path="res://UI/healthbarnew.png" id="13_gtpa3"]
 [ext_resource type="Texture2D" uid="uid://borpiwia2o381" path="res://UI/healthbarfillnew.png" id="14_i0l8m"]
+[ext_resource type="Texture2D" uid="uid://j2i3ogarjukj" path="res://UI/slider/OnPlayerHealthbar.png" id="18_bhb6u"]
+[ext_resource type="Texture2D" uid="uid://u36u5cxrtphn" path="res://UI/slider/OnPlayerHealthbar-fill.png" id="19_mqx7f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_18p3a"]
 line_spacing = 1.0
@@ -45,6 +47,31 @@ font = ExtResource("4_qi488")
 font_size = 4
 font_color = Color(0, 0, 0, 1)
 outline_size = 3
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lqm3j"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u0kwr"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_wsh0g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhgxs"]
+texture = ExtResource("18_bhb6u")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7n0nw"]
+texture = ExtResource("19_mqx7f")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 64, 16)
 
 [sub_resource type="Animation" id="Animation_hardw"]
 length = 0.001
@@ -414,6 +441,21 @@ text = "100/100"
 label_settings = SubResource("LabelSettings_rkrnn")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="OnPlayerHealthbar" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 237.0
+offset_right = 293.0
+offset_bottom = 246.0
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_lqm3j")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_u0kwr")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_wsh0g")
+theme_override_styles/slider = SubResource("StyleBoxTexture_mhgxs")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_7n0nw")
+value = 65.0
+editable = false
+scrollable = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

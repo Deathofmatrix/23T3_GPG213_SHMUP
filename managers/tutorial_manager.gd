@@ -31,6 +31,7 @@ func _ready():
 		return
 	await get_parent().get_parent().level_loaded
 	level_loaded = true
+	EventManager.pause_for_setpiece.emit(true)
 	display_dialogue()
 
 
@@ -48,7 +49,6 @@ func _ready():
 
 func _process(_delta):
 	if level_loaded == false: return
-	EventManager.pause_for_setpiece.emit(true)
 	if is_restart_button_shown == false: return
 	get_tree().paused = true
 
