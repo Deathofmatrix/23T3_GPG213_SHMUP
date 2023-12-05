@@ -1,3 +1,4 @@
+CPUParticles2D
 AnimationPlayer
 Sprite2D
 AudioStreamPlayer2D
@@ -12,7 +13,6 @@ CollisionShape2D
 Area2D
 VisibleOnScreenNotifier2D
 Node2D
-CPUParticles2D
 AnimatedSprite2D
 CenterContainer
 VSlider
