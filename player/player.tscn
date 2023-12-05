@@ -75,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 0.239216, 0.164706, 1), Color(1, 1, 1, 1), Color(1, 0.239216, 0.164706, 1), Color(1, 1, 1, 1), Color(1, 0.239216, 0.164706, 1), Color(1, 1, 1, 1), Color(1, 0.239216, 0.164706, 1), Color(1, 1, 1, 1), Color(1, 0.239216, 0.164706, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_yrpaa"]
@@ -108,7 +108,7 @@ collision_mask = 28
 motion_mode = 1
 script = ExtResource("1_d1dy8")
 health_system = NodePath("HealthSystem")
-movement_data = ExtResource("2_a52vq")
+initial_movement_data = ExtResource("2_a52vq")
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true

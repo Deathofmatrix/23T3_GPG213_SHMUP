@@ -40,7 +40,7 @@ func _ready():
 
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
-		3:
+		4:
 			var health_instance = health_upgrade.instantiate()
 			var pickup_instance = pickup.instantiate()
 			pickup_instance.upgrade_type = health_instance
@@ -112,6 +112,8 @@ func clear_screen(group_string: String):
 
 
 func enter_boss_fight():
+	get_parent().main_cam.apply_shake(10, 1)
+	
 	var camera = get_parent().main_cam
 	var boss_fight_zoom = Vector2(0.5, 0.5)
 	var boss_fight_camera_movement = Vector2(0, 180)

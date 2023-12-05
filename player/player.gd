@@ -9,10 +9,11 @@ signal player_leveled_up()
 
 @export var health_system: HealthSystem
 @export var hud: HUD
-@export var movement_data: MovementData
+@export var initial_movement_data: MovementData
 @export var weapons: Array[Weapon]
 @export var starting_max_health = 50
 
+var movement_data: MovementData
 var current_level = 1
 var current_xp = 1
 var current_xp_required = 1
@@ -36,6 +37,7 @@ var upgrade_weapon_sound = preload("res://player/audio/upgrade_weapon_sound.ogg"
 
 
 func _ready():
+	movement_data = initial_movement_data.duplicate()
 	GlobalPlayerInfo.player = self
 	health_system.change_max_health(starting_max_health)
 	add_weapon(Pistol.instantiate())
@@ -173,6 +175,7 @@ func _on_health_system_health_updated(health, was_damaged):
 	player_health_updated.emit(health)
 	if was_damaged:
 		$Audio/HurtSoundPlayer.play()
+		get_parent().main_cam.apply_shake(5, 20)
 	elif not was_damaged:
 		$Audio/HealSoundPlayer.play()
 
@@ -192,6 +195,9 @@ func _on_xp_manager_leveled_up(required_xp, level):
 	current_level = level
 	hud.update_max_xp(current_xp_required)
 	emit_signal("player_leveled_up")
+	movement_data.max_speed += 10
+	movement_data.acceleration += 20
+	movement_data.friction += 20
 
 
 func _on_xp_manager_xp_updated(xp):

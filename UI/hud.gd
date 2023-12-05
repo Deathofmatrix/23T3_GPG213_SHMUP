@@ -101,6 +101,13 @@ func increase_notch():
 	progression_notch += 1
 
 
+func on_player_healthbar_change_visibility(is_opaque: bool):
+	if is_opaque:
+		on_player_healthbar.self_modulate = Color(Color.WHITE, 0.25)
+	if not is_opaque:
+		on_player_healthbar.self_modulate = Color(Color.WHITE, 1)
+
+
 #Dialogue
 
 
@@ -121,6 +128,10 @@ func animate_dog(do_start: bool):
 func _on_player_player_health_updated(health):
 	_current_health = health
 	update_health_bar()
+	if on_player_healthbar.self_modulate == Color(Color.WHITE, 1): return
+	on_player_healthbar_change_visibility(false)
+	await get_tree().create_timer(1.9).timeout
+	on_player_healthbar_change_visibility(true)
 
 
 func _on_player_player_max_health_updated(max_health):

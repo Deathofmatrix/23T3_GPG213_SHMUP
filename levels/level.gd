@@ -94,4 +94,3 @@ func _on_restart_button_pressed():
 	if GlobalPlayerInfo.player != null:
 		GlobalPlayerInfo.player.give_infinite_invulnerability()
 	load_level("01")
-

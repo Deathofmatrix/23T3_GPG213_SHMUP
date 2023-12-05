@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://vey1n70ka1f0"]
+[gd_scene load_steps=8 format=3 uid="uid://vey1n70ka1f0"]
 
 [ext_resource type="Script" path="res://managers/scene_switcher.gd" id="1_2smtc"]
+[ext_resource type="Script" path="res://managers/SceneSwitcherCam.gd" id="2_3ug1b"]
 [ext_resource type="PackedScene" uid="uid://chmtr8bwhf6fl" path="res://levels/Scenes/level_main_menu.tscn" id="2_aawdc"]
 
 [sub_resource type="Animation" id="Animation_8hkre"]
@@ -60,6 +61,7 @@ process_mode = 3
 script = ExtResource("1_2smtc")
 
 [node name="SceneSwitcherCam" type="Camera2D" parent="."]
+script = ExtResource("2_3ug1b")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="."]
 layer = 128
