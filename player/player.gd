@@ -34,6 +34,7 @@ var upgrade_weapon_sound = preload("res://player/audio/upgrade_weapon_sound.ogg"
 @onready var upgrade_sound_player = $Audio/UpgradeSoundPlayer
 @onready var movement_sound_player = $Audio/MovementSoundPlayer
 @onready var future_position_marker = $FuturePosition
+@onready var fire_particles = $FireParticles
 
 
 func _ready():
@@ -103,8 +104,10 @@ func movement_sound():
 func movement_animation():
 	if velocity.length() != 0:
 		animation_player.queue("ship_flame_anim")
+		fire_particles.emitting = true
 	if velocity.length() == 0:
 		animation_player.play("RESET")
+		fire_particles.emitting = false
 
 
 func move_future_position():

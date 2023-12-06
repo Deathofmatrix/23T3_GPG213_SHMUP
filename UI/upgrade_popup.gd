@@ -27,7 +27,7 @@ func show_upgrade_info(new_upgrade_data: UpgradeDataResource):
 	show()
 	popup_animation_player.play("popin_anim")
 	await popup_animation_player.animation_finished
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(4).timeout
 	popup_animation_player.play_backwards("popin_anim")
 	await popup_animation_player.animation_finished
 	emit_signal("popup_finished")

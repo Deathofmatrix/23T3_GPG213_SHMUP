@@ -1,7 +1,7 @@
 res://default_bus_layout.tres
 res://player/player.tscn
-res://enemies/set_pieces/set_piece_spawner.gd
 res://shaders/hit_flash_shader.tres
+res://enemies/set_pieces/set_piece_spawner.gd
 res://UI/buttons/ui_theme.tres
 res://player/hit_flash_shader.tres
 res://levels/Scenes/level_01.tscn
@@ -16,11 +16,9 @@ res://enemies/speed_fall_enemy.tscn
 res://enemies/turret_enemy.tscn
 res://pickups/upgrades/upgrade_pickup.tscn
 res://enemies/enemy_common/enemy_killed_particle.tscn
-res://managers/SceneSwitcherCam.gd
-res://levels/level.gd
-res://player/player.gd
-res://player/resources/player_movement_fast.tres
-res://UI/hud.gd
-res://enemies/enemy_spawner.gd
 res://enemies/follow_enemy.tscn
 res://enemies/set_pieces/set_piece_spawner.tscn
+res://UI/upgrade_popup.gd
+res://managers/tutorial_manager.gd
+res://player/player.gd
+res://levels/level.gd

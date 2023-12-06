@@ -68,7 +68,7 @@ func _on_tutorial_enemy_enemy_killed():
 func _on_player_player_leveled_up():
 	if has_player_leveled_once == true: return
 	has_player_leveled_once = true
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.1).timeout
 	display_dialogue()
 
 
@@ -76,7 +76,7 @@ func _on_popup_finished():
 	if not is_first_upgrade: return
 	is_first_upgrade = false
 	display_dialogue()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	show_restart_button()
 
 

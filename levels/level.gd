@@ -67,7 +67,7 @@ func _on_button_pressed():
 func _on_hud_score_increased(score):
 	level_parameters.current_score = score
 	if level_parameters.high_score < score:
-			level_parameters.high_score = score
+		level_parameters.high_score = score
 
 
 func _on_player_player_killed():
