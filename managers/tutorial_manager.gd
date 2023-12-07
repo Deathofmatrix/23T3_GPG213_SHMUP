@@ -22,12 +22,15 @@ var dialogues: Array = [
 @onready var area_2d_2 = $Area2D2
 @onready var restart_tutorial_panel = $"../RestartTutorialPanel"
 @onready var level_01 = $"../.."
+@onready var dialogue_box_panel = $"../HUD/LeftPanelContainer/LeftBackground/TextureRect"
 
 func _ready():
 	if not level_01.level_parameters.tutorial_active: 
 		process_mode = Node.PROCESS_MODE_DISABLED
 		is_active = false
 		hud.change_dialogue_text("")
+		dialogue_box_panel.material.set("shader_parameter/enabled", false)
+		dialogue_box_panel.texture = null
 		return
 	await get_parent().get_parent().level_loaded
 	level_loaded = true
@@ -59,6 +62,7 @@ func display_dialogue():
 	hud.change_dialogue_text(dialogues[dialogue_number])
 	dialogue_number += 1
 	hud.animate_dog(true)
+	dialogue_box_panel.material.set("color_parameter/enabled", true)
 
 
 func _on_tutorial_enemy_enemy_killed():
@@ -93,11 +97,14 @@ func _on_continue_button_pressed():
 	is_restart_button_shown = false
 	restart_tutorial_panel.hide()
 	hud.change_dialogue_text("")
+	dialogue_box_panel.material.set("shader_parameter/enabled", false)
+	dialogue_box_panel.texture = null
 	get_tree().paused = false
 	hud.animate_dog(false)
 	process_mode = Node.PROCESS_MODE_DISABLED
 	EventManager.pause_for_setpiece.emit(false)
 	level_01.level_parameters.tutorial_active = false
+
 
 
 func _on_restart_button_pressed():

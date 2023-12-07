@@ -1,3 +1,5 @@
+TextureRect
+ColorPickerButton
 Node2D
 Button
 CPUParticles2D
@@ -10,7 +12,6 @@ HBoxContainer
 VBoxContainer
 Container
 Panel
-TextureRect
 CollisionShape2D
 Area2D
 VisibleOnScreenNotifier2D
@@ -29,4 +30,3 @@ PointLight2D
 CanvasLayer
 PanelContainer
 AudioStreamPlayer
-Node
