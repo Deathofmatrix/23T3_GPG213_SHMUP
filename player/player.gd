@@ -153,9 +153,9 @@ func upgrade_weapon(weapon: Weapon):
 func give_invulnerability():
 	if health_system.is_invulnerable:
 		$CollisionShape2D.set_deferred("disabled", true)
-		%ShipSprite.material.set("shader_parameter/enabled", false)
-		await get_tree().create_timer(0.05).timeout
-		%ShipSprite.material.set("shader_parameter/enabled", true)
+#		%ShipSprite.material.set("shader_parameter/enabled", false)
+#		await get_tree().create_timer(0.05).timeout
+#		%ShipSprite.material.set("shader_parameter/enabled", true)
 		animation_player.play("invulnerable_flash_anim")
 	elif not health_system.is_invulnerable:
 		$CollisionShape2D.set_deferred("disabled", false)
@@ -198,9 +198,9 @@ func _on_xp_manager_leveled_up(required_xp, level):
 	current_level = level
 	hud.update_max_xp(current_xp_required)
 	emit_signal("player_leveled_up")
-	movement_data.max_speed += 10
-	movement_data.acceleration += 20
-	movement_data.friction += 20
+	movement_data.max_speed += 5
+	movement_data.acceleration += 15
+	movement_data.friction += 15
 
 
 func _on_xp_manager_xp_updated(xp):

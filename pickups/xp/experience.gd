@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed = 100
-@export var xp_value = 1
+@export var xp_value = 1 
 
 var direction = Vector2.DOWN
 var is_collected = false
@@ -12,6 +12,10 @@ func _physics_process(delta):
 		position = position.move_toward(GlobalPlayerInfo.player_position, speed * 5 * delta)
 	else:
 		position += direction * speed * delta
+
+
+func change_sprite(sprite):
+	$Sprite2D.texture = load(sprite)
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

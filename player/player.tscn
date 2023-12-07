@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d1dy8"]
 [ext_resource type="Resource" uid="uid://cbehduvyfi0cg" path="res://player/resources/movement_data_playtest.tres" id="2_a52vq"]
-[ext_resource type="Shader" uid="uid://bxglgqho27r6p" path="res://shaders/hit_flash_shader.tres" id="3_ouby8"]
+[ext_resource type="Shader" path="res://player/player_outline.gdshader" id="3_rg2x7"]
 [ext_resource type="Texture2D" uid="uid://cxbyd1g5i1f7w" path="res://player/player_ship02-Sheet.png" id="4_xbi5s"]
 [ext_resource type="PackedScene" uid="uid://bbhn84hirt6hd" path="res://player/xp_collector.tscn" id="5_65dra"]
 [ext_resource type="PackedScene" uid="uid://b0ip1ow4i64ql" path="res://player/resources/health_system.tscn" id="5_634nx"]
@@ -14,11 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://b07aloqa0ay6l" path="res://light/2d_lights_and_shadows_neutral_point_light.png.webp" id="10_ge5ce"]
 [ext_resource type="Texture2D" uid="uid://dvpqs4dayer11" path="res://icon.svg" id="13_0c71f"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nm0x"]
-resource_local_to_scene = true
-shader = ExtResource("3_ouby8")
-shader_parameter/enabled = true
-shader_parameter/tint = Color(1, 1, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_78bcd"]
+shader = ExtResource("3_rg2x7")
+shader_parameter/rim_light = false
+shader_parameter/rim_thickness = 1.0
+shader_parameter/rim_intense = 1.0
+shader_parameter/rim_extra_thick = false
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8sprp"]
 diffuse_texture = ExtResource("4_xbi5s")
@@ -117,7 +118,7 @@ initial_movement_data = ExtResource("2_a52vq")
 [node name="ShipSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(1.5, 1.5, 1.5, 1)
-material = SubResource("ShaderMaterial_3nm0x")
+material = SubResource("ShaderMaterial_78bcd")
 rotation = 1.5708
 texture = SubResource("CanvasTexture_8sprp")
 hframes = 5
@@ -150,8 +151,10 @@ bus = &"SFX"
 [node name="XPManager" parent="." instance=ExtResource("5_t24r3")]
 
 [node name="UpgradeCollector" parent="." instance=ExtResource("6_dhmjd")]
+visible = false
 
 [node name="XPCollector" parent="." node_paths=PackedStringArray("xp_manager") instance=ExtResource("5_65dra")]
+visible = false
 xp_manager = NodePath("../XPManager")
 
 [node name="CurrentWeapons" type="Node2D" parent="."]
@@ -163,6 +166,7 @@ max_health = 50
 wait_time = 2.0
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_mask = 28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -171,6 +175,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5swk7")
 
 [node name="WeaponClearBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(-5, 0)
 collision_layer = 256
 collision_mask = 2
@@ -185,11 +190,10 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 1.5
+energy = 4.0
 range_layer_min = -10
-range_layer_max = -5
 texture = ExtResource("10_ge5ce")
-texture_scale = 0.3
+texture_scale = 0.4
 
 [node name="FuturePosition" type="Marker2D" parent="."]
 

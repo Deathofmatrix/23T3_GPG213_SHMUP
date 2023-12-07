@@ -1,3 +1,5 @@
+Node2D
+Button
 CPUParticles2D
 HSlider
 AnimationPlayer
@@ -7,13 +9,11 @@ Label
 HBoxContainer
 VBoxContainer
 Container
-Button
 Panel
 TextureRect
 CollisionShape2D
 Area2D
 VisibleOnScreenNotifier2D
-Node2D
 AnimatedSprite2D
 CenterContainer
 VSlider

@@ -39,6 +39,10 @@ func _ready():
 	update_health_bar()
 
 
+func _input(event):
+	if event.is_action_pressed("increase_difficulty"):
+		progression_notch += 1
+
 func _process(_delta):
 	update_progression_bar()
 	update_healthbar_location()
@@ -83,6 +87,8 @@ func update_max_xp(xp_required):
 
 func update_healthbar_location():
 	on_player_healthbar.position = GlobalPlayerInfo.player_position + Vector2(287, 205)
+	if progression_notch >= 10:
+		on_player_healthbar.position = GlobalPlayerInfo.player_position / 2 + Vector2(287, 105)
 
 
 func _on_enemy_destroyed(_pos, points):

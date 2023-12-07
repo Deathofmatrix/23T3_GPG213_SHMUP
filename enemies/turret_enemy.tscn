@@ -80,7 +80,7 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_7nffw")
 Bullet = ExtResource("2_so8rb")
-points = 175
+points = 150
 
 [node name="TurretEnemySprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_4riiu")

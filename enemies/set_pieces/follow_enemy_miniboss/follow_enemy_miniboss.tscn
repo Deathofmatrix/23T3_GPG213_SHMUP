@@ -77,7 +77,7 @@ scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_x35q4")
 
 [node name="HealthSystem" parent="." instance=ExtResource("4_a15wj")]
-max_health = 1500
+max_health = 800
 wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

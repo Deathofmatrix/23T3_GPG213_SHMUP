@@ -139,6 +139,23 @@ grow_vertical = 2
 texture = ExtResource("6_lmoji")
 expand_mode = 1
 
+[node name="TutorialButton" type="Button" parent="MainMenuManager/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -6.0
+offset_right = 43.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_icnva")
+text = "Tutorial is ON"
+
 [node name="SettingsWindow" parent="." instance=ExtResource("7_3bf1p")]
 visible = false
 
@@ -164,3 +181,4 @@ bus = &"Music"
 [connection signal="pressed" from="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer/ChangeSceneButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer/SettingsButton" to="MainMenuManager" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenuManager/TextureRect/ButtonPanel/HBoxContainer/QuitButton" to="MainMenuManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenuManager/TextureRect/TutorialButton" to="MainMenuManager" method="_on_tutorial_button_pressed"]

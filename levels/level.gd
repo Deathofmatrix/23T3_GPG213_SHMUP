@@ -21,6 +21,10 @@ func _ready():
 	EventManager.connect("pause_for_setpiece", play_pause_timer)
 
 
+func _input(event):
+	if event.is_action_pressed("increase_difficulty"):
+		EventManager.increase_difficulty()
+
 func play_loaded_sound():
 	%LevelLoadedAudio.play()
 #	%ChangeSceneButton.disabled = false
@@ -94,3 +98,4 @@ func _on_restart_button_pressed():
 	if GlobalPlayerInfo.player != null:
 		GlobalPlayerInfo.player.give_infinite_invulnerability()
 	load_level("01")
+

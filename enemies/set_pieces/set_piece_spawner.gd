@@ -38,6 +38,13 @@ func _ready():
 	randomize()
 	EventManager.connect("difficulty_level_changed", spawn_at_difficulty)
 
+
+func _input(event):
+	if event.is_action_pressed("skip_setpiece"):
+		set_piece_timer.stop()
+		set_piece_timer.emit_signal("timeout")
+
+
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
 		4:

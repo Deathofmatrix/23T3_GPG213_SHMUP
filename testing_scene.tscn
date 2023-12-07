@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce8qwflxxyo0u"]
 
-[ext_resource type="PackedScene" uid="uid://c2vhykllndjg6" path="res://levels/Scenes/level_win_screen.tscn" id="2_1dbol"]
 [ext_resource type="PackedScene" uid="uid://31dxe106neto" path="res://player/player.tscn" id="2_j57bs"]
+[ext_resource type="PackedScene" uid="uid://c5mu7ini8nfu4" path="res://enemies/set_pieces/turret_enemy_setpiece.tscn" id="2_ptb38"]
 
 [node name="TestingScene" type="Node2D"]
 
@@ -10,4 +10,5 @@
 [node name="Player" parent="." instance=ExtResource("2_j57bs")]
 position = Vector2(-4, 142)
 
-[node name="LevelWinScreen" parent="." instance=ExtResource("2_1dbol")]
+[node name="FollowEnemySetpiece" parent="." instance=ExtResource("2_ptb38")]
+position = Vector2(-320, -180)

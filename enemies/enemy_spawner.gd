@@ -76,21 +76,21 @@ func update_difficulty(difficulty_level: int):
 			creation_timer.wait_time += 0.25 # 1.50
 			enemy_weights = [5, 25, 70]
 		5: # first setpiece
-			max_enemy_spawns = 3
+			max_enemy_spawns = 4
 			creation_timer.wait_time += 0.5 # 2.00
 		6:
 			max_enemy_spawns = 4
-			creation_timer.wait_time -= 0.25 # 1.75
+			creation_timer.wait_time -= 0.5 # 1.5
 			enemy_weights = [15, 30, 60]
 		7: # miniboss spawn
 			max_enemy_spawns = 4
-			creation_timer.wait_time += 0 # 1.75
+			creation_timer.wait_time += 0 # 1.5
 		8:
 			max_enemy_spawns = 5
-			creation_timer.wait_time -= 0 # 1.75
+			creation_timer.wait_time -= 0 # 1.5
 		9: # second setpiece
 			max_enemy_spawns = 6
-			creation_timer.wait_time += 0.25 # 2.00
+			creation_timer.wait_time += 0.5 # 2.00
 			enemy_weights = [30, 35, 35]
 		10:
 			max_enemy_spawns = max_enemy_spawn_count

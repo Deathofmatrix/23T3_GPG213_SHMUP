@@ -97,7 +97,7 @@ region_rect = Rect2(99, 3, 32, 24)
 shape = SubResource("CapsuleShape2D_nuknk")
 
 [node name="HealthSystem" parent="." instance=ExtResource("5_4itqa")]
-max_health = 500
+max_health = 300
 wait_time = 0.01
 
 [node name="EnemyWeapon" parent="." instance=ExtResource("6_5hbbw")]
