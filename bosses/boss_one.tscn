@@ -163,8 +163,8 @@ offset_left = -321.0
 offset_top = -91.0
 offset_right = -321.0
 offset_bottom = -91.0
-_current_max_health = 100
-_current_health = 100
+_current_max_health = 3500
+_current_health = 3500
 
 [node name="FrontCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
