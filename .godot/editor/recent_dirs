@@ -1,3 +1,4 @@
+res://bosses
 C:/Users/conal/Godot/Godot Builds/Week_12
 res://enemies
 res://managers
@@ -19,4 +20,3 @@ res://pickups/upgrades
 res://player/resources
 res://autoloads
 res://obstacles
-res://weapons

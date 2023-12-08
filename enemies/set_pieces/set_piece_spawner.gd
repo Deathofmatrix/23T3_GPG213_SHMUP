@@ -30,7 +30,8 @@ var minibosses: Array = [
 ]
 
 var boss_fights: Array = [
-	preload("res://bosses/boss_one.tscn")
+	preload("res://bosses/boss_one.tscn"),
+	preload("res://bosses/boss_setpiece.tscn")
 ]
 
 
@@ -47,6 +48,10 @@ func _input(event):
 
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
+		2:
+			clear_screen("enemy")
+			enter_boss_fight()
+			player_warning()
 		4:
 			var health_instance = health_upgrade.instantiate()
 			var pickup_instance = pickup.instantiate()
@@ -129,8 +134,8 @@ func enter_boss_fight():
 	tween.tween_property(camera, "position", camera.position + boss_fight_camera_movement, 2)
 	EventManager.boss_spawned.emit()
 	emit_signal("entered_boss_fight")
-	var current_boss_fight: BossOne = boss_fights[0].instantiate() 
-	current_boss_fight.position = boss_spawn.position
+	var current_boss_fight = boss_fights[1].instantiate() 
+#	current_boss_fight.position = boss_spawn.position
 	add_child(current_boss_fight)
 
 	EventManager.pause_for_setpiece.emit(true)
@@ -147,7 +152,7 @@ func miniboss_killed_early():
 	pickup_instance.upgrades_on_screen = [pickup_instance]
 	pickup_instance.position = $UpgradeMarker.position
 	call_deferred("add_child", pickup_instance)
-	
+		
 	if set_piece_timer.is_stopped() == true: return
 	set_piece_timer.stop()
 	set_piece_timer.emit_signal("timeout")

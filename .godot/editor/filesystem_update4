@@ -1,14 +1,14 @@
 res://default_bus_layout.tres
-res://UI/hud.tscn
-res://enemies/set_pieces/set_piece_spawner.gd
 res://shaders/hit_flash_shader.tres
+res://enemies/set_pieces/set_piece_spawner.gd
 res://player/player_outline.gdshader
+res://pickups/upgrades/upgrade_shader.tres
 res://UI/buttons/ui_theme.tres
 res://player/hit_flash_shader.tres
-res://pickups/upgrades/upgrade_shader.tres
-res://player/player.tscn
 res://levels/Scenes/level_01.tscn
+res://player/player.tscn
 res://managers/scene_switcher.tscn
+res://UI/hud.tscn
 res://levels/Scenes/level_main_menu.tscn
 res://backgrounds/parallax_scrolling_scene.tscn
 res://UI/upgrade_popup.tscn
@@ -29,4 +29,7 @@ res://levels/Scenes/level_game_over.tscn
 res://levels/Scenes/level_win_screen.tscn
 res://bosses/boss_one.tscn
 res://pickups/upgrades/upgrade_spawner.tscn
-res://managers/tutorial_manager.gd
+res://player/resources/health_system.tscn
+res://enemies/enemy_UI/enemy_health_bar.tscn
+res://bosses/boss_setpiece.tscn
+res://pickups/upgrades/upgrade_spawner.gd
