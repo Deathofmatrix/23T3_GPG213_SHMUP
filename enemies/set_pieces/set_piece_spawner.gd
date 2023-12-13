@@ -48,10 +48,6 @@ func _input(event):
 
 func spawn_at_difficulty(difficulty_level):
 	match difficulty_level:
-		2:
-			clear_screen("enemy")
-			enter_boss_fight()
-			player_warning()
 		4:
 			var health_instance = health_upgrade.instantiate()
 			var pickup_instance = pickup.instantiate()
