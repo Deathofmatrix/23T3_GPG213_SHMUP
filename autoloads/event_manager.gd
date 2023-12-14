@@ -9,6 +9,7 @@ signal difficulty_level_changed(level: int)
 signal wingarang_left_tree()
 signal pause_for_setpiece(pause: bool)
 signal boss_spawned()
+signal boss_phase_two_entered()
 
 #func _ready():
 #	difficulty_level = 1

@@ -99,3 +99,11 @@ func _on_restart_button_pressed():
 		GlobalPlayerInfo.player.give_infinite_invulnerability()
 	load_level("01")
 
+func load_specific_level(name_of_level):
+	%BeginSceneChangeAudio.play()
+	get_tree().call_group("Change_Scene_Buttons", "set_disabled", true)
+	get_tree().paused = false
+	if GlobalPlayerInfo.player != null:
+		GlobalPlayerInfo.player.give_infinite_invulnerability()
+	load_level(name_of_level)
+

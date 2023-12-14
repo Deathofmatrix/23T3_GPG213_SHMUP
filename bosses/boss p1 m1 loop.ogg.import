@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c765bymudglyq"
+path="res://.godot/imported/boss p1 m1 loop.ogg-742c9ad375713ff88816658138899d0c.oggvorbisstr"
+
+[deps]
+
+source_file="res://bosses/boss p1 m1 loop.ogg"
+dest_files=["res://.godot/imported/boss p1 m1 loop.ogg-742c9ad375713ff88816658138899d0c.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

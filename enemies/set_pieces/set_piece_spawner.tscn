@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl61xpq88yaf2"]
+[gd_scene load_steps=6 format=3 uid="uid://bl61xpq88yaf2"]
 
 [ext_resource type="Script" path="res://enemies/set_pieces/set_piece_spawner.gd" id="1_xgxdw"]
+[ext_resource type="AudioStream" uid="uid://c765bymudglyq" path="res://bosses/boss p1 m1 loop.ogg" id="2_bxbjt"]
 [ext_resource type="AudioStream" uid="uid://dynfr0lt6aoie" path="res://enemies/set_pieces/survivalMode.ogg" id="2_xs474"]
+[ext_resource type="AudioStream" uid="uid://c7bc7e42tx8g3" path="res://bosses/boss p2 m1 loop.ogg" id="3_8suj7"]
 [ext_resource type="AudioStream" uid="uid://cgqo4alheaf2i" path="res://enemies/set_pieces/forceField_002.ogg" id="3_hs6lu"]
 
 [node name="SetPieceSpawner" type="Node2D"]
 script = ExtResource("1_xgxdw")
+boss_music = ExtResource("2_bxbjt")
+boss_phase_2_music = ExtResource("3_8suj7")
 
 [node name="SetPieceTimer" type="Timer" parent="."]
 wait_time = 20.0

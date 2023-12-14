@@ -3,6 +3,7 @@ extends Enemy
 
 signal requires_health_bar
 signal boss_defeated
+signal phase_two_entered
 
 var can_move = false
 var shotgun_timers = []
@@ -54,6 +55,7 @@ func _physics_process(delta):
 # Phases
 
 func _on_phase_two_state_entered():
+	EventManager.emit_signal("phase_two_entered")
 	for i in range(1, 4):
 		var shotgun_nodes = get_node("Phases/PhaseTwo/BossShotgun" + str(i))
 		can_shotgun_shoot.append(shotgun_nodes)
@@ -85,7 +87,7 @@ func _on_phase_three_state_entered():
 # Signals
 
 func _on_health_system_killed():
-	$"../../..".handle_level_changed("win_screen")
+	$"../../..".load_specific_level("win_screen")
 	destroy_enemy()
 
 

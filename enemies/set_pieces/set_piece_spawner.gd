@@ -2,6 +2,10 @@ extends Node2D
 
 signal entered_boss_fight
 
+@export var music_player: AudioStreamPlayer2D
+@export var boss_music: AudioStream
+@export var boss_phase_2_music: AudioStream
+
 var current_setpiece
 var health_upgrade = preload("res://weapons/default_health_upgrade.tscn")
 var pickup = preload("res://pickups/upgrades/upgrade_pickup.tscn")
@@ -38,6 +42,7 @@ var boss_fights: Array = [
 func _ready():
 	randomize()
 	EventManager.connect("difficulty_level_changed", spawn_at_difficulty)
+	EventManager.connect("boss_phase_two_entered", boss_phase_2_entered)
 
 
 func _input(event):
@@ -122,6 +127,9 @@ func clear_screen(group_string: String):
 func enter_boss_fight():
 	get_parent().main_cam.apply_shake(10, 1)
 	
+	music_player.stream = boss_music
+	music_player.play()
+	
 	var camera = get_parent().main_cam
 	var boss_fight_zoom = Vector2(0.5, 0.5)
 	var boss_fight_camera_movement = Vector2(0, 180)
@@ -153,6 +161,12 @@ func miniboss_killed_early():
 	set_piece_timer.stop()
 	set_piece_timer.emit_signal("timeout")
 
+
+func boss_phase_2_entered():
+	get_parent().main_cam.apply_shake(5, 1)
+	
+	music_player.stream = boss_phase_2_music
+	music_player.play()
 
 func _on_set_piece_timer_timeout():
 	current_setpiece.destroy_setpiece()

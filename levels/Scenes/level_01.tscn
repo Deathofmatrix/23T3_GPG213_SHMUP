@@ -221,8 +221,9 @@ obstacle_spawn_cooldown = 3
 position = Vector2(0, -180)
 player = NodePath("../Player")
 
-[node name="SetPieceSpawner" parent="." instance=ExtResource("13_egcnq")]
+[node name="SetPieceSpawner" parent="." node_paths=PackedStringArray("music_player") instance=ExtResource("13_egcnq")]
 position = Vector2(-320, -180)
+music_player = NodePath("../LevelAudio/Music")
 
 [connection signal="loading_level" from="." to="SettingsWindow" method="_on_level_loading"]
 [connection signal="timeout" from="ScalingInfo/DifficultyScalingTimer" to="." method="_on_difficulty_scaling_timer_timeout"]

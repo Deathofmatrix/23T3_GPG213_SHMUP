@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm5l46g6f7xin"]
+[gd_scene load_steps=3 format=3 uid="uid://dm5l46g6f7xin"]
 
+[ext_resource type="Script" path="res://bosses/boss_setpiece.gd" id="1_do227"]
 [ext_resource type="PackedScene" uid="uid://bqjudw705l5eq" path="res://bosses/boss_one.tscn" id="1_uymus"]
 
 [node name="BossSetpiece" type="Node2D"]
+script = ExtResource("1_do227")
 
 [node name="BossOne" parent="." instance=ExtResource("1_uymus")]
 position = Vector2(321, 92)
