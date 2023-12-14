@@ -38,22 +38,10 @@ func _ready():
 	display_dialogue()
 
 
-#func _input(event):
-#	if event.is_action_pressed("tutorial_skip"):
-#		if is_tutorial_on_screen == false: return
-#		skips += 1
-#		is_tutorial_on_screen = false
-#		hud.display_dialogue(false)
-#		get_tree().paused = false
-#		if skips != max_dialogue_number + 1: return
-#		process_mode = Node.PROCESS_MODE_DISABLED
-#		EventManager.pause_for_setpiece.emit(false)
-
-
-func _process(_delta):
-	if level_loaded == false: return
-	if is_restart_button_shown == false: return
-	get_tree().paused = true
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed:
+			get_tree().paused = false
 
 
 func display_dialogue():
@@ -63,7 +51,20 @@ func display_dialogue():
 	dialogue_number += 1
 	hud.animate_dog(true)
 	dialogue_box_panel.material.set("color_parameter/enabled", true)
+	get_tree().paused = true
 
+
+func continue_level():
+	await get_tree().create_timer(2).timeout
+	hud.change_dialogue_text("")
+	dialogue_box_panel.material.set("shader_parameter/enabled", false)
+	dialogue_box_panel.texture = null
+	get_tree().paused = false
+	hud.animate_dog(false)
+	process_mode = Node.PROCESS_MODE_DISABLED
+	EventManager.pause_for_setpiece.emit(false)
+	level_01.level_parameters.tutorial_active = false
+	
 
 func _on_tutorial_enemy_enemy_killed():
 	display_dialogue()
@@ -81,33 +82,8 @@ func _on_popup_finished():
 	is_first_upgrade = false
 	display_dialogue()
 	await get_tree().create_timer(1).timeout
-	show_restart_button()
+	continue_level()
 
-
-func show_restart_button():
-	if is_active == false: return
-	is_restart_button_shown = true
-	restart_tutorial_panel.show()
 
 func _on_area_2d_2_area_entered(area):
 	area.global_position.y = area_2d.position.y
-
-
-func _on_continue_button_pressed():
-	is_restart_button_shown = false
-	restart_tutorial_panel.hide()
-	hud.change_dialogue_text("")
-	dialogue_box_panel.material.set("shader_parameter/enabled", false)
-	dialogue_box_panel.texture = null
-	get_tree().paused = false
-	hud.animate_dog(false)
-	process_mode = Node.PROCESS_MODE_DISABLED
-	EventManager.pause_for_setpiece.emit(false)
-	level_01.level_parameters.tutorial_active = false
-
-
-
-func _on_restart_button_pressed():
-	is_restart_button_shown = false
-	get_tree().paused = false
-	process_mode = Node.PROCESS_MODE_ALWAYS
